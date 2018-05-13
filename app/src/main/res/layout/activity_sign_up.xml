@@ -1,9 +1,172 @@
-<?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.jackpan.specialstudy.oveyouforyourtravel.SignUpActivity">
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.jackpan.specialstudy.oveyouforyourtravel.LoginActivity">
+    <RelativeLayout
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        >
+        <RelativeLayout
+            android:layout_height="65dp"
+            android:id="@+id/namelayout"
+            android:layout_width="match_parent"
+            >
 
-</android.support.design.widget.CoordinatorLayout>
+            <TextView
+                android:gravity="center"
+                android:id="@+id/nametext"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="姓名："
+                android:textSize="20dp"
+                ></TextView>
+            <EditText
+                android:id="@+id/nameedt"
+                android:hint="請輸入姓名"
+                android:layout_toRightOf="@+id/nametext"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                ></EditText>
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_below="@+id/namelayout"
+            android:id="@+id/datalayout"
+            android:layout_width="match_parent"
+            android:layout_height="65dp"
+            >
+
+            <TextView
+                android:gravity="center"
+                android:id="@+id/datatext"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="生日："
+                android:textSize="20dp"
+                ></TextView>
+            <EditText
+                android:id="@+id/datadedt"
+                android:hint="請輸入生日（選填）"
+                android:layout_toRightOf="@+id/datatext"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                ></EditText>
+
+
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_below="@+id/datalayout"
+            android:id="@+id/phonelayout"
+            android:layout_width="match_parent"
+            android:layout_height="65dp"
+            >
+
+            <TextView
+                android:gravity="center"
+                android:id="@+id/phonetext"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="手機："
+                android:textSize="20dp"
+                ></TextView>
+            <EditText
+                android:id="@+id/phoneedt"
+                android:hint="請輸入手機"
+                android:layout_toRightOf="@+id/phonetext"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                ></EditText>
+
+
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_below="@+id/phonelayout"
+            android:id="@+id/emaillayout"
+            android:layout_width="match_parent"
+            android:layout_height="65dp"
+            >
+
+            <TextView
+                android:gravity="center"
+                android:id="@+id/emailtext"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="信箱："
+                android:textSize="20dp"
+                ></TextView>
+            <EditText
+                android:id="@+id/emailedt"
+                android:hint="請輸入信箱"
+                android:layout_toRightOf="@+id/emailtext"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                ></EditText>
+
+
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_below="@+id/emaillayout"
+            android:id="@+id/passwordlayout"
+            android:layout_width="match_parent"
+            android:layout_height="65dp"
+            >
+
+            <TextView
+                android:gravity="center"
+                android:id="@+id/passwordtext"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="密碼："
+                android:textSize="20dp"
+                ></TextView>
+            <EditText
+                android:id="@+id/passwordedt"
+                android:hint="請輸入密碼"
+                android:layout_toRightOf="@+id/passwordtext"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                ></EditText>
+
+
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_below="@+id/passwordlayout"
+            android:id="@+id/passwordlayout_2"
+            android:layout_width="match_parent"
+            android:layout_height="65dp"
+            >
+
+            <TextView
+                android:gravity="center"
+                android:id="@+id/passwordtext_2"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="再次輸入密碼："
+                android:textSize="20dp"
+                ></TextView>
+            <EditText
+                android:id="@+id/passwordedt_2"
+                android:hint="再輸入一次密碼"
+                android:layout_toRightOf="@+id/passwordtext_2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                ></EditText>
+
+
+        </RelativeLayout>
+        <Button
+            android:layout_marginTop="80dp"
+            android:layout_below="@+id/passwordlayout"
+            android:id="@+id/signupbtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="註冊"
+            ></Button>
+    </RelativeLayout>
+</LinearLayout>

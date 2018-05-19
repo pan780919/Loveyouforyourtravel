@@ -29,7 +29,6 @@
                 ></TextView>
             <EditText
                 android:id="@+id/emaidedt"
-
                 android:hint="請輸入信箱"
                 android:layout_toRightOf="@+id/emailtext"
                 android:layout_width="match_parent"

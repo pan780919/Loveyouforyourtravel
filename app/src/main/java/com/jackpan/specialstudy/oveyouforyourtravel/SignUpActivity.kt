@@ -2,6 +2,7 @@ package com.jackpan.specialstudy.oveyouforyourtravel
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import com.jackpan.libs.mfirebaselib.MfiebaselibsClass
@@ -20,24 +21,25 @@ class SignUpActivity : AppCompatActivity(), MfirebaeCallback {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sign_up)
-        mFirebselibClass =  MfiebaselibsClass(this,this)
+        mFirebselibClass =  MfiebaselibsClass(this,this@SignUpActivity)
         mNaamEdt = findViewById(R.id.nameedt)
         mDatadedt =findViewById(R.id.datadedt)
         mPhoneedt = findViewById(R.id.phoneedt)
-        mEmailedt = findViewById(R.id.emaidedt)
+        mEmailedt = findViewById(R.id.emailedt)
         mPasswordedt = findViewById(R.id.passwordedt)
         mPasswordedt_2 = findViewById(R.id.passwordedt_2)
         mSignupbtn = findViewById(R.id.signupbtn)
 
         mSignupbtn.setOnClickListener {
 
-            sigup()
+            sigup("123@yahoo.com.tw","1111111")
         }
 
 
 
     }
-    fun sigup(){
+    fun sigup(email:String,password:String){
+        mFirebselibClass.createUser(email,password)
 
     }
     override fun resetPassWordState(p0: Boolean) {
@@ -73,14 +75,18 @@ class SignUpActivity : AppCompatActivity(), MfirebaeCallback {
     }
 
     override fun getuseLoginId(p0: String?) {
+        Log.d("getuseLoginId","getuseLoginId"+p0)
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
+
 
     override fun createUserState(p0: Boolean) {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
     override fun useLognState(p0: Boolean) {
+        Log.d("useLognState","Boolean:"+p0)
+
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 

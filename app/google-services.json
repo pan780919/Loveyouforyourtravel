@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "840917295090",
+    "firebase_url": "https://loveyouforyourtravel.firebaseio.com",
+    "project_id": "loveyouforyourtravel",
+    "storage_bucket": "loveyouforyourtravel.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:840917295090:android:0bd94ef3268088f7",
+        "android_client_info": {
+          "package_name": "com.jackpan.specialstudy.oveyouforyourtravel"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "840917295090-nf992d69r0oceckupk9jpcvmoa824fol.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA2n5r2mX9cps6WdLGHbsX1ARCiUzZKVb4"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

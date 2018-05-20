@@ -28,6 +28,8 @@
                 android:textSize="20dp"
                 ></TextView>
             <EditText
+                android:singleLine="true"
+
                 android:id="@+id/nameedt"
                 android:hint="請輸入姓名"
                 android:layout_toRightOf="@+id/nametext"
@@ -51,6 +53,8 @@
                 android:textSize="20dp"
                 ></TextView>
             <EditText
+                android:singleLine="true"
+                android:inputType="date"
                 android:id="@+id/datadedt"
                 android:hint="請輸入生日（選填）"
                 android:layout_toRightOf="@+id/datatext"
@@ -76,11 +80,14 @@
                 android:textSize="20dp"
                 ></TextView>
             <EditText
+                android:singleLine="true"
+
                 android:id="@+id/phoneedt"
                 android:hint="請輸入手機"
                 android:layout_toRightOf="@+id/phonetext"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:inputType="phone"
                 ></EditText>
 
 
@@ -101,6 +108,9 @@
                 android:textSize="20dp"
                 ></TextView>
             <EditText
+                android:singleLine="true"
+
+                android:inputType="textEmailAddress"
                 android:id="@+id/emailedt"
                 android:hint="請輸入信箱"
                 android:layout_toRightOf="@+id/emailtext"
@@ -126,6 +136,9 @@
                 android:textSize="20dp"
                 ></TextView>
             <EditText
+                android:singleLine="true"
+
+                android:inputType="textPassword"
                 android:id="@+id/passwordedt"
                 android:hint="請輸入密碼"
                 android:layout_toRightOf="@+id/passwordtext"
@@ -151,6 +164,10 @@
                 android:textSize="20dp"
                 ></TextView>
             <EditText
+                android:singleLine="true"
+
+                android:inputType="textPassword"
+
                 android:id="@+id/passwordedt_2"
                 android:hint="再輸入一次密碼"
                 android:layout_toRightOf="@+id/passwordtext_2"

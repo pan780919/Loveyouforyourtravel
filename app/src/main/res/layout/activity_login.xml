@@ -28,6 +28,8 @@
                 android:textSize="20dp"
                 ></TextView>
             <EditText
+                android:inputType="textEmailAddress"
+                android:singleLine="true"
                 android:id="@+id/emaidedt"
                 android:hint="請輸入信箱"
                 android:layout_toRightOf="@+id/emailtext"
@@ -43,6 +45,7 @@
             >
 
             <TextView
+                android:singleLine="true"
                 android:gravity="center"
                 android:id="@+id/passwordtext"
                 android:layout_width="wrap_content"
@@ -51,6 +54,7 @@
                 android:textSize="20dp"
                 ></TextView>
             <EditText
+                android:inputType="textPassword"
                 android:id="@+id/passwordedt"
                 android:hint="請輸入密碼"
                 android:layout_toRightOf="@+id/passwordtext"

@@ -1,12 +1,20 @@
 package com.jackpan.specialstudy.oveyouforyourtravel
 
+import android.content.DialogInterface
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
 import android.widget.Button
 import android.widget.EditText
+import android.widget.Toast
 import com.jackpan.libs.mfirebaselib.MfiebaselibsClass
 import com.jackpan.libs.mfirebaselib.MfirebaeCallback
+import com.google.firebase.auth.FirebaseAuth
+
+
+
+
+
 
 class SignUpActivity : AppCompatActivity(), MfirebaeCallback {
     lateinit var  mNaamEdt :EditText
@@ -16,12 +24,16 @@ class SignUpActivity : AppCompatActivity(), MfirebaeCallback {
     lateinit var mPasswordedt :EditText
     lateinit var mPasswordedt_2 :EditText
     lateinit var mSignupbtn :Button
+    lateinit var mEmailStr :String
+    lateinit var mPasswordStr :String
 
     lateinit var mFirebselibClass : MfiebaselibsClass
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_sign_up)
         mFirebselibClass =  MfiebaselibsClass(this,this@SignUpActivity)
+        setContentView(R.layout.activity_sign_up)
+
+
         mNaamEdt = findViewById(R.id.nameedt)
         mDatadedt =findViewById(R.id.datadedt)
         mPhoneedt = findViewById(R.id.phoneedt)
@@ -31,8 +43,46 @@ class SignUpActivity : AppCompatActivity(), MfirebaeCallback {
         mSignupbtn = findViewById(R.id.signupbtn)
 
         mSignupbtn.setOnClickListener {
+            mEmailStr = mEmailedt.text.toString().trim()
+            mPasswordStr = mPasswordedt.text.toString().trim()
+            if(mNaamEdt.text.toString().trim().equals("")){
+                Toast.makeText(this,"請輸入姓名",Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }else{
+                MySharedPrefernces.saveIsName(this,mNaamEdt.text.toString().trim())
 
-            sigup("123@yahoo.com.tw","1111111")
+            }
+            if(mPhoneedt.text.toString().trim().equals("")){
+                Toast.makeText(this,"請輸入手機",Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }else{
+                MySharedPrefernces.saveIsPhone(this,mPhoneedt.text.toString().trim())
+            }
+            if(!mDatadedt.text.toString().trim().equals("")){
+                MySharedPrefernces.saveIsData(this,mDatadedt.text.toString().trim())
+            }
+            if(mEmailStr.equals("")){
+                Toast.makeText(this,"請輸入Email",Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+            if (mPasswordStr.equals("")){
+                Toast.makeText(this,"請輸入密碼",Toast.LENGTH_SHORT).show()
+
+                return@setOnClickListener
+            }
+            if(mPasswordedt_2.text.toString().trim().equals("")){
+                Toast.makeText(this,"請再次輸入密碼",Toast.LENGTH_SHORT).show()
+
+                return@setOnClickListener
+            }
+            if(!mPasswordStr.equals(mPasswordedt_2.text.toString().trim())){
+                Toast.makeText(this,"密碼不一樣喔",Toast.LENGTH_SHORT).show()
+
+                return@setOnClickListener
+            }
+            sigup(mEmailStr,mPasswordStr)
+
+
         }
 
 
@@ -41,61 +91,79 @@ class SignUpActivity : AppCompatActivity(), MfirebaeCallback {
     fun sigup(email:String,password:String){
         mFirebselibClass.createUser(email,password)
 
+
+    }
+
+    override fun onStart() {
+        super.onStart()
+        mFirebselibClass.setAuthListener()
+
+    }
+
+    override fun onStop() {
+        super.onStop()
+        mFirebselibClass.removeAuthListener()
     }
     override fun resetPassWordState(p0: Boolean) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
     override fun getsSndPasswordResetEmailState(p0: Boolean) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
     override fun getFirebaseStorageType(p0: String?, p1: String?) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
     override fun getUpdateUserName(p0: Boolean) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
     override fun getDatabaseData(p0: Any?) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
     override fun getuserLoginEmail(p0: String?) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        Log.d("getuserLoginEmail",p0)
     }
 
     override fun getDeleteState(p0: Boolean, p1: String?, p2: Any?) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
     override fun getFireBaseDBState(p0: Boolean, p1: String?) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
     override fun getuseLoginId(p0: String?) {
         Log.d("getuseLoginId","getuseLoginId"+p0)
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
 
     override fun createUserState(p0: Boolean) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        Log.d("createUserState",""+p0)
+        if(p0){
+            var mAlertDialog = android.app.AlertDialog.Builder(this)
+            mAlertDialog.setMessage("註冊成功！！,將跳轉到登入頁面")
+            mAlertDialog.setPositiveButton("OK",DialogInterface.OnClickListener(){dialogInterface, i ->
+                this.finish()
+
+            })
+            mAlertDialog.show()
+        }else{
+            var mAlertDialog = android.app.AlertDialog.Builder(this)
+            mAlertDialog.setMessage("註冊失敗！！請檢查格式是否錯誤")
+            mAlertDialog.setPositiveButton("OK",null)
+            mAlertDialog.show()
+        }
+
     }
 
     override fun useLognState(p0: Boolean) {
         Log.d("useLognState","Boolean:"+p0)
 
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+
     }
 
     override fun getFirebaseStorageState(p0: Boolean) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
     override fun getUserLogoutState(p0: Boolean) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
+
 }
 

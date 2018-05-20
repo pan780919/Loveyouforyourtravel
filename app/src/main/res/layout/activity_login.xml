@@ -1,0 +1,83 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.jackpan.specialstudy.oveyouforyourtravel.LoginActivity">
+    <RelativeLayout
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        >
+        <RelativeLayout
+            android:layout_height="90dp"
+            android:id="@+id/emaillayout"
+            android:layout_width="match_parent"
+            >
+
+            <TextView
+                android:gravity="center"
+                android:id="@+id/emailtext"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="信箱："
+                android:textSize="20dp"
+                ></TextView>
+            <EditText
+                android:id="@+id/emaidedt"
+
+                android:hint="請輸入信箱"
+                android:layout_toRightOf="@+id/emailtext"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                ></EditText>
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_below="@+id/emaillayout"
+            android:id="@+id/passwordlayout"
+            android:layout_width="match_parent"
+            android:layout_height="90dp"
+            >
+
+            <TextView
+                android:gravity="center"
+                android:id="@+id/passwordtext"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="密碼："
+                android:textSize="20dp"
+                ></TextView>
+            <EditText
+                android:id="@+id/passwordedt"
+                android:hint="請輸入密碼"
+                android:layout_toRightOf="@+id/passwordtext"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                ></EditText>
+
+
+        </RelativeLayout>
+        <Button
+            android:layout_marginTop="30dp"
+
+            android:layout_below="@+id/passwordlayout"
+            android:id="@+id/loginbtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="登入"
+            ></Button>
+        <Button
+            android:layout_marginTop="30dp"
+            android:background="@null"
+            android:layout_below="@+id/loginbtn"
+            android:id="@+id/sigupbtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="點此註冊帳號"
+            ></Button>
+    </RelativeLayout>
+</LinearLayout>

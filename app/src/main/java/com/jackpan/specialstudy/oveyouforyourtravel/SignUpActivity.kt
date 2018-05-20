@@ -19,8 +19,9 @@ class SignUpActivity : AppCompatActivity(), MfirebaeCallback {
     lateinit var mFirebselibClass : MfiebaselibsClass
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        mFirebselibClass =  MfiebaselibsClass(this,this@SignUpActivity)
+
         setContentView(R.layout.activity_sign_up)
-        mFirebselibClass =  MfiebaselibsClass(this,this)
         mNaamEdt = findViewById(R.id.nameedt)
         mDatadedt =findViewById(R.id.datadedt)
         mPhoneedt = findViewById(R.id.phoneedt)

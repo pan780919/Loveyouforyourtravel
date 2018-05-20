@@ -3,8 +3,10 @@ apply plugin: 'com.android.application'
 android {
     compileSdkVersion 27
     defaultConfig {
+        multiDexEnabled true
+
         applicationId "com.jackpan.specialstudy.oveyouforyourtravel"
-        minSdkVersion 21
+        minSdkVersion 19
         targetSdkVersion 26
         versionCode 1
         versionName "1.0"
@@ -28,7 +30,32 @@ dependencies {
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
     implementation files('libs/mFirebaseLibs.jar')
+// Play Services 15.0.0
+    implementation "com.google.android.gms:play-services-base:15.0.1"
+    implementation "com.google.android.gms:play-services-auth:15.0.1"
+    implementation "com.google.android.gms:play-services-identity:15.0.1"
+
+    // Firebase 15.0.0
+    implementation "com.google.firebase:firebase-core:15.0.2"
+    implementation "com.google.firebase:firebase-database:15.0.1"
+    implementation "com.google.firebase:firebase-firestore:16.0.0"
+    implementation "com.google.firebase:firebase-storage:15.0.2"
+    implementation "com.google.firebase:firebase-crash:15.0.2"
+    implementation "com.google.firebase:firebase-auth:15.1.0"
+    implementation "com.google.firebase:firebase-messaging:15.0.2"
+    implementation "com.google.firebase:firebase-config:15.0.2"
+    implementation "com.google.firebase:firebase-invites:15.0.1"
+    implementation "com.google.firebase:firebase-ads:15.0.1"
+    implementation "com.google.firebase:firebase-appindexing:15.0.1"
+    implementation "com.google.firebase:firebase-perf:15.1.0"
+    implementation "com.google.firebase:firebase-functions:15.0.0"
+
+    implementation 'com.android.support:multidex:1.0.3'
+
+
+
 }
 
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'com.google.gms.google-services'

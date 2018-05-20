@@ -6,7 +6,25 @@
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
     <uses-permission android:name="android.permission.READ_PROFILE" />
     <uses-permission android:name="android.permission.READ_CONTACTS" />
-
+    <!-- 網路 -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <!-- 讀取網路狀態 -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <!-- 保持喚醒 -->
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <!-- 寫入SD卡 -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <!-- 定位 -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <!-- 讀取手機狀態 -->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <!-- 打電話權限 -->
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="com.android.vending.BILLING" />
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"

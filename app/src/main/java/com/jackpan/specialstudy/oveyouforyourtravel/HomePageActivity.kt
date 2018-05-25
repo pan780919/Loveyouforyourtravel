@@ -104,7 +104,13 @@ class HomePageActivity : AppCompatActivity(), MfirebaeCallback {
 
 
         }
-        mMaPlayout.setOnClickListener{ checkLoginState()}
+        mMaPlayout.setOnClickListener{
+            var intent = Intent()
+            intent.setClass(this,MapsActivity::class.java)
+            startActivity(intent)
+
+
+        }
         mLevelLayout.setOnClickListener{checkLoginState()}
         mFoodLayout.setOnClickListener { checkLoginState() }
         mLoveLayout.setOnClickListener {checkLoginState()  }

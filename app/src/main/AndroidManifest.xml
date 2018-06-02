@@ -18,13 +18,15 @@
     <!-- 定位 -->
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-    <!-- 讀取手機狀態 -->
+]    <!-- 讀取手機狀態 -->
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+
     <!-- 打電話權限 -->
     <uses-permission android:name="android.permission.CALL_PHONE" />
     <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="com.android.vending.BILLING" />
+
 
     <application
         android:allowBackup="true"

@@ -26,7 +26,7 @@ public class GoogleMapAPISerive {
         queue = Volley.newRequestQueue(context);
         getResponse = Response;
 
-        String url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location="+latlon+"&radius=500&type=restaurant&key=AIzaSyDeRZ8FEeGk0G9leGjbs316tbFUZu45J3I";
+        String url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location="+latlon+"&radius=50000&type=restaurant&key=AIzaSyDeRZ8FEeGk0G9leGjbs316tbFUZu45J3I";
         Log.d(TAG, "setPlaceForRestaurant: "+url);
 
         StringRequest getRequest = new StringRequest(url,
@@ -37,6 +37,7 @@ public class GoogleMapAPISerive {
                         Gson gson = new Gson();
                         GoogleResponseData googleResponseData =gson.fromJson(s, GoogleResponseData.class);
                         if(googleResponseData!=null){
+                            Log.d(TAG, "onResponse: "+googleResponseData.status);
                             getResponse.getData(googleResponseData);
                             if (googleResponseData.results.length!=0&&googleResponseData.results!=null){
                                 for (GoogleResponseData.Results results : googleResponseData.results) {

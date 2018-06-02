@@ -5,6 +5,7 @@ import android.content.pm.PackageManager
 import android.location.Location
 import android.location.LocationListener
 import android.location.LocationManager
+import android.nfc.Tag
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v4.app.ActivityCompat
@@ -16,10 +17,23 @@ import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
+import com.google.android.gms.maps.model.BitmapDescriptor
+import com.google.android.gms.maps.model.BitmapDescriptorFactory
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
+import com.jackpan.specialstudy.oveyouforyourtravel.Data.GoogleResponseData
 
-class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
+class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMapAPISerive.GetResponse {
+    override fun getData(googleResponseData: GoogleResponseData?) {
+        if(googleResponseData!=null){
+            for (result in googleResponseData.results) {
+                addMarker(LatLng(result.geometry.location.lat,result.geometry.location.lng),
+                        result.name,
+                        "")
+
+            }
+        }
+    }
 
     private lateinit var mMap: GoogleMap
     val MY_PERMISSIONS_REQUEST_LOCATION = 100
@@ -67,7 +81,6 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         val mapFragment = supportFragmentManager
                 .findFragmentById(R.id.map) as SupportMapFragment
         mapFragment.getMapAsync(this)
-        GoogleMapAPISerive.setPlaceForRestaurant(this)
         locationManager = getSystemService(LOCATION_SERVICE) as LocationManager?
 
         try {
@@ -76,6 +89,20 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         } catch(ex: SecurityException) {
             Log.d("myTag", "Security Exception, no location available")
         }
+    }
+
+    // 在地圖加入指定位置與標題的標記
+    private fun addMarker(place: LatLng, title: String, context: String) {
+        val icon : BitmapDescriptor =
+                BitmapDescriptorFactory.fromResource(R.mipmap.loction_icon)
+
+        val markerOptions = MarkerOptions()
+        markerOptions.position(place)
+                .title(title)
+                .snippet(context)
+                .icon(icon)
+
+        mMap.addMarker(markerOptions)
     }
     override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray){
         if (requestCode == MY_PERMISSIONS_REQUEST_LOCATION) {
@@ -89,8 +116,13 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
     }
     private val locationListener: LocationListener = object : LocationListener {
         override fun onLocationChanged(location: Location) {
+            Log.d("Location",location.latitude.toString())
+            Log.d("Location",location.longitude.toString())
+            var latlon :String =location.latitude.toString()+","+ location.longitude.toString()
+            GoogleMapAPISerive.setPlaceForRestaurant(this@MapsActivity,latlon,this@MapsActivity)
             mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(LatLng(location.latitude, location.longitude), 18.0f))
 //            locationTextView.text = "${location.latitude} - ${location.longitude}"
+
 
         }
 

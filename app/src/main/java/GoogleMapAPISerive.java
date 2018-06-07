@@ -94,6 +94,50 @@ public class GoogleMapAPISerive {
 
 
     }
+    public static  void nextPage(final Context context,String nextpage,GetResponse Response){
+        queue = Volley.newRequestQueue(context);
+        getResponse = Response;
+        String url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?key=AIzaSyDeRZ8FEeGk0G9leGjbs316tbFUZu45J3I&pagetoken="+nextpage;
+
+        StringRequest getRequest = new StringRequest(url,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String s) {
+                        Log.d(TAG, "onResponse: "+s);
+                        Gson gson = new Gson();
+                        GoogleResponseData googleResponseData =gson.fromJson(s, GoogleResponseData.class);
+                        if(googleResponseData!=null){
+                            Log.d(TAG, "onResponse: "+googleResponseData.status);
+                            getResponse.getData(googleResponseData);
+                            if (googleResponseData.results.length!=0&&googleResponseData.results!=null){
+                                for (GoogleResponseData.Results results : googleResponseData.results) {
+                                    Log.d(TAG, "onResponse: "+results.geometry.location.lat);
+                                    Log.d(TAG, "onResponse: "+results.geometry.location.lng);
+
+                                    if(results.photos!=null){
+                                        for (GoogleResponseData.Results.Photos photo : results.photos) {
+                                            Log.d(TAG, "photos: "+photo.photo_reference);
+//                                            getPhotos(context,photo.photo_reference);
+                                        }
+
+                                    }
+                                }
+                            }
+                        }
+
+                    }
+                },
+                new Response.ErrorListener() {
+
+                    @Override
+                    public void onErrorResponse(VolleyError volleyError) {
+                        Log.d(TAG, "onErrorResponse: "+volleyError.getMessage());
+
+                    }
+                });
+        queue.add(getRequest);
+
+    }
 
    public interface  GetResponse{
         void  getData(GoogleResponseData googleResponseData);

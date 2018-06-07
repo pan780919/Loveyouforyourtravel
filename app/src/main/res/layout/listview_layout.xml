@@ -8,12 +8,23 @@
         android:orientation="horizontal"
 
         >
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
             android:layout_weight="4"
-            ></LinearLayout>
+            >
+            <ImageView
+                android:layout_marginLeft="8dp"
+                android:layout_centerVertical="true"
+                android:gravity="center"
+                android:id="@+id/listview_img"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/ic_launcher"
+                ></ImageView>
+
+        </RelativeLayout>
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -22,9 +33,12 @@
 
             >
             <TextView
+                android:gravity="center"
+                android:text="222"
+                android:layout_centerVertical="true"
                 android:id="@+id/listviewtext"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:textSize="20dp"
 
                 ></TextView>

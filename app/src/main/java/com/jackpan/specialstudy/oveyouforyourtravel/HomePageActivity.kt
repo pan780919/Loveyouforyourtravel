@@ -11,6 +11,7 @@ import android.widget.Button
 import android.widget.LinearLayout
 import com.jackpan.libs.mfirebaselib.MfiebaselibsClass
 import com.jackpan.libs.mfirebaselib.MfirebaeCallback
+import com.jackpan.specialstudy.oveyouforyourtravel.Data.RestaurantListViewActivity
 
 class HomePageActivity : AppCompatActivity(), MfirebaeCallback {
     override fun getUserLogoutState(p0: Boolean) {
@@ -112,7 +113,12 @@ class HomePageActivity : AppCompatActivity(), MfirebaeCallback {
 
         }
         mLevelLayout.setOnClickListener{checkLoginState()}
-        mFoodLayout.setOnClickListener { checkLoginState() }
+        mFoodLayout.setOnClickListener {
+            var intent = Intent()
+            intent.setClass(this, RestaurantListViewActivity::class.java)
+            startActivity(intent)
+
+        }
         mLoveLayout.setOnClickListener {checkLoginState()  }
     }
     private fun checkLoginState(){

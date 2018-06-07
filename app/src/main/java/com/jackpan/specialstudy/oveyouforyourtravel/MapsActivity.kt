@@ -25,7 +25,7 @@ import com.google.android.gms.maps.model.MarkerOptions
 import com.jackpan.specialstudy.oveyouforyourtravel.Data.GoogleResponseData
 
 class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMapAPISerive.GetResponse, GoogleMap.OnCameraMoveListener, GoogleMap.OnCameraMoveCanceledListener
-        , LocationListener, GoogleMap.OnCameraMoveStartedListener {
+        , LocationListener, GoogleMap.OnCameraMoveStartedListener, {
     override fun onCameraMoveStarted(p0: Int) {
 //        Log.d("Jack", "onCameraMoveStarted")
     }

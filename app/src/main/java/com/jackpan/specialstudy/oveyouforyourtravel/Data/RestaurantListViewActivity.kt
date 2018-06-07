@@ -15,30 +15,36 @@ import android.widget.BaseAdapter
 import android.widget.ArrayAdapter
 import com.itheima.pulltorefreshlib.PullToRefreshBase
 import android.text.method.TextKeyListener.clear
+import android.util.Log
 import android.widget.ListView
 import android.widget.TextView
 
 
-class RestaurantListViewActivity : AppCompatActivity() {
+class RestaurantListViewActivity : AppCompatActivity(), GoogleMapAPISerive.GetResponse {
+    override fun getData(googleResponseData: GoogleResponseData?) {
+        if (googleResponseData != null) {
+            Log.d("Jack","in")
+            for (result in googleResponseData.results) {
+
+                mAllData.add(result)
+                mAdapter = MyAdapter(mAllData)
+
+                mAdapter!!.notifyDataSetChanged()
+            }
+
+        }
+    }
+
     lateinit var mPullToRefreshListView: PullToRefreshListView
     var mAdapter: MyAdapter? = null
-    var mAllData: ArrayList<String> = ArrayList()
-    val stockPriceDataList = ArrayList<String>()
+    var mAllData: ArrayList<GoogleResponseData.Results> = ArrayList()
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_restaurant_list_view)
         mPullToRefreshListView = findViewById(R.id.pull_to_refresh_list_view)
-        stockPriceDataList.add("1")
-        stockPriceDataList.add("2")
-        stockPriceDataList.add("3")
-        stockPriceDataList.add("4")
-        stockPriceDataList.add("5")
-        stockPriceDataList.add("6")
-        stockPriceDataList.add("7")
-
-        mAdapter = MyAdapter(stockPriceDataList)
+        GoogleMapAPISerive.setPlaceForRestaurant(this@RestaurantListViewActivity, "25.048630,%20121.544427", this@RestaurantListViewActivity)
         mPullToRefreshListView.setAdapter(mAdapter)
 
         mPullToRefreshListView.setOnRefreshListener(mListViewOnRefreshListener2)
@@ -48,18 +54,18 @@ class RestaurantListViewActivity : AppCompatActivity() {
 
     }
 
-    inner class MyAdapter(private var stockPriceDataList: ArrayList<String>?) : BaseAdapter() {
-        fun updateData(datas: ArrayList<String>) {
-            stockPriceDataList = datas
+    inner class MyAdapter(private var mAllData: ArrayList<GoogleResponseData.Results>?) : BaseAdapter() {
+        fun updateData(datas: ArrayList<GoogleResponseData.Results>) {
+            mAllData = datas
             notifyDataSetChanged()
         }
 
         override fun getCount(): Int {
-            return stockPriceDataList!!.size
+            return mAllData!!.size
         }
 
         override fun getItem(position: Int): Any {
-            return stockPriceDataList!![position]
+            return mAllData!![position]
         }
 
         override fun getItemId(position: Int): Long {
@@ -68,12 +74,13 @@ class RestaurantListViewActivity : AppCompatActivity() {
 
         override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
             var convertView = convertView
-            val data = stockPriceDataList!![position]
+            val data = mAllData!![position]
             if (convertView == null)
                 convertView = LayoutInflater.from(this@RestaurantListViewActivity).inflate(
                         R.layout.listview_layout, null)
             var mTittleText :TextView = convertView!!.findViewById(R.id.listviewtext)
-            mTittleText.text =data
+            mTittleText.text =data.name
+
 
 
             return convertView

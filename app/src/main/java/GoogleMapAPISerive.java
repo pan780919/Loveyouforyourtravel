@@ -21,6 +21,10 @@ public class GoogleMapAPISerive {
     private static final String TAG = "GoogleMapAPISerive";
     static  RequestQueue queue;
     static  GetResponse getResponse;
+    public static  final  String  TYPE_RESTAURANT  = "restaurant";
+    public static  final  String  TYPE_PARK  = "prak";
+    public static  final  String  TYPE_LATLON = "latlon";
+
 
     public static  void setPlaceForRestaurant(final Context context,String latlon,GetResponse Response){
         queue = Volley.newRequestQueue(context);

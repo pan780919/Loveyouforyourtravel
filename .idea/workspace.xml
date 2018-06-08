@@ -6,26 +6,22 @@
     </shared>
   </component>
   <component name="AndroidLogFilters">
-    <option name="TOOL_WINDOW_CUSTOM_FILTER" value="Jack" />
+    <option name="TOOL_WINDOW_CUSTOM_FILTER" value="setPlaceForRestaurant" />
     <option name="TOOL_WINDOW_LOG_LEVEL" value="debug" />
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
     <option name="TOOL_WINDOW_REGEXP_FILTER" value="false" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="676c0dfd-fc21-4b31-b2f5-a16d82aebda3" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/assetWizardSettings.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/map_food-web.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/map_park-web.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/map_food.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/map_park.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-mdpi/map_food.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-mdpi/map_park.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-xhdpi/map_food.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-xhdpi/map_park.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-xxhdpi/map_food.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-xxhdpi/map_park.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-xxxhdpi/map_food.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-xxxhdpi/map_park.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/jackpan/specialstudy/oveyouforyourtravel/MapPlaceDetailActivity.kt" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/map_gas-web.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_map_place_detail.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/layout/content_map_place_detail.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/map_gas.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-mdpi/map_gas.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-xhdpi/map_gas.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-xxhdpi/map_gas.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-xxxhdpi/map_gas.png" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.4/fileHashes/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/4.4/fileHashes/fileHashes.bin" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.4/fileHashes/fileHashes.lock" afterPath="$PROJECT_DIR$/.gradle/4.4/fileHashes/fileHashes.lock" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.4/fileHashes/resourceHashesCache.bin" afterPath="$PROJECT_DIR$/.gradle/4.4/fileHashes/resourceHashesCache.bin" />
@@ -35,8 +31,15 @@
       <change beforePath="$PROJECT_DIR$/.gradle/4.4/taskHistory/taskHistory.bin" afterPath="$PROJECT_DIR$/.gradle/4.4/taskHistory/taskHistory.bin" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.4/taskHistory/taskHistory.lock" afterPath="$PROJECT_DIR$/.gradle/4.4/taskHistory/taskHistory.lock" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" />
+      <change beforePath="$PROJECT_DIR$/.idea/assetWizardSettings.xml" afterPath="$PROJECT_DIR$/.idea/assetWizardSettings.xml" />
+      <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/app/build.gradle" afterPath="$PROJECT_DIR$/app/build.gradle" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/GoogleMapAPISerive.java" afterPath="$PROJECT_DIR$/app/src/main/java/GoogleMapAPISerive.java" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/jackpan/specialstudy/oveyouforyourtravel/Data/GoogleResponseData.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/jackpan/specialstudy/oveyouforyourtravel/Data/GoogleResponseData.java" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/jackpan/specialstudy/oveyouforyourtravel/MapsActivity.kt" afterPath="$PROJECT_DIR$/app/src/main/java/com/jackpan/specialstudy/oveyouforyourtravel/MapsActivity.kt" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -59,18 +62,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="TypeListViewActivity.kt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/jackpan/specialstudy/oveyouforyourtravel/Data/TypeListViewActivity.kt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2596">
-              <caret line="118" column="51" lean-forward="false" selection-start-line="118" selection-start-column="51" selection-end-line="118" selection-end-column="51" />
-              <folding>
-                <element signature="e#59#512#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="MySharedPrefernces.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/MySharedPrefernces.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -81,52 +72,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PullToRefreshListView.class" pinned="false" current-in-tab="false">
-        <entry file="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/PullToRefresh-v1.0.aar/77edd712f172496cdbd4fcb3197bb743/jars/classes.jar!/com/itheima/pulltorefreshlib/PullToRefreshListView.class">
+      <file leaf-file-name="MapsActivity.kt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/jackpan/specialstudy/oveyouforyourtravel/MapsActivity.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-3115">
-              <caret line="27" column="13" lean-forward="false" selection-start-line="27" selection-start-column="13" selection-end-line="27" selection-end-column="13" />
-              <folding>
-                <marker date="1528364081535" expanded="false" signature="0:104" ph="/.../" />
-                <marker date="1528364081535" expanded="false" signature="152:997" ph="..." />
-                <marker date="1528364081535" expanded="false" signature="1316:1327" ph=" { " />
-                <marker date="1528364081535" expanded="false" signature="1342:1348" ph=" }" />
-                <marker date="1528364081535" expanded="false" signature="1419:1430" ph=" { " />
-                <marker date="1528364081535" expanded="false" signature="1452:1458" ph=" }" />
-                <marker date="1528364081535" expanded="false" signature="1520:1531" ph=" { " />
-                <marker date="1528364081535" expanded="false" signature="1552:1558" ph=" }" />
-                <marker date="1528364081535" expanded="true" signature="1643:1687" ph="{...}" />
-                <marker date="1528364081535" expanded="false" signature="1751:1762" ph=" { " />
-                <marker date="1528364081535" expanded="false" signature="1790:1796" ph=" }" />
-                <marker date="1528364081535" expanded="true" signature="1848:3705" ph="{...}" />
-                <marker date="1528364081535" expanded="true" signature="3736:5423" ph="{...}" />
-                <marker date="1528364081535" expanded="true" signature="5525:6016" ph="{...}" />
-                <marker date="1528364081535" expanded="true" signature="6093:6370" ph="{...}" />
-                <marker date="1528364081535" expanded="true" signature="6454:6567" ph="{...}" />
-                <marker date="1528364081535" expanded="true" signature="6625:7751" ph="{...}" />
-                <marker date="1528364081535" expanded="true" signature="7842:9140" ph="{...}" />
-                <marker date="1528364081535" expanded="false" signature="7961:7976" ph=" { " />
-                <marker date="1528364081535" expanded="false" signature="7998:8008" ph=" }" />
-                <marker date="1528364081535" expanded="true" signature="8061:8244" ph="{...}" />
-                <marker date="1528364081535" expanded="true" signature="8304:8525" ph="{...}" />
-                <marker date="1528364081535" expanded="true" signature="8579:8895" ph="{...}" />
-                <marker date="1528364081535" expanded="true" signature="8946:9021" ph="{...}" />
-                <marker date="1528364081535" expanded="false" signature="9079:9094" ph=" { " />
-                <marker date="1528364081535" expanded="false" signature="9124:9134" ph=" }" />
-                <marker date="1528364081535" expanded="true" signature="9244:9884" ph="{...}" />
-                <marker date="1528364081535" expanded="false" signature="9318:9333" ph=" { " />
-                <marker date="1528364081535" expanded="false" signature="9355:9365" ph=" }" />
-                <marker date="1528364081535" expanded="true" signature="9554:9878" ph="{...}" />
-              </folding>
+            <state relative-caret-position="160">
+              <caret line="80" column="16" lean-forward="false" selection-start-line="80" selection-start-column="16" selection-end-line="80" selection-end-column="16" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MapsActivity.kt" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/jackpan/specialstudy/oveyouforyourtravel/MapsActivity.kt">
+      <file leaf-file-name="GoogleResponseData.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/jackpan/specialstudy/oveyouforyourtravel/Data/GoogleResponseData.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="205">
-              <caret line="147" column="70" lean-forward="false" selection-start-line="147" selection-start-column="70" selection-end-line="147" selection-end-column="70" />
+            <state relative-caret-position="160">
+              <caret line="23" column="23" lean-forward="false" selection-start-line="23" selection-start-column="23" selection-end-line="23" selection-end-column="23" />
               <folding />
             </state>
           </provider>
@@ -249,11 +209,9 @@
       <file leaf-file-name="AndroidManifest.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="215">
-              <caret line="74" column="0" lean-forward="false" selection-start-line="74" selection-start-column="0" selection-end-line="74" selection-end-column="0" />
-              <folding>
-                <element signature="e#3069#3094#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="127">
+              <caret line="70" column="0" lean-forward="false" selection-start-line="70" selection-start-column="0" selection-end-line="70" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
           <provider editor-type-id="android-manifest">
@@ -271,133 +229,55 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="HomePageActivity.kt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/jackpan/specialstudy/oveyouforyourtravel/HomePageActivity.kt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="362">
-              <caret line="144" column="44" lean-forward="false" selection-start-line="144" selection-start-column="44" selection-end-line="144" selection-end-column="44" />
-              <folding>
-                <element signature="e#54#772#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MfiebaselibsClass.class" pinned="false" current-in-tab="false">
-        <entry file="jar://$PROJECT_DIR$/app/libs/mFirebaseLibs.jar!/com/jackpan/libs/mfirebaselib/MfiebaselibsClass.class">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="176">
-              <caret line="110" column="16" lean-forward="false" selection-start-line="110" selection-start-column="16" selection-end-line="110" selection-end-column="16" />
-              <folding>
-                <marker date="1528360141605" expanded="false" signature="0:104" ph="/.../" />
-                <marker date="1528360141605" expanded="false" signature="153:2422" ph="..." />
-                <marker date="1528360141605" expanded="true" signature="3186:3316" ph="{...}" />
-                <marker date="1528360141605" expanded="true" signature="3375:3976" ph="{...}" />
-                <marker date="1528360141605" expanded="false" signature="3461:3568" ph="onComplete(task) → {" />
-                <marker date="1528360141605" expanded="false" signature="3810:3825" ph="}" />
-                <marker date="1528360141605" expanded="true" signature="3884:3968" ph="{...}" />
-                <marker date="1528360141605" expanded="true" signature="3943:3958" ph="{}" />
-                <marker date="1528360141605" expanded="true" signature="4036:4394" ph="{...}" />
-                <marker date="1528360141605" expanded="false" signature="4126:4233" ph="onComplete(task) → {" />
-                <marker date="1528360141605" expanded="false" signature="4371:4386" ph="}" />
-                <marker date="1528360141605" expanded="true" signature="4429:5201" ph="{...}" />
-                <marker date="1528360141605" expanded="false" signature="4459:4565" ph="onAuthStateChanged(firebaseAuth) → {" />
-                <marker date="1528360141605" expanded="false" signature="5179:5194" ph="}" />
-                <marker date="1528360141605" expanded="true" signature="5290:6004" ph="{...}" />
-                <marker date="1528360141605" expanded="false" signature="5550:5661" ph="onComplete(firebaseError, firebase) → {" />
-                <marker date="1528360141605" expanded="false" signature="5981:5996" ph="}" />
-                <marker date="1528360141605" expanded="true" signature="6078:6828" ph="{...}" />
-                <marker date="1528360141605" expanded="true" signature="6280:6820" ph="{...}" />
-                <marker date="1528360141605" expanded="true" signature="6356:6461" ph="{...}" />
-                <marker date="1528360141605" expanded="true" signature="6539:6554" ph="{}" />
-                <marker date="1528360141605" expanded="true" signature="6622:6637" ph="{}" />
-                <marker date="1528360141605" expanded="true" signature="6713:6728" ph="{}" />
-                <marker date="1528360141605" expanded="true" signature="6795:6810" ph="{}" />
-                <marker date="1528360141605" expanded="true" signature="6919:7684" ph="{...}" />
-                <marker date="1528360141605" expanded="true" signature="7136:7676" ph="{...}" />
-                <marker date="1528360141605" expanded="true" signature="7212:7317" ph="{...}" />
-                <marker date="1528360141605" expanded="true" signature="7395:7410" ph="{}" />
-                <marker date="1528360141605" expanded="true" signature="7478:7493" ph="{}" />
-                <marker date="1528360141605" expanded="true" signature="7569:7584" ph="{}" />
-                <marker date="1528360141605" expanded="true" signature="7651:7666" ph="{}" />
-                <marker date="1528360141605" expanded="true" signature="7775:8453" ph="{...}" />
-                <marker date="1528360141605" expanded="true" signature="7946:8445" ph="{...}" />
-                <marker date="1528360141605" expanded="true" signature="8013:8309" ph="{...}" />
-                <marker date="1528360141605" expanded="true" signature="8420:8435" ph="{}" />
-                <marker date="1528360141605" expanded="true" signature="8513:9404" ph="{...}" />
-                <marker date="1528360141605" expanded="true" signature="8696:9396" ph="{...}" />
-                <marker date="1528360141605" expanded="true" signature="8762:9191" ph="{...}" />
-                <marker date="1528360141605" expanded="true" signature="9258:9386" ph="{...}" />
-                <marker date="1528360141605" expanded="true" signature="9485:10421" ph="{...}" />
-                <marker date="1528360141605" expanded="true" signature="9823:10403" ph="{...}" />
-                <marker date="1528360141605" expanded="true" signature="9893:10182" ph="{...}" />
-                <marker date="1528360141605" expanded="true" signature="10253:10389" ph="{...}" />
-                <marker date="1528360141605" expanded="true" signature="10499:11653" ph="{...}" />
-                <marker date="1528360141605" expanded="false" signature="10791:10886" ph="onComplete(task) → {" />
-                <marker date="1528360141605" expanded="false" signature="11036:11143" ph="onComplete(task) → {" />
-                <marker date="1528360141605" expanded="false" signature="11469:11496" ph="}" />
-                <marker date="1528360141605" expanded="false" signature="11630:11645" ph="}" />
-                <marker date="1528360141605" expanded="true" signature="11715:12189" ph="{...}" />
-                <marker date="1528360141605" expanded="false" signature="11794:11889" ph="onComplete(task) → {" />
-                <marker date="1528360141605" expanded="false" signature="12166:12181" ph="}" />
-                <marker date="1528360141605" expanded="true" signature="12278:15588" ph="{...}" />
-                <marker date="1528360141605" expanded="false" signature="14081:14172" ph="onFailure(exception) → {" />
-                <marker date="1528360141605" expanded="false" signature="14409:14424" ph="}" />
-                <marker date="1528360141605" expanded="false" signature="14447:14549" ph="onSuccess(taskSnapshot) → {" />
-                <marker date="1528360141605" expanded="false" signature="14937:14952" ph="}" />
-                <marker date="1528360141605" expanded="false" signature="14976:15080" ph="onProgress(taskSnapshot) → {" />
-                <marker date="1528360141605" expanded="false" signature="15565:15580" ph="}" />
-                <marker date="1528360141605" expanded="true" signature="15659:18373" ph="{...}" />
-                <marker date="1528360141605" expanded="false" signature="16866:16957" ph="onFailure(exception) → {" />
-                <marker date="1528360141605" expanded="false" signature="17194:17209" ph="}" />
-                <marker date="1528360141605" expanded="false" signature="17232:17334" ph="onSuccess(taskSnapshot) → {" />
-                <marker date="1528360141605" expanded="false" signature="17722:17737" ph="}" />
-                <marker date="1528360141605" expanded="false" signature="17761:17865" ph="onProgress(taskSnapshot) → {" />
-                <marker date="1528360141605" expanded="false" signature="18350:18365" ph="}" />
-                <marker date="1528360141605" expanded="true" signature="18440:20366" ph="{...}" />
-                <marker date="1528360141605" expanded="false" signature="18975:19066" ph="onFailure(exception) → {" />
-                <marker date="1528360141605" expanded="false" signature="19303:19318" ph="}" />
-                <marker date="1528360141605" expanded="false" signature="19341:19443" ph="onSuccess(taskSnapshot) → {" />
-                <marker date="1528360141605" expanded="false" signature="19831:19846" ph="}" />
-                <marker date="1528360141605" expanded="false" signature="19870:19974" ph="onProgress(taskSnapshot) → {" />
-                <marker date="1528360141605" expanded="false" signature="20343:20358" ph="}" />
-                <marker date="1528360141605" expanded="true" signature="20402:20524" ph="{...}" />
-                <marker date="1528360141605" expanded="true" signature="20563:20688" ph="{...}" />
-                <marker date="1528360141605" expanded="true" signature="20734:21575" ph="{...}" />
-                <marker date="1528360141605" expanded="false" signature="21020:21115" ph="onComplete(task) → {" />
-                <marker date="1528360141605" expanded="false" signature="21552:21567" ph="}" />
-                <marker date="1528360141605" expanded="true" signature="21652:25467" ph="{...}" />
-                <marker date="1528360141605" expanded="false" signature="23450:23541" ph="onFailure(exception) → {" />
-                <marker date="1528360141605" expanded="false" signature="23698:23713" ph="}" />
-                <marker date="1528360141605" expanded="false" signature="23736:23838" ph="onSuccess(taskSnapshot) → {" />
-                <marker date="1528360141605" expanded="false" signature="24191:24294" ph="onComplete(task) → {" />
-                <marker date="1528360141605" expanded="false" signature="24782:24805" ph="}" />
-                <marker date="1528360141605" expanded="false" signature="24816:24831" ph="}" />
-                <marker date="1528360141605" expanded="false" signature="24855:24959" ph="onProgress(taskSnapshot) → {" />
-                <marker date="1528360141605" expanded="false" signature="25444:25459" ph="}" />
-                <marker date="1528360141605" expanded="true" signature="25513:25722" ph="{...}" />
-                <marker date="1528360141605" expanded="true" signature="25769:26363" ph="{...}" />
-                <marker date="1528360141605" expanded="true" signature="26417:26749" ph="{...}" />
-                <marker date="1528360141605" expanded="true" signature="26793:27505" ph="{...}" />
-                <marker date="1528360141605" expanded="true" signature="27581:27708" ph="{...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="GoogleMapAPISerive.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/GoogleMapAPISerive.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="423">
-              <caret line="35" column="41" lean-forward="false" selection-start-line="35" selection-start-column="20" selection-end-line="35" selection-end-column="41" />
+            <state relative-caret-position="-211">
+              <caret line="34" column="112" lean-forward="false" selection-start-line="34" selection-start-column="112" selection-end-line="34" selection-end-column="112" />
               <folding>
-                <element signature="e#1428#2915#0" expanded="true" />
-                <element signature="e#2914#2915#0" expanded="true" />
-                <element signature="e#2933#3192#0" expanded="true" />
-                <element signature="e#3191#3192#0" expanded="true" />
-                <element signature="e#3921#5408#0" expanded="true" />
-                <element signature="e#5407#5408#0" expanded="true" />
+                <element signature="e#1429#2916#0" expanded="true" />
+                <element signature="e#2915#2916#0" expanded="true" />
+                <element signature="e#2934#3193#0" expanded="true" />
+                <element signature="e#3192#3193#0" expanded="true" />
+                <element signature="e#3922#5409#0" expanded="true" />
+                <element signature="e#5408#5409#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MapPlaceDetailActivity.kt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/jackpan/specialstudy/oveyouforyourtravel/MapPlaceDetailActivity.kt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="176">
+              <caret line="12" column="41" lean-forward="false" selection-start-line="12" selection-start-column="41" selection-end-line="12" selection-end-column="41" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="activity_map_place_detail.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_map_place_detail.xml">
+          <provider editor-type-id="android-designer2">
+            <state />
+          </provider>
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="154">
+              <caret line="7" column="40" lean-forward="false" selection-start-line="7" selection-start-column="40" selection-end-line="7" selection-end-column="40" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="content_map_place_detail.xml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/content_map_place_detail.xml">
+          <provider editor-type-id="android-designer2">
+            <state />
+          </provider>
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -414,6 +294,8 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>photo_reference</find>
+      <find>type</find>
+      <find>vicinity</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -2531,17 +2413,19 @@
       <list>
         <option value="$PROJECT_DIR$/build.gradle" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/listview_layout.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/jackpan/specialstudy/oveyouforyourtravel/Data/GoogleResponseData.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_restaurant_list_view.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/content_restaurant_list_view.xml" />
         <option value="$PROJECT_DIR$/app/build.gradle" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/jackpan/specialstudy/oveyouforyourtravel/Data/RestaurantListViewActivity.kt" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/jackpan/specialstudy/oveyouforyourtravel/HomePageActivity.kt" />
-        <option value="$PROJECT_DIR$/app/src/main/java/GoogleMapAPISerive.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/jackpan/specialstudy/oveyouforyourtravel/Data/TypeListViewActivity.kt" />
         <option value="$PROJECT_DIR$/app/src/debug/res/values/google_maps_api.xml" />
         <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/jackpan/specialstudy/oveyouforyourtravel/Data/GoogleResponseData.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/jackpan/specialstudy/oveyouforyourtravel/MapsActivity.kt" />
+        <option value="$PROJECT_DIR$/app/src/main/java/GoogleMapAPISerive.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/jackpan/specialstudy/oveyouforyourtravel/MapPlaceDetailActivity.kt" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_map_place_detail.xml" />
       </list>
     </option>
   </component>
@@ -2574,11 +2458,6 @@
             <path>
               <item name="Loveyouforyourtravel" type="1abcf292:AndroidViewProjectNode" />
               <item name="app" type="feadf853:AndroidModuleNode" />
-              <item name="manifests" type="f94875db:AndroidManifestsGroupNode" />
-            </path>
-            <path>
-              <item name="Loveyouforyourtravel" type="1abcf292:AndroidViewProjectNode" />
-              <item name="app" type="feadf853:AndroidModuleNode" />
               <item name="java" type="edd41e36:AndroidSourceTypeNode" />
             </path>
             <path>
@@ -2603,7 +2482,7 @@
               <item name="Loveyouforyourtravel" type="1abcf292:AndroidViewProjectNode" />
               <item name="app" type="feadf853:AndroidModuleNode" />
               <item name="res" type="d4f16f75:AndroidResFolderNode" />
-              <item name="mipmap" type="ddeffd01:AndroidResFolderTypeNode" />
+              <item name="layout" type="ddeffd01:AndroidResFolderTypeNode" />
             </path>
             <path>
               <item name="Loveyouforyourtravel" type="1abcf292:AndroidViewProjectNode" />
@@ -2628,6 +2507,7 @@
   </component>
   <component name="RecentsManager">
     <key name="android.template.packageName">
+      <recent name="com.jackpan.specialstudy.oveyouforyourtravel" />
       <recent name="com.jackpan.specialstudy.oveyouforyourtravel.Data" />
     </key>
     <key name="android.template.parentActivityClass">
@@ -2816,12 +2696,12 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32889965" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32889965" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Logcat" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32889965" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Logcat" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32889965" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24964234" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Build" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32889965" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Build" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32889965" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
@@ -2983,14 +2863,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="198">
           <caret line="9" column="36" lean-forward="false" selection-start-line="9" selection-start-column="36" selection-end-line="9" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/jackpan/specialstudy/oveyouforyourtravel/Data/GoogleResponseData.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-364">
-          <caret line="9" column="24" lean-forward="false" selection-start-line="9" selection-start-column="24" selection-end-line="9" selection-end-column="24" />
           <folding />
         </state>
       </provider>
@@ -3177,30 +3049,7 @@
         <state relative-caret-position="362">
           <caret line="144" column="44" lean-forward="false" selection-start-line="144" selection-start-column="44" selection-end-line="144" selection-end-column="44" />
           <folding>
-            <element signature="e#54#772#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/MySharedPrefernces.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
-          <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/GoogleMapAPISerive.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="423">
-          <caret line="35" column="41" lean-forward="false" selection-start-line="35" selection-start-column="20" selection-end-line="35" selection-end-column="41" />
-          <folding>
-            <element signature="e#1428#2915#0" expanded="true" />
-            <element signature="e#2914#2915#0" expanded="true" />
-            <element signature="e#2933#3192#0" expanded="true" />
-            <element signature="e#3191#3192#0" expanded="true" />
-            <element signature="e#3921#5408#0" expanded="true" />
-            <element signature="e#5407#5408#0" expanded="true" />
+            <element signature="e#54#772#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -3337,21 +3186,80 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="215">
-          <caret line="74" column="0" lean-forward="false" selection-start-line="74" selection-start-column="0" selection-end-line="74" selection-end-column="0" />
-          <folding>
-            <element signature="e#3069#3094#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="127">
+          <caret line="70" column="0" lean-forward="false" selection-start-line="70" selection-start-column="0" selection-end-line="70" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
       <provider editor-type-id="android-manifest">
         <state />
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/jackpan/specialstudy/oveyouforyourtravel/Data/GoogleResponseData.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="23" column="23" lean-forward="false" selection-start-line="23" selection-start-column="23" selection-end-line="23" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/MySharedPrefernces.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/jackpan/specialstudy/oveyouforyourtravel/MapsActivity.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="205">
-          <caret line="147" column="70" lean-forward="false" selection-start-line="147" selection-start-column="70" selection-end-line="147" selection-end-column="70" />
+        <state relative-caret-position="160">
+          <caret line="80" column="16" lean-forward="false" selection-start-line="80" selection-start-column="16" selection-end-line="80" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/GoogleMapAPISerive.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-211">
+          <caret line="34" column="112" lean-forward="false" selection-start-line="34" selection-start-column="112" selection-end-line="34" selection-end-column="112" />
+          <folding>
+            <element signature="e#1429#2916#0" expanded="true" />
+            <element signature="e#2915#2916#0" expanded="true" />
+            <element signature="e#2934#3193#0" expanded="true" />
+            <element signature="e#3192#3193#0" expanded="true" />
+            <element signature="e#3922#5409#0" expanded="true" />
+            <element signature="e#5408#5409#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/jackpan/specialstudy/oveyouforyourtravel/MapPlaceDetailActivity.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="12" column="41" lean-forward="false" selection-start-line="12" selection-start-column="41" selection-end-line="12" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_map_place_detail.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="154">
+          <caret line="7" column="40" lean-forward="false" selection-start-line="7" selection-start-column="40" selection-end-line="7" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/content_map_place_detail.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>

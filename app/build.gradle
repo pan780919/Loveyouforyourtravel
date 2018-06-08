@@ -59,7 +59,6 @@ dependencies {
     compile 'com.hendraanggrian:pikasso:0.2'
 
 
-
 }
 
 apply plugin: 'kotlin-android'

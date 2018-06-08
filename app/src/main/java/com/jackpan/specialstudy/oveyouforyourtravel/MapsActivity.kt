@@ -5,13 +5,11 @@ import android.content.pm.PackageManager
 import android.location.Location
 import android.location.LocationListener
 import android.location.LocationManager
-import android.nfc.Tag
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v4.app.ActivityCompat
 import android.support.v4.content.ContextCompat
 import android.util.Log
-import android.view.MenuItem
 import android.widget.Toast
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
@@ -34,7 +32,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMapAPISerive
         val sydney = LatLng(mMap.cameraPosition.target.latitude, mMap.cameraPosition.target.longitude)
         var latlon: String = mMap.cameraPosition.target.latitude.toString() + "," + mMap.cameraPosition.target.longitude.toString()
 
-        GoogleMapAPISerive.setPlaceForRestaurant(this@MapsActivity, latlon, GoogleMapAPISerive.TYPE_RESTAURANT,this@MapsActivity)
+        GoogleMapAPISerive.setPlaceForRestaurant(this@MapsActivity, latlon, "",this@MapsActivity)
 
         mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney))
     }
@@ -75,9 +73,15 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMapAPISerive
     override fun getData(googleResponseData: GoogleResponseData?) {
         if (googleResponseData != null) {
             for (result in googleResponseData.results) {
+                if (result.vicinity==null){
+                    result.vicinity = "no address"
+                }
+
+
                 addMarker(LatLng(result.geometry.location.lat, result.geometry.location.lng),
                         result.name,
-                        result.vicinity)
+                        result.vicinity,
+                        result.types)
 
             }
         }
@@ -143,9 +147,8 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMapAPISerive
     }
 
     // 在地圖加入指定位置與標題的標記
-    private fun addMarker(place: LatLng, title: String, context: String) {
-        val icon: BitmapDescriptor =
-                BitmapDescriptorFactory.fromResource(R.mipmap.map_food)
+    private fun addMarker(place: LatLng, title: String, context: String, array: Array<String>) {
+        var icon: BitmapDescriptor  = BitmapDescriptorFactory.fromResource(R.mipmap.loction_icon)
 
         val markerOptions = MarkerOptions()
         markerOptions.position(place)

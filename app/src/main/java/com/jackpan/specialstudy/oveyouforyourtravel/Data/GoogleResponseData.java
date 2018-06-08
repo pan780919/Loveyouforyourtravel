@@ -22,6 +22,8 @@ public class GoogleResponseData {
         public  String reference;
         public  String scope;
         public  String vicinity;
+        public  String[] types;
+
         public class  Geometry{
             public Location location;
             public  Viewport viewport;

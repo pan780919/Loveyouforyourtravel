@@ -17,4 +17,5 @@
     <string name="title_activity_sign_up">SignUpActivity</string>
     <string name="title_activity_maps">Map</string>
     <string name="title_activity_restaurant_list_view">RestaurantListViewActivity</string>
+    <string name="title_activity_map_place_detail">MapPlaceDetailActivity</string>
 </resources>

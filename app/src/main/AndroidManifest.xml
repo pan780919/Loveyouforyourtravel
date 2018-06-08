@@ -65,7 +65,7 @@
             android:name=".MapsActivity"
             android:label="@string/title_activity_maps" />
         <activity
-            android:name=".Data.RestaurantListViewActivity"
+            android:name=".Data.TypeListViewActivity"
             android:label="@string/title_activity_restaurant_list_view"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>

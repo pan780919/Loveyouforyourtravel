@@ -2,25 +2,20 @@ package com.jackpan.specialstudy.oveyouforyourtravel.Data
 
 import android.app.ProgressDialog
 import android.os.Bundle
-import android.support.design.widget.Snackbar
 import android.support.v7.app.AppCompatActivity
 import com.itheima.pulltorefreshlib.PullToRefreshListView
 import com.jackpan.specialstudy.oveyouforyourtravel.R
 
-import kotlinx.android.synthetic.main.activity_restaurant_list_view.*
-import com.google.android.gms.ads.AdView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.itheima.pulltorefreshlib.PullToRefreshBase
-import android.text.method.TextKeyListener.clear
 import android.util.Log
 import android.widget.*
 import com.hendraanggrian.pikasso.picasso
-import com.squareup.picasso.Picasso
 
 
-class RestaurantListViewActivity : AppCompatActivity(), GoogleMapAPISerive.GetResponse {
+class TypeListViewActivity : AppCompatActivity(), GoogleMapAPISerive.GetResponse {
     override fun getData(googleResponseData: GoogleResponseData?) {
         mProgressDialog = ProgressDialog(this)
         mProgressDialog.setTitle("讀取中")
@@ -54,7 +49,8 @@ class RestaurantListViewActivity : AppCompatActivity(), GoogleMapAPISerive.GetRe
     var mAllData: ArrayList<GoogleResponseData.Results> = ArrayList()
     lateinit var mProgressDialog:ProgressDialog
     var mNextPage :ArrayList<GoogleResponseData> = ArrayList()
-
+    lateinit var mTypeString: String
+    lateinit var mLatLngString: String
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -63,7 +59,11 @@ class RestaurantListViewActivity : AppCompatActivity(), GoogleMapAPISerive.GetRe
 
         mPullToRefreshListView = findViewById(R.id.pull_to_refresh_list_view)
 
-        GoogleMapAPISerive.setPlaceForRestaurant(this@RestaurantListViewActivity, "25.048630,%20121.544427", this@RestaurantListViewActivity)
+        if(!getBundle()){
+            Toast.makeText(this,"無法取得資料",Toast.LENGTH_SHORT).show()
+            return
+        }
+        GoogleMapAPISerive.setPlaceForRestaurant(this@TypeListViewActivity, "25.048630,%20121.544427", this@TypeListViewActivity)
         mAdapter = MyAdapter(mAllData)
         mPullToRefreshListView.setAdapter(mAdapter)
 
@@ -107,12 +107,12 @@ class RestaurantListViewActivity : AppCompatActivity(), GoogleMapAPISerive.GetRe
             var convertView = convertView
             val data = mAllData!![position]
             if (convertView == null)
-                convertView = LayoutInflater.from(this@RestaurantListViewActivity).inflate(
+                convertView = LayoutInflater.from(this@TypeListViewActivity).inflate(
                         R.layout.listview_layout, null)
             var mTittleText :TextView = convertView!!.findViewById(R.id.listviewtext)
             var photoimg :ImageView = convertView!!.findViewById(R.id.listview_img)
             mTittleText.text =data.name
-            var  photoString:String = GoogleMapAPISerive.getPhotos(this@RestaurantListViewActivity,data.photos.get(0).photo_reference)
+            var  photoString:String = GoogleMapAPISerive.getPhotos(this@TypeListViewActivity,data.photos.get(0).photo_reference)
             picasso.load(photoString).into(photoimg)
 
 
@@ -145,15 +145,26 @@ class RestaurantListViewActivity : AppCompatActivity(), GoogleMapAPISerive.GetRe
                 mPullToRefreshListView.onRefreshComplete()//上拉加载更多结束，上拉加载头复位
                 Log.d("Jack",mNextPage.size.toString())
                 if(mNextPage[0].next_page_token==null){
-                    Toast.makeText(this@RestaurantListViewActivity,"最後一筆資料囉！！",Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this@TypeListViewActivity,"最後一筆資料囉！！",Toast.LENGTH_SHORT).show()
                     return@postDelayed
                 }
-                GoogleMapAPISerive.nextPage(this@RestaurantListViewActivity,mNextPage[0].next_page_token, this@RestaurantListViewActivity)
+                GoogleMapAPISerive.nextPage(this@TypeListViewActivity,mNextPage[0].next_page_token, this@TypeListViewActivity)
                 mAdapter!!.notifyDataSetChanged()
-                Toast.makeText(this@RestaurantListViewActivity,"列表刷新！！",Toast.LENGTH_SHORT).show()
+                Toast.makeText(this@TypeListViewActivity,"列表刷新！！",Toast.LENGTH_SHORT).show()
 
 
             }, 3000)
         }
+    }
+    fun  getBundle():Boolean{
+        var bundle:Bundle = intent.extras
+        mTypeString = bundle.getString("")
+        mLatLngString = bundle.getString("")
+
+        if(!mTypeString.equals("")||!mLatLngString.equals("")){
+            return true
+        }
+        return false
+
     }
 }

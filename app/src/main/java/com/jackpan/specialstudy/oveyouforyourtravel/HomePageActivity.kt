@@ -1,19 +1,25 @@
 package com.jackpan.specialstudy.oveyouforyourtravel
 
 import android.app.AlertDialog
-import android.app.Dialog
-import android.content.DialogInterface
+import android.app.ProgressDialog
 import android.content.Intent
+import android.content.pm.PackageManager
+import android.location.Location
+import android.location.LocationListener
+import android.location.LocationManager
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v4.app.ActivityCompat
+import android.support.v4.content.ContextCompat
 import android.util.Log
 import android.widget.Button
 import android.widget.LinearLayout
+import android.widget.Toast
 import com.jackpan.libs.mfirebaselib.MfiebaselibsClass
 import com.jackpan.libs.mfirebaselib.MfirebaeCallback
-import com.jackpan.specialstudy.oveyouforyourtravel.Data.RestaurantListViewActivity
+import com.jackpan.specialstudy.oveyouforyourtravel.Data.TypeListViewActivity
 
-class HomePageActivity : AppCompatActivity(), MfirebaeCallback {
+class HomePageActivity : AppCompatActivity(), MfirebaeCallback{
     override fun getUserLogoutState(p0: Boolean) {
     }
 
@@ -42,7 +48,6 @@ class HomePageActivity : AppCompatActivity(), MfirebaeCallback {
     }
 
     override fun getuseLoginId(p0: String?) {
-        Log.d("getuseLoginId",p0)
         MySharedPrefernces.saveIsToken(this,p0)
     }
 
@@ -77,13 +82,30 @@ class HomePageActivity : AppCompatActivity(), MfirebaeCallback {
     lateinit var mFoodLayout : LinearLayout
     lateinit var mLevelLayout : LinearLayout
     lateinit var mFirebselibClass : MfiebaselibsClass
+    private var locationManager: LocationManager? = null
+    lateinit var mProgressDialog:ProgressDialog
+    lateinit var latlon: String
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         mFirebselibClass =  MfiebaselibsClass(this,this@HomePageActivity)
 
         setContentView(R.layout.activity_home_page)
         mFirebselibClass.userLoginCheck()
+        checkPermission()
+        mProgressDialog = ProgressDialog(this)
+        mProgressDialog.setTitle("讀取中")
+        mProgressDialog.setMessage("請稍候")
+        mProgressDialog.setCancelable(false)
+        mProgressDialog.show()
+        locationManager = getSystemService(LOCATION_SERVICE) as LocationManager?
 
+        try {
+            // Request location updates
+            locationManager?.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 0L, 0f, locationListener)
+        } catch (ex: SecurityException) {
+            Log.d("myTag", "Security Exception, no location available")
+        }
         mLoginBtn = findViewById(R.id.loginbtn)
         mMaPlayout = findViewById(R.id.maplayout)
         mLoveLayout = findViewById(R.id.lovelayout)
@@ -114,9 +136,16 @@ class HomePageActivity : AppCompatActivity(), MfirebaeCallback {
         }
         mLevelLayout.setOnClickListener{checkLoginState()}
         mFoodLayout.setOnClickListener {
-            var intent = Intent()
-            intent.setClass(this, RestaurantListViewActivity::class.java)
-            startActivity(intent)
+            if(!latlon.equals("")){
+                var intent = Intent()
+                var mBundle = Bundle()
+                mBundle.putString("type","")
+                mBundle.putString("latlon",latlon)
+                intent.putExtras(mBundle)
+                intent.setClass(this, TypeListViewActivity::class.java)
+                startActivity(intent)
+
+            }
 
         }
         mLoveLayout.setOnClickListener {checkLoginState()  }
@@ -137,5 +166,40 @@ class HomePageActivity : AppCompatActivity(), MfirebaeCallback {
         }
 
     }
+    val MY_PERMISSIONS_REQUEST_LOCATION = 100
 
+    fun checkPermission() {
+        if (ContextCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION)
+                != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(this, arrayOf(android.Manifest.permission.ACCESS_FINE_LOCATION), MY_PERMISSIONS_REQUEST_LOCATION)
+        }
+
+    }
+    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
+        if (requestCode == MY_PERMISSIONS_REQUEST_LOCATION) {
+
+            if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+            } else {
+                Toast.makeText(this, "需要定位功能,才能使用喔", Toast.LENGTH_SHORT).show()
+                return
+            }
+        }
+    }
+    private val locationListener: LocationListener = object : LocationListener {
+        override fun onLocationChanged(location: Location) {
+            Log.d("Location", location.latitude.toString())
+            Log.d("Location", location.longitude.toString())
+            latlon = location.latitude.toString() + "," + location.longitude.toString()
+//            locationTextView.text = "${location.latitude} - ${location.longitude}"
+            Log.d("Location", latlon)
+            mProgressDialog.dismiss()
+
+
+
+        }
+
+        override fun onStatusChanged(provider: String, status: Int, extras: Bundle) {}
+        override fun onProviderEnabled(provider: String) {}
+        override fun onProviderDisabled(provider: String) {}
+    }
 }

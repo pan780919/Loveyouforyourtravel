@@ -19,12 +19,16 @@ import com.google.android.gms.maps.model.BitmapDescriptor
 import com.google.android.gms.maps.model.BitmapDescriptorFactory
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
+import com.jackpan.specialstudy.oveyouforyourtravel.Data.GoogleMapPlaceDetailsData
 
 
 import com.jackpan.specialstudy.oveyouforyourtravel.Data.GoogleResponseData
 
 class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMapAPISerive.GetResponse, GoogleMap.OnCameraMoveListener, GoogleMap.OnCameraMoveCanceledListener
         , LocationListener, GoogleMap.OnCameraMoveStartedListener,GoogleMap.OnCameraIdleListener {
+    override fun getDetailData(googleMapPlaceDetailsData: GoogleMapPlaceDetailsData?) {
+    }
+
     override fun onCameraIdle() {
         Log.d("Jack","onCameraIdle")
         Log.d("Jack", mMap.cameraPosition.target.latitude.toString())

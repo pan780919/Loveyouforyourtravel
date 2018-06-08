@@ -9,6 +9,7 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.gson.Gson;
+import com.jackpan.specialstudy.oveyouforyourtravel.Data.GoogleMapPlaceDetailsData;
 import com.jackpan.specialstudy.oveyouforyourtravel.Data.GoogleResponseData;
 
 import org.json.JSONObject;
@@ -126,8 +127,40 @@ public class GoogleMapAPISerive {
 
     }
 
+    public static  void getPlaceDeatail(final Context context,String id ,GetResponse Response){
+        queue = Volley.newRequestQueue(context);
+        getResponse = Response;
+
+        String url = "https://maps.googleapis.com/maps/api/place/details/json?placeid="+id+"&key=AIzaSyDeRZ8FEeGk0G9leGjbs316tbFUZu45J3I";
+        Log.d(TAG, "setPlaceForRestaurant: "+url);
+
+        StringRequest getRequest = new StringRequest(url,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String s) {
+                        Log.d(TAG, "onResponse: "+s);
+                        Gson gson = new Gson();
+                        GoogleMapPlaceDetailsData googleMapPlaceDetailsData =gson.fromJson(s,GoogleMapPlaceDetailsData.class);
+                        if (googleMapPlaceDetailsData!=null){
+
+                        }
+
+                    }
+                },
+                new Response.ErrorListener() {
+
+                    @Override
+                    public void onErrorResponse(VolleyError volleyError) {
+                        Log.d(TAG, "onErrorResponse: "+volleyError.getMessage());
+
+                    }
+                });
+        queue.add(getRequest);
+    }
+
    public interface  GetResponse{
         void  getData(GoogleResponseData googleResponseData);
+        void getDetailData(GoogleMapPlaceDetailsData googleMapPlaceDetailsData);
 
     }
 

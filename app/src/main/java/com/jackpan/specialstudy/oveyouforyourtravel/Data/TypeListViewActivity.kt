@@ -16,6 +16,9 @@ import com.hendraanggrian.pikasso.picasso
 
 
 class TypeListViewActivity : AppCompatActivity(), GoogleMapAPISerive.GetResponse {
+    override fun getDetailData(googleMapPlaceDetailsData: GoogleMapPlaceDetailsData?) {
+    }
+
     override fun getData(googleResponseData: GoogleResponseData?) {
         mProgressDialog = ProgressDialog(this)
         mProgressDialog.setTitle("讀取中")

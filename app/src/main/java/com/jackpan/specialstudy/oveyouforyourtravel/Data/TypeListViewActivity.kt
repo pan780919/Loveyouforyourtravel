@@ -63,7 +63,7 @@ class TypeListViewActivity : AppCompatActivity(), GoogleMapAPISerive.GetResponse
             Toast.makeText(this,"無法取得資料",Toast.LENGTH_SHORT).show()
             return
         }
-        GoogleMapAPISerive.setPlaceForRestaurant(this@TypeListViewActivity, "25.048630,%20121.544427", this@TypeListViewActivity)
+        GoogleMapAPISerive.setPlaceForRestaurant(this@TypeListViewActivity, mLatLngString, mTypeString,this@TypeListViewActivity)
         mAdapter = MyAdapter(mAllData)
         mPullToRefreshListView.setAdapter(mAdapter)
 
@@ -158,8 +158,8 @@ class TypeListViewActivity : AppCompatActivity(), GoogleMapAPISerive.GetResponse
     }
     fun  getBundle():Boolean{
         var bundle:Bundle = intent.extras
-        mTypeString = bundle.getString("")
-        mLatLngString = bundle.getString("")
+        mTypeString = bundle.getString(GoogleMapAPISerive.TYPE)
+        mLatLngString = bundle.getString(GoogleMapAPISerive.TYPE_LATLON)
 
         if(!mTypeString.equals("")||!mLatLngString.equals("")){
             return true

@@ -162,7 +162,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMapAPISerive
             Log.d("Location", location.latitude.toString())
             Log.d("Location", location.longitude.toString())
             var latlon: String = location.latitude.toString() + "," + location.longitude.toString()
-            GoogleMapAPISerive.setPlaceForRestaurant(this@MapsActivity, latlon, this@MapsActivity)
+            GoogleMapAPISerive.setPlaceForRestaurant(this@MapsActivity, latlon, GoogleMapAPISerive.TYPE_RESTAURANT,this@MapsActivity)
             mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(LatLng(location.latitude, location.longitude), 18.0f))
 //            locationTextView.text = "${location.latitude} - ${location.longitude}"
 

@@ -139,8 +139,8 @@ class HomePageActivity : AppCompatActivity(), MfirebaeCallback{
             if(!latlon.equals("")){
                 var intent = Intent()
                 var mBundle = Bundle()
-                mBundle.putString("type","")
-                mBundle.putString("latlon",latlon)
+                mBundle.putString(GoogleMapAPISerive.TYPE,GoogleMapAPISerive.TYPE_RESTAURANT)
+                mBundle.putString(GoogleMapAPISerive.TYPE_LATLON,latlon)
                 intent.putExtras(mBundle)
                 intent.setClass(this, TypeListViewActivity::class.java)
                 startActivity(intent)

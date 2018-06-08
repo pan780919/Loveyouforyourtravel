@@ -24,13 +24,15 @@ public class GoogleMapAPISerive {
     public static  final  String  TYPE_RESTAURANT  = "restaurant";
     public static  final  String  TYPE_PARK  = "prak";
     public static  final  String  TYPE_LATLON = "latlon";
+    public static  final  String  TYPE  = "type";
 
 
-    public static  void setPlaceForRestaurant(final Context context,String latlon,GetResponse Response){
+
+    public static  void setPlaceForRestaurant(final Context context,String latlon,String type,GetResponse Response){
         queue = Volley.newRequestQueue(context);
         getResponse = Response;
 
-        String url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location="+latlon+"&radius=50000&type=restaurant&key=AIzaSyDeRZ8FEeGk0G9leGjbs316tbFUZu45J3I";
+        String url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location="+latlon+"&radius=500&type="+type+"&key=AIzaSyDeRZ8FEeGk0G9leGjbs316tbFUZu45J3I";
         Log.d(TAG, "setPlaceForRestaurant: "+url);
 
         StringRequest getRequest = new StringRequest(url,

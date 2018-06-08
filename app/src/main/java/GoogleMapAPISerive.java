@@ -69,35 +69,16 @@ public class GoogleMapAPISerive {
     }
 
 
-    public  static  void getPhotos(Context context,String photo){
-        queue = Volley.newRequestQueue(context);
+    public  static  String getPhotos(Context context,String photo){
         String url ="https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference="+photo+"&key=AIzaSyDeRZ8FEeGk0G9leGjbs316tbFUZu45J3I";
-        Log.d(TAG, "getPhotos: "+url);
-        StringRequest getRequest = new StringRequest(url,
-                new Response.Listener<String>() {
-                    @Override
-                    public void onResponse(String s) {
-                        Log.d(TAG, "getPhotos: "+s);
 
-
-                    }
-                },
-                new Response.ErrorListener() {
-
-                    @Override
-                    public void onErrorResponse(VolleyError volleyError) {
-                        Log.d(TAG, "onErrorResponse: "+volleyError.getMessage());
-
-                    }
-                });
-        queue.add(getRequest);
-
-
+        return  url;
     }
     public static  void nextPage(final Context context,String nextpage,GetResponse Response){
         queue = Volley.newRequestQueue(context);
         getResponse = Response;
         String url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?key=AIzaSyDeRZ8FEeGk0G9leGjbs316tbFUZu45J3I&pagetoken="+nextpage;
+        Log.d(TAG, "nextPage: "+url);
 
         StringRequest getRequest = new StringRequest(url,
                 new Response.Listener<String>() {

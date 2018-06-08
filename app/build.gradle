@@ -55,7 +55,9 @@ dependencies {
 
     implementation 'com.mcxiaoke.volley:library:1.0.+'
     implementation group: 'com.google.code.gson', name: 'gson', version: '2.3.1'
-    implementation 'com.github.open-android:PullToRefresh:v1.0'
+    compile 'com.github.open-android:PullToRefresh:v1.0'
+    compile 'com.hendraanggrian:pikasso:0.2'
+
 
 
 }

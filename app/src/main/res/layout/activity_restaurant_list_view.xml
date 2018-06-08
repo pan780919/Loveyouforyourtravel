@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".Data.RestaurantListViewActivity">
 
+
     <include layout="@layout/content_restaurant_list_view" />
 
 

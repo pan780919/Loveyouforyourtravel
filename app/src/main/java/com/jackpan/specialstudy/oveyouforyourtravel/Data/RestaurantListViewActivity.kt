@@ -1,5 +1,6 @@
 package com.jackpan.specialstudy.oveyouforyourtravel.Data
 
+import android.app.ProgressDialog
 import android.os.Bundle
 import android.support.design.widget.Snackbar
 import android.support.v7.app.AppCompatActivity
@@ -11,50 +12,80 @@ import com.google.android.gms.ads.AdView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.BaseAdapter
-import android.widget.ArrayAdapter
 import com.itheima.pulltorefreshlib.PullToRefreshBase
 import android.text.method.TextKeyListener.clear
 import android.util.Log
-import android.widget.ListView
-import android.widget.TextView
+import android.widget.*
+import com.hendraanggrian.pikasso.picasso
+import com.squareup.picasso.Picasso
 
 
 class RestaurantListViewActivity : AppCompatActivity(), GoogleMapAPISerive.GetResponse {
     override fun getData(googleResponseData: GoogleResponseData?) {
+        mProgressDialog = ProgressDialog(this)
+        mProgressDialog.setTitle("讀取中")
+        mProgressDialog.setMessage("請稍候")
+        mProgressDialog.setCancelable(false)
+        mProgressDialog.show()
         if (googleResponseData != null) {
-            Log.d("Jack","in")
+            mNextPage.clear()
+            mNextPage.add(googleResponseData)
             for (result in googleResponseData.results) {
-
+                Log.d("Jack", result.name)
                 mAllData.add(result)
-                mAdapter = MyAdapter(mAllData)
 
                 mAdapter!!.notifyDataSetChanged()
+
             }
+            Log.d("Jack","getData")
+            Log.d("Jack",mAllData.size.toString())
+
+
+
 
         }
+        mProgressDialog.dismiss()
+
     }
 
     lateinit var mPullToRefreshListView: PullToRefreshListView
+
     var mAdapter: MyAdapter? = null
     var mAllData: ArrayList<GoogleResponseData.Results> = ArrayList()
+    lateinit var mProgressDialog:ProgressDialog
+    var mNextPage :ArrayList<GoogleResponseData> = ArrayList()
+
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_restaurant_list_view)
+
         mPullToRefreshListView = findViewById(R.id.pull_to_refresh_list_view)
+
         GoogleMapAPISerive.setPlaceForRestaurant(this@RestaurantListViewActivity, "25.048630,%20121.544427", this@RestaurantListViewActivity)
+        mAdapter = MyAdapter(mAllData)
         mPullToRefreshListView.setAdapter(mAdapter)
 
         mPullToRefreshListView.setOnRefreshListener(mListViewOnRefreshListener2)
-        mPullToRefreshListView.setMode(PullToRefreshBase.Mode.BOTH);
+        mPullToRefreshListView.setMode(PullToRefreshBase.Mode.PULL_FROM_END);
+        mPullToRefreshListView.setOnItemClickListener(AdapterView.OnItemClickListener {
+            parent, view, position, id ->
+
+            Log.d("Jack", mAdapter!!.mAllData!![parent.adapter.getItemId(position).toInt()].name)
+        })
 
 
 
     }
 
-    inner class MyAdapter(private var mAllData: ArrayList<GoogleResponseData.Results>?) : BaseAdapter() {
+    override fun onResume() {
+        super.onResume()
+
+    }
+
+
+    inner class MyAdapter(var mAllData: ArrayList<GoogleResponseData.Results>?) : BaseAdapter() {
         fun updateData(datas: ArrayList<GoogleResponseData.Results>) {
             mAllData = datas
             notifyDataSetChanged()
@@ -79,8 +110,10 @@ class RestaurantListViewActivity : AppCompatActivity(), GoogleMapAPISerive.GetRe
                 convertView = LayoutInflater.from(this@RestaurantListViewActivity).inflate(
                         R.layout.listview_layout, null)
             var mTittleText :TextView = convertView!!.findViewById(R.id.listviewtext)
+            var photoimg :ImageView = convertView!!.findViewById(R.id.listview_img)
             mTittleText.text =data.name
-
+            var  photoString:String = GoogleMapAPISerive.getPhotos(this@RestaurantListViewActivity,data.photos.get(0).photo_reference)
+            picasso.load(photoString).into(photoimg)
 
 
             return convertView
@@ -110,6 +143,16 @@ class RestaurantListViewActivity : AppCompatActivity(), GoogleMapAPISerive.GetRe
             //模拟延时三秒加载更多数据
             mPullToRefreshListView.postDelayed({
                 mPullToRefreshListView.onRefreshComplete()//上拉加载更多结束，上拉加载头复位
+                Log.d("Jack",mNextPage.size.toString())
+                if(mNextPage[0].next_page_token==null){
+                    Toast.makeText(this@RestaurantListViewActivity,"最後一筆資料囉！！",Toast.LENGTH_SHORT).show()
+                    return@postDelayed
+                }
+                GoogleMapAPISerive.nextPage(this@RestaurantListViewActivity,mNextPage[0].next_page_token, this@RestaurantListViewActivity)
+                mAdapter!!.notifyDataSetChanged()
+                Toast.makeText(this@RestaurantListViewActivity,"列表刷新！！",Toast.LENGTH_SHORT).show()
+
+
             }, 3000)
         }
     }

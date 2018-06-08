@@ -145,7 +145,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMapAPISerive
     // 在地圖加入指定位置與標題的標記
     private fun addMarker(place: LatLng, title: String, context: String) {
         val icon: BitmapDescriptor =
-                BitmapDescriptorFactory.fromResource(R.mipmap.loction_icon)
+                BitmapDescriptorFactory.fromResource(R.mipmap.map_food)
 
         val markerOptions = MarkerOptions()
         markerOptions.position(place)

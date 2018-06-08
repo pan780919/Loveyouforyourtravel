@@ -26,6 +26,7 @@ public class GoogleMapAPISerive {
     public static  final  String  TYPE_PARK  = "park";
     public static  final  String  TYPE_LATLON = "latlon";
     public static  final  String  TYPE  = "type";
+    public static  final  String  TYPE_PLACEID = "place_id";
 
 
 

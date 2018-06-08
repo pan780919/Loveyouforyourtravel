@@ -1,6 +1,7 @@
 package com.jackpan.specialstudy.oveyouforyourtravel.Data
 
 import android.app.ProgressDialog
+import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import com.itheima.pulltorefreshlib.PullToRefreshListView
@@ -13,6 +14,7 @@ import com.itheima.pulltorefreshlib.PullToRefreshBase
 import android.util.Log
 import android.widget.*
 import com.hendraanggrian.pikasso.picasso
+import com.jackpan.specialstudy.oveyouforyourtravel.MapPlaceDetailActivity
 
 
 class TypeListViewActivity : AppCompatActivity(), GoogleMapAPISerive.GetResponse {
@@ -74,8 +76,13 @@ class TypeListViewActivity : AppCompatActivity(), GoogleMapAPISerive.GetResponse
         mPullToRefreshListView.setMode(PullToRefreshBase.Mode.PULL_FROM_END);
         mPullToRefreshListView.setOnItemClickListener(AdapterView.OnItemClickListener {
             parent, view, position, id ->
+            var mIntent = Intent()
+            var mBundle = Bundle()
 
-            Log.d("Jack", mAdapter!!.mAllData!![parent.adapter.getItemId(position).toInt()].name)
+            mBundle.putString(GoogleMapAPISerive.TYPE_PLACEID,mAdapter!!.mAllData!![parent.adapter.getItemId(position).toInt()].place_id)
+            mIntent.putExtras(mBundle)
+            mIntent.setClass(this,MapPlaceDetailActivity::class.java)
+            Log.d("Jack", mAdapter!!.mAllData!![parent.adapter.getItemId(position).toInt()].place_id)
         })
 
 

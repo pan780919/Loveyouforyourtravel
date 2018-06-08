@@ -22,7 +22,7 @@ public class GoogleMapAPISerive {
     static  RequestQueue queue;
     static  GetResponse getResponse;
     public static  final  String  TYPE_RESTAURANT  = "restaurant";
-    public static  final  String  TYPE_PARK  = "prak";
+    public static  final  String  TYPE_PARK  = "park";
     public static  final  String  TYPE_LATLON = "latlon";
     public static  final  String  TYPE  = "type";
 

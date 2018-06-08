@@ -26,7 +26,19 @@ import com.google.android.gms.maps.model.MarkerOptions
 import com.jackpan.specialstudy.oveyouforyourtravel.Data.GoogleResponseData
 
 class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMapAPISerive.GetResponse, GoogleMap.OnCameraMoveListener, GoogleMap.OnCameraMoveCanceledListener
-        , LocationListener, GoogleMap.OnCameraMoveStartedListener {
+        , LocationListener, GoogleMap.OnCameraMoveStartedListener,GoogleMap.OnCameraIdleListener {
+    override fun onCameraIdle() {
+        Log.d("Jack","onCameraIdle")
+        Log.d("Jack", mMap.cameraPosition.target.latitude.toString())
+        Log.d("Jack", mMap.cameraPosition.target.longitude.toString())
+        val sydney = LatLng(mMap.cameraPosition.target.latitude, mMap.cameraPosition.target.longitude)
+        var latlon: String = mMap.cameraPosition.target.latitude.toString() + "," + mMap.cameraPosition.target.longitude.toString()
+
+        GoogleMapAPISerive.setPlaceForRestaurant(this@MapsActivity, latlon, GoogleMapAPISerive.TYPE_RESTAURANT,this@MapsActivity)
+
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney))
+    }
+
     override fun onCameraMoveStarted(p0: Int) {
 //        Log.d("Jack", "onCameraMoveStarted")
     }
@@ -49,7 +61,6 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMapAPISerive
 //        Log.d("Jack","onCameraMove")
 //        Log.d("Jack",mMap.cameraPosition.target.latitude.toString())
 //        Log.d("Jack",mMap.cameraPosition.target.longitude.toString())
-//        var latlon: String = mMap.cameraPosition.target.latitude.toString() + "," + mMap.cameraPosition.target.longitude.toString()
 //        GoogleMapAPISerive.setPlaceForRestaurant(this@MapsActivity, latlon, this@MapsActivity)
 
     }
@@ -71,11 +82,11 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMapAPISerive
             }
         }
     }
+    var mFistBoolean : Boolean = true
 
     private lateinit var mMap: GoogleMap
     val MY_PERMISSIONS_REQUEST_LOCATION = 100
     private var locationManager: LocationManager? = null
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_maps)
@@ -101,11 +112,10 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMapAPISerive
         mMap.setOnCameraMoveStartedListener(this)
         mMap.setOnCameraMoveListener(this)
         mMap.setOnCameraMoveCanceledListener(this)
+        mMap.setOnCameraIdleListener(this)
 
         // Add a marker in Sydney and move the camera
-//        val sydney = LatLng(-34.0, 151.0)
-//        mMap.addMarker(MarkerOptions().position(sydney).title("Marker in Sydney"))
-//        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney))
+
     }
 
     fun checkPermission() {
@@ -162,9 +172,12 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMapAPISerive
             Log.d("Location", location.latitude.toString())
             Log.d("Location", location.longitude.toString())
             var latlon: String = location.latitude.toString() + "," + location.longitude.toString()
-            GoogleMapAPISerive.setPlaceForRestaurant(this@MapsActivity, latlon, GoogleMapAPISerive.TYPE_RESTAURANT,this@MapsActivity)
-            mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(LatLng(location.latitude, location.longitude), 18.0f))
 //            locationTextView.text = "${location.latitude} - ${location.longitude}"
+            if(mFistBoolean){
+                GoogleMapAPISerive.setPlaceForRestaurant(this@MapsActivity, latlon, GoogleMapAPISerive.TYPE_RESTAURANT,this@MapsActivity)
+                mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(LatLng(location.latitude, location.longitude), 18.0f))
+                mFistBoolean = false
+            }
 
 
         }

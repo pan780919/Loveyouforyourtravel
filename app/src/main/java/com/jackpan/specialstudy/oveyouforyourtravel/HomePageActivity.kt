@@ -134,7 +134,19 @@ class HomePageActivity : AppCompatActivity(), MfirebaeCallback{
 
 
         }
-        mLevelLayout.setOnClickListener{checkLoginState()}
+        mLevelLayout.setOnClickListener{
+
+            if(!latlon.equals("")){
+                var intent = Intent()
+                var mBundle = Bundle()
+                mBundle.putString(GoogleMapAPISerive.TYPE,GoogleMapAPISerive.TYPE_PARK)
+                mBundle.putString(GoogleMapAPISerive.TYPE_LATLON,latlon)
+                intent.putExtras(mBundle)
+                intent.setClass(this, TypeListViewActivity::class.java)
+                startActivity(intent)
+
+            }
+        }
         mFoodLayout.setOnClickListener {
             if(!latlon.equals("")){
                 var intent = Intent()
@@ -148,7 +160,10 @@ class HomePageActivity : AppCompatActivity(), MfirebaeCallback{
             }
 
         }
-        mLoveLayout.setOnClickListener {checkLoginState()  }
+        mLoveLayout.setOnClickListener {
+
+
+        }
     }
     private fun checkLoginState(){
         if(MySharedPrefernces.getIsToken(this).equals("")){

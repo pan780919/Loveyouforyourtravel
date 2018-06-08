@@ -112,8 +112,14 @@ class TypeListViewActivity : AppCompatActivity(), GoogleMapAPISerive.GetResponse
             var mTittleText :TextView = convertView!!.findViewById(R.id.listviewtext)
             var photoimg :ImageView = convertView!!.findViewById(R.id.listview_img)
             mTittleText.text =data.name
-            var  photoString:String = GoogleMapAPISerive.getPhotos(this@TypeListViewActivity,data.photos.get(0).photo_reference)
-            picasso.load(photoString).into(photoimg)
+            if(data.photos!=null){
+                var  photoString:String = GoogleMapAPISerive.getPhotos(this@TypeListViewActivity,data.photos.get(0).photo_reference)
+                picasso.load(photoString).into(photoimg)
+            }else{
+                picasso.load(R.mipmap.nolodingphoto).into(photoimg)
+
+            }
+
 
 
             return convertView

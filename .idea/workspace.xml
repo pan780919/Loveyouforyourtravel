@@ -6,12 +6,14 @@
     </shared>
   </component>
   <component name="AndroidLogFilters">
+    <option name="TOOL_WINDOW_CUSTOM_FILTER" value="Jack" />
     <option name="TOOL_WINDOW_LOG_LEVEL" value="debug" />
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
     <option name="TOOL_WINDOW_REGEXP_FILTER" value="false" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="676c0dfd-fc21-4b31-b2f5-a16d82aebda3" name="Default" comment="">
+      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-xhdpi/nolodingphoto.jpg" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.4/fileHashes/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/4.4/fileHashes/fileHashes.bin" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.4/fileHashes/fileHashes.lock" afterPath="$PROJECT_DIR$/.gradle/4.4/fileHashes/fileHashes.lock" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.4/fileHashes/resourceHashesCache.bin" afterPath="$PROJECT_DIR$/.gradle/4.4/fileHashes/resourceHashesCache.bin" />
@@ -21,6 +23,9 @@
       <change beforePath="$PROJECT_DIR$/.gradle/4.4/taskHistory/taskHistory.bin" afterPath="$PROJECT_DIR$/.gradle/4.4/taskHistory/taskHistory.bin" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.4/taskHistory/taskHistory.lock" afterPath="$PROJECT_DIR$/.gradle/4.4/taskHistory/taskHistory.lock" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/app/src/debug/res/values/google_maps_api.xml" afterPath="$PROJECT_DIR$/app/src/debug/res/values/google_maps_api.xml" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/GoogleMapAPISerive.java" afterPath="$PROJECT_DIR$/app/src/main/java/GoogleMapAPISerive.java" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/jackpan/specialstudy/oveyouforyourtravel/Data/TypeListViewActivity.kt" afterPath="$PROJECT_DIR$/app/src/main/java/com/jackpan/specialstudy/oveyouforyourtravel/Data/TypeListViewActivity.kt" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/jackpan/specialstudy/oveyouforyourtravel/HomePageActivity.kt" afterPath="$PROJECT_DIR$/app/src/main/java/com/jackpan/specialstudy/oveyouforyourtravel/HomePageActivity.kt" />
@@ -47,11 +52,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="TypeListViewActivity.kt" pinned="false" current-in-tab="true">
+      <file leaf-file-name="TypeListViewActivity.kt" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/jackpan/specialstudy/oveyouforyourtravel/Data/TypeListViewActivity.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-10">
-              <caret line="65" column="103" lean-forward="false" selection-start-line="65" selection-start-column="103" selection-end-line="65" selection-end-column="103" />
+            <state relative-caret-position="2596">
+              <caret line="118" column="51" lean-forward="false" selection-start-line="118" selection-start-column="51" selection-end-line="118" selection-end-column="51" />
               <folding>
                 <element signature="e#59#512#0" expanded="true" />
               </folding>
@@ -64,19 +69,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="132">
               <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="content_restaurant_list_view.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/content_restaurant_list_view.xml">
-          <provider editor-type-id="android-designer2">
-            <state />
-          </provider>
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="198">
-              <caret line="9" column="41" lean-forward="false" selection-start-line="9" selection-start-column="5" selection-end-line="9" selection-end-column="55" />
               <folding />
             </state>
           </provider>
@@ -123,11 +115,150 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MapsActivity.kt" pinned="false" current-in-tab="false">
+      <file leaf-file-name="MapsActivity.kt" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/jackpan/specialstudy/oveyouforyourtravel/MapsActivity.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="177">
-              <caret line="164" column="115" lean-forward="false" selection-start-line="164" selection-start-column="115" selection-end-line="164" selection-end-column="115" />
+            <state relative-caret-position="230">
+              <caret line="34" column="7" lean-forward="false" selection-start-line="34" selection-start-column="7" selection-end-line="34" selection-end-column="7" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GoogleMap.class" pinned="false" current-in-tab="false">
+        <entry file="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/play-services-maps-15.0.1.aar/a8b6dc9b8ab65b0b47ba8b5688f96055/jars/classes.jar!/com/google/android/gms/maps/GoogleMap.class">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="160">
+              <caret line="97" column="22" lean-forward="false" selection-start-line="97" selection-start-column="22" selection-end-line="97" selection-end-column="22" />
+              <folding>
+                <marker date="1528360590375" expanded="false" signature="0:104" ph="/.../" />
+                <marker date="1528360590375" expanded="false" signature="151:2810" ph="..." />
+                <marker date="1528360590375" expanded="true" signature="3207:3287" ph="{...}" />
+                <marker date="1528360590375" expanded="true" signature="3341:3514" ph="{...}" />
+                <marker date="1528360590375" expanded="true" signature="3557:3728" ph="{...}" />
+                <marker date="1528360590375" expanded="true" signature="3771:3942" ph="{...}" />
+                <marker date="1528360590375" expanded="true" signature="3996:4165" ph="{...}" />
+                <marker date="1528360590375" expanded="true" signature="4222:4394" ph="{...}" />
+                <marker date="1528360590375" expanded="true" signature="4486:4717" ph="{...}" />
+                <marker date="1528360590375" expanded="true" signature="4819:5067" ph="{...}" />
+                <marker date="1528360590375" expanded="true" signature="5107:5269" ph="{...}" />
+                <marker date="1528360590375" expanded="true" signature="5331:5516" ph="{...}" />
+                <marker date="1528360590375" expanded="true" signature="5575:5758" ph="{...}" />
+                <marker date="1528360590375" expanded="true" signature="5814:5995" ph="{...}" />
+                <marker date="1528360590375" expanded="true" signature="6051:6285" ph="{...}" />
+                <marker date="1528360590375" expanded="true" signature="6362:6610" ph="{...}" />
+                <marker date="1528360590375" expanded="true" signature="6681:6926" ph="{...}" />
+                <marker date="1528360590375" expanded="true" signature="6958:7112" ph="{...}" />
+                <marker date="1528360590375" expanded="true" signature="7167:7414" ph="{...}" />
+                <marker date="1528360590375" expanded="true" signature="7513:7878" ph="{...}" />
+                <marker date="1528360590375" expanded="true" signature="7914:8080" ph="{...}" />
+                <marker date="1528360590375" expanded="true" signature="8125:8288" ph="{...}" />
+                <marker date="1528360590375" expanded="true" signature="8334:8506" ph="{...}" />
+                <marker date="1528360590375" expanded="true" signature="8562:8732" ph="{...}" />
+                <marker date="1528360590375" expanded="true" signature="8777:8948" ph="{...}" />
+                <marker date="1528360590375" expanded="true" signature="9006:9182" ph="{...}" />
+                <marker date="1528360590375" expanded="true" signature="9230:9404" ph="{...}" />
+                <marker date="1528360590375" expanded="true" signature="9462:9634" ph="{...}" />
+                <marker date="1528360590375" expanded="true" signature="9683:9858" ph="{...}" />
+                <marker date="1528360590375" expanded="true" signature="9864:9995" ph="@{...}" />
+                <marker date="1528360590375" expanded="true" signature="10053:10226" ph="{...}" />
+                <marker date="1528360590375" expanded="true" signature="10232:10250" ph="/**...*/" />
+                <marker date="1528360590375" expanded="true" signature="10309:10478" ph="{...}" />
+                <marker date="1528360590375" expanded="true" signature="10541:10872" ph="{...}" />
+                <marker date="1528360590375" expanded="true" signature="10918:11191" ph="{...}" />
+                <marker date="1528360590375" expanded="true" signature="11237:11422" ph="{...}" />
+                <marker date="1528360590375" expanded="true" signature="11428:11446" ph="/**...*/" />
+                <marker date="1528360590375" expanded="true" signature="11560:11952" ph="{...}" />
+                <marker date="1528360590375" expanded="true" signature="12061:12435" ph="{...}" />
+                <marker date="1528360590375" expanded="true" signature="12530:12853" ph="{...}" />
+                <marker date="1528360590375" expanded="true" signature="12964:13303" ph="{...}" />
+                <marker date="1528360590375" expanded="true" signature="13398:13758" ph="{...}" />
+                <marker date="1528360590375" expanded="true" signature="13849:14169" ph="{...}" />
+                <marker date="1528360590375" expanded="true" signature="14268:14624" ph="{...}" />
+                <marker date="1528360590375" expanded="true" signature="14721:15047" ph="{...}" />
+                <marker date="1528360590375" expanded="true" signature="15142:15466" ph="{...}" />
+                <marker date="1528360590375" expanded="true" signature="15571:15905" ph="{...}" />
+                <marker date="1528360590375" expanded="true" signature="16018:16360" ph="{...}" />
+                <marker date="1528360590375" expanded="true" signature="16465:16799" ph="{...}" />
+                <marker date="1528360590375" expanded="true" signature="16878:17195" ph="{...}" />
+                <marker date="1528360590375" expanded="true" signature="17201:17219" ph="/**...*/" />
+                <marker date="1528360590375" expanded="true" signature="17341:17705" ph="{...}" />
+                <marker date="1528360590375" expanded="true" signature="17822:18168" ph="{...}" />
+                <marker date="1528360590375" expanded="true" signature="18273:18607" ph="{...}" />
+                <marker date="1528360590375" expanded="true" signature="18690:19040" ph="{...}" />
+                <marker date="1528360590375" expanded="true" signature="19141:19545" ph="{...}" />
+                <marker date="1528360590375" expanded="true" signature="19632:19994" ph="{...}" />
+                <marker date="1528360590375" expanded="true" signature="20083:20439" ph="{...}" />
+                <marker date="1528360590375" expanded="true" signature="20530:20860" ph="{...}" />
+                <marker date="1528360590375" expanded="true" signature="20931:20981" ph="{...}" />
+                <marker date="1528360590375" expanded="true" signature="21065:21370" ph="{...}" />
+                <marker date="1528360590375" expanded="true" signature="21445:21626" ph="{...}" />
+                <marker date="1528360590375" expanded="true" signature="21685:21859" ph="{...}" />
+                <marker date="1528360590375" expanded="true" signature="21940:22260" ph="{...}" />
+                <marker date="1528360590375" expanded="true" signature="22331:22502" ph="{...}" />
+                <marker date="1528360590375" expanded="true" signature="22559:22732" ph="{...}" />
+                <marker date="1528360590375" expanded="true" signature="22789:22962" ph="{...}" />
+                <marker date="1528360590375" expanded="true" signature="23014:23188" ph="{...}" />
+                <marker date="1528360590375" expanded="true" signature="23262:23445" ph="{...}" />
+                <marker date="1528360590375" expanded="true" signature="23487:23541" ph="{...}" />
+                <marker date="1528360590375" expanded="true" signature="23627:23949" ph="{...}" />
+                <marker date="1528360590375" expanded="false" signature="23733:23748" ph=" { " />
+                <marker date="1528360590375" expanded="false" signature="23765:23775" ph=" }" />
+                <marker date="1528360590375" expanded="false" signature="23813:23828" ph=" { " />
+                <marker date="1528360590375" expanded="false" signature="23849:23859" ph=" }" />
+                <marker date="1528360590375" expanded="false" signature="23897:23912" ph=" { " />
+                <marker date="1528360590375" expanded="false" signature="23933:23943" ph=" }" />
+                <marker date="1528360590375" expanded="true" signature="24001:24063" ph="{...}" />
+                <marker date="1528360590375" expanded="true" signature="24106:24141" ph="{...}" />
+                <marker date="1528360590375" expanded="true" signature="24190:24253" ph="{...}" />
+                <marker date="1528360590375" expanded="true" signature="24308:24358" ph="{...}" />
+                <marker date="1528360590375" expanded="true" signature="24364:24382" ph="/**...*/" />
+                <marker date="1528360590375" expanded="true" signature="24447:24502" ph="{...}" />
+                <marker date="1528360590375" expanded="true" signature="24543:24635" ph="{...}" />
+                <marker date="1528360590375" expanded="true" signature="24680:24730" ph="{...}" />
+                <marker date="1528360590375" expanded="true" signature="24772:24830" ph="{...}" />
+                <marker date="1528360590375" expanded="true" signature="24879:24931" ph="{...}" />
+                <marker date="1528360590375" expanded="true" signature="24984:25040" ph="{...}" />
+                <marker date="1528360590375" expanded="true" signature="25089:25141" ph="{...}" />
+                <marker date="1528360590375" expanded="true" signature="25185:25322" ph="{...}" />
+                <marker date="1528360590375" expanded="true" signature="25367:25418" ph="{...}" />
+                <marker date="1528360590375" expanded="true" signature="25465:25517" ph="{...}" />
+                <marker date="1528360590375" expanded="true" signature="25563:25613" ph="{...}" />
+                <marker date="1528360590375" expanded="true" signature="25658:25706" ph="{...}" />
+                <marker date="1528360590375" expanded="true" signature="25712:25730" ph="/**...*/" />
+                <marker date="1528360590375" expanded="true" signature="25791:25848" ph="{...}" />
+                <marker date="1528360590375" expanded="true" signature="25892:25928" ph="{...}" />
+                <marker date="1528360590375" expanded="true" signature="25980:26024" ph="{...}" />
+                <marker date="1528360590375" expanded="true" signature="26068:26104" ph="{...}" />
+                <marker date="1528360590375" expanded="true" signature="26155:26321" ph="{...}" />
+                <marker date="1528360590375" expanded="true" signature="26367:26416" ph="{...}" />
+                <marker date="1528360590375" expanded="true" signature="26458:26503" ph="{...}" />
+                <marker date="1528360590375" expanded="true" signature="26554:26660" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AndroidManifest.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="215">
+              <caret line="74" column="0" lean-forward="false" selection-start-line="74" selection-start-column="0" selection-end-line="74" selection-end-column="0" />
+              <folding>
+                <element signature="e#3069#3094#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+          <provider editor-type-id="android-manifest">
+            <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="google_maps_api.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/debug/res/values/google_maps_api.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="484">
+              <caret line="22" column="128" lean-forward="false" selection-start-line="22" selection-start-column="128" selection-end-line="22" selection-end-column="128" />
               <folding />
             </state>
           </provider>
@@ -136,8 +267,8 @@
       <file leaf-file-name="HomePageActivity.kt" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/jackpan/specialstudy/oveyouforyourtravel/HomePageActivity.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="142" column="64" lean-forward="false" selection-start-line="142" selection-start-column="64" selection-end-line="142" selection-end-column="64" />
+            <state relative-caret-position="362">
+              <caret line="144" column="44" lean-forward="false" selection-start-line="144" selection-start-column="44" selection-end-line="144" selection-end-column="44" />
               <folding>
                 <element signature="e#54#772#0" expanded="true" />
               </folding>
@@ -247,24 +378,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="listview_layout.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/listview_layout.xml">
-          <provider editor-type-id="android-designer2">
-            <state />
-          </provider>
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="435">
-              <caret line="38" column="28" lean-forward="false" selection-start-line="38" selection-start-column="28" selection-end-line="38" selection-end-column="28" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="GoogleMapAPISerive.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/GoogleMapAPISerive.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="174">
-              <caret line="30" column="38" lean-forward="false" selection-start-line="30" selection-start-column="38" selection-end-line="30" selection-end-column="38" />
+            <state relative-caret-position="423">
+              <caret line="35" column="41" lean-forward="false" selection-start-line="35" selection-start-column="20" selection-end-line="35" selection-end-column="41" />
               <folding>
                 <element signature="e#1428#2915#0" expanded="true" />
                 <element signature="e#2914#2915#0" expanded="true" />
@@ -285,6 +403,11 @@
         <option value="layoutResourceFile" />
       </list>
     </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>photo_reference</find>
+    </findStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -2408,15 +2531,16 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/jackpan/specialstudy/oveyouforyourtravel/Data/RestaurantListViewActivity.kt" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/jackpan/specialstudy/oveyouforyourtravel/HomePageActivity.kt" />
         <option value="$PROJECT_DIR$/app/src/main/java/GoogleMapAPISerive.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/jackpan/specialstudy/oveyouforyourtravel/MapsActivity.kt" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/jackpan/specialstudy/oveyouforyourtravel/Data/TypeListViewActivity.kt" />
+        <option value="$PROJECT_DIR$/app/src/debug/res/values/google_maps_api.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/jackpan/specialstudy/oveyouforyourtravel/MapsActivity.kt" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" fullScreen="true">
-    <option name="y" value="23" />
-    <option name="width" value="1440" />
-    <option name="height" value="807" />
+    <option name="width" value="716" />
+    <option name="height" value="900" />
   </component>
   <component name="ProjectView">
     <navigator currentView="AndroidView" proportions="" version="1">
@@ -2443,6 +2567,11 @@
             <path>
               <item name="Loveyouforyourtravel" type="1abcf292:AndroidViewProjectNode" />
               <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="manifests" type="f94875db:AndroidManifestsGroupNode" />
+            </path>
+            <path>
+              <item name="Loveyouforyourtravel" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
               <item name="java" type="edd41e36:AndroidSourceTypeNode" />
             </path>
             <path>
@@ -2457,6 +2586,17 @@
               <item name="java" type="edd41e36:AndroidSourceTypeNode" />
               <item name="oveyouforyourtravel" type="cbb59c9e:AndroidPsiDirectoryNode" />
               <item name="Data" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Loveyouforyourtravel" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="res" type="d4f16f75:AndroidResFolderNode" />
+            </path>
+            <path>
+              <item name="Loveyouforyourtravel" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="res" type="d4f16f75:AndroidResFolderNode" />
+              <item name="mipmap" type="ddeffd01:AndroidResFolderTypeNode" />
             </path>
             <path>
               <item name="Loveyouforyourtravel" type="1abcf292:AndroidViewProjectNode" />
@@ -2477,6 +2617,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="device.picker.selection" value="HBAZCY01S6086N6" />
     <property name="android.profiler.active" value="true" />
+    <property name="last_directory_selection" value="$PROJECT_DIR$/app/src/main/res/mipmap-xhdpi" />
   </component>
   <component name="RecentsManager">
     <key name="android.template.packageName">
@@ -2484,6 +2625,9 @@
     </key>
     <key name="android.template.parentActivityClass">
       <recent name="" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/src/main/res/mipmap-xhdpi" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -2651,7 +2795,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1440" height="900" extended-state="6" />
+    <frame x="0" y="0" width="1440" height="900" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -3013,14 +3157,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/MySharedPrefernces.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
-          <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/Library/Android/sdk/sources/android-27/android/location/LocationManager.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="176">
@@ -3031,18 +3167,26 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/jackpan/specialstudy/oveyouforyourtravel/HomePageActivity.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="142" column="64" lean-forward="false" selection-start-line="142" selection-start-column="64" selection-end-line="142" selection-end-column="64" />
+        <state relative-caret-position="362">
+          <caret line="144" column="44" lean-forward="false" selection-start-line="144" selection-start-column="44" selection-end-line="144" selection-end-column="44" />
           <folding>
             <element signature="e#54#772#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/MySharedPrefernces.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/GoogleMapAPISerive.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="174">
-          <caret line="30" column="38" lean-forward="false" selection-start-line="30" selection-start-column="38" selection-end-line="30" selection-end-column="38" />
+        <state relative-caret-position="423">
+          <caret line="35" column="41" lean-forward="false" selection-start-line="35" selection-start-column="20" selection-end-line="35" selection-end-column="41" />
           <folding>
             <element signature="e#1428#2915#0" expanded="true" />
             <element signature="e#2914#2915#0" expanded="true" />
@@ -3054,21 +3198,154 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/jackpan/specialstudy/oveyouforyourtravel/MapsActivity.kt">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/jackpan/specialstudy/oveyouforyourtravel/Data/TypeListViewActivity.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="177">
-          <caret line="164" column="115" lean-forward="false" selection-start-line="164" selection-start-column="115" selection-end-line="164" selection-end-column="115" />
+        <state relative-caret-position="2596">
+          <caret line="118" column="51" lean-forward="false" selection-start-line="118" selection-start-column="51" selection-end-line="118" selection-end-column="51" />
+          <folding>
+            <element signature="e#59#512#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/debug/res/values/google_maps_api.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="484">
+          <caret line="22" column="128" lean-forward="false" selection-start-line="22" selection-start-column="128" selection-end-line="22" selection-end-column="128" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/jackpan/specialstudy/oveyouforyourtravel/Data/TypeListViewActivity.kt">
+    <entry file="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/play-services-maps-15.0.1.aar/a8b6dc9b8ab65b0b47ba8b5688f96055/jars/classes.jar!/com/google/android/gms/maps/GoogleMap.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-10">
-          <caret line="65" column="103" lean-forward="false" selection-start-line="65" selection-start-column="103" selection-end-line="65" selection-end-column="103" />
+        <state relative-caret-position="160">
+          <caret line="97" column="22" lean-forward="false" selection-start-line="97" selection-start-column="22" selection-end-line="97" selection-end-column="22" />
           <folding>
-            <element signature="e#59#512#0" expanded="true" />
+            <marker date="1528360590375" expanded="false" signature="0:104" ph="/.../" />
+            <marker date="1528360590375" expanded="false" signature="151:2810" ph="..." />
+            <marker date="1528360590375" expanded="true" signature="3207:3287" ph="{...}" />
+            <marker date="1528360590375" expanded="true" signature="3341:3514" ph="{...}" />
+            <marker date="1528360590375" expanded="true" signature="3557:3728" ph="{...}" />
+            <marker date="1528360590375" expanded="true" signature="3771:3942" ph="{...}" />
+            <marker date="1528360590375" expanded="true" signature="3996:4165" ph="{...}" />
+            <marker date="1528360590375" expanded="true" signature="4222:4394" ph="{...}" />
+            <marker date="1528360590375" expanded="true" signature="4486:4717" ph="{...}" />
+            <marker date="1528360590375" expanded="true" signature="4819:5067" ph="{...}" />
+            <marker date="1528360590375" expanded="true" signature="5107:5269" ph="{...}" />
+            <marker date="1528360590375" expanded="true" signature="5331:5516" ph="{...}" />
+            <marker date="1528360590375" expanded="true" signature="5575:5758" ph="{...}" />
+            <marker date="1528360590375" expanded="true" signature="5814:5995" ph="{...}" />
+            <marker date="1528360590375" expanded="true" signature="6051:6285" ph="{...}" />
+            <marker date="1528360590375" expanded="true" signature="6362:6610" ph="{...}" />
+            <marker date="1528360590375" expanded="true" signature="6681:6926" ph="{...}" />
+            <marker date="1528360590375" expanded="true" signature="6958:7112" ph="{...}" />
+            <marker date="1528360590375" expanded="true" signature="7167:7414" ph="{...}" />
+            <marker date="1528360590375" expanded="true" signature="7513:7878" ph="{...}" />
+            <marker date="1528360590375" expanded="true" signature="7914:8080" ph="{...}" />
+            <marker date="1528360590375" expanded="true" signature="8125:8288" ph="{...}" />
+            <marker date="1528360590375" expanded="true" signature="8334:8506" ph="{...}" />
+            <marker date="1528360590375" expanded="true" signature="8562:8732" ph="{...}" />
+            <marker date="1528360590375" expanded="true" signature="8777:8948" ph="{...}" />
+            <marker date="1528360590375" expanded="true" signature="9006:9182" ph="{...}" />
+            <marker date="1528360590375" expanded="true" signature="9230:9404" ph="{...}" />
+            <marker date="1528360590375" expanded="true" signature="9462:9634" ph="{...}" />
+            <marker date="1528360590375" expanded="true" signature="9683:9858" ph="{...}" />
+            <marker date="1528360590375" expanded="true" signature="9864:9995" ph="@{...}" />
+            <marker date="1528360590375" expanded="true" signature="10053:10226" ph="{...}" />
+            <marker date="1528360590375" expanded="true" signature="10232:10250" ph="/**...*/" />
+            <marker date="1528360590375" expanded="true" signature="10309:10478" ph="{...}" />
+            <marker date="1528360590375" expanded="true" signature="10541:10872" ph="{...}" />
+            <marker date="1528360590375" expanded="true" signature="10918:11191" ph="{...}" />
+            <marker date="1528360590375" expanded="true" signature="11237:11422" ph="{...}" />
+            <marker date="1528360590375" expanded="true" signature="11428:11446" ph="/**...*/" />
+            <marker date="1528360590375" expanded="true" signature="11560:11952" ph="{...}" />
+            <marker date="1528360590375" expanded="true" signature="12061:12435" ph="{...}" />
+            <marker date="1528360590375" expanded="true" signature="12530:12853" ph="{...}" />
+            <marker date="1528360590375" expanded="true" signature="12964:13303" ph="{...}" />
+            <marker date="1528360590375" expanded="true" signature="13398:13758" ph="{...}" />
+            <marker date="1528360590375" expanded="true" signature="13849:14169" ph="{...}" />
+            <marker date="1528360590375" expanded="true" signature="14268:14624" ph="{...}" />
+            <marker date="1528360590375" expanded="true" signature="14721:15047" ph="{...}" />
+            <marker date="1528360590375" expanded="true" signature="15142:15466" ph="{...}" />
+            <marker date="1528360590375" expanded="true" signature="15571:15905" ph="{...}" />
+            <marker date="1528360590375" expanded="true" signature="16018:16360" ph="{...}" />
+            <marker date="1528360590375" expanded="true" signature="16465:16799" ph="{...}" />
+            <marker date="1528360590375" expanded="true" signature="16878:17195" ph="{...}" />
+            <marker date="1528360590375" expanded="true" signature="17201:17219" ph="/**...*/" />
+            <marker date="1528360590375" expanded="true" signature="17341:17705" ph="{...}" />
+            <marker date="1528360590375" expanded="true" signature="17822:18168" ph="{...}" />
+            <marker date="1528360590375" expanded="true" signature="18273:18607" ph="{...}" />
+            <marker date="1528360590375" expanded="true" signature="18690:19040" ph="{...}" />
+            <marker date="1528360590375" expanded="true" signature="19141:19545" ph="{...}" />
+            <marker date="1528360590375" expanded="true" signature="19632:19994" ph="{...}" />
+            <marker date="1528360590375" expanded="true" signature="20083:20439" ph="{...}" />
+            <marker date="1528360590375" expanded="true" signature="20530:20860" ph="{...}" />
+            <marker date="1528360590375" expanded="true" signature="20931:20981" ph="{...}" />
+            <marker date="1528360590375" expanded="true" signature="21065:21370" ph="{...}" />
+            <marker date="1528360590375" expanded="true" signature="21445:21626" ph="{...}" />
+            <marker date="1528360590375" expanded="true" signature="21685:21859" ph="{...}" />
+            <marker date="1528360590375" expanded="true" signature="21940:22260" ph="{...}" />
+            <marker date="1528360590375" expanded="true" signature="22331:22502" ph="{...}" />
+            <marker date="1528360590375" expanded="true" signature="22559:22732" ph="{...}" />
+            <marker date="1528360590375" expanded="true" signature="22789:22962" ph="{...}" />
+            <marker date="1528360590375" expanded="true" signature="23014:23188" ph="{...}" />
+            <marker date="1528360590375" expanded="true" signature="23262:23445" ph="{...}" />
+            <marker date="1528360590375" expanded="true" signature="23487:23541" ph="{...}" />
+            <marker date="1528360590375" expanded="true" signature="23627:23949" ph="{...}" />
+            <marker date="1528360590375" expanded="false" signature="23733:23748" ph=" { " />
+            <marker date="1528360590375" expanded="false" signature="23765:23775" ph=" }" />
+            <marker date="1528360590375" expanded="false" signature="23813:23828" ph=" { " />
+            <marker date="1528360590375" expanded="false" signature="23849:23859" ph=" }" />
+            <marker date="1528360590375" expanded="false" signature="23897:23912" ph=" { " />
+            <marker date="1528360590375" expanded="false" signature="23933:23943" ph=" }" />
+            <marker date="1528360590375" expanded="true" signature="24001:24063" ph="{...}" />
+            <marker date="1528360590375" expanded="true" signature="24106:24141" ph="{...}" />
+            <marker date="1528360590375" expanded="true" signature="24190:24253" ph="{...}" />
+            <marker date="1528360590375" expanded="true" signature="24308:24358" ph="{...}" />
+            <marker date="1528360590375" expanded="true" signature="24364:24382" ph="/**...*/" />
+            <marker date="1528360590375" expanded="true" signature="24447:24502" ph="{...}" />
+            <marker date="1528360590375" expanded="true" signature="24543:24635" ph="{...}" />
+            <marker date="1528360590375" expanded="true" signature="24680:24730" ph="{...}" />
+            <marker date="1528360590375" expanded="true" signature="24772:24830" ph="{...}" />
+            <marker date="1528360590375" expanded="true" signature="24879:24931" ph="{...}" />
+            <marker date="1528360590375" expanded="true" signature="24984:25040" ph="{...}" />
+            <marker date="1528360590375" expanded="true" signature="25089:25141" ph="{...}" />
+            <marker date="1528360590375" expanded="true" signature="25185:25322" ph="{...}" />
+            <marker date="1528360590375" expanded="true" signature="25367:25418" ph="{...}" />
+            <marker date="1528360590375" expanded="true" signature="25465:25517" ph="{...}" />
+            <marker date="1528360590375" expanded="true" signature="25563:25613" ph="{...}" />
+            <marker date="1528360590375" expanded="true" signature="25658:25706" ph="{...}" />
+            <marker date="1528360590375" expanded="true" signature="25712:25730" ph="/**...*/" />
+            <marker date="1528360590375" expanded="true" signature="25791:25848" ph="{...}" />
+            <marker date="1528360590375" expanded="true" signature="25892:25928" ph="{...}" />
+            <marker date="1528360590375" expanded="true" signature="25980:26024" ph="{...}" />
+            <marker date="1528360590375" expanded="true" signature="26068:26104" ph="{...}" />
+            <marker date="1528360590375" expanded="true" signature="26155:26321" ph="{...}" />
+            <marker date="1528360590375" expanded="true" signature="26367:26416" ph="{...}" />
+            <marker date="1528360590375" expanded="true" signature="26458:26503" ph="{...}" />
+            <marker date="1528360590375" expanded="true" signature="26554:26660" ph="{...}" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="215">
+          <caret line="74" column="0" lean-forward="false" selection-start-line="74" selection-start-column="0" selection-end-line="74" selection-end-column="0" />
+          <folding>
+            <element signature="e#3069#3094#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+      <provider editor-type-id="android-manifest">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/jackpan/specialstudy/oveyouforyourtravel/MapsActivity.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="230">
+          <caret line="34" column="7" lean-forward="false" selection-start-line="34" selection-start-column="7" selection-end-line="34" selection-end-column="7" />
+          <folding />
         </state>
       </provider>
     </entry>

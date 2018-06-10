@@ -76,12 +76,15 @@ class TypeListViewActivity : AppCompatActivity(), GoogleMapAPISerive.GetResponse
         mPullToRefreshListView.setMode(PullToRefreshBase.Mode.PULL_FROM_END);
         mPullToRefreshListView.setOnItemClickListener(AdapterView.OnItemClickListener {
             parent, view, position, id ->
+
+
             var mIntent = Intent()
             var mBundle = Bundle()
 
             mBundle.putString(GoogleMapAPISerive.TYPE_PLACEID,mAdapter!!.mAllData!![parent.adapter.getItemId(position).toInt()].place_id)
             mIntent.putExtras(mBundle)
             mIntent.setClass(this,MapPlaceDetailActivity::class.java)
+            startActivity(mIntent)
             Log.d("Jack", mAdapter!!.mAllData!![parent.adapter.getItemId(position).toInt()].place_id)
         })
 

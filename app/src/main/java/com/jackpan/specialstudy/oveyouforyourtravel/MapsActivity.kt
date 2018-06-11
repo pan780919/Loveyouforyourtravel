@@ -30,15 +30,15 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMapAPISerive
     }
 
     override fun onCameraIdle() {
-        Log.d("Jack","onCameraIdle")
-        Log.d("Jack", mMap.cameraPosition.target.latitude.toString())
-        Log.d("Jack", mMap.cameraPosition.target.longitude.toString())
-        val sydney = LatLng(mMap.cameraPosition.target.latitude, mMap.cameraPosition.target.longitude)
-        var latlon: String = mMap.cameraPosition.target.latitude.toString() + "," + mMap.cameraPosition.target.longitude.toString()
-
-        GoogleMapAPISerive.setPlaceForRestaurant(this@MapsActivity, latlon, "",this@MapsActivity)
-
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney))
+//        Log.d("Jack","onCameraIdle")
+//        Log.d("Jack", mMap.cameraPosition.target.latitude.toString())
+//        Log.d("Jack", mMap.cameraPosition.target.longitude.toString())
+//        val sydney = LatLng(mMap.cameraPosition.target.latitude, mMap.cameraPosition.target.longitude)
+//        var latlon: String = mMap.cameraPosition.target.latitude.toString() + "," + mMap.cameraPosition.target.longitude.toString()
+//
+//        GoogleMapAPISerive.setPlaceForRestaurant(this@MapsActivity, latlon, "",this@MapsActivity)
+//
+//        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney))
     }
 
     override fun onCameraMoveStarted(p0: Int) {

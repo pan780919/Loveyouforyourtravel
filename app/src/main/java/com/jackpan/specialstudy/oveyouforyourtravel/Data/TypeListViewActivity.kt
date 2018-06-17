@@ -68,7 +68,25 @@ class TypeListViewActivity : AppCompatActivity(), GoogleMapAPISerive.GetResponse
             Toast.makeText(this,"無法取得資料",Toast.LENGTH_SHORT).show()
             return
         }
-        GoogleMapAPISerive.setPlaceForRestaurant(this@TypeListViewActivity, mLatLngString, mTypeString,this@TypeListViewActivity)
+//        GoogleMapAPISerive.setPlaceForRestaurant(this@TypeListViewActivity, "22.666868,120.314892", mTypeString,this@TypeListViewActivity)
+//        GoogleMapAPISerive.setPlaceForRestaurant(this@TypeListViewActivity, "22.663020,120.312451", mTypeString,this@TypeListViewActivity)
+//        GoogleMapAPISerive.setPlaceForRestaurant(this@TypeListViewActivity, "22.660791,120.312044", mTypeString,this@TypeListViewActivity)
+//
+//        GoogleMapAPISerive.setPlaceForRestaurant(this@TypeListViewActivity, "22.657730,120.312742", mTypeString,this@TypeListViewActivity)
+//
+//        GoogleMapAPISerive.setPlaceForRestaurant(this@TypeListViewActivity, "22.655478,120.302776", mTypeString,this@TypeListViewActivity)
+//
+//
+//        GoogleMapAPISerive.setPlaceForRestaurant(this@TypeListViewActivity, "22.649366,120.293058", mTypeString,this@TypeListViewActivity)
+//
+        GoogleMapAPISerive.setPlaceForRestaurant(this@TypeListViewActivity, "22.638434,120.286278", mTypeString,this@TypeListViewActivity)
+//
+//
+//
+        GoogleMapAPISerive.setPlaceForRestaurant(this@TypeListViewActivity, "22.646574,120.284491", mTypeString,this@TypeListViewActivity)
+//
+        GoogleMapAPISerive.setPlaceForRestaurant(this@TypeListViewActivity, "22.625442,120.289308", mTypeString,this@TypeListViewActivity)
+//        GoogleMapAPISerive.setPlaceForRestaurant(this@TypeListViewActivity, mLatLngString, mTypeString,this@TypeListViewActivity)
         mAdapter = MyAdapter(mAllData)
         mPullToRefreshListView.setAdapter(mAdapter)
 

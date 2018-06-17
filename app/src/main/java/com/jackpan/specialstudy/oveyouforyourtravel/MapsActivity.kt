@@ -180,8 +180,26 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMapAPISerive
             Log.d("Location", location.longitude.toString())
             var latlon: String = location.latitude.toString() + "," + location.longitude.toString()
 //            locationTextView.text = "${location.latitude} - ${location.longitude}"
+
             if(mFistBoolean){
-                GoogleMapAPISerive.setPlaceForRestaurant(this@MapsActivity, latlon, GoogleMapAPISerive.TYPE_RESTAURANT,this@MapsActivity)
+                GoogleMapAPISerive.setPlaceForRestaurant(this@MapsActivity, "22.666868,120.314892", GoogleMapAPISerive.TYPE_RESTAURANT,this@MapsActivity)
+                GoogleMapAPISerive.setPlaceForRestaurant(this@MapsActivity, "22.663020,120.312451", GoogleMapAPISerive.TYPE_RESTAURANT,this@MapsActivity)
+                GoogleMapAPISerive.setPlaceForRestaurant(this@MapsActivity, "22.660791,120.312044", GoogleMapAPISerive.TYPE_RESTAURANT,this@MapsActivity)
+
+                GoogleMapAPISerive.setPlaceForRestaurant(this@MapsActivity, "22.657730,120.312742", GoogleMapAPISerive.TYPE_RESTAURANT,this@MapsActivity)
+
+                GoogleMapAPISerive.setPlaceForRestaurant(this@MapsActivity, "22.655478,120.302776", GoogleMapAPISerive.TYPE_RESTAURANT,this@MapsActivity)
+
+
+                GoogleMapAPISerive.setPlaceForRestaurant(this@MapsActivity, "22.649366,120.293058", GoogleMapAPISerive.TYPE_RESTAURANT,this@MapsActivity)
+
+                GoogleMapAPISerive.setPlaceForRestaurant(this@MapsActivity, "22.638434,120.286278", GoogleMapAPISerive.TYPE_RESTAURANT,this@MapsActivity)
+
+
+
+                GoogleMapAPISerive.setPlaceForRestaurant(this@MapsActivity, "22.646574,120.284491", GoogleMapAPISerive.TYPE_RESTAURANT,this@MapsActivity)
+
+                GoogleMapAPISerive.setPlaceForRestaurant(this@MapsActivity, "22.625442,120.289308", GoogleMapAPISerive.TYPE_RESTAURANT,this@MapsActivity)
                 mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(LatLng(location.latitude, location.longitude), 18.0f))
                 mFistBoolean = false
             }

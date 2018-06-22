@@ -7,7 +7,6 @@ import android.util.Log
 import com.jackpan.specialstudy.oveyouforyourtravel.Data.GoogleMapPlaceDetailsData
 import com.jackpan.specialstudy.oveyouforyourtravel.Data.GoogleResponseData
 
-import kotlinx.android.synthetic.main.activity_map_place_detail.*
 
 class MapPlaceDetailActivity : AppCompatActivity(), GoogleMapAPISerive.GetResponse {
     override fun getData(googleResponseData: GoogleResponseData?) {
@@ -25,7 +24,6 @@ class MapPlaceDetailActivity : AppCompatActivity(), GoogleMapAPISerive.GetRespon
             if(googleMapPlaceDetailsData.result.opening_hours!=null){
                 Log.d("MapPlaceDetailActivity", googleMapPlaceDetailsData.result.opening_hours.open_now.toString())
                 for (period in googleMapPlaceDetailsData.result.opening_hours.periods) {
-                    Log.d("MapPlaceDetailActivity", period)
 
                 }
 
@@ -41,7 +39,7 @@ class MapPlaceDetailActivity : AppCompatActivity(), GoogleMapAPISerive.GetRespon
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_map_place_detail)
         if(!getData().equals("")){
-            GoogleMapAPISerive.getPlaceDeatail(this,getData(),this);
+            GoogleMapAPISerive.getPlaceDeatail(this,getData(),this)
         }
 
 
@@ -50,8 +48,7 @@ class MapPlaceDetailActivity : AppCompatActivity(), GoogleMapAPISerive.GetRespon
         var mString:String =""
         var bundle:Bundle = intent.extras
         mString = bundle.getString(GoogleMapAPISerive.TYPE_PLACEID)
-
-
+        Log.d("Jack",mString)
         return mString
     }
 

@@ -48,7 +48,6 @@ class MapPlaceDetailActivity : AppCompatActivity(), GoogleMapAPISerive.GetRespon
         var mString:String =""
         var bundle:Bundle = intent.extras
         mString = bundle.getString(GoogleMapAPISerive.TYPE_PLACEID)
-        Log.d("Jack",mString)
         return mString
     }
 

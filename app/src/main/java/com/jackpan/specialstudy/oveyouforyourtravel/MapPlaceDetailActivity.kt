@@ -17,19 +17,31 @@ import android.content.Context
 import android.support.v4.view.ViewPager
 import android.view.View
 import android.widget.ImageView
+import android.widget.RatingBar
+import android.widget.TextView
 import com.hendraanggrian.pikasso.picasso
 
 
 class MapPlaceDetailActivity : AppCompatActivity(), GoogleMapAPISerive.GetResponse {
     lateinit var mViewPage :ViewPager
+    lateinit var mNameText :TextView
+    lateinit var mAddressText : TextView
+    lateinit var mPhoneText :TextView
+    lateinit var mOpenNowText : TextView
+    lateinit var mOPenText : TextView
+    lateinit var  mRatingBar : RatingBar
     lateinit var mImagePagerAdapter :ImagePagerAdapter
     var mPhotoData: ArrayList<String> = ArrayList()
+    lateinit var  mString :String
+
     override fun getData(googleResponseData: GoogleResponseData?) {
     }
 
     override fun getDetailData(googleMapPlaceDetailsData: GoogleMapPlaceDetailsData?) {
         if (googleMapPlaceDetailsData!=null){
-            Log.d("MapPlaceDetailActivity",googleMapPlaceDetailsData.result.name)
+
+            setData(googleMapPlaceDetailsData.result)
+
             if(googleMapPlaceDetailsData.result.reviews!=null){
                 for (review in googleMapPlaceDetailsData.result.reviews) {
                     Log.d("MapPlaceDetailActivity",review.text)
@@ -65,11 +77,35 @@ class MapPlaceDetailActivity : AppCompatActivity(), GoogleMapAPISerive.GetRespon
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_map_place_detail)
         mViewPage = findViewById(R.id.viewpage)
+        mNameText = findViewById(R.id.nametext)
+        mAddressText = findViewById(R.id.addresstext)
+        mPhoneText = findViewById(R.id.phonetext)
+        mOpenNowText = findViewById(R.id.opennowtext)
+        mOPenText = findViewById(R.id.opentext)
+        mRatingBar = findViewById(R.id.rating)
+
         if(!getData().equals("")){
             GoogleMapAPISerive.getPlaceDeatail(this,getData(),this)
         }
         mImagePagerAdapter = ImagePagerAdapter(this,mPhotoData)
         mViewPage.adapter = mImagePagerAdapter
+
+    }
+    fun  setData(result : GoogleMapPlaceDetailsData.Result){
+        mNameText.text = "名稱："+result.name
+        mAddressText.text = "地址："+result.formatted_address
+        mPhoneText.text = "聯絡電話："+result.formatted_phone_number
+        if (result.opening_hours.open_now){
+            mOpenNowText.text = "目前營業中!"
+        }else{
+            mOpenNowText.text = "目前沒有營業!"
+
+        }
+        mOPenText.text = "營業時間："+"\n"+result.opening_hours.weekday_text[0]+"\n"+result.opening_hours.weekday_text[1]+"\n"+result.opening_hours.weekday_text[2]+"\n"+
+                result.opening_hours.weekday_text[3]+"\n"+result.opening_hours.weekday_text[4]+"\n"+result.opening_hours.weekday_text[5]+"\n"+result.opening_hours.weekday_text[6]
+        mRatingBar.numStars = 5
+        mRatingBar.rating =result.rating
+
 
 
     }

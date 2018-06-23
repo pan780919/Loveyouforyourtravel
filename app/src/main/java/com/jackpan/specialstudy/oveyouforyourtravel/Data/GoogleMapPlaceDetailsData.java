@@ -15,6 +15,7 @@ public class GoogleMapPlaceDetailsData {
         public Opening_hours opening_hours;
         public Photos[] photos;
         public Reviews[] reviews;
+        public float rating;
 
 
 

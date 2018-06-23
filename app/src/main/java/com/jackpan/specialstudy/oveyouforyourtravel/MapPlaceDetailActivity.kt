@@ -14,12 +14,16 @@ import android.view.LayoutInflater
 import android.support.v4.view.PagerAdapter
 import GoogleMapAPISerive
 import android.content.Context
+import android.support.v4.view.ViewPager
 import android.view.View
 import android.widget.ImageView
 import com.hendraanggrian.pikasso.picasso
 
 
 class MapPlaceDetailActivity : AppCompatActivity(), GoogleMapAPISerive.GetResponse {
+    lateinit var mViewPage :ViewPager
+    lateinit var mImagePagerAdapter :ImagePagerAdapter
+    var mPhotoData: ArrayList<String> = ArrayList()
     override fun getData(googleResponseData: GoogleResponseData?) {
     }
 
@@ -44,10 +48,12 @@ class MapPlaceDetailActivity : AppCompatActivity(), GoogleMapAPISerive.GetRespon
             if(googleMapPlaceDetailsData.result.photos!=null){
                 for (photos in googleMapPlaceDetailsData.result.photos) {
                     var  photoString:String = GoogleMapAPISerive.getPhotos(this@MapPlaceDetailActivity,photos.photo_reference)
+                    mPhotoData.add(photoString)
                     Log.d("Jack",photoString)
 
 
                 }
+                mImagePagerAdapter.notifyDataSetChanged()
             }
 
 
@@ -58,9 +64,12 @@ class MapPlaceDetailActivity : AppCompatActivity(), GoogleMapAPISerive.GetRespon
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_map_place_detail)
+        mViewPage = findViewById(R.id.viewpage)
         if(!getData().equals("")){
             GoogleMapAPISerive.getPlaceDeatail(this,getData(),this)
         }
+        mImagePagerAdapter = ImagePagerAdapter(this,mPhotoData)
+        mViewPage.adapter = mImagePagerAdapter
 
 
     }

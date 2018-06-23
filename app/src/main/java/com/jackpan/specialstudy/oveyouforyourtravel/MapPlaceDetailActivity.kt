@@ -101,7 +101,7 @@ class MapPlaceDetailActivity : AppCompatActivity(), GoogleMapAPISerive.GetRespon
         override fun instantiateItem(container: ViewGroup, position: Int): Any {
             val itemView = layoutInflater.inflate(R.layout.image_viewpager_layout, container, false)
             val imageView = itemView.findViewById<ImageView>(R.id.viewPagerItem_image1)
-            picasso.load(arrayList!![position]).into(imageView)
+            picasso.load(arrayList!![position]).error(R.mipmap.nolodingphoto).into(imageView)
             container.addView(itemView)
 
             return itemView

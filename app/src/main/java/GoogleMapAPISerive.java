@@ -144,6 +144,7 @@ public class GoogleMapAPISerive {
                         Gson gson = new Gson();
                         GoogleMapPlaceDetailsData googleMapPlaceDetailsData =gson.fromJson(s,GoogleMapPlaceDetailsData.class);
                         if (googleMapPlaceDetailsData!=null){
+                            getResponse.getDetailData(googleMapPlaceDetailsData);
 
                         }
 

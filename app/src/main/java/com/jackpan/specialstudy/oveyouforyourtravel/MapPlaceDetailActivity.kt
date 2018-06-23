@@ -6,6 +6,17 @@ import android.support.v7.app.AppCompatActivity
 import android.util.Log
 import com.jackpan.specialstudy.oveyouforyourtravel.Data.GoogleMapPlaceDetailsData
 import com.jackpan.specialstudy.oveyouforyourtravel.Data.GoogleResponseData
+import android.widget.LinearLayout
+import android.view.ViewGroup
+import com.squareup.picasso.Picasso
+import android.content.Context.LAYOUT_INFLATER_SERVICE
+import android.view.LayoutInflater
+import android.support.v4.view.PagerAdapter
+import GoogleMapAPISerive
+import android.content.Context
+import android.view.View
+import android.widget.ImageView
+import com.hendraanggrian.pikasso.picasso
 
 
 class MapPlaceDetailActivity : AppCompatActivity(), GoogleMapAPISerive.GetResponse {
@@ -30,6 +41,15 @@ class MapPlaceDetailActivity : AppCompatActivity(), GoogleMapAPISerive.GetRespon
 
             }
 
+            if(googleMapPlaceDetailsData.result.photos!=null){
+                for (photos in googleMapPlaceDetailsData.result.photos) {
+                    var  photoString:String = GoogleMapAPISerive.getPhotos(this@MapPlaceDetailActivity,photos.photo_reference)
+                    Log.d("Jack",photoString)
+
+
+                }
+            }
+
 
         }
     }
@@ -48,8 +68,39 @@ class MapPlaceDetailActivity : AppCompatActivity(), GoogleMapAPISerive.GetRespon
         var mString:String =""
         var bundle:Bundle = intent.extras
         mString = bundle.getString(GoogleMapAPISerive.TYPE_PLACEID)
-        Log.d("Jack",mString)
         return mString
     }
 
+
+    inner class ImagePagerAdapter(internal var context: Context, internal var arrayList: ArrayList<String>?) : PagerAdapter() {
+        internal var layoutInflater: LayoutInflater
+
+        init {
+            layoutInflater = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
+        }
+
+        override fun getCount(): Int {
+            return if (arrayList != null) {
+                arrayList!!.size
+            } else 0
+        }
+
+        override fun isViewFromObject(view: View, `object`: Any): Boolean {
+            return view === `object` as LinearLayout
+        }
+
+        override fun instantiateItem(container: ViewGroup, position: Int): Any {
+            val itemView = layoutInflater.inflate(R.layout.image_viewpager_layout, container, false)
+            val imageView = itemView.findViewById<ImageView>(R.id.viewPagerItem_image1)
+            picasso.load(arrayList!![position]).into(imageView)
+            container.addView(itemView)
+
+            return itemView
+        }
+
+        override fun destroyItem(container: ViewGroup, position: Int, `object`: Any) {
+            container.removeView(`object` as LinearLayout)
+        }
+
+    }
 }

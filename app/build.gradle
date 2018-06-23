@@ -57,6 +57,8 @@ dependencies {
     implementation group: 'com.google.code.gson', name: 'gson', version: '2.3.1'
     compile 'com.github.open-android:PullToRefresh:v1.0'
     compile 'com.hendraanggrian:pikasso:0.2'
+    implementation 'com.gcssloop.widget:rclayout:1.6.0'
+
 
 
 }

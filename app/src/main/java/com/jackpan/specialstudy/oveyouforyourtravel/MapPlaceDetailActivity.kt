@@ -22,13 +22,50 @@ import android.view.View.OnTouchListener
 import java.text.SimpleDateFormat
 import GoogleMapAPISerive.GetResponse
 import GoogleMapAPISerive
+import com.jackpan.libs.mfirebaselib.MfiebaselibsClass
+import com.jackpan.libs.mfirebaselib.MfirebaeCallback
 
 
+class MapPlaceDetailActivity : AppCompatActivity(), GoogleMapAPISerive.GetResponse, MfirebaeCallback {
+    override fun getUserLogoutState(p0: Boolean) {
+    }
 
+    override fun resetPassWordState(p0: Boolean) {
+    }
 
+    override fun getsSndPasswordResetEmailState(p0: Boolean) {
+    }
 
+    override fun getFirebaseStorageType(p0: String?, p1: String?) {
+    }
 
-class MapPlaceDetailActivity : AppCompatActivity(), GoogleMapAPISerive.GetResponse {
+    override fun getUpdateUserName(p0: Boolean) {
+    }
+
+    override fun getDatabaseData(p0: Any?) {
+    }
+
+    override fun getuserLoginEmail(p0: String?) {
+    }
+
+    override fun getDeleteState(p0: Boolean, p1: String?, p2: Any?) {
+    }
+
+    override fun getFireBaseDBState(p0: Boolean, p1: String?) {
+    }
+
+    override fun getuseLoginId(p0: String?) {
+    }
+
+    override fun createUserState(p0: Boolean) {
+    }
+
+    override fun useLognState(p0: Boolean) {
+    }
+
+    override fun getFirebaseStorageState(p0: Boolean) {
+    }
+
     lateinit var mViewPage :ViewPager
     lateinit var mNameText :TextView
     lateinit var mAddressText : TextView
@@ -42,6 +79,8 @@ class MapPlaceDetailActivity : AppCompatActivity(), GoogleMapAPISerive.GetRespon
     lateinit var mReViewListView :LinearLayout
     lateinit var mFavoriteImg : ImageView
     lateinit var mNoFavoriteImg : ImageView
+    lateinit var mFirebselibClass : MfiebaselibsClass
+
     var  mReViewData :ArrayList<GoogleMapPlaceDetailsData.Result.Reviews> = ArrayList()
 
     override fun getData(googleResponseData: GoogleResponseData?) {
@@ -97,6 +136,8 @@ class MapPlaceDetailActivity : AppCompatActivity(), GoogleMapAPISerive.GetRespon
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        mFirebselibClass =  MfiebaselibsClass(this,this@MapPlaceDetailActivity)
+
         setContentView(R.layout.activity_map_place_detail)
         mViewPage = findViewById(R.id.viewpage)
         mNameText = findViewById(R.id.nametext)
@@ -304,6 +345,12 @@ class MapPlaceDetailActivity : AppCompatActivity(), GoogleMapAPISerive.GetRespon
         mReviewRating.rating = data.rating
 //        mReviewTime.text = timestampToString(data.time)
         mReViewListView.addView(view)
+
+
+    }
+
+    fun setFavoriteToFirebase(){
+
 
 
     }

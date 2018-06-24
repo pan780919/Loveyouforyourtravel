@@ -123,7 +123,25 @@ class MapPlaceDetailActivity : AppCompatActivity(), GoogleMapAPISerive.GetRespon
         mViewPage.adapter = mImagePagerAdapter
 //        mListViewAdapter = MyAdapter(mReViewData)
 //        mReViewListView.adapter =mListViewAdapter
+        setFavoriteView()
 
+
+    }
+
+    fun  setFavoriteView(){
+        mNoFavoriteImg.setOnClickListener {
+            mFavoriteImg.visibility = View.VISIBLE
+            mNoFavoriteImg.visibility = View.GONE
+            Toast.makeText(this,"收藏到最愛！",Toast.LENGTH_SHORT).show()
+
+        }
+        mFavoriteImg.setOnClickListener {
+
+            mFavoriteImg.visibility = View.GONE
+            mNoFavoriteImg.visibility = View.VISIBLE
+            Toast.makeText(this,"取消收藏！",Toast.LENGTH_SHORT).show()
+
+        }
 
     }
     fun  setData(result : GoogleMapPlaceDetailsData.Result){

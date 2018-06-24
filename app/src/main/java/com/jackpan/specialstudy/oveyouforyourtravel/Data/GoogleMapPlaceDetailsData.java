@@ -15,6 +15,7 @@ public class GoogleMapPlaceDetailsData {
         public Opening_hours opening_hours;
         public Photos[] photos;
         public Reviews[] reviews;
+        public float rating;
 
 
 
@@ -41,7 +42,7 @@ public class GoogleMapPlaceDetailsData {
             public String width;
         }
         public class Reviews {
-            public String time;
+            public long time;
 
             public String text;
 
@@ -53,7 +54,7 @@ public class GoogleMapPlaceDetailsData {
 
             public String author_name;
 
-            public String rating;
+            public float rating;
 
             public String language;
 

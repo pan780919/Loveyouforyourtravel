@@ -7,11 +7,145 @@
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context=".MapPlaceDetailActivity"
     tools:showIn="@layout/activity_map_place_detail">
-    <android.support.v4.view.ViewPager
-        android:id="@+id/viewpage"
-        android:layout_width="300dp"
-        android:layout_height="300dp"
 
-        ></android.support.v4.view.ViewPager>
+        <ScrollView
+            android:layout_height="match_parent"
+            android:layout_width="match_parent"
+
+            >
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                >
+
+                <RelativeLayout
+                    android:layout_height="match_parent"
+                    android:layout_width="match_parent">
+                    <ImageView
+                        android:visibility="gone"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginRight="8dp"
+                        android:id="@+id/favoriteimg"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:background="@drawable/ic_favorite"
+
+                        ></ImageView>
+                    <ImageView
+                        android:layout_alignParentRight="true"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginRight="8dp"
+                        android:id="@+id/nofavoriteimg"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:background="@drawable/ic_favorite_no"
+
+                        ></ImageView>
+                    <android.support.v4.view.ViewPager
+                        android:id="@+id/viewpage"
+                        android:layout_width="match_parent"
+                        android:layout_height="200dp"
+                        android:layout_marginTop="40dp"></android.support.v4.view.ViewPager>
+                    <TextView
+                        android:layout_marginTop="12dp"
+
+                        android:layout_marginLeft="12dp"
+                        android:layout_below="@+id/viewpage"
+                        android:id="@+id/nametext"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="name"
+                        android:textSize="24dp"
+                        ></TextView>
+                    <TextView
+                        android:layout_marginTop="12dp"
+
+                        android:layout_marginLeft="12dp"
+                        android:layout_below="@+id/nametext"
+                        android:id="@+id/addresstext"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="address"
+                        android:textSize="24dp"
+                        ></TextView>
+                    <TextView
+                        android:layout_marginTop="12dp"
+
+                        android:layout_marginLeft="12dp"
+                        android:layout_below="@+id/addresstext"
+                        android:id="@+id/phonetext"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="phone"
+                        android:textSize="24dp"
+                        ></TextView>
+                    <TextView
+                        android:layout_marginTop="12dp"
+
+                        android:layout_marginLeft="12dp"
+                        android:layout_below="@+id/phonetext"
+                        android:id="@+id/opennowtext"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="opennow"
+                        android:textSize="24dp"
+                        ></TextView>
+                    <TextView
+                        android:layout_marginTop="12dp"
+
+                        android:layout_marginLeft="12dp"
+                        android:layout_below="@+id/opennowtext"
+                        android:id="@+id/opentext"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="open"
+                        android:textSize="24dp"
+                        ></TextView>
+                    <RelativeLayout
+                        android:id="@+id/ratinglayout"
+                        android:layout_marginTop="12dp"
+                        android:layout_marginLeft="12dp"
+                        android:layout_below="@+id/opentext"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        >
+                        <RatingBar
+                            android:layout_toRightOf="@+id/ratingtext"
+                            android:isIndicator="true"
+                            android:id="@+id/rating"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            ></RatingBar>
+                        <TextView
+                            android:layout_centerVertical="true"
+                            android:id="@+id/ratingtext"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="星評："
+                            android:textSize="24dp"
+                            ></TextView>
+
+
+
+                    </RelativeLayout>
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_below="@+id/ratinglayout"
+                        android:id="@+id/reviewlistview"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        ></LinearLayout>
+
+                </RelativeLayout>
+
+
+            </LinearLayout>
+
+
+        </ScrollView>
+
+
 
 </android.support.constraint.ConstraintLayout>

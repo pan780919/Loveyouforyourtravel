@@ -33,42 +33,60 @@
                 android:text="name"/>
 
         </com.gcssloop.widget.RCRelativeLayout>
-        <RelativeLayout
+        <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginLeft="12dp"
             >
-            <TextView
-                android:layout_marginTop="8dp"
-                android:id="@+id/reviewtext"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="12dp"
-                android:text="1111"
-                ></TextView>
-            <TextView
-                android:visibility="gone"
-                android:layout_below="@+id/reviewtext"
-                android:layout_marginTop="8dp"
-                android:id="@+id/reviewtimetext"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="12dp"
-                android:text="time"
-                ></TextView>
-            <RatingBar
-                android:layout_marginTop="12dp"
-                android:id="@+id/rating"
-                style="?android:attr/ratingBarStyleSmall"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/reviewtimetext"
-                android:isIndicator="true"
-                android:numStars="5"
-                android:stepSize="0.1" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                >
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="12dp"
+                    >
+                    <TextView
+                        android:layout_marginTop="8dp"
+                        android:id="@+id/reviewtext"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="10dp"
+                        android:text="1111"
+                        ></TextView>
+                    <TextView
+                        android:visibility="gone"
+                        android:layout_below="@+id/reviewtext"
+                        android:layout_marginTop="8dp"
+                        android:id="@+id/reviewtimetext"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="12dp"
+                        android:text="time"
+                        ></TextView>
+                    <RatingBar
+                        android:layout_marginTop="12dp"
+                        android:id="@+id/rating"
+                        style="?android:attr/ratingBarStyleSmall"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/reviewtimetext"
+                        android:isIndicator="true"
+                        android:numStars="5"
+                        android:stepSize="0.1" />
 
 
-        </RelativeLayout>
+                </RelativeLayout>
+
+
+            </LinearLayout>
+
+
+
+
+        </ScrollView>
     </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>

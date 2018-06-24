@@ -40,6 +40,8 @@ class MapPlaceDetailActivity : AppCompatActivity(), GoogleMapAPISerive.GetRespon
     var mPhotoData: ArrayList<String> = ArrayList()
     lateinit var mListViewAdapter :MyAdapter
     lateinit var mReViewListView :LinearLayout
+    lateinit var mFavoriteImg : ImageView
+    lateinit var mNoFavoriteImg : ImageView
     var  mReViewData :ArrayList<GoogleMapPlaceDetailsData.Result.Reviews> = ArrayList()
 
     override fun getData(googleResponseData: GoogleResponseData?) {
@@ -104,6 +106,8 @@ class MapPlaceDetailActivity : AppCompatActivity(), GoogleMapAPISerive.GetRespon
         mOPenText = findViewById(R.id.opentext)
         mRatingBar = findViewById(R.id.rating)
         mReViewListView = findViewById(R.id.reviewlistview)
+        mNoFavoriteImg = findViewById(R.id.nofavoriteimg)
+        mFavoriteImg = findViewById(R.id.favoriteimg)
 //        setListViewHeightBasedOnChildren(mReViewListView)
 //        mReViewListView.setOnTouchListener(OnTouchListener { v, event ->
 //            // Setting on Touch Listener for handling the touch inside ScrollView

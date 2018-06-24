@@ -24,6 +24,8 @@ import GoogleMapAPISerive.GetResponse
 import GoogleMapAPISerive
 import com.jackpan.libs.mfirebaselib.MfiebaselibsClass
 import com.jackpan.libs.mfirebaselib.MfirebaeCallback
+import com.jackpan.specialstudy.oveyouforyourtravel.Data.CollectionData
+import kotlin.collections.HashMap
 
 
 class MapPlaceDetailActivity : AppCompatActivity(), GoogleMapAPISerive.GetResponse, MfirebaeCallback {
@@ -349,9 +351,15 @@ class MapPlaceDetailActivity : AppCompatActivity(), GoogleMapAPISerive.GetRespon
 
     }
 
-    fun setFavoriteToFirebase(){
+    fun setFavoriteToFirebase(data: GoogleMapPlaceDetailsData.Result,userid:String){
+
+        var mHasMap = HashMap<String,String>()
+        mHasMap.put(CollectionData.KEY_ID,data.id)
+        mHasMap.put(CollectionData.KEY_NAME,data.name)
+        mHasMap.put(CollectionData.KEY_PHOTO,mPhotoData.get(0))
 
 
+        mFirebselibClass.setFireBaseDB(CollectionData.KEY_URL,userid,mHasMap)
 
     }
 }

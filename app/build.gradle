@@ -50,6 +50,8 @@ dependencies {
     implementation "com.google.firebase:firebase-appindexing:15.0.1"
     implementation "com.google.firebase:firebase-perf:15.1.0"
     implementation "com.google.firebase:firebase-functions:15.0.0"
+    implementation 'com.firebase:firebase-client-android:2.4.0'
+
 
     implementation 'com.android.support:multidex:1.0.3'
 

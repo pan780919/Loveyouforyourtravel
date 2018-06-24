@@ -139,7 +139,6 @@ class MapPlaceDetailActivity : AppCompatActivity(), GoogleMapAPISerive.GetRespon
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         mFirebselibClass =  MfiebaselibsClass(this,this@MapPlaceDetailActivity)
-
         setContentView(R.layout.activity_map_place_detail)
         mViewPage = findViewById(R.id.viewpage)
         mNameText = findViewById(R.id.nametext)
@@ -166,16 +165,16 @@ class MapPlaceDetailActivity : AppCompatActivity(), GoogleMapAPISerive.GetRespon
         mViewPage.adapter = mImagePagerAdapter
 //        mListViewAdapter = MyAdapter(mReViewData)
 //        mReViewListView.adapter =mListViewAdapter
-        setFavoriteView()
 
 
     }
 
-    fun  setFavoriteView(){
+    fun  setFavoriteView(result : GoogleMapPlaceDetailsData.Result){
         mNoFavoriteImg.setOnClickListener {
             mFavoriteImg.visibility = View.VISIBLE
             mNoFavoriteImg.visibility = View.GONE
             Toast.makeText(this,"收藏到最愛！",Toast.LENGTH_SHORT).show()
+            setFavoriteToFirebase(result,"test12345")
 
         }
         mFavoriteImg.setOnClickListener {
@@ -208,6 +207,7 @@ class MapPlaceDetailActivity : AppCompatActivity(), GoogleMapAPISerive.GetRespon
         mRatingBar.numStars = 5
         mRatingBar.rating =result.rating
 
+        setFavoriteView(result)
 
 
     }
@@ -352,6 +352,14 @@ class MapPlaceDetailActivity : AppCompatActivity(), GoogleMapAPISerive.GetRespon
     }
 
     fun setFavoriteToFirebase(data: GoogleMapPlaceDetailsData.Result,userid:String){
+        if(data==null){
+            return
+        }
+        if (userid==null){
+            return
+        }
+        Log.d("setFavoriteToFirebase",data.name)
+        Log.d("setFavoriteToFirebase",data.id)
 
         var mHasMap = HashMap<String,String>()
         mHasMap.put(CollectionData.KEY_ID,data.id)

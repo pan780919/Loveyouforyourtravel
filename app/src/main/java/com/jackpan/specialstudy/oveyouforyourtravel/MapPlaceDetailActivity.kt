@@ -18,6 +18,10 @@ import com.jackpan.libs.mfirebaselib.MfiebaselibsClass
 import com.jackpan.libs.mfirebaselib.MfirebaeCallback
 import com.jackpan.specialstudy.oveyouforyourtravel.Data.CollectionData
 import kotlin.collections.HashMap
+import android.os.Handler
+import android.util.Log
+import android.view.KeyEvent
+import kotlin.collections.ArrayList
 
 
 class MapPlaceDetailActivity : AppCompatActivity(), GoogleMapAPISerive.GetResponse, MfirebaeCallback {
@@ -37,15 +41,22 @@ class MapPlaceDetailActivity : AppCompatActivity(), GoogleMapAPISerive.GetRespon
     }
 
     override fun getDatabaseData(p0: Any?) {
+        Log.d("Jack",p0.toString())
     }
 
     override fun getuserLoginEmail(p0: String?) {
     }
 
     override fun getDeleteState(p0: Boolean, p1: String?, p2: Any?) {
+        Log.d("Jack","getDeleteState"+p0.toString())
+        mFavoriteBoolean = p0
+
     }
 
     override fun getFireBaseDBState(p0: Boolean, p1: String?) {
+        Log.d("Jack","getFireBaseDBState"+p0.toString())
+
+
     }
 
     override fun getuseLoginId(p0: String?) {
@@ -73,13 +84,15 @@ class MapPlaceDetailActivity : AppCompatActivity(), GoogleMapAPISerive.GetRespon
     lateinit var mFavoriteImg : ImageView
     lateinit var mNoFavoriteImg : ImageView
     lateinit var mFirebselibClass : MfiebaselibsClass
-
+    var mAllData : ArrayList<GoogleMapPlaceDetailsData.Result> = ArrayList()
+    var mFavoriteBoolean: Boolean = false
     override fun getData(googleResponseData: GoogleResponseData?) {
     }
 
     override fun getDetailData(googleMapPlaceDetailsData: GoogleMapPlaceDetailsData?) {
         if (googleMapPlaceDetailsData!=null){
             setData(googleMapPlaceDetailsData.result)
+            mAllData.add(googleMapPlaceDetailsData.result)
 
 
 
@@ -118,7 +131,7 @@ class MapPlaceDetailActivity : AppCompatActivity(), GoogleMapAPISerive.GetRespon
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        mFirebselibClass =  MfiebaselibsClass(this,this@MapPlaceDetailActivity)
+        mFirebselibClass = MfiebaselibsClass(this, this@MapPlaceDetailActivity)
         setContentView(R.layout.activity_map_place_detail)
         mViewPage = findViewById(R.id.viewpage)
         mNameText = findViewById(R.id.nametext)
@@ -130,22 +143,48 @@ class MapPlaceDetailActivity : AppCompatActivity(), GoogleMapAPISerive.GetRespon
         mReViewListView = findViewById(R.id.reviewlistview)
         mNoFavoriteImg = findViewById(R.id.nofavoriteimg)
         mFavoriteImg = findViewById(R.id.favoriteimg)
-        if(!getData().equals("")){
-            GoogleMapAPISerive.getPlaceDeatail(this,getData(),this)
+        if (!getData().equals("")) {
+            GoogleMapAPISerive.getPlaceDeatail(this, getData(), this)
         }
-        mImagePagerAdapter = ImagePagerAdapter(this,mPhotoData)
+        mImagePagerAdapter = ImagePagerAdapter(this, mPhotoData)
         mViewPage.adapter = mImagePagerAdapter
 
 
-
-    }
-
-    fun  setFavoriteView(result : GoogleMapPlaceDetailsData.Result){
         mNoFavoriteImg.setOnClickListener {
             mFavoriteImg.visibility = View.VISIBLE
             mNoFavoriteImg.visibility = View.GONE
             Toast.makeText(this,"收藏到最愛！",Toast.LENGTH_SHORT).show()
-            setFavoriteToFirebase(result)
+            setFavoriteToFirebase(mAllData.get(0))
+
+        }
+
+        mFavoriteImg.setOnClickListener {
+            var token :String = MySharedPrefernces.getIsToken(this)
+
+            mFavoriteImg.visibility = View.GONE
+            mNoFavoriteImg.visibility = View.VISIBLE
+            Toast.makeText(this,"取消收藏！",Toast.LENGTH_SHORT).show()
+//            mFavoriteBoolean =false
+            mFirebselibClass.deleteData(CollectionData.KEY_URL+token,mAllData.get(0).id)
+
+
+        }
+        var token :String = MySharedPrefernces.getIsToken(this)
+
+        mFirebselibClass.getFirebaseDatabase(CollectionData.KEY_URL+token,CollectionData.KEY_ID)
+
+    }
+
+    fun  setFavoriteView(result : ArrayList<GoogleMapPlaceDetailsData.Result>){
+        mNoFavoriteImg.setOnClickListener {
+            mFavoriteImg.visibility = View.VISIBLE
+            mNoFavoriteImg.visibility = View.GONE
+            Toast.makeText(this,"收藏到最愛！",Toast.LENGTH_SHORT).show()
+            if(!mFavoriteBoolean){
+                setFavoriteToFirebase(result.get(0))
+
+            }
+//            mFavoriteBoolean = true
 
         }
         mFavoriteImg.setOnClickListener {
@@ -154,7 +193,9 @@ class MapPlaceDetailActivity : AppCompatActivity(), GoogleMapAPISerive.GetRespon
             mFavoriteImg.visibility = View.GONE
             mNoFavoriteImg.visibility = View.VISIBLE
             Toast.makeText(this,"取消收藏！",Toast.LENGTH_SHORT).show()
-            mFirebselibClass.deleteData(CollectionData.KEY_URL+token,result.id)
+//            mFavoriteBoolean =false
+            mFirebselibClass.deleteData(CollectionData.KEY_URL+token,mAllData.get(0).id)
+
 
         }
 
@@ -180,7 +221,6 @@ class MapPlaceDetailActivity : AppCompatActivity(), GoogleMapAPISerive.GetRespon
         mRatingBar.numStars = 5
         mRatingBar.rating =result.rating
 
-        setFavoriteView(result)
 
 
     }
@@ -298,8 +338,27 @@ class MapPlaceDetailActivity : AppCompatActivity(), GoogleMapAPISerive.GetRespon
         mHasMap.put(CollectionData.KEY_NAME,data.name)
         mHasMap.put(CollectionData.KEY_PHOTO,mPhotoData.get(0))
 
+        mFirebselibClass.setFireBaseDB(CollectionData.KEY_URL+token,data.id,mHasMap)
 
-        mFirebselibClass.setFireBaseDB(CollectionData.KEY_URL+token,token,mHasMap)
+    }
+
+    override fun onKeyDown(keyCode: Int, event: KeyEvent?): Boolean {
+        if(keyCode == KeyEvent.KEYCODE_BACK){
+            Log.d("Jack","boolean:"+mFavoriteBoolean)
+        }
+        return super.onKeyDown(keyCode, event)
+    }
+    fun isAddFavorite(boolean: Boolean){
+        var token :String = MySharedPrefernces.getIsToken(this)
+
+        if(boolean){
+            setFavoriteToFirebase(mAllData.get(0))
+            return
+        }else{
+            mFirebselibClass.deleteData(CollectionData.KEY_URL+token,mAllData.get(0).id)
+            return
+        }
+
 
     }
 }

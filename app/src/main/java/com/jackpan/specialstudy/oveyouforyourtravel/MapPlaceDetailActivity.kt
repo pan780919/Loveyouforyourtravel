@@ -77,13 +77,10 @@ class MapPlaceDetailActivity : AppCompatActivity(), GoogleMapAPISerive.GetRespon
     lateinit var  mRatingBar : RatingBar
     lateinit var mImagePagerAdapter :ImagePagerAdapter
     var mPhotoData: ArrayList<String> = ArrayList()
-    lateinit var mListViewAdapter :MyAdapter
     lateinit var mReViewListView :LinearLayout
     lateinit var mFavoriteImg : ImageView
     lateinit var mNoFavoriteImg : ImageView
     lateinit var mFirebselibClass : MfiebaselibsClass
-
-    var  mReViewData :ArrayList<GoogleMapPlaceDetailsData.Result.Reviews> = ArrayList()
 
     override fun getData(googleResponseData: GoogleResponseData?) {
     }
@@ -141,21 +138,12 @@ class MapPlaceDetailActivity : AppCompatActivity(), GoogleMapAPISerive.GetRespon
         mReViewListView = findViewById(R.id.reviewlistview)
         mNoFavoriteImg = findViewById(R.id.nofavoriteimg)
         mFavoriteImg = findViewById(R.id.favoriteimg)
-//        setListViewHeightBasedOnChildren(mReViewListView)
-//        mReViewListView.setOnTouchListener(OnTouchListener { v, event ->
-//            // Setting on Touch Listener for handling the touch inside ScrollView
-//// Disallow the touch request for parent scroll on touch of child view
-//            v.parent.requestDisallowInterceptTouchEvent(true)
-//            false
-//        })
-
         if(!getData().equals("")){
             GoogleMapAPISerive.getPlaceDeatail(this,getData(),this)
         }
         mImagePagerAdapter = ImagePagerAdapter(this,mPhotoData)
         mViewPage.adapter = mImagePagerAdapter
-//        mListViewAdapter = MyAdapter(mReViewData)
-//        mReViewListView.adapter =mListViewAdapter
+
 
 
     }

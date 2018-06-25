@@ -22,13 +22,52 @@ import android.view.View.OnTouchListener
 import java.text.SimpleDateFormat
 import GoogleMapAPISerive.GetResponse
 import GoogleMapAPISerive
+import com.jackpan.libs.mfirebaselib.MfiebaselibsClass
+import com.jackpan.libs.mfirebaselib.MfirebaeCallback
+import com.jackpan.specialstudy.oveyouforyourtravel.Data.CollectionData
+import kotlin.collections.HashMap
 
 
+class MapPlaceDetailActivity : AppCompatActivity(), GoogleMapAPISerive.GetResponse, MfirebaeCallback {
+    override fun getUserLogoutState(p0: Boolean) {
+    }
 
+    override fun resetPassWordState(p0: Boolean) {
+    }
 
+    override fun getsSndPasswordResetEmailState(p0: Boolean) {
+    }
 
+    override fun getFirebaseStorageType(p0: String?, p1: String?) {
+    }
 
-class MapPlaceDetailActivity : AppCompatActivity(), GoogleMapAPISerive.GetResponse {
+    override fun getUpdateUserName(p0: Boolean) {
+    }
+
+    override fun getDatabaseData(p0: Any?) {
+    }
+
+    override fun getuserLoginEmail(p0: String?) {
+    }
+
+    override fun getDeleteState(p0: Boolean, p1: String?, p2: Any?) {
+    }
+
+    override fun getFireBaseDBState(p0: Boolean, p1: String?) {
+    }
+
+    override fun getuseLoginId(p0: String?) {
+    }
+
+    override fun createUserState(p0: Boolean) {
+    }
+
+    override fun useLognState(p0: Boolean) {
+    }
+
+    override fun getFirebaseStorageState(p0: Boolean) {
+    }
+
     lateinit var mViewPage :ViewPager
     lateinit var mNameText :TextView
     lateinit var mAddressText : TextView
@@ -42,6 +81,8 @@ class MapPlaceDetailActivity : AppCompatActivity(), GoogleMapAPISerive.GetRespon
     lateinit var mReViewListView :LinearLayout
     lateinit var mFavoriteImg : ImageView
     lateinit var mNoFavoriteImg : ImageView
+    lateinit var mFirebselibClass : MfiebaselibsClass
+
     var  mReViewData :ArrayList<GoogleMapPlaceDetailsData.Result.Reviews> = ArrayList()
 
     override fun getData(googleResponseData: GoogleResponseData?) {
@@ -97,6 +138,7 @@ class MapPlaceDetailActivity : AppCompatActivity(), GoogleMapAPISerive.GetRespon
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        mFirebselibClass =  MfiebaselibsClass(this,this@MapPlaceDetailActivity)
         setContentView(R.layout.activity_map_place_detail)
         mViewPage = findViewById(R.id.viewpage)
         mNameText = findViewById(R.id.nametext)
@@ -123,16 +165,16 @@ class MapPlaceDetailActivity : AppCompatActivity(), GoogleMapAPISerive.GetRespon
         mViewPage.adapter = mImagePagerAdapter
 //        mListViewAdapter = MyAdapter(mReViewData)
 //        mReViewListView.adapter =mListViewAdapter
-        setFavoriteView()
 
 
     }
 
-    fun  setFavoriteView(){
+    fun  setFavoriteView(result : GoogleMapPlaceDetailsData.Result){
         mNoFavoriteImg.setOnClickListener {
             mFavoriteImg.visibility = View.VISIBLE
             mNoFavoriteImg.visibility = View.GONE
             Toast.makeText(this,"收藏到最愛！",Toast.LENGTH_SHORT).show()
+            setFavoriteToFirebase(result,"test12345")
 
         }
         mFavoriteImg.setOnClickListener {
@@ -165,6 +207,7 @@ class MapPlaceDetailActivity : AppCompatActivity(), GoogleMapAPISerive.GetRespon
         mRatingBar.numStars = 5
         mRatingBar.rating =result.rating
 
+        setFavoriteView(result)
 
 
     }
@@ -305,6 +348,26 @@ class MapPlaceDetailActivity : AppCompatActivity(), GoogleMapAPISerive.GetRespon
 //        mReviewTime.text = timestampToString(data.time)
         mReViewListView.addView(view)
 
+
+    }
+
+    fun setFavoriteToFirebase(data: GoogleMapPlaceDetailsData.Result,userid:String){
+        if(data==null){
+            return
+        }
+        if (userid==null){
+            return
+        }
+        Log.d("setFavoriteToFirebase",data.name)
+        Log.d("setFavoriteToFirebase",data.id)
+
+        var mHasMap = HashMap<String,String>()
+        mHasMap.put(CollectionData.KEY_ID,data.id)
+        mHasMap.put(CollectionData.KEY_NAME,data.name)
+        mHasMap.put(CollectionData.KEY_PHOTO,mPhotoData.get(0))
+
+
+        mFirebselibClass.setFireBaseDB(CollectionData.KEY_URL,userid,mHasMap)
 
     }
 }

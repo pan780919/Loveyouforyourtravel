@@ -259,20 +259,12 @@ class MapPlaceDetailActivity : AppCompatActivity(), GoogleMapAPISerive.GetRespon
             var mReviewText : TextView = convertView!!.findViewById(R.id.reviewtext)
             var mReviewTime : TextView = convertView!!.findViewById(R.id.reviewtimetext)
             var mReviewRating : RatingBar = convertView!!.findViewById(R.id.rating)
-            Log.d("getView",position.toString())
-
-            Log.d("getView",data.author_name)
-            Log.d("getView",data.text)
-            Log.d("getView",data.profile_photo_url)
-
-            Log.d("getView",data.time.toString())
            if(data.profile_photo_url!=null) {
                picasso.load(data.profile_photo_url).error(R.mipmap.nolodingphoto).into(mReviewImg)
            }
             mReviewName.text = data.author_name
             mReviewText.text = data.text
             mReviewRating.rating = data.rating
-//            mReviewTime.text = timestampToString(data.time)
 
 
 
@@ -280,36 +272,6 @@ class MapPlaceDetailActivity : AppCompatActivity(), GoogleMapAPISerive.GetRespon
         }
 
     }
-//    fun timestampToString(times:Long):String{
-//
-////        val date = Date(times)
-////        val format = SimpleDateFormat("yyyy-MM-dd HH:mm:ss")
-////        return format.format(date)
-//        val cal = Calendar.getInstance()
-//        cal.timeZone = TimeZone.getTimeZone("UTC")
-//        cal.timeInMillis = times
-//        return (cal.get(Calendar.YEAR).toString() + " " + (cal.get(Calendar.MONTH) + 1) + " "
-//                + cal.get(Calendar.DAY_OF_MONTH) + " " + cal.get(Calendar.HOUR_OF_DAY) + ":"
-//                + cal.get(Calendar.MINUTE))
-//    }
-
-    fun setListViewHeightBasedOnChildren(listView: ListView) {
-        val listAdapter = listView.adapter ?: // pre-condition
-                return
-
-        var totalHeight = listView.paddingTop + listView.paddingBottom
-        for (i in 0 until listAdapter.count) {
-            val listItem = listAdapter.getView(i, null, listView)
-            (listItem as? ViewGroup)?.layoutParams = AbsListView.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, AbsListView.LayoutParams.WRAP_CONTENT)
-            listItem.measure(0, 0)
-            totalHeight += listItem.measuredHeight
-        }
-
-        val params = listView.layoutParams
-        params.height = totalHeight + listView.dividerHeight * (listAdapter.count - 1)
-        listView.layoutParams = params
-    }
-
     fun addnewLayout(data:GoogleMapPlaceDetailsData.Result.Reviews){
         val view = getLayoutInflater().inflate(R.layout.review_layout, null)
         var mReviewImg : ImageView = view!!.findViewById(R.id.reviewimg)
@@ -324,7 +286,6 @@ class MapPlaceDetailActivity : AppCompatActivity(), GoogleMapAPISerive.GetRespon
         mReviewName.text = data.author_name
         mReviewText.text = data.text
         mReviewRating.rating = data.rating
-//        mReviewTime.text = timestampToString(data.time)
         mReViewListView.addView(view)
 
 
@@ -338,9 +299,6 @@ class MapPlaceDetailActivity : AppCompatActivity(), GoogleMapAPISerive.GetRespon
         if(token.equals("")){
             return
         }
-        Log.d("setFavoriteToFirebase",data.name)
-        Log.d("setFavoriteToFirebase",data.id)
-
         var mHasMap = HashMap<String,String>()
         mHasMap.put(CollectionData.KEY_ID,data.id)
         mHasMap.put(CollectionData.KEY_NAME,data.name)

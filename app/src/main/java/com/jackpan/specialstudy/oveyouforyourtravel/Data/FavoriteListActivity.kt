@@ -55,11 +55,20 @@ class FavoriteListActivity : AppCompatActivity(),MfirebaeCallback {
 
     lateinit var mFirebselibClass : MfiebaselibsClass
     lateinit var mFavoriteList : ListView
+    var mArrayList : ArrayList<CollectionData> = ArrayList()
+    var mAdapter: MyAdapter? = null
+    lateinit var mToken :String
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         mFirebselibClass = MfiebaselibsClass(this,this)
         setContentView(R.layout.activity_favorite_list)
         mFavoriteList = findViewById(R.id.favoritelist)
+        mToken =MySharedPrefernces.getIsToken(this)
+        if (!mToken.equals("")){
+            mFirebselibClass.getFirebaseDatabase(CollectionData.KEY_URL+mToken,CollectionData.KEY_ID)
+
+        }
     }
 
     inner class MyAdapter(var mAllData: ArrayList<GoogleResponseData.Results>?) : BaseAdapter() {

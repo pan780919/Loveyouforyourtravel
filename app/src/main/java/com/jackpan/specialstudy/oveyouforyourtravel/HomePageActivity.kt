@@ -211,11 +211,7 @@ class HomePageActivity : AppCompatActivity(), MfirebaeCallback{
     }
     private val locationListener: LocationListener = object : LocationListener {
         override fun onLocationChanged(location: Location) {
-            Log.d("Location", location.latitude.toString())
-            Log.d("Location", location.longitude.toString())
             latlon = location.latitude.toString() + "," + location.longitude.toString()
-//            locationTextView.text = "${location.latitude} - ${location.longitude}"
-            Log.d("Location", latlon)
             mProgressDialog.dismiss()
 
 

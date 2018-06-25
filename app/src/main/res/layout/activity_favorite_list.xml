@@ -5,5 +5,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.jackpan.specialstudy.oveyouforyourtravel.Data.FavoriteListActivity">
+    <ListView
+        android:id="@+id/favoritelist"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        ></ListView>
 
 </android.support.constraint.ConstraintLayout>

@@ -95,7 +95,6 @@ class MapPlaceDetailActivity : AppCompatActivity(), GoogleMapAPISerive.GetRespon
 
 
             if(googleMapPlaceDetailsData.result.opening_hours!=null){
-                Log.d("MapPlaceDetailActivity", googleMapPlaceDetailsData.result.opening_hours.open_now.toString())
                 for (period in googleMapPlaceDetailsData.result.opening_hours.periods) {
 
                 }
@@ -107,7 +106,6 @@ class MapPlaceDetailActivity : AppCompatActivity(), GoogleMapAPISerive.GetRespon
                 for (photos in googleMapPlaceDetailsData.result.photos) {
                     var  photoString:String = GoogleMapAPISerive.getPhotos(this@MapPlaceDetailActivity,photos.photo_reference)
                     mPhotoData.add(photoString)
-                    Log.d("Jack",photoString)
 
 
                 }
@@ -116,18 +114,11 @@ class MapPlaceDetailActivity : AppCompatActivity(), GoogleMapAPISerive.GetRespon
 
             if(googleMapPlaceDetailsData.result.reviews!=null){
                 for (review in googleMapPlaceDetailsData.result.reviews) {
-                    Log.d("review",review.author_name)
-                    Log.d("review",review.text)
-                    Log.d("review",review.profile_photo_url)
-
-                    Log.d("review",review.time.toString())
-//                    mReViewData.add(review)
                     addnewLayout(review)
 
 
                 }
-//                Log.d("mReViewData",mReViewData.size.toString())
-//                mListViewAdapter.notifyDataSetChanged()
+
 
             }
 

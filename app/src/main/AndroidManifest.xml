@@ -29,6 +29,7 @@
     <uses-permission android:name="com.android.vending.BILLING" />
 
     <application
+        android:name=".Data.MyApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -75,7 +76,8 @@
         <activity
             android:name=".MapPlaceDetailActivity"
             android:label="@string/title_activity_map_place_detail"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".Data.FavoriteListActivity"></activity>
     </application>
 
 </manifest>

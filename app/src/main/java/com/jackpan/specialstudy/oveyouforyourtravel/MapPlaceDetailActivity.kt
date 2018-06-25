@@ -174,7 +174,7 @@ class MapPlaceDetailActivity : AppCompatActivity(), GoogleMapAPISerive.GetRespon
             mFavoriteImg.visibility = View.VISIBLE
             mNoFavoriteImg.visibility = View.GONE
             Toast.makeText(this,"收藏到最愛！",Toast.LENGTH_SHORT).show()
-            setFavoriteToFirebase(result,"test12345")
+            setFavoriteToFirebase(result)
 
         }
         mFavoriteImg.setOnClickListener {
@@ -351,11 +351,12 @@ class MapPlaceDetailActivity : AppCompatActivity(), GoogleMapAPISerive.GetRespon
 
     }
 
-    fun setFavoriteToFirebase(data: GoogleMapPlaceDetailsData.Result,userid:String){
+    fun setFavoriteToFirebase(data: GoogleMapPlaceDetailsData.Result){
         if(data==null){
             return
         }
-        if (userid==null){
+        var token :String = MySharedPrefernces.getIsToken(this)
+        if(token.equals("")){
             return
         }
         Log.d("setFavoriteToFirebase",data.name)
@@ -367,7 +368,7 @@ class MapPlaceDetailActivity : AppCompatActivity(), GoogleMapAPISerive.GetRespon
         mHasMap.put(CollectionData.KEY_PHOTO,mPhotoData.get(0))
 
 
-        mFirebselibClass.setFireBaseDB(CollectionData.KEY_URL,userid,mHasMap)
+        mFirebselibClass.setFireBaseDB(CollectionData.KEY_URL,token,mHasMap)
 
     }
 }

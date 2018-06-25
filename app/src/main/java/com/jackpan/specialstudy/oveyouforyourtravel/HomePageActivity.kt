@@ -166,6 +166,8 @@ class HomePageActivity : AppCompatActivity(), MfirebaeCallback{
 
         }
         mLoveLayout.setOnClickListener {
+            if(!checkLoginState()) return@setOnClickListener
+
 
 
         }

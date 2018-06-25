@@ -17,6 +17,7 @@ import android.widget.LinearLayout
 import android.widget.Toast
 import com.jackpan.libs.mfirebaselib.MfiebaselibsClass
 import com.jackpan.libs.mfirebaselib.MfirebaeCallback
+import com.jackpan.specialstudy.oveyouforyourtravel.Data.FavoriteListActivity
 import com.jackpan.specialstudy.oveyouforyourtravel.Data.TypeListViewActivity
 
 class HomePageActivity : AppCompatActivity(), MfirebaeCallback{
@@ -167,6 +168,8 @@ class HomePageActivity : AppCompatActivity(), MfirebaeCallback{
         }
         mLoveLayout.setOnClickListener {
             if(!checkLoginState()) return@setOnClickListener
+            var intent=Intent()
+            startActivity(intent.setClass(this,FavoriteListActivity::class.java))
 
 
 
@@ -188,6 +191,8 @@ class HomePageActivity : AppCompatActivity(), MfirebaeCallback{
             mAlertDilog.show()
             return true
         }
+        /// test mode
+//        return  true
 
     }
     val MY_PERMISSIONS_REQUEST_LOCATION = 100

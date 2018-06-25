@@ -297,7 +297,7 @@ class MapPlaceDetailActivity : AppCompatActivity(), GoogleMapAPISerive.GetRespon
         mHasMap.put(CollectionData.KEY_PHOTO,mPhotoData.get(0))
 
 
-        mFirebselibClass.setFireBaseDB(CollectionData.KEY_URL+"/"+token,token,mHasMap)
+        mFirebselibClass.setFireBaseDB(CollectionData.KEY_URL+token,token,mHasMap)
 
     }
 }

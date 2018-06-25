@@ -149,14 +149,17 @@ class MapPlaceDetailActivity : AppCompatActivity(), GoogleMapAPISerive.GetRespon
 
         }
         mFavoriteImg.setOnClickListener {
+            var token :String = MySharedPrefernces.getIsToken(this)
 
             mFavoriteImg.visibility = View.GONE
             mNoFavoriteImg.visibility = View.VISIBLE
             Toast.makeText(this,"取消收藏！",Toast.LENGTH_SHORT).show()
+            mFirebselibClass.deleteData(CollectionData.KEY_URL+token,result.id)
 
         }
 
     }
+
     fun  setData(result : GoogleMapPlaceDetailsData.Result){
         mNameText.text = "名稱："+result.name
         mAddressText.text = "地址："+result.formatted_address
@@ -173,8 +176,7 @@ class MapPlaceDetailActivity : AppCompatActivity(), GoogleMapAPISerive.GetRespon
         if(result.opening_hours!=null&&result.opening_hours.weekday_text!=null){
             mOPenText.text = "營業時間："+"\n"+result.opening_hours.weekday_text[0]+"\n"+result.opening_hours.weekday_text[1]+"\n"+result.opening_hours.weekday_text[2]+"\n"+
                     result.opening_hours.weekday_text[3]+"\n"+result.opening_hours.weekday_text[4]+"\n"+result.opening_hours.weekday_text[5]+"\n"+result.opening_hours.weekday_text[6]
-
-        }
+    }
         mRatingBar.numStars = 5
         mRatingBar.rating =result.rating
 

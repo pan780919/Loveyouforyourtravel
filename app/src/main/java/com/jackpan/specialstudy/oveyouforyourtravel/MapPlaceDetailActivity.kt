@@ -2,7 +2,6 @@ package com.jackpan.specialstudy.oveyouforyourtravel
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
-import android.util.Log
 import com.jackpan.specialstudy.oveyouforyourtravel.Data.GoogleMapPlaceDetailsData
 import com.jackpan.specialstudy.oveyouforyourtravel.Data.GoogleResponseData
 import android.view.ViewGroup
@@ -10,17 +9,10 @@ import android.view.LayoutInflater
 import android.support.v4.view.PagerAdapter
 import android.content.Context
 import android.support.v4.view.ViewPager
-import android.text.format.DateFormat
 import android.view.View
 import android.widget.*
 import com.hendraanggrian.pikasso.picasso
 import java.util.*
-import android.widget.AbsListView
-import android.view.MotionEvent
-import android.view.View.OnTouchListener
-
-import java.text.SimpleDateFormat
-import GoogleMapAPISerive.GetResponse
 import GoogleMapAPISerive
 import com.jackpan.libs.mfirebaselib.MfiebaselibsClass
 import com.jackpan.libs.mfirebaselib.MfirebaeCallback

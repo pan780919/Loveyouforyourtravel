@@ -43,7 +43,9 @@ public class GeofenceTransitionsJobIntentService  extends JobIntentService{
      */
     @Override
     protected void onHandleWork(Intent intent) {
+        Log.d(TAG, "onHandleWork: "+"in");
         GeofencingEvent geofencingEvent = GeofencingEvent.fromIntent(intent);
+        Log.d(TAG, "onHandleWork: "+geofencingEvent.hasError());
         if (geofencingEvent.hasError()) {
             String errorMessage = GeofenceErrorMessages.getErrorString(this,
                     geofencingEvent.getErrorCode());
@@ -102,6 +104,7 @@ public class GeofenceTransitionsJobIntentService  extends JobIntentService{
      * If the user clicks the notification, control goes to the MainActivity.
      */
     private void sendNotification(String notificationDetails) {
+        Log.d(TAG, "sendNotification: "+"in");
         // Get an instance of the Notification manager
         NotificationManager mNotificationManager =
                 (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);

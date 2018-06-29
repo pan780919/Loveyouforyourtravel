@@ -33,5 +33,7 @@ public class Constants {
 
         // Googleplex.
         BAY_AREA_LANDMARKS.put("GOOGLE", new LatLng(37.422611,-122.0840577));
+
+        BAY_AREA_LANDMARKS.put("now",new LatLng(25.0803873,121.5676821));
     }
 }

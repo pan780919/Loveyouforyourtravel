@@ -333,13 +333,18 @@ class HomePageActivity : AppCompatActivity(), MfirebaeCallback,OnCompleteListene
         if(!checkPermissions()) {
             return
         }else{
-            mGeofencingClient.addGeofences(getGeofencingRequest(), getGeofencePendingIntent())
-                    .addOnCompleteListener(this);
+            mGeofencingClient!!.addGeofences(getGeofencingRequest(), getGeofencePendingIntent())
+                    .addOnCompleteListener(this)
         }
 
     }
 
     fun removeGeofences() {
+        if(!checkPermissions()){
+            return
+        }
+        mGeofencingClient!!.removeGeofences(getGeofencePendingIntent()).addOnCompleteListener(this)
+
 
     }
 

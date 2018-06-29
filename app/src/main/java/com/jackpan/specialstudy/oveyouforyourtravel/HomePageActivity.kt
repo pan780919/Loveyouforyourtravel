@@ -18,8 +18,16 @@ import android.widget.Toast
 import com.jackpan.libs.mfirebaselib.MfiebaselibsClass
 import com.jackpan.libs.mfirebaselib.MfirebaeCallback
 import com.jackpan.specialstudy.oveyouforyourtravel.Data.TypeListViewActivity
+import android.app.PendingIntent
+import com.google.android.gms.location.Geofence
+import com.google.android.gms.location.GeofencingClient
+import com.google.android.gms.location.LocationServices
+import com.google.android.gms.maps.model.LatLng
+import com.jackpan.specialstudy.oveyouforyourtravel.Data.Geofence.Constants
+import com.jackpan.specialstudy.oveyouforyourtravel.Data.Geofence.GeofenceBroadcastReceiver
 
-class HomePageActivity : AppCompatActivity(), MfirebaeCallback{
+
+class HomePageActivity : AppCompatActivity(), MfirebaeCallback {
     override fun getUserLogoutState(p0: Boolean) {
     }
 
@@ -48,7 +56,7 @@ class HomePageActivity : AppCompatActivity(), MfirebaeCallback{
     }
 
     override fun getuseLoginId(p0: String?) {
-        MySharedPrefernces.saveIsToken(this,p0)
+        MySharedPrefernces.saveIsToken(this, p0)
     }
 
     override fun createUserState(p0: Boolean) {
@@ -67,32 +75,56 @@ class HomePageActivity : AppCompatActivity(), MfirebaeCallback{
         super.onStart()
         mFirebselibClass.setAuthListener()
 
+
     }
 
     override fun onStop() {
         super.onStop()
         mFirebselibClass.removeAuthListener()
     }
+
     override fun getFirebaseStorageState(p0: Boolean) {
     }
 
-    lateinit var mLoginBtn : Button
-    lateinit var mMaPlayout : LinearLayout
-    lateinit var mLoveLayout : LinearLayout
-    lateinit var mFoodLayout : LinearLayout
-    lateinit var mLevelLayout : LinearLayout
-    lateinit var mFirebselibClass : MfiebaselibsClass
+    lateinit var mLoginBtn: Button
+    lateinit var mMaPlayout: LinearLayout
+    lateinit var mLoveLayout: LinearLayout
+    lateinit var mFoodLayout: LinearLayout
+    lateinit var mLevelLayout: LinearLayout
+    lateinit var mFirebselibClass: MfiebaselibsClass
     private var locationManager: LocationManager? = null
-    lateinit var mProgressDialog:ProgressDialog
+    lateinit var mProgressDialog: ProgressDialog
     lateinit var latlon: String
+
+
+    private enum class PendingGeofenceTask {
+        ADD, REMOVE, NONE
+    }
+
+    /**
+     * Provides access to the Geofencing API.
+     */
+    private var mGeofencingClient: GeofencingClient? = null
+
+    /**
+     * The list of geofences used in this sample.
+     */
+    private var mGeofenceList: ArrayList<Geofence>? = null
+
+    /**
+     * Used when requesting to add or remove geofences.
+     */
+    private var mGeofencePendingIntent: PendingIntent? = null
+
+    private val mPendingGeofenceTask = PendingGeofenceTask.NONE
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        mFirebselibClass =  MfiebaselibsClass(this,this@HomePageActivity)
-
+        mFirebselibClass = MfiebaselibsClass(this, this@HomePageActivity)
+        checkPermission()
         setContentView(R.layout.activity_home_page)
         mFirebselibClass.userLoginCheck()
-        checkPermission()
         mProgressDialog = ProgressDialog(this)
         mProgressDialog.setTitle("讀取中")
         mProgressDialog.setMessage("請稍候")
@@ -111,39 +143,39 @@ class HomePageActivity : AppCompatActivity(), MfirebaeCallback{
         mLoveLayout = findViewById(R.id.lovelayout)
         mFoodLayout = findViewById(R.id.foodlayout)
         mLevelLayout = findViewById(R.id.levellayout)
-        mLoginBtn.setOnClickListener{
-            if(MySharedPrefernces.getIsToken(this).equals("")){
+        mLoginBtn.setOnClickListener {
+            if (MySharedPrefernces.getIsToken(this).equals("")) {
 
                 var mIntnet = Intent()
-                mIntnet.setClass(this,LoginActivity::class.java)
+                mIntnet.setClass(this, LoginActivity::class.java)
                 startActivity(mIntnet)
-            }else{
-                var mAlertDilog =AlertDialog.Builder(this)
+            } else {
+                var mAlertDilog = AlertDialog.Builder(this)
                 mAlertDilog.setTitle("已經登入囉")
                 mAlertDilog.setMessage("不需要再登入了")
-                mAlertDilog.setPositiveButton("知道了！",null)
+                mAlertDilog.setPositiveButton("知道了！", null)
                 mAlertDilog.show()
             }
 
 
         }
-        mMaPlayout.setOnClickListener{
-            if(!checkLoginState()) return@setOnClickListener
+        mMaPlayout.setOnClickListener {
+            if (!checkLoginState()) return@setOnClickListener
 
             var intent = Intent()
-            intent.setClass(this,MapsActivity::class.java)
+            intent.setClass(this, MapsActivity::class.java)
             startActivity(intent)
 
 
         }
-        mLevelLayout.setOnClickListener{
-            if(!checkLoginState()) return@setOnClickListener
+        mLevelLayout.setOnClickListener {
+            if (!checkLoginState()) return@setOnClickListener
 
-            if(!latlon.equals("")){
+            if (!latlon.equals("")) {
                 var intent = Intent()
                 var mBundle = Bundle()
-                mBundle.putString(GoogleMapAPISerive.TYPE,GoogleMapAPISerive.TYPE_PARK)
-                mBundle.putString(GoogleMapAPISerive.TYPE_LATLON,latlon)
+                mBundle.putString(GoogleMapAPISerive.TYPE, GoogleMapAPISerive.TYPE_PARK)
+                mBundle.putString(GoogleMapAPISerive.TYPE_LATLON, latlon)
                 intent.putExtras(mBundle)
                 intent.setClass(this, TypeListViewActivity::class.java)
                 startActivity(intent)
@@ -152,12 +184,12 @@ class HomePageActivity : AppCompatActivity(), MfirebaeCallback{
         }
         mFoodLayout.setOnClickListener {
 
-            if(!checkLoginState()) return@setOnClickListener
-            if(!latlon.equals("")){
+            if (!checkLoginState()) return@setOnClickListener
+            if (!latlon.equals("")) {
                 var intent = Intent()
                 var mBundle = Bundle()
-                mBundle.putString(GoogleMapAPISerive.TYPE,GoogleMapAPISerive.TYPE_RESTAURANT)
-                mBundle.putString(GoogleMapAPISerive.TYPE_LATLON,latlon)
+                mBundle.putString(GoogleMapAPISerive.TYPE, GoogleMapAPISerive.TYPE_RESTAURANT)
+                mBundle.putString(GoogleMapAPISerive.TYPE_LATLON, latlon)
                 intent.putExtras(mBundle)
                 intent.setClass(this, TypeListViewActivity::class.java)
                 startActivity(intent)
@@ -166,30 +198,38 @@ class HomePageActivity : AppCompatActivity(), MfirebaeCallback{
 
         }
         mLoveLayout.setOnClickListener {
-            if(!checkLoginState()) return@setOnClickListener
-
+            if (!checkLoginState()) return@setOnClickListener
 
 
         }
+        mGeofenceList = ArrayList()
+
+        mGeofencePendingIntent = null
+
+        populateGeofenceList()
+        mGeofencingClient = LocationServices.getGeofencingClient(this);
+
     }
-    private fun checkLoginState():Boolean{
-        if(MySharedPrefernces.getIsToken(this).equals("")){
-            var mAlertDilog =AlertDialog.Builder(this)
+
+    private fun checkLoginState(): Boolean {
+        if (MySharedPrefernces.getIsToken(this).equals("")) {
+            var mAlertDilog = AlertDialog.Builder(this)
             mAlertDilog.setTitle("尚未登入")
             mAlertDilog.setMessage("登入後才能使用喔！！")
-            mAlertDilog.setPositiveButton("知道了！",null)
+            mAlertDilog.setPositiveButton("知道了！", null)
             mAlertDilog.show()
             return false
-        }else{
-            var mAlertDilog =AlertDialog.Builder(this)
+        } else {
+            var mAlertDilog = AlertDialog.Builder(this)
             mAlertDilog.setTitle("已登入")
             mAlertDilog.setMessage("您已經可以使用此功能")
-            mAlertDilog.setPositiveButton("知道了！",null)
+            mAlertDilog.setPositiveButton("知道了！", null)
             mAlertDilog.show()
             return true
         }
 
     }
+
     val MY_PERMISSIONS_REQUEST_LOCATION = 100
 
     fun checkPermission() {
@@ -199,6 +239,7 @@ class HomePageActivity : AppCompatActivity(), MfirebaeCallback{
         }
 
     }
+
     override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
         if (requestCode == MY_PERMISSIONS_REQUEST_LOCATION) {
 
@@ -209,6 +250,7 @@ class HomePageActivity : AppCompatActivity(), MfirebaeCallback{
             }
         }
     }
+
     private val locationListener: LocationListener = object : LocationListener {
         override fun onLocationChanged(location: Location) {
             Log.d("Location", location.latitude.toString())
@@ -219,11 +261,74 @@ class HomePageActivity : AppCompatActivity(), MfirebaeCallback{
             mProgressDialog.dismiss()
 
 
-
         }
 
         override fun onStatusChanged(provider: String, status: Int, extras: Bundle) {}
         override fun onProviderEnabled(provider: String) {}
         override fun onProviderDisabled(provider: String) {}
+    }
+
+    private fun getGeofencePendingIntent(): PendingIntent? {
+        // Reuse the PendingIntent if we already have it.
+        if (mGeofencePendingIntent != null) {
+            return mGeofencePendingIntent as PendingIntent
+        }
+        var intent: Intent
+        intent = Intent(this, GeofenceBroadcastReceiver::class.java)
+        // We use FLAG_UPDATE_CURRENT so that we get the same pending intent back when calling
+        // addGeofences() and removeGeofences().
+        mGeofencePendingIntent = PendingIntent.getBroadcast(this, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+        return mGeofencePendingIntent as PendingIntent?
+    }
+
+    private fun populateGeofenceList() {
+        for (entry in Constants.BAY_AREA_LANDMARKS) {
+
+            mGeofenceList?.add(Geofence.Builder()
+                    // Set the request ID of the geofence. This is a string to identify this
+                    // geofence.
+                    .setRequestId(entry.key)
+
+                    // Set the circular region of this geofence.
+                    .setCircularRegion(
+                            entry.value.latitude,
+                            entry.value.longitude,
+                            Constants.GEOFENCE_RADIUS_IN_METERS
+                    )
+
+                    // Set the expiration duration of the geofence. This geofence gets automatically
+                    // removed after this period of time.
+                    .setExpirationDuration(Constants.GEOFENCE_EXPIRATION_IN_MILLISECONDS)
+
+                    // Set the transition types of interest. Alerts are only generated for these
+                    // transition. We track entry and exit transitions in this sample.
+                    .setTransitionTypes(Geofence.GEOFENCE_TRANSITION_ENTER or Geofence.GEOFENCE_TRANSITION_EXIT)
+
+                    // Create the geofence.
+                    .build())
+        }
+    }
+
+    private fun performPendingGeofenceTask() {
+        if (mPendingGeofenceTask == PendingGeofenceTask.ADD) {
+            addGeofences()
+        } else if (mPendingGeofenceTask == PendingGeofenceTask.REMOVE) {
+            removeGeofences()
+        }
+    }
+
+    fun addGeofences() {
+
+    }
+
+    fun removeGeofences() {
+
+    }
+
+    fun checkPermissions(): Boolean {
+        var permissionState: Int
+        permissionState = ActivityCompat.checkSelfPermission(this,
+                android.Manifest.permission.ACCESS_FINE_LOCATION)
+        return permissionState == PackageManager.PERMISSION_GRANTED
     }
 }

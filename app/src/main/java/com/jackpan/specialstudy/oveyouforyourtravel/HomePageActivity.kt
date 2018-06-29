@@ -20,6 +20,7 @@ import com.jackpan.libs.mfirebaselib.MfiebaselibsClass
 import com.jackpan.libs.mfirebaselib.MfirebaeCallback
 import com.jackpan.specialstudy.oveyouforyourtravel.Data.TypeListViewActivity
 import android.app.PendingIntent
+import android.preference.PreferenceManager
 import com.google.android.gms.location.Geofence
 import com.google.android.gms.location.GeofencingClient
 import com.google.android.gms.location.GeofencingRequest
@@ -29,10 +30,21 @@ import com.google.android.gms.tasks.OnCompleteListener
 import com.google.android.gms.tasks.Task
 import com.jackpan.specialstudy.oveyouforyourtravel.Data.Geofence.Constants
 import com.jackpan.specialstudy.oveyouforyourtravel.Data.Geofence.GeofenceBroadcastReceiver
+import com.jackpan.specialstudy.oveyouforyourtravel.Data.Geofence.GeofenceErrorMessages
 
 
 class HomePageActivity : AppCompatActivity(), MfirebaeCallback,OnCompleteListener<Void> {
     override fun onComplete(p0: Task<Void>) {
+        mPendingGeofenceTask = PendingGeofenceTask.NONE
+        if(p0.isSuccessful){
+            updateGeofencesAdded(!getGeofencesAdded())
+
+        }else{
+
+            var errorr:String = GeofenceErrorMessages.getErrorString(this, p0.getException())
+
+        }
+
     }
 
     override fun getUserLogoutState(p0: Boolean) {
@@ -127,7 +139,7 @@ class HomePageActivity : AppCompatActivity(), MfirebaeCallback,OnCompleteListene
      */
     private var mGeofencePendingIntent: PendingIntent? = null
 
-    private val mPendingGeofenceTask = PendingGeofenceTask.NONE
+    private var mPendingGeofenceTask = PendingGeofenceTask.NONE
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -364,6 +376,19 @@ class HomePageActivity : AppCompatActivity(), MfirebaeCallback,OnCompleteListene
 
         // Return a GeofencingRequest.
         return builder.build()
+    }
+    fun getGeofencesAdded():Boolean{
+
+        return PreferenceManager.getDefaultSharedPreferences(this).getBoolean(
+                Constants.GEOFENCES_ADDED_KEY, false);
+    }
+
+    fun updateGeofencesAdded(added:Boolean){
+        PreferenceManager.getDefaultSharedPreferences(this)
+                .edit()
+                .putBoolean(Constants.GEOFENCES_ADDED_KEY,added)
+                .apply()
+
     }
 
 }

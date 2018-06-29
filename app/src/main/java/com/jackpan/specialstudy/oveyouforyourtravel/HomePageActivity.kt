@@ -1,5 +1,6 @@
 package com.jackpan.specialstudy.oveyouforyourtravel
 
+import android.annotation.SuppressLint
 import android.app.AlertDialog
 import android.app.ProgressDialog
 import android.content.Intent
@@ -21,13 +22,19 @@ import com.jackpan.specialstudy.oveyouforyourtravel.Data.TypeListViewActivity
 import android.app.PendingIntent
 import com.google.android.gms.location.Geofence
 import com.google.android.gms.location.GeofencingClient
+import com.google.android.gms.location.GeofencingRequest
 import com.google.android.gms.location.LocationServices
 import com.google.android.gms.maps.model.LatLng
+import com.google.android.gms.tasks.OnCompleteListener
+import com.google.android.gms.tasks.Task
 import com.jackpan.specialstudy.oveyouforyourtravel.Data.Geofence.Constants
 import com.jackpan.specialstudy.oveyouforyourtravel.Data.Geofence.GeofenceBroadcastReceiver
 
 
-class HomePageActivity : AppCompatActivity(), MfirebaeCallback {
+class HomePageActivity : AppCompatActivity(), MfirebaeCallback,OnCompleteListener<Void> {
+    override fun onComplete(p0: Task<Void>) {
+    }
+
     override fun getUserLogoutState(p0: Boolean) {
     }
 
@@ -74,6 +81,10 @@ class HomePageActivity : AppCompatActivity(), MfirebaeCallback {
     override fun onStart() {
         super.onStart()
         mFirebselibClass.setAuthListener()
+        if (!checkPermissions()) {
+        } else {
+            performPendingGeofenceTask()
+        }
 
 
     }
@@ -317,7 +328,14 @@ class HomePageActivity : AppCompatActivity(), MfirebaeCallback {
         }
     }
 
+    @SuppressLint("MissingPermission")
     fun addGeofences() {
+        if(!checkPermissions()) {
+            return
+        }else{
+            mGeofencingClient.addGeofences(getGeofencingRequest(), getGeofencePendingIntent())
+                    .addOnCompleteListener(this);
+        }
 
     }
 
@@ -331,4 +349,16 @@ class HomePageActivity : AppCompatActivity(), MfirebaeCallback {
                 android.Manifest.permission.ACCESS_FINE_LOCATION)
         return permissionState == PackageManager.PERMISSION_GRANTED
     }
+
+    fun getGeofencingRequest(): GeofencingRequest {
+        val builder = GeofencingRequest.Builder()
+        builder.setInitialTrigger(GeofencingRequest.INITIAL_TRIGGER_ENTER);
+
+        // Add the geofences to be monitored by geofencing service.
+        builder.addGeofences(mGeofenceList)
+
+        // Return a GeofencingRequest.
+        return builder.build()
+    }
+
 }

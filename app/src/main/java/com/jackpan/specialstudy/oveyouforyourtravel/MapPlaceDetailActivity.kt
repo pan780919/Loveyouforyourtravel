@@ -82,6 +82,7 @@ class MapPlaceDetailActivity : AppCompatActivity(), GoogleMapAPISerive.GetRespon
     lateinit var mFavoriteImg : ImageView
     lateinit var mNoFavoriteImg : ImageView
     lateinit var mFirebselibClass : MfiebaselibsClass
+    lateinit var mTypeString :String
 
     var  mReViewData :ArrayList<GoogleMapPlaceDetailsData.Result.Reviews> = ArrayList()
 
@@ -174,7 +175,7 @@ class MapPlaceDetailActivity : AppCompatActivity(), GoogleMapAPISerive.GetRespon
             mFavoriteImg.visibility = View.VISIBLE
             mNoFavoriteImg.visibility = View.GONE
             Toast.makeText(this,"收藏到最愛！",Toast.LENGTH_SHORT).show()
-            setFavoriteToFirebase(result,"test12345")
+            setFavoriteToFirebase(result,"test12345",mTypeString)
 
         }
         mFavoriteImg.setOnClickListener {
@@ -182,6 +183,7 @@ class MapPlaceDetailActivity : AppCompatActivity(), GoogleMapAPISerive.GetRespon
             mFavoriteImg.visibility = View.GONE
             mNoFavoriteImg.visibility = View.VISIBLE
             Toast.makeText(this,"取消收藏！",Toast.LENGTH_SHORT).show()
+//            mFirebselibClass.deleteData(CollectionData.KEY_URL,"test12345")
 
         }
 
@@ -215,6 +217,7 @@ class MapPlaceDetailActivity : AppCompatActivity(), GoogleMapAPISerive.GetRespon
         var mString:String =""
         var bundle:Bundle = intent.extras
         mString = bundle.getString(GoogleMapAPISerive.TYPE_PLACEID)
+        mTypeString = bundle.getString(GoogleMapAPISerive.TYPE)
         return mString
     }
 
@@ -350,8 +353,8 @@ class MapPlaceDetailActivity : AppCompatActivity(), GoogleMapAPISerive.GetRespon
 
 
     }
-
-    fun setFavoriteToFirebase(data: GoogleMapPlaceDetailsData.Result,userid:String){
+    lateinit var mUrl :String
+    fun setFavoriteToFirebase(data: GoogleMapPlaceDetailsData.Result,userid:String,type :String){
         if(data==null){
             return
         }
@@ -366,8 +369,14 @@ class MapPlaceDetailActivity : AppCompatActivity(), GoogleMapAPISerive.GetRespon
         mHasMap.put(CollectionData.KEY_NAME,data.name)
         mHasMap.put(CollectionData.KEY_PHOTO,mPhotoData.get(0))
 
+        if(type.equals(GoogleMapAPISerive.TYPE_RESTAURANT)){
+            mUrl = CollectionData.KEY_URL_FOOD
 
-        mFirebselibClass.setFireBaseDB(CollectionData.KEY_URL,userid,mHasMap)
+        }else if(type.equals(GoogleMapAPISerive.TYPE_PARK)){
+            mUrl = CollectionData.KEY_URL_PARK
+        }
+
+        mFirebselibClass.setFireBaseDB(mUrl,userid,mHasMap)
 
     }
 }

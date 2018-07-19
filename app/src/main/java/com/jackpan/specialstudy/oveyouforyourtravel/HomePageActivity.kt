@@ -96,7 +96,7 @@ class HomePageActivity : AppCompatActivity(), MfirebaeCallback{
         mProgressDialog = ProgressDialog(this)
         mProgressDialog.setTitle("讀取中")
         mProgressDialog.setMessage("請稍候")
-        mProgressDialog.setCancelable(false)
+        mProgressDialog.setCancelable(true)
         mProgressDialog.show()
         locationManager = getSystemService(LOCATION_SERVICE) as LocationManager?
 

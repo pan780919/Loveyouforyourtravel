@@ -146,11 +146,7 @@ class MapPlaceDetailActivity : AppCompatActivity(), GoogleMapAPISerive.GetRespon
             mFavoriteImg.visibility = View.VISIBLE
             mNoFavoriteImg.visibility = View.GONE
             Toast.makeText(this,"收藏到最愛！",Toast.LENGTH_SHORT).show()
-<<<<<<< HEAD
             setFavoriteToFirebase(result,"test12345",mTypeString)
-=======
-            setFavoriteToFirebase(result)
->>>>>>> 84e3531c3506b15f59b34c2cfd41ac6aebd803d2
 
         }
         mFavoriteImg.setOnClickListener {
@@ -289,13 +285,9 @@ class MapPlaceDetailActivity : AppCompatActivity(), GoogleMapAPISerive.GetRespon
 
 
     }
-<<<<<<< HEAD
     lateinit var mUrl :String
     fun setFavoriteToFirebase(data: GoogleMapPlaceDetailsData.Result,userid:String,type :String){
-=======
 
-    fun setFavoriteToFirebase(data: GoogleMapPlaceDetailsData.Result){
->>>>>>> 84e3531c3506b15f59b34c2cfd41ac6aebd803d2
         if(data==null){
             return
         }
@@ -315,11 +307,8 @@ class MapPlaceDetailActivity : AppCompatActivity(), GoogleMapAPISerive.GetRespon
             mUrl = CollectionData.KEY_URL_PARK
         }
 
-<<<<<<< HEAD
-        mFirebselibClass.setFireBaseDB(mUrl,userid,mHasMap)
-=======
-        mFirebselibClass.setFireBaseDB(CollectionData.KEY_URL+"/"+token,token,mHasMap)
->>>>>>> 84e3531c3506b15f59b34c2cfd41ac6aebd803d2
+        mFirebselibClass.setFireBaseDB(mUrl+"/"+token,token,mHasMap)
+
 
     }
 }

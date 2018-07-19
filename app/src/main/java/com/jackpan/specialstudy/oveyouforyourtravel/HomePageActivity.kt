@@ -128,6 +128,8 @@ class HomePageActivity : AppCompatActivity(), MfirebaeCallback{
 
         }
         mMaPlayout.setOnClickListener{
+            if(!checkLoginState()) return@setOnClickListener
+
             var intent = Intent()
             intent.setClass(this,MapsActivity::class.java)
             startActivity(intent)
@@ -135,6 +137,7 @@ class HomePageActivity : AppCompatActivity(), MfirebaeCallback{
 
         }
         mLevelLayout.setOnClickListener{
+            if(!checkLoginState()) return@setOnClickListener
 
             if(!latlon.equals("")){
                 var intent = Intent()
@@ -148,6 +151,8 @@ class HomePageActivity : AppCompatActivity(), MfirebaeCallback{
             }
         }
         mFoodLayout.setOnClickListener {
+
+            if(!checkLoginState()) return@setOnClickListener
             if(!latlon.equals("")){
                 var intent = Intent()
                 var mBundle = Bundle()
@@ -161,23 +166,27 @@ class HomePageActivity : AppCompatActivity(), MfirebaeCallback{
 
         }
         mLoveLayout.setOnClickListener {
+            if(!checkLoginState()) return@setOnClickListener
+
 
 
         }
     }
-    private fun checkLoginState(){
+    private fun checkLoginState():Boolean{
         if(MySharedPrefernces.getIsToken(this).equals("")){
             var mAlertDilog =AlertDialog.Builder(this)
             mAlertDilog.setTitle("尚未登入")
             mAlertDilog.setMessage("登入後才能使用喔！！")
             mAlertDilog.setPositiveButton("知道了！",null)
             mAlertDilog.show()
+            return false
         }else{
             var mAlertDilog =AlertDialog.Builder(this)
             mAlertDilog.setTitle("已登入")
             mAlertDilog.setMessage("您已經可以使用此功能")
             mAlertDilog.setPositiveButton("知道了！",null)
             mAlertDilog.show()
+            return true
         }
 
     }

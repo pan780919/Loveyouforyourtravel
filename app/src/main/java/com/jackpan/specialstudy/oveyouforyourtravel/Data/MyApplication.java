@@ -1,6 +1,7 @@
 package com.jackpan.specialstudy.oveyouforyourtravel.Data;
 
 import android.app.Application;
+import android.support.multidex.MultiDexApplication;
 
 import com.firebase.client.Firebase;
 import com.google.firebase.FirebaseApp;
@@ -10,7 +11,7 @@ import com.google.firebase.database.FirebaseDatabase;
  * Created by JackPan on 2018/6/24.
  */
 
-public class MyApplication extends Application {
+public class MyApplication extends MultiDexApplication {
 
     @Override
     public void onCreate() {

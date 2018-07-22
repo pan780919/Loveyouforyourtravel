@@ -31,6 +31,12 @@ class MemberLoveActivity : AppCompatActivity() {
         }
 
         mParkText.setOnClickListener {
+            var intent = Intent()
+            var mBundle = Bundle()
+            mBundle.putString("url",CollectionData.KEY_URL_PARK)
+            intent.putExtras(mBundle)
+            intent.setClass(this, MemberLoveListViewActivity::class.java)
+            startActivity(intent)
 
 
         }

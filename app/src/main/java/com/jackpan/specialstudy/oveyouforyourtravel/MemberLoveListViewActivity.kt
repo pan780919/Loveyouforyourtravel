@@ -21,6 +21,11 @@ import com.jackpan.specialstudy.oveyouforyourtravel.Data.GoogleMapPlaceDetailsDa
 import com.jackpan.specialstudy.oveyouforyourtravel.Data.GoogleResponseData
 import com.jackpan.specialstudy.oveyouforyourtravel.Data.MapDetailResponData
 import java.io.StringReader
+import android.R.string.cancel
+import GoogleMapAPISerive
+import GoogleMapAPISerive.GetResponse
+import android.os.Handler
+
 
 class MemberLoveListViewActivity : AppCompatActivity(), GoogleMapAPISerive.GetResponse, MfirebaeCallback {
     override fun getUserLogoutState(p0: Boolean) {
@@ -39,15 +44,19 @@ class MemberLoveListViewActivity : AppCompatActivity(), GoogleMapAPISerive.GetRe
     }
 
     override fun getDatabaseData(p0: Any?) {
+        Log.d("getDatabaseData",p0.toString())
+        if (p0!=null){
+            var gson = Gson()
+            val reader = JsonReader(StringReader(p0.toString()))
+            reader.setLenient(true)
+            var mCollectionData = MapDetailResponData()
 
-        var gson = Gson()
-        val reader = JsonReader(StringReader(p0.toString()))
-        reader.setLenient(true)
-        var mCollectionData = MapDetailResponData()
+            mCollectionData = gson.fromJson(reader, MapDetailResponData::class.java)
+            Log.d("getDatabaseData", "mCollectionData:"+mCollectionData.id)
+            GoogleMapAPISerive.getPlaceDeatail(this, mCollectionData.id, this)
+        }
 
-        mCollectionData = gson.fromJson(reader, MapDetailResponData::class.java)
-        Log.d("getDatabaseData", "mCollectionData:"+mCollectionData.id)
-        GoogleMapAPISerive.getPlaceDeatail(this, mCollectionData.id, this)
+
     }
 
     override fun getuserLoginEmail(p0: String?) {
@@ -115,6 +124,14 @@ class MemberLoveListViewActivity : AppCompatActivity(), GoogleMapAPISerive.GetRe
         mProgressDialog.setMessage("請稍候")
         mProgressDialog.setCancelable(false)
         mProgressDialog.show()
+
+        val progressRunnable = Runnable {
+            Toast.makeText(this@MemberLoveListViewActivity,"無資料！！",Toast.LENGTH_SHORT).show()
+
+            mProgressDialog.cancel() }
+
+        val pdCanceller = Handler()
+        pdCanceller.postDelayed(progressRunnable, 10000)
         if(!getUrl().equals("")){
             mFirebselibClass.getFirebaseDatabase( getUrl() + "/" + MySharedPrefernces.getIsToken(this), MySharedPrefernces.getIsToken(this))
 

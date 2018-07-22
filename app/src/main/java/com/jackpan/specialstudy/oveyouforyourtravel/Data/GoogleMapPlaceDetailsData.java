@@ -16,6 +16,7 @@ public class GoogleMapPlaceDetailsData {
         public Photos[] photos;
         public Reviews[] reviews;
         public float rating;
+        public String place_id;
 
 
 

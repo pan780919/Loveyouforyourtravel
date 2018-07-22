@@ -139,30 +139,24 @@ class HomePageActivity : AppCompatActivity(), MfirebaeCallback{
         mLevelLayout.setOnClickListener{
             if(!checkLoginState()) return@setOnClickListener
 
-            if(!latlon.equals("")){
-                var intent = Intent()
-                var mBundle = Bundle()
-                mBundle.putString(GoogleMapAPISerive.TYPE,GoogleMapAPISerive.TYPE_PARK)
-                mBundle.putString(GoogleMapAPISerive.TYPE_LATLON,latlon)
-                intent.putExtras(mBundle)
-                intent.setClass(this, TypeListViewActivity::class.java)
-                startActivity(intent)
-
-            }
+            var intent = Intent()
+            var mBundle = Bundle()
+            mBundle.putString(GoogleMapAPISerive.TYPE,GoogleMapAPISerive.TYPE_PARK)
+            mBundle.putString(GoogleMapAPISerive.TYPE_LATLON,"")
+            intent.putExtras(mBundle)
+            intent.setClass(this, TypeListViewActivity::class.java)
+            startActivity(intent)
         }
         mFoodLayout.setOnClickListener {
 
             if(!checkLoginState()) return@setOnClickListener
-            if(!latlon.equals("")){
-                var intent = Intent()
-                var mBundle = Bundle()
-                mBundle.putString(GoogleMapAPISerive.TYPE,GoogleMapAPISerive.TYPE_RESTAURANT)
-                mBundle.putString(GoogleMapAPISerive.TYPE_LATLON,latlon)
-                intent.putExtras(mBundle)
-                intent.setClass(this, TypeListViewActivity::class.java)
-                startActivity(intent)
-
-            }
+            var intent = Intent()
+            var mBundle = Bundle()
+            mBundle.putString(GoogleMapAPISerive.TYPE,GoogleMapAPISerive.TYPE_RESTAURANT)
+            mBundle.putString(GoogleMapAPISerive.TYPE_LATLON,"")
+            intent.putExtras(mBundle)
+            intent.setClass(this, TypeListViewActivity::class.java)
+            startActivity(intent)
 
         }
         mLoveLayout.setOnClickListener {

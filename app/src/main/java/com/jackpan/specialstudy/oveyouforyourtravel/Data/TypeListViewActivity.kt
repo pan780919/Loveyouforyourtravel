@@ -100,7 +100,7 @@ class TypeListViewActivity : AppCompatActivity(), GoogleMapAPISerive.GetResponse
             var mBundle = Bundle()
 
             mBundle.putString(GoogleMapAPISerive.TYPE_PLACEID,mAdapter!!.mAllData!![parent.adapter.getItemId(position).toInt()].place_id)
-            mBundle.putString(mTypeString,mTypeString)
+            mBundle.putString(GoogleMapAPISerive.TYPE,mTypeString)
             mIntent.putExtras(mBundle)
             mIntent.setClass(this,MapPlaceDetailActivity::class.java)
             startActivity(mIntent)

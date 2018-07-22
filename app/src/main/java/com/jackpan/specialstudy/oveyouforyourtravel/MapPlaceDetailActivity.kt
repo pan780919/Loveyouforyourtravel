@@ -14,10 +14,16 @@ import android.widget.*
 import com.hendraanggrian.pikasso.picasso
 import java.util.*
 import GoogleMapAPISerive
+import android.util.Log
+import com.google.gson.Gson
 import com.jackpan.libs.mfirebaselib.MfiebaselibsClass
 import com.jackpan.libs.mfirebaselib.MfirebaeCallback
 import com.jackpan.specialstudy.oveyouforyourtravel.Data.CollectionData
+import com.jackpan.specialstudy.oveyouforyourtravel.Data.MapDetailResponData
 import kotlin.collections.HashMap
+import org.json.JSONObject
+import com.google.gson.stream.JsonReader
+import java.io.StringReader
 
 
 class MapPlaceDetailActivity : AppCompatActivity(), GoogleMapAPISerive.GetResponse, MfirebaeCallback {
@@ -37,6 +43,24 @@ class MapPlaceDetailActivity : AppCompatActivity(), GoogleMapAPISerive.GetRespon
     }
 
     override fun getDatabaseData(p0: Any?) {
+//        Log.d("getDatabaseData",p0.toString())
+        var gson = Gson()
+        val reader = JsonReader(StringReader(p0.toString()))
+        reader.setLenient(true)
+        var mCollectionData = MapDetailResponData()
+
+        mCollectionData = gson.fromJson(reader, MapDetailResponData::class.java)
+        Log.d("getDatabaseData", "mCollectionData:"+mCollectionData.id)
+        Log.d("getDatabaseData", "getData:"+getData())
+
+        if(getData().equals(mCollectionData.id)){
+
+            Log.d("getDatabaseData", "same:")
+
+            mFavoriteImg.visibility = View.VISIBLE
+            mNoFavoriteImg.visibility = View.GONE
+        }
+
     }
 
     override fun getuserLoginEmail(p0: String?) {
@@ -60,31 +84,31 @@ class MapPlaceDetailActivity : AppCompatActivity(), GoogleMapAPISerive.GetRespon
     override fun getFirebaseStorageState(p0: Boolean) {
     }
 
-    lateinit var mViewPage :ViewPager
-    lateinit var mNameText :TextView
-    lateinit var mAddressText : TextView
-    lateinit var mPhoneText :TextView
-    lateinit var mOpenNowText : TextView
-    lateinit var mOPenText : TextView
-    lateinit var  mRatingBar : RatingBar
-    lateinit var mImagePagerAdapter :ImagePagerAdapter
+    lateinit var mViewPage: ViewPager
+    lateinit var mNameText: TextView
+    lateinit var mAddressText: TextView
+    lateinit var mPhoneText: TextView
+    lateinit var mOpenNowText: TextView
+    lateinit var mOPenText: TextView
+    lateinit var mRatingBar: RatingBar
+    lateinit var mImagePagerAdapter: ImagePagerAdapter
     var mPhotoData: ArrayList<String> = ArrayList()
-    lateinit var mReViewListView :LinearLayout
-    lateinit var mFavoriteImg : ImageView
-    lateinit var mNoFavoriteImg : ImageView
-    lateinit var mFirebselibClass : MfiebaselibsClass
-    lateinit var mTypeString :String
+    lateinit var mReViewListView: LinearLayout
+    lateinit var mFavoriteImg: ImageView
+    lateinit var mNoFavoriteImg: ImageView
+    lateinit var mFirebselibClass: MfiebaselibsClass
+    lateinit var mTypeString: String
 
     override fun getData(googleResponseData: GoogleResponseData?) {
     }
 
     override fun getDetailData(googleMapPlaceDetailsData: GoogleMapPlaceDetailsData?) {
-        if (googleMapPlaceDetailsData!=null){
+        if (googleMapPlaceDetailsData != null) {
             setData(googleMapPlaceDetailsData.result)
 
 
 
-            if(googleMapPlaceDetailsData.result.opening_hours!=null){
+            if (googleMapPlaceDetailsData.result.opening_hours != null) {
                 for (period in googleMapPlaceDetailsData.result.opening_hours.periods) {
 
                 }
@@ -92,9 +116,9 @@ class MapPlaceDetailActivity : AppCompatActivity(), GoogleMapAPISerive.GetRespon
 
             }
 
-            if(googleMapPlaceDetailsData.result.photos!=null){
+            if (googleMapPlaceDetailsData.result.photos != null) {
                 for (photos in googleMapPlaceDetailsData.result.photos) {
-                    var  photoString:String = GoogleMapAPISerive.getPhotos(this@MapPlaceDetailActivity,photos.photo_reference)
+                    var photoString: String = GoogleMapAPISerive.getPhotos(this@MapPlaceDetailActivity, photos.photo_reference)
                     mPhotoData.add(photoString)
 
 
@@ -102,7 +126,7 @@ class MapPlaceDetailActivity : AppCompatActivity(), GoogleMapAPISerive.GetRespon
                 mImagePagerAdapter.notifyDataSetChanged()
             }
 
-            if(googleMapPlaceDetailsData.result.reviews!=null){
+            if (googleMapPlaceDetailsData.result.reviews != null) {
                 for (review in googleMapPlaceDetailsData.result.reviews) {
                     addnewLayout(review)
 
@@ -119,7 +143,7 @@ class MapPlaceDetailActivity : AppCompatActivity(), GoogleMapAPISerive.GetRespon
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        mFirebselibClass =  MfiebaselibsClass(this,this@MapPlaceDetailActivity)
+        mFirebselibClass = MfiebaselibsClass(this, this@MapPlaceDetailActivity)
         setContentView(R.layout.activity_map_place_detail)
         mViewPage = findViewById(R.id.viewpage)
         mNameText = findViewById(R.id.nametext)
@@ -131,62 +155,71 @@ class MapPlaceDetailActivity : AppCompatActivity(), GoogleMapAPISerive.GetRespon
         mReViewListView = findViewById(R.id.reviewlistview)
         mNoFavoriteImg = findViewById(R.id.nofavoriteimg)
         mFavoriteImg = findViewById(R.id.favoriteimg)
-        if(!getData().equals("")){
-            GoogleMapAPISerive.getPlaceDeatail(this,getData(),this)
+        if (!getData().equals("")) {
+            checkIsFavoirite()
+
+            GoogleMapAPISerive.getPlaceDeatail(this, getData(), this)
         }
-        mImagePagerAdapter = ImagePagerAdapter(this,mPhotoData)
+        mImagePagerAdapter = ImagePagerAdapter(this, mPhotoData)
         mViewPage.adapter = mImagePagerAdapter
 
 
+    }
+    fun  checkIsFavoirite(){
+        mFirebselibClass.getFirebaseDatabase(CollectionData.KEY_URL_FOOD + "/" + MySharedPrefernces.getIsToken(this), MySharedPrefernces.getIsToken(this))
 
     }
 
-    fun  setFavoriteView(result : GoogleMapPlaceDetailsData.Result){
+    fun setFavoriteView(result: GoogleMapPlaceDetailsData.Result) {
         mNoFavoriteImg.setOnClickListener {
             mFavoriteImg.visibility = View.VISIBLE
             mNoFavoriteImg.visibility = View.GONE
-            Toast.makeText(this,"收藏到最愛！",Toast.LENGTH_SHORT).show()
-            setFavoriteToFirebase(result,"test12345",mTypeString)
+            Toast.makeText(this, "收藏到最愛！", Toast.LENGTH_SHORT).show()
+            setFavoriteToFirebase(result, MySharedPrefernces.getIsToken(this), mTypeString)
 
         }
-        mFavoriteImg.setOnClickListener {
 
-            mFavoriteImg.visibility = View.GONE
-            mNoFavoriteImg.visibility = View.VISIBLE
-            Toast.makeText(this,"取消收藏！",Toast.LENGTH_SHORT).show()
-//            mFirebselibClass.deleteData(CollectionData.KEY_URL,"test12345")
 
-        }
+//        mFavoriteImg.setOnClickListener {
+//
+//            mFavoriteImg.visibility = View.GONE
+//            mNoFavoriteImg.visibility = View.VISIBLE
+//            Toast.makeText(this,"取消收藏！",Toast.LENGTH_SHORT).show()
+////            mFirebselibClass.deleteData(CollectionData.KEY_URL,"test12345")
+//
+//        }
 
     }
-    fun  setData(result : GoogleMapPlaceDetailsData.Result){
-        mNameText.text = "名稱："+result.name
-        mAddressText.text = "地址："+result.formatted_address
-        mPhoneText.text = "聯絡電話："+result.formatted_phone_number
-        if (result.opening_hours!=null){
-            if (result.opening_hours.open_now){
+
+    fun setData(result: GoogleMapPlaceDetailsData.Result) {
+        mNameText.text = "名稱：" + result.name
+        mAddressText.text = "地址：" + result.formatted_address
+        mPhoneText.text = "聯絡電話：" + result.formatted_phone_number
+        if (result.opening_hours != null) {
+            if (result.opening_hours.open_now) {
                 mOpenNowText.text = "目前營業中!"
-            }else{
+            } else {
                 mOpenNowText.text = "目前沒有營業!"
 
             }
         }
 
-        if(result.opening_hours!=null&&result.opening_hours.weekday_text!=null){
-            mOPenText.text = "營業時間："+"\n"+result.opening_hours.weekday_text[0]+"\n"+result.opening_hours.weekday_text[1]+"\n"+result.opening_hours.weekday_text[2]+"\n"+
-                    result.opening_hours.weekday_text[3]+"\n"+result.opening_hours.weekday_text[4]+"\n"+result.opening_hours.weekday_text[5]+"\n"+result.opening_hours.weekday_text[6]
+        if (result.opening_hours != null && result.opening_hours.weekday_text != null) {
+            mOPenText.text = "營業時間：" + "\n" + result.opening_hours.weekday_text[0] + "\n" + result.opening_hours.weekday_text[1] + "\n" + result.opening_hours.weekday_text[2] + "\n" +
+                    result.opening_hours.weekday_text[3] + "\n" + result.opening_hours.weekday_text[4] + "\n" + result.opening_hours.weekday_text[5] + "\n" + result.opening_hours.weekday_text[6]
 
         }
         mRatingBar.numStars = 5
-        mRatingBar.rating =result.rating
+        mRatingBar.rating = result.rating
 
         setFavoriteView(result)
 
 
     }
-    fun getData():String{
-        var mString:String =""
-        var bundle:Bundle = intent.extras
+
+    fun getData(): String {
+        var mString: String = ""
+        var bundle: Bundle = intent.extras
         mString = bundle.getString(GoogleMapAPISerive.TYPE_PLACEID)
         mTypeString = bundle.getString(GoogleMapAPISerive.TYPE)
         return mString
@@ -249,14 +282,14 @@ class MapPlaceDetailActivity : AppCompatActivity(), GoogleMapAPISerive.GetRespon
             if (convertView == null)
                 convertView = LayoutInflater.from(this@MapPlaceDetailActivity).inflate(
                         R.layout.review_layout, null)
-            var mReviewImg : ImageView = convertView!!.findViewById(R.id.reviewimg)
-            var mReviewName : TextView = convertView!!.findViewById(R.id.reviewname)
-            var mReviewText : TextView = convertView!!.findViewById(R.id.reviewtext)
-            var mReviewTime : TextView = convertView!!.findViewById(R.id.reviewtimetext)
-            var mReviewRating : RatingBar = convertView!!.findViewById(R.id.rating)
-           if(data.profile_photo_url!=null) {
-               picasso.load(data.profile_photo_url).error(R.mipmap.nolodingphoto).into(mReviewImg)
-           }
+            var mReviewImg: ImageView = convertView!!.findViewById(R.id.reviewimg)
+            var mReviewName: TextView = convertView!!.findViewById(R.id.reviewname)
+            var mReviewText: TextView = convertView!!.findViewById(R.id.reviewtext)
+            var mReviewTime: TextView = convertView!!.findViewById(R.id.reviewtimetext)
+            var mReviewRating: RatingBar = convertView!!.findViewById(R.id.rating)
+            if (data.profile_photo_url != null) {
+                picasso.load(data.profile_photo_url).error(R.mipmap.nolodingphoto).into(mReviewImg)
+            }
             mReviewName.text = data.author_name
             mReviewText.text = data.text
             mReviewRating.rating = data.rating
@@ -267,15 +300,16 @@ class MapPlaceDetailActivity : AppCompatActivity(), GoogleMapAPISerive.GetRespon
         }
 
     }
-    fun addnewLayout(data:GoogleMapPlaceDetailsData.Result.Reviews){
-        val view = getLayoutInflater().inflate(R.layout.review_layout, null)
-        var mReviewImg : ImageView = view!!.findViewById(R.id.reviewimg)
-        var mReviewName : TextView = view!!.findViewById(R.id.reviewname)
-        var mReviewText : TextView = view!!.findViewById(R.id.reviewtext)
-        var mReviewTime : TextView = view!!.findViewById(R.id.reviewtimetext)
-        var mReviewRating : RatingBar = view!!.findViewById(R.id.rating)
 
-        if(data.profile_photo_url!=null) {
+    fun addnewLayout(data: GoogleMapPlaceDetailsData.Result.Reviews) {
+        val view = getLayoutInflater().inflate(R.layout.review_layout, null)
+        var mReviewImg: ImageView = view!!.findViewById(R.id.reviewimg)
+        var mReviewName: TextView = view!!.findViewById(R.id.reviewname)
+        var mReviewText: TextView = view!!.findViewById(R.id.reviewtext)
+        var mReviewTime: TextView = view!!.findViewById(R.id.reviewtimetext)
+        var mReviewRating: RatingBar = view!!.findViewById(R.id.rating)
+
+        if (data.profile_photo_url != null) {
             picasso.load(data.profile_photo_url).error(R.mipmap.nolodingphoto).into(mReviewImg)
         }
         mReviewName.text = data.author_name
@@ -285,29 +319,30 @@ class MapPlaceDetailActivity : AppCompatActivity(), GoogleMapAPISerive.GetRespon
 
 
     }
-    lateinit var mUrl :String
-    fun setFavoriteToFirebase(data: GoogleMapPlaceDetailsData.Result,userid:String,type :String){
 
-        if(data==null){
+    lateinit var mUrl: String
+    fun setFavoriteToFirebase(data: GoogleMapPlaceDetailsData.Result, userid: String, type: String) {
+
+        if (data == null) {
             return
         }
-        var token :String = MySharedPrefernces.getIsToken(this)
-        if(token.equals("")){
+        var token: String = MySharedPrefernces.getIsToken(this)
+        if (token.equals("")) {
             return
         }
-        var mHasMap = HashMap<String,String>()
-        mHasMap.put(CollectionData.KEY_ID,data.id)
-        mHasMap.put(CollectionData.KEY_NAME,data.name)
-        mHasMap.put(CollectionData.KEY_PHOTO,mPhotoData.get(0))
+        var mHasMap = HashMap<String, String>()
+        mHasMap.put(CollectionData.KEY_ID, data.place_id)
+//        mHasMap.put(CollectionData.KEY_NAME,data.name)
+//        mHasMap.put(CollectionData.KEY_PHOTO,mPhotoData.get(0).toString())
 
-        if(type.equals(GoogleMapAPISerive.TYPE_RESTAURANT)){
+        if (type.equals(GoogleMapAPISerive.TYPE_RESTAURANT)) {
             mUrl = CollectionData.KEY_URL_FOOD
 
-        }else if(type.equals(GoogleMapAPISerive.TYPE_PARK)){
+        } else if (type.equals(GoogleMapAPISerive.TYPE_PARK)) {
             mUrl = CollectionData.KEY_URL_PARK
         }
 
-        mFirebselibClass.setFireBaseDB(mUrl+"/"+token,token,mHasMap)
+        mFirebselibClass.setFireBaseDB(mUrl + "/" + token, data.id, mHasMap)
 
 
     }

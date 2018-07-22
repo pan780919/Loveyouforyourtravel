@@ -73,11 +73,7 @@ class MemberLoveListViewActivity : AppCompatActivity(), GoogleMapAPISerive.GetRe
 
     override fun getDetailData(googleMapPlaceDetailsData: GoogleMapPlaceDetailsData?) {
 
-        mProgressDialog = ProgressDialog(this)
-        mProgressDialog.setTitle("讀取中")
-        mProgressDialog.setMessage("請稍候")
-        mProgressDialog.setCancelable(false)
-        mProgressDialog.show()
+
         if (googleMapPlaceDetailsData != null) {
 
 
@@ -114,8 +110,16 @@ class MemberLoveListViewActivity : AppCompatActivity(), GoogleMapAPISerive.GetRe
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_restaurant_list_view)
         mFirebselibClass = MfiebaselibsClass(this, this@MemberLoveListViewActivity)
+        mProgressDialog = ProgressDialog(this)
+        mProgressDialog.setTitle("讀取中")
+        mProgressDialog.setMessage("請稍候")
+        mProgressDialog.setCancelable(false)
+        mProgressDialog.show()
+        if(!getUrl().equals("")){
+            mFirebselibClass.getFirebaseDatabase( getUrl() + "/" + MySharedPrefernces.getIsToken(this), MySharedPrefernces.getIsToken(this))
 
-        mFirebselibClass.getFirebaseDatabase(CollectionData.KEY_URL_FOOD + "/" + MySharedPrefernces.getIsToken(this), MySharedPrefernces.getIsToken(this))
+        }
+
 
         mPullToRefreshListView = findViewById(R.id.pull_to_refresh_list_view)
 
@@ -139,6 +143,12 @@ class MemberLoveListViewActivity : AppCompatActivity(), GoogleMapAPISerive.GetRe
 
 
 
+    }
+    fun getUrl():String{
+        var mString: String = ""
+        var bundle: Bundle = intent.extras
+        mString = bundle.getString("url")
+        return  mString
     }
 
     override fun onResume() {

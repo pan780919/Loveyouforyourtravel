@@ -77,11 +77,12 @@
             android:name=".MapPlaceDetailActivity"
             android:label="@string/title_activity_map_place_detail"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".Data.FavoriteListActivity"></activity>
+        <activity android:name=".Data.FavoriteListActivity" />
         <activity
             android:name=".MemberLoveListViewActivity"
             android:label="@string/title_activity_map_place_detail"
             android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".MemberLoveActivity"></activity>
     </application>
 
 </manifest>

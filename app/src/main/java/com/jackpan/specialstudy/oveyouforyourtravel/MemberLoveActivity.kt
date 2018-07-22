@@ -42,6 +42,12 @@ class MemberLoveActivity : AppCompatActivity() {
         }
 
         mFreeText.setOnClickListener {
+            var intent = Intent()
+            var mBundle = Bundle()
+            mBundle.putString("url",CollectionData.KEY_URL_FREE)
+            intent.putExtras(mBundle)
+            intent.setClass(this, MemberLoveListViewActivity::class.java)
+            startActivity(intent)
 
         }
     }

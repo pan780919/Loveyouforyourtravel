@@ -10,6 +10,7 @@ import android.widget.Button
 import android.widget.EditText
 import com.jackpan.libs.mfirebaselib.MfiebaselibsClass
 import com.jackpan.libs.mfirebaselib.MfirebaeCallback
+import com.jackpan.specialstudy.oveyouforyourtravel.Data.CollectionData
 
 /**
  * A login screen that offers login via email/password.
@@ -43,7 +44,8 @@ class LoginActivity : AppCompatActivity(), MfirebaeCallback {
     }
 
     override fun getuseLoginId(p0: String?) {
-        Log.d("getuseLoginId",p0)
+        Log.d("getuseLoginId","getuseLoginId"+p0)
+
     }
 
     override fun createUserState(p0: Boolean) {
@@ -106,6 +108,7 @@ class LoginActivity : AppCompatActivity(), MfirebaeCallback {
 
         // Set up the login form
     }
+
     fun login(emaial :String,password:String){
         if(emaial.equals("")){
             showDilog("請輸入帳號！")

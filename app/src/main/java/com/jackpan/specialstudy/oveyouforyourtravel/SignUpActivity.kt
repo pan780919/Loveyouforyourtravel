@@ -10,10 +10,7 @@ import android.widget.Toast
 import com.jackpan.libs.mfirebaselib.MfiebaselibsClass
 import com.jackpan.libs.mfirebaselib.MfirebaeCallback
 import com.google.firebase.auth.FirebaseAuth
-
-
-
-
+import com.jackpan.specialstudy.oveyouforyourtravel.Data.CollectionData
 
 
 class SignUpActivity : AppCompatActivity(), MfirebaeCallback {
@@ -26,7 +23,6 @@ class SignUpActivity : AppCompatActivity(), MfirebaeCallback {
     lateinit var mSignupbtn :Button
     lateinit var mEmailStr :String
     lateinit var mPasswordStr :String
-
     lateinit var mFirebselibClass : MfiebaselibsClass
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -86,6 +82,7 @@ class SignUpActivity : AppCompatActivity(), MfirebaeCallback {
 
 
     }
+
     fun sigup(email:String,password:String){
         mFirebselibClass.createUser(email,password)
 
@@ -128,13 +125,14 @@ class SignUpActivity : AppCompatActivity(), MfirebaeCallback {
     }
 
     override fun getuseLoginId(p0: String?) {
-        Log.d("getuseLoginId","getuseLoginId"+p0)
+
     }
 
 
     override fun createUserState(p0: Boolean) {
         Log.d("createUserState",""+p0)
         if(p0){
+
             var mAlertDialog = android.app.AlertDialog.Builder(this)
             mAlertDialog.setMessage("註冊成功！！,將跳轉到登入頁面")
             mAlertDialog.setPositiveButton("OK",DialogInterface.OnClickListener(){dialogInterface, i ->

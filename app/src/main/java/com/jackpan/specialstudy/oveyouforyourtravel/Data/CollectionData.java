@@ -7,6 +7,7 @@ package com.jackpan.specialstudy.oveyouforyourtravel.Data;
 public class CollectionData {
     public static  final String KEY_URL_FOOD = "https://loveyouforyourtravel.firebaseio.com/FavoriteList_food";
     public static  final String KEY_URL_PARK = "https://loveyouforyourtravel.firebaseio.com/FavoriteList_park";
+    public static  final String KEY_URL_FREE= "https://loveyouforyourtravel.firebaseio.com/FavoriteList_free";
 
     public static  final String KEY_ID = "id";
     public static  final String KEY_NAME = "name";

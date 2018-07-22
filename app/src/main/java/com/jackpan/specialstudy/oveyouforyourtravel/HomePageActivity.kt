@@ -17,6 +17,7 @@ import android.widget.LinearLayout
 import android.widget.Toast
 import com.jackpan.libs.mfirebaselib.MfiebaselibsClass
 import com.jackpan.libs.mfirebaselib.MfirebaeCallback
+import com.jackpan.specialstudy.oveyouforyourtravel.Data.CollectionData
 import com.jackpan.specialstudy.oveyouforyourtravel.Data.TypeListViewActivity
 
 class HomePageActivity : AppCompatActivity(), MfirebaeCallback{
@@ -49,6 +50,9 @@ class HomePageActivity : AppCompatActivity(), MfirebaeCallback{
 
     override fun getuseLoginId(p0: String?) {
         MySharedPrefernces.saveIsToken(this,p0)
+
+
+
     }
 
     override fun createUserState(p0: Boolean) {
@@ -75,6 +79,7 @@ class HomePageActivity : AppCompatActivity(), MfirebaeCallback{
     }
     override fun getFirebaseStorageState(p0: Boolean) {
     }
+    var mArrayString = ArrayList<String>()
 
     lateinit var mLoginBtn : Button
     lateinit var mMaPlayout : LinearLayout
@@ -89,8 +94,8 @@ class HomePageActivity : AppCompatActivity(), MfirebaeCallback{
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         mFirebselibClass =  MfiebaselibsClass(this,this@HomePageActivity)
-
         setContentView(R.layout.activity_home_page)
+        setArray()
         mFirebselibClass.userLoginCheck()
         checkPermission()
         mProgressDialog = ProgressDialog(this)
@@ -98,6 +103,16 @@ class HomePageActivity : AppCompatActivity(), MfirebaeCallback{
         mProgressDialog.setMessage("請稍候")
         mProgressDialog.setCancelable(true)
         mProgressDialog.show()
+
+        mArrayString.forEach {
+            Log.d("mArrayString",it)
+            var mHasMap = HashMap<String, String>()
+
+            mHasMap.put(CollectionData.KEY_ID, it)
+            mFirebselibClass.setFireBaseDB(CollectionData.KEY_URL_FREE + "/" + MySharedPrefernces.getIsToken(this@HomePageActivity), mHasMap.get(CollectionData.KEY_ID), mHasMap)
+
+        }
+
         locationManager = getSystemService(LOCATION_SERVICE) as LocationManager?
 
         try {
@@ -188,7 +203,14 @@ class HomePageActivity : AppCompatActivity(), MfirebaeCallback{
 
     }
     val MY_PERMISSIONS_REQUEST_LOCATION = 100
+    fun setArray(){
+        mArrayString.add("ChIJRU2X1EQEbjQR-eOVjNzERRQ")
+        mArrayString.add("ChIJPXn4lkQEbjQRtInW0ADmQw8")
+        mArrayString.add("ChIJJXvlCFoEbjQRqwnQcbOtSQI")
+        mArrayString.add("ChIJU_XatFoEbjQRdgw_7DAcnYU")
+        mArrayString.add("ChIJ_-qulFoEbjQR1XFPp7jiG3w")
 
+    }
     fun checkPermission() {
         if (ContextCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION)
                 != PackageManager.PERMISSION_GRANTED) {

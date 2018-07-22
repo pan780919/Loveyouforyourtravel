@@ -60,6 +60,7 @@ class MapPlaceDetailActivity : AppCompatActivity(), GoogleMapAPISerive.GetRespon
             mFavoriteImg.visibility = View.VISIBLE
             mNoFavoriteImg.visibility = View.GONE
         }
+        GoogleMapAPISerive.getPlaceDeatail(this, mCollectionData.id, this)
 
     }
 

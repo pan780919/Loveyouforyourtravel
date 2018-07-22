@@ -161,6 +161,9 @@ class HomePageActivity : AppCompatActivity(), MfirebaeCallback{
         }
         mLoveLayout.setOnClickListener {
             if(!checkLoginState()) return@setOnClickListener
+            var intent = Intent()
+            intent.setClass(this, MemberLoveListViewActivity::class.java)
+            startActivity(intent)
 
 
 

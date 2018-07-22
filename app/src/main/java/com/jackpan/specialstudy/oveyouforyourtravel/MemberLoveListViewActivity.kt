@@ -128,14 +128,13 @@ class MemberLoveListViewActivity : AppCompatActivity(), GoogleMapAPISerive.GetRe
             parent, view, position, id ->
 
 
-//            var mIntent = Intent()
-//            var mBundle = Bundle()
-//
-//            mBundle.putString(GoogleMapAPISerive.TYPE_PLACEID,mAdapter!!.mAllData!![parent.adapter.getItemId(position).toInt()].place_id)
-//            mBundle.putString(GoogleMapAPISerive.TYPE,mTypeString)
-//            mIntent.putExtras(mBundle)
-//            mIntent.setClass(this, MapPlaceDetailActivity::class.java)
-//            startActivity(mIntent)
+            var mIntent = Intent()
+            var mBundle = Bundle()
+            mBundle.putString(GoogleMapAPISerive.TYPE_PLACEID,mAdapter!!.mAllData!![parent.adapter.getItemId(position).toInt()].result.place_id)
+            mBundle.putString(GoogleMapAPISerive.TYPE,"")
+            mIntent.putExtras(mBundle)
+            mIntent.setClass(this, MapPlaceDetailActivity::class.java)
+            startActivity(mIntent)
         })
 
 

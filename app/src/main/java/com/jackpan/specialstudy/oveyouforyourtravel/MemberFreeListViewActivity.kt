@@ -25,6 +25,7 @@ import android.R.string.cancel
 import GoogleMapAPISerive
 import GoogleMapAPISerive.GetResponse
 import android.os.Handler
+import java.util.*
 
 
 class MemberFreeListViewActivity : AppCompatActivity(), GoogleMapAPISerive.GetResponse, MfirebaeCallback {
@@ -198,12 +199,18 @@ class MemberFreeListViewActivity : AppCompatActivity(), GoogleMapAPISerive.GetRe
             if (convertView == null)
                 convertView = LayoutInflater.from(this@MemberFreeListViewActivity).inflate(
                         R.layout.freelistview_layout, null)
+            val free = arrayOf("折扣10元","折扣20元","折扣50元")
+
+
+
             var mStoreNameText : TextView = convertView!!.findViewById(R.id.storename)
-            var mFreeText : TextView = convertView!!.findViewById(R.id.freetexttext)
+            var mFreeText : TextView = convertView!!.findViewById(R.id.listviewtext)
             var mUseText : TextView = convertView!!.findViewById(R.id.usetext)
 
             mStoreNameText.text =data.result.name
+            val random = Random().nextInt(2)
 
+            mFreeText.text = free.get(random)
             mUseText.setOnClickListener {
 
             }

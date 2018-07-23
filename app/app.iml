@@ -142,6 +142,7 @@
     <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-auth-base-15.0.1" level="project" />
     <orderEntry type="library" name="Gradle: com.google.firebase:firebase-storage-15.0.2" level="project" />
     <orderEntry type="library" name="Gradle: com.google.firebase:firebase-database-connection-15.0.1" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.android.exoplayer:exoplayer-dash-r2.4.2" level="project" />
     <orderEntry type="library" name="Gradle: com.google.firebase:firebase-database-15.0.1" level="project" />
     <orderEntry type="library" name="Gradle: com.android.support:support-media-compat-27.1.1" level="project" />
     <orderEntry type="library" name="Gradle: com.google.firebase:firebase-iid-interop-15.0.0" level="project" />
@@ -161,6 +162,7 @@
     <orderEntry type="library" scope="TEST" name="Gradle: com.android.support:multidex-instrumentation-1.0.2" level="project" />
     <orderEntry type="library" name="Gradle: com.android.support:appcompat-v7-27.1.1" level="project" />
     <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-ads-15.0.1" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.ads.interactivemedia.v3:interactivemedia:3.7.2@jar" level="project" />
     <orderEntry type="library" name="Gradle: com.google.firebase:firebase-auth-15.1.0" level="project" />
     <orderEntry type="library" name="Gradle: com.google.firebase:firebase-abt-15.0.1" level="project" />
     <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-tasks-15.0.1" level="project" />
@@ -174,6 +176,7 @@
     <orderEntry type="library" name="Gradle: com.google.firebase:firebase-invites-15.0.1" level="project" />
     <orderEntry type="library" name="Gradle: com.fasterxml.jackson.core:jackson-annotations:2.2.2@jar" level="project" />
     <orderEntry type="library" name="Gradle: com.android.support:support-compat-27.1.1" level="project" />
+    <orderEntry type="library" name="Gradle: com.facebook.android:audience-network-sdk-4.99.1" level="project" />
     <orderEntry type="library" name="Gradle: android.arch.lifecycle:viewmodel-1.1.0" level="project" />
     <orderEntry type="library" name="Gradle: com.google.firebase:firebase-storage-common-15.0.2" level="project" />
     <orderEntry type="library" name="Gradle: com.android.support:support-vector-drawable-27.1.1" level="project" />
@@ -194,6 +197,7 @@
     <orderEntry type="library" name="Gradle: com.google.firebase:firebase-core-15.0.2" level="project" />
     <orderEntry type="library" name="Gradle: com.google.firebase:protolite-well-known-types-15.0.0" level="project" />
     <orderEntry type="library" name="Gradle: com.hendraanggrian:pikasso-0.2" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.android.exoplayer:exoplayer-core-r2.4.2" level="project" />
     <orderEntry type="library" name="Gradle: io.opencensus:opencensus-contrib-grpc-metrics:0.8.0@jar" level="project" />
     <orderEntry type="library" name="Gradle: io.grpc:grpc-protobuf-lite:1.8.0@jar" level="project" />
     <orderEntry type="library" name="Gradle: com.firebase:firebase-client-android:2.4.0@jar" level="project" />
@@ -220,6 +224,7 @@
     <orderEntry type="library" name="Gradle: com.android.support:support-annotations:27.1.1@jar" level="project" />
     <orderEntry type="library" name="Gradle: com.android.support:animated-vector-drawable-27.1.1" level="project" />
     <orderEntry type="library" name="Gradle: io.opencensus:opencensus-api:0.8.0@jar" level="project" />
+    <orderEntry type="library" name="Gradle: __local_aars__:/Users/adup04/Loveyouforyourtravel/app/libs/MFAD-2.0.6.jar:unspecified@jar" level="project" />
     <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-auth-15.0.1" level="project" />
     <orderEntry type="library" name="Gradle: com.firebase:firebase-client-jvm:2.4.0@jar" level="project" />
     <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-base-15.0.1" level="project" />

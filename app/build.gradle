@@ -30,38 +30,35 @@ dependencies {
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
     implementation files('libs/mFirebaseLibs.jar')
-// Play Services 15.0.0
-    implementation "com.google.android.gms:play-services-base:15.0.1"
-    implementation "com.google.android.gms:play-services-auth:15.0.1"
-    implementation "com.google.android.gms:play-services-identity:15.0.1"
+    // Play Services 15.0.0
+    implementation 'com.google.android.gms:play-services-base:15.0.1'
+    implementation 'com.google.android.gms:play-services-auth:15.0.1'
+    implementation 'com.google.android.gms:play-services-identity:15.0.1'
     implementation 'com.google.android.gms:play-services-ads:15.0.1'
-
-
     // Firebase 15.0.0
-    implementation "com.google.firebase:firebase-core:15.0.2"
-    implementation "com.google.firebase:firebase-database:15.0.1"
-    implementation "com.google.firebase:firebase-firestore:16.0.0"
-    implementation "com.google.firebase:firebase-storage:15.0.2"
-    implementation "com.google.firebase:firebase-crash:15.0.2"
-    implementation "com.google.firebase:firebase-auth:15.1.0"
-    implementation "com.google.firebase:firebase-messaging:15.0.2"
-    implementation "com.google.firebase:firebase-config:15.0.2"
-    implementation "com.google.firebase:firebase-invites:15.0.1"
-    implementation "com.google.firebase:firebase-ads:15.0.1"
-    implementation "com.google.firebase:firebase-appindexing:15.0.1"
-    implementation "com.google.firebase:firebase-perf:15.1.0"
-    implementation "com.google.firebase:firebase-functions:15.0.0"
+    implementation 'com.google.firebase:firebase-core:15.0.2'
+    implementation 'com.google.firebase:firebase-database:15.0.1'
+    implementation 'com.google.firebase:firebase-firestore:16.0.0'
+    implementation 'com.google.firebase:firebase-storage:15.0.2'
+    implementation 'com.google.firebase:firebase-crash:15.0.2'
+    implementation 'com.google.firebase:firebase-auth:15.1.0'
+    implementation 'com.google.firebase:firebase-messaging:15.0.2'
+    implementation 'com.google.firebase:firebase-config:15.0.2'
+    implementation 'com.google.firebase:firebase-invites:15.0.1'
+    implementation 'com.google.firebase:firebase-ads:15.0.1'
+    implementation 'com.google.firebase:firebase-appindexing:15.0.1'
+    implementation 'com.google.firebase:firebase-perf:15.1.0'
+    implementation 'com.google.firebase:firebase-functions:15.0.0'
     implementation 'com.firebase:firebase-client-android:2.4.0'
-
-
     implementation 'com.android.support:multidex:1.0.3'
-
     implementation 'com.mcxiaoke.volley:library:1.0.+'
-    implementation group: 'com.google.code.gson', name: 'gson', version: '2.3.1'
+    implementation 'com.google.code.gson:gson:2.3.1'
     compile 'com.github.open-android:PullToRefresh:v1.0'
     compile 'com.hendraanggrian:pikasso:0.2'
     implementation 'com.gcssloop.widget:rclayout:1.6.0'
-
+    compile 'com.facebook.android:audience-network-sdk:4.99.1'
+    implementation files('libs/MFAD-2.0.6.jar')
+    compile 'com.google.ads.interactivemedia.v3:interactivemedia:3.7.2'
 
 }
 

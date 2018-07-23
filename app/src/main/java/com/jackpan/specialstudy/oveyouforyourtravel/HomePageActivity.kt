@@ -98,11 +98,12 @@ class HomePageActivity : AppCompatActivity(), MfirebaeCallback{
         setArray()
         mFirebselibClass.userLoginCheck()
         checkPermission()
-        mProgressDialog = ProgressDialog(this)
-        mProgressDialog.setTitle("讀取中")
-        mProgressDialog.setMessage("請稍候")
-        mProgressDialog.setCancelable(true)
-        mProgressDialog.show()
+//        mProgressDialog = ProgressDialog(this)
+//        mProgressDialog.setTitle("讀取中")
+//        mProgressDialog.setMessage("請稍候")
+//        mProgressDialog.setCancelable(true)
+//        mProgressDialog.show()
+//        mProgressDialog.dismiss()
 
         mArrayString.forEach {
             Log.d("mArrayString",it)
@@ -235,7 +236,6 @@ class HomePageActivity : AppCompatActivity(), MfirebaeCallback{
             latlon = location.latitude.toString() + "," + location.longitude.toString()
 //            locationTextView.text = "${location.latitude} - ${location.longitude}"
             Log.d("Location", latlon)
-            mProgressDialog.dismiss()
 
 
 

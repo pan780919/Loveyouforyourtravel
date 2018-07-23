@@ -63,7 +63,9 @@
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
-
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
         <activity
             android:name=".MapsActivity"
             android:label="@string/title_activity_maps"
@@ -85,7 +87,13 @@
         <activity android:name=".MemberLoveActivity" />
         <activity android:name=".MemberFreeListViewActivity" />
         <activity android:name=".UseCouponActivity" />
-        <activity android:name=".GetMoreCouponActivity"></activity>
+        <activity android:name=".GetMoreCouponActivity"
+            android:configChanges="orientation|screenSize" >
+            </activity>
+
+        <activity android:name=".MainActivity"
+            android:configChanges="orientation|screenSize">
+        </activity>
     </application>
 
 </manifest>

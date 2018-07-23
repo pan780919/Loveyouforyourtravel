@@ -2,6 +2,7 @@ package com.jackpan.specialstudy.oveyouforyourtravel
 
 import android.app.ProgressDialog
 import android.content.Intent
+import android.content.res.Configuration
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -12,6 +13,8 @@ import android.widget.BaseAdapter
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
+import com.clickforce.ad.Listener.PreRollViewLinstener
+import com.clickforce.ad.PreRollAdView
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.MobileAds
 import com.google.android.gms.ads.reward.RewardItem
@@ -99,7 +102,6 @@ class GetMoreCouponActivity : AppCompatActivity(), RewardedVideoAdListener, Mfir
     }
 
     override fun onRewardedVideoAdFailedToLoad(errorCode: Int) {
-        mGetMoreButton.visibility = View.INVISIBLE
 
         Toast.makeText(this, "onRewardedVideoAdFailedToLoad:"+errorCode, Toast.LENGTH_SHORT).show()
         mProgressDialog.dismiss()
@@ -128,16 +130,19 @@ class GetMoreCouponActivity : AppCompatActivity(), RewardedVideoAdListener, Mfir
     private lateinit var mRewardedVideoAd: RewardedVideoAd
     lateinit var mGetMoreButton : Button
     var mAdapter: MyAdapter? = null
+    var mPreRollViewLinstener :myPreRollViewLinstener? = null
     var mAllData: ArrayList<GoogleMapPlaceDetailsData> = ArrayList()
     lateinit var mProgressDialog: ProgressDialog
     lateinit var mPullToRefreshListView: PullToRefreshListView
-
+    lateinit var preRollAdView : PreRollAdView
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         mFirebselibClass = MfiebaselibsClass(this, this@GetMoreCouponActivity)
 
         setContentView(R.layout.activity_get_more_coupon)
-        mGetMoreButton = findViewById(R.id.getcoupon)
+//        preRollAdView = findViewById(R.id.preroll)
+//        preRollAdView.setOnPreRollViewLoaded(mPreRollViewLinstener)
+
         getCouponList()
         mProgressDialog = ProgressDialog(this)
         mProgressDialog.setTitle("讀取中")
@@ -149,12 +154,24 @@ class GetMoreCouponActivity : AppCompatActivity(), RewardedVideoAdListener, Mfir
 
         mAdapter = MyAdapter(mAllData)
         mPullToRefreshListView.setAdapter(mAdapter)
+        
 //        mGetMoreButton.setOnClickListener {
 //
 //            if (mRewardedVideoAd.isLoaded) {
 //                mRewardedVideoAd.show()
 //            }
 //        }
+    }
+    class myPreRollViewLinstener : PreRollViewLinstener {
+        override fun onStartPlayVideo() {
+            Log.d(javaClass.simpleName,"onStartPlayVideo")
+        }
+
+        override fun onFailedToPreRollAd() {
+            Log.d(javaClass.simpleName,"onFailedToPreRollAd")
+
+        }
+
     }
     override fun onPause() {
         super.onPause()
@@ -171,6 +188,12 @@ class GetMoreCouponActivity : AppCompatActivity(), RewardedVideoAdListener, Mfir
         mRewardedVideoAd.destroy(this)
     }
 
+    override fun onConfigurationChanged(newConfig: Configuration?) {
+        super.onConfigurationChanged(newConfig)
+        preRollAdView.fullScreen(this@GetMoreCouponActivity)
+
+
+    }
     fun getCouponList(){
         var  mArray = arrayOf("ChIJO7jfCHkEbjQR67Rh2pNutMI","ChIJDZtbAXkEbjQR9NBmh-KSCcQ","ChIJxbX0zXkEbjQRZ16eV60lgk4","ChIJzfx7qXAEbjQR0Uy44Fen1gc","ChIJVVokUngEbjQR-a2eD4kbT70","ChIJwfoesmQEbjQRSewxKQGGl4Q")
         mArray.forEach {
@@ -189,12 +212,12 @@ class GetMoreCouponActivity : AppCompatActivity(), RewardedVideoAdListener, Mfir
     }
 
     fun SetRewardedVideoAd(){
-        MobileAds.initialize(this, "ca-app-pub-7019441527375550~6063307093")
+        MobileAds.initialize(this, "ca-app-pub-7019441527375550~1705354228")
 
         mRewardedVideoAd = MobileAds.getRewardedVideoAdInstance(this)
         mRewardedVideoAd.rewardedVideoAdListener = this
 
-        mRewardedVideoAd.loadAd("ca-app-pub-7019441527375550/3054000377",
+        mRewardedVideoAd.loadAd("ca-app-pub-7019441527375550/1968113408",
                 AdRequest.Builder().build())
 
     }
@@ -244,7 +267,10 @@ class GetMoreCouponActivity : AppCompatActivity(), RewardedVideoAdListener, Mfir
             mUseText.setOnClickListener {
                 if (mRewardedVideoAd.isLoaded) {
                     mRewardedVideoAd.show()
-                }}
+                }
+
+
+            }
 
 
             return convertView

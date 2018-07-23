@@ -82,9 +82,9 @@
             android:name=".MemberLoveListViewActivity"
             android:label="@string/title_activity_map_place_detail"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".MemberLoveActivity"></activity>
-        <activity android:name=".MemberFreeListViewActivity"></activity>
-
+        <activity android:name=".MemberLoveActivity" />
+        <activity android:name=".MemberFreeListViewActivity" />
+        <activity android:name=".UseCouponActivity"></activity>
     </application>
 
 </manifest>

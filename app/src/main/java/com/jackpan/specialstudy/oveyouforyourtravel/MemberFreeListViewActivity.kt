@@ -119,7 +119,7 @@ class MemberFreeListViewActivity : AppCompatActivity(), GoogleMapAPISerive.GetRe
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_restaurant_list_view)
+        setContentView(R.layout.content_free_list_view)
         mFirebselibClass = MfiebaselibsClass(this, this@MemberFreeListViewActivity)
         mProgressDialog = ProgressDialog(this)
         mProgressDialog.setTitle("讀取中")
@@ -145,12 +145,12 @@ class MemberFreeListViewActivity : AppCompatActivity(), GoogleMapAPISerive.GetRe
         mAdapter = MyAdapter(mAllData)
         mPullToRefreshListView.setAdapter(mAdapter)
         mGetMoreFreeButton = findViewById(R.id.getmorebutton)
-        mPullToRefreshListView.setOnRefreshListener(mListViewOnRefreshListener2)
+//        mPullToRefreshListView.setOnRefreshListener(mListViewOnRefreshListener2)
         mGetMoreFreeButton.setOnClickListener {
 
         }
 
-        
+
     }
     fun getUrl():String{
         var mString: String = ""
@@ -201,8 +201,11 @@ class MemberFreeListViewActivity : AppCompatActivity(), GoogleMapAPISerive.GetRe
             val random = Random().nextInt(2)
 
             mFreeText.text = free.get(random)
+            mUseText.text = "Use"
             mUseText.setOnClickListener {
-
+                var intent =Intent()
+                intent.setClass(this@MemberFreeListViewActivity,UseCouponActivity::class.java)
+                startActivity(intent)
             }
 
 

@@ -159,13 +159,6 @@ class MemberFreeListViewActivity : AppCompatActivity(), GoogleMapAPISerive.GetRe
         mString = bundle.getString("url")
         return  mString
     }
-
-    override fun onResume() {
-        super.onResume()
-
-    }
-
-
     inner class MyAdapter(var mAllData: ArrayList<GoogleMapPlaceDetailsData>?) : BaseAdapter() {
         fun updateData(datas: ArrayList<GoogleMapPlaceDetailsData>) {
             mAllData = datas
@@ -192,14 +185,12 @@ class MemberFreeListViewActivity : AppCompatActivity(), GoogleMapAPISerive.GetRe
                         R.layout.freelistview_layout, null)
             val free = arrayOf("折扣10元","折扣20元","折扣50元")
 
-
-
             var mStoreNameText : TextView = convertView!!.findViewById(R.id.storename)
             var mFreeText : TextView = convertView!!.findViewById(R.id.listviewtext)
             var mUseText : TextView = convertView!!.findViewById(R.id.usetext)
 
             mStoreNameText.text =data.result.name
-            val random = Random().nextInt(2)
+            val random = Random().nextInt(3)
 
             mFreeText.text = free.get(random)
             mUseText.text = "Use"
@@ -215,50 +206,5 @@ class MemberFreeListViewActivity : AppCompatActivity(), GoogleMapAPISerive.GetRe
 
     }
 
-    private val mListViewOnRefreshListener2 = object : PullToRefreshBase.OnRefreshListener2<ListView> {
 
-        /**
-         * 下拉刷新回调
-         * @param refreshView
-         */
-        override fun onPullDownToRefresh(refreshView: PullToRefreshBase<ListView>) {
-            //模拟延时三秒刷新
-            mPullToRefreshListView.postDelayed({
-
-                mPullToRefreshListView.onRefreshComplete()//下拉刷新结束，下拉刷新头复位
-            }, 3000)
-        }
-
-        /**
-         * 上拉加载更多回调
-         * @param refreshView
-         */
-        override fun onPullUpToRefresh(refreshView: PullToRefreshBase<ListView>) {
-            //模拟延时三秒加载更多数据
-//            mPullToRefreshListView.postDelayed({
-//                mPullToRefreshListView.onRefreshComplete()//上拉加载更多结束，上拉加载头复位
-//                Log.d("Jack", mNextPage.size.toString())
-//                if(mNextPage[0].next_page_token==null){
-//                    Toast.makeText(this@MemberLoveListViewActivity, "最後一筆資料囉！！", Toast.LENGTH_SHORT).show()
-//                    return@postDelayed
-//                }
-//                GoogleMapAPISerive.nextPage(this@MemberLoveListViewActivity,mNextPage[0].next_page_token, this@MemberLoveListViewActivity)
-//                mAdapter!!.notifyDataSetChanged()
-//                Toast.makeText(this@MemberLoveListViewActivity, "列表刷新！！", Toast.LENGTH_SHORT).show()
-//
-//
-//            }, 3000)
-        }
-    }
-    fun  getBundle():Boolean{
-        var bundle: Bundle = intent.extras
-        mTypeString = bundle.getString(GoogleMapAPISerive.TYPE)
-        mLatLngString = bundle.getString(GoogleMapAPISerive.TYPE_LATLON)
-
-        if(!mTypeString.equals("")||!mLatLngString.equals("")){
-            return true
-        }
-        return false
-
-    }
 }

@@ -129,7 +129,6 @@ class MemberFreeListViewActivity : AppCompatActivity(), GoogleMapAPISerive.GetRe
 
         val progressRunnable = Runnable {
             Toast.makeText(this@MemberFreeListViewActivity,"無資料！！",Toast.LENGTH_SHORT).show()
-
             mProgressDialog.cancel() }
 
         val pdCanceller = Handler()
@@ -147,7 +146,9 @@ class MemberFreeListViewActivity : AppCompatActivity(), GoogleMapAPISerive.GetRe
         mGetMoreFreeButton = findViewById(R.id.getmorebutton)
 //        mPullToRefreshListView.setOnRefreshListener(mListViewOnRefreshListener2)
         mGetMoreFreeButton.setOnClickListener {
-
+            var intent = Intent()
+            intent.setClass(this@MemberFreeListViewActivity,GetMoreCouponActivity::class.java)
+            startActivity(intent)
         }
 
 

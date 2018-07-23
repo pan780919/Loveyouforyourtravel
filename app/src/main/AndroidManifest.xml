@@ -84,7 +84,8 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".MemberLoveActivity" />
         <activity android:name=".MemberFreeListViewActivity" />
-        <activity android:name=".UseCouponActivity"></activity>
+        <activity android:name=".UseCouponActivity" />
+        <activity android:name=".GetMoreCouponActivity"></activity>
     </application>
 
 </manifest>

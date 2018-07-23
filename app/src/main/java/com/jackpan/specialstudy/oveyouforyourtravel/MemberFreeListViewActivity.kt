@@ -115,6 +115,7 @@ class MemberFreeListViewActivity : AppCompatActivity(), GoogleMapAPISerive.GetRe
     lateinit var mLatLngString: String
 
     lateinit var mFirebselibClass: MfiebaselibsClass
+    lateinit var mGetMoreFreeButton : Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -143,24 +144,13 @@ class MemberFreeListViewActivity : AppCompatActivity(), GoogleMapAPISerive.GetRe
 
         mAdapter = MyAdapter(mAllData)
         mPullToRefreshListView.setAdapter(mAdapter)
-
+        mGetMoreFreeButton = findViewById(R.id.getmorebutton)
         mPullToRefreshListView.setOnRefreshListener(mListViewOnRefreshListener2)
-        mPullToRefreshListView.setMode(PullToRefreshBase.Mode.PULL_FROM_END);
-//        mPullToRefreshListView.setOnItemClickListener(AdapterView.OnItemClickListener {
-//            parent, view, position, id ->
-//
-//
-//            var mIntent = Intent()
-//            var mBundle = Bundle()
-//            mBundle.putString(GoogleMapAPISerive.TYPE_PLACEID,mAdapter!!.mAllData!![parent.adapter.getItemId(position).toInt()].result.place_id)
-//            mBundle.putString(GoogleMapAPISerive.TYPE,"")
-//            mIntent.putExtras(mBundle)
-//            mIntent.setClass(this, MapPlaceDetailActivity::class.java)
-//            startActivity(mIntent)
-//        })
+        mGetMoreFreeButton.setOnClickListener {
 
+        }
 
-
+        
     }
     fun getUrl():String{
         var mString: String = ""

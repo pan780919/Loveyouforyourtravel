@@ -7,8 +7,25 @@
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context=".Data.TypeListViewActivity"
     tools:showIn="@layout/activity_restaurant_list_view">
-    <com.itheima.pulltorefreshlib.PullToRefreshListView
-        android:id="@+id/pull_to_refresh_list_view"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent"
+        >
+        <com.itheima.pulltorefreshlib.PullToRefreshListView
+            android:id="@+id/pull_to_refresh_list_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+        <Button
+            android:id="@+id/getmorebutton"
+            android:text="獲取更多優惠卷"
+            android:textSize="24dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="20dp"
+            android:layout_alignParentBottom="true"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            ></Button>
+    </RelativeLayout>
+
 </android.support.constraint.ConstraintLayout>

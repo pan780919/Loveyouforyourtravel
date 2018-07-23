@@ -46,7 +46,7 @@ class MemberLoveActivity : AppCompatActivity() {
             var mBundle = Bundle()
             mBundle.putString("url",CollectionData.KEY_URL_FREE)
             intent.putExtras(mBundle)
-            intent.setClass(this, MemberLoveListViewActivity::class.java)
+            intent.setClass(this, MemberFreeListViewActivity::class.java)
             startActivity(intent)
 
         }

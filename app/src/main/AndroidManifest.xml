@@ -83,6 +83,8 @@
             android:label="@string/title_activity_map_place_detail"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".MemberLoveActivity"></activity>
+        <activity android:name=".MemberFreeListViewActivity"></activity>
+
     </application>
 
 </manifest>

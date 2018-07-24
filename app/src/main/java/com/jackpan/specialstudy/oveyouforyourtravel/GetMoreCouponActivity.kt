@@ -13,6 +13,9 @@ import android.widget.BaseAdapter
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
+import com.adbert.AdbertADView
+import com.adbert.AdbertVideoBox
+import com.adbert.AdbertVideoBoxListener
 import com.clickforce.ad.Listener.PreRollViewLinstener
 import com.clickforce.ad.PreRollAdView
 import com.google.android.gms.ads.AdListener
@@ -89,7 +92,7 @@ class GetMoreCouponActivity : AppCompatActivity(), RewardedVideoAdListener, Mfir
 
     lateinit var mFirebselibClass: MfiebaselibsClass
     private lateinit var mInterstitialAd: InterstitialAd
-
+    lateinit var mAdbertVideoBox :AdbertVideoBox
 
     override fun onRewarded(reward: RewardItem) {
         Toast.makeText(this, "onRewarded! currency: ${reward.type} amount: ${reward.amount}",
@@ -154,7 +157,7 @@ class GetMoreCouponActivity : AppCompatActivity(), RewardedVideoAdListener, Mfir
         mProgressDialog.show()
 
         mInterstitialAd = InterstitialAd(this)
-        mInterstitialAd.adUnitId = "ca-app-pub-7019441527375550/3381782362"
+        mInterstitialAd.adUnitId = "ca-app-pub-7019441527375550/6135553828"
         mInterstitialAd.loadAd(AdRequest.Builder().build())
 
 
@@ -182,6 +185,7 @@ class GetMoreCouponActivity : AppCompatActivity(), RewardedVideoAdListener, Mfir
                 // Code to be executed when when the interstitial ad is closed.
             }
         }
+        setAdbertAd()
         SetRewardedVideoAd()
         mPullToRefreshListView = findViewById(R.id.pull_to_refresh_list_view)
 
@@ -305,15 +309,43 @@ class GetMoreCouponActivity : AppCompatActivity(), RewardedVideoAdListener, Mfir
                     mRewardedVideoAd.show()
 
                 }else{
-                    var intent = Intent()
-                    intent.setClass(this@GetMoreCouponActivity,MainActivity::class.java)
-                    startActivity(intent)
+//                    var intent = Intent()
+//                    intent.setClass(this@GetMoreCouponActivity,MainActivity::class.java)
+//                    startActivity(intent)
+
                 }
 
             }
 
 
             return convertView
+        }
+
+    }
+     var  myAdbertVideoBoxListener = mAdbertVideoBoxListener();
+    fun setAdbertAd(){
+        mAdbertVideoBox = findViewById(R.id.boxView)
+        mAdbertVideoBox.setID("20170619000001", "90cebe8ef120c8bb6ac2ce529dcb99af")
+        mAdbertVideoBox.setListener(myAdbertVideoBoxListener)
+        mAdbertVideoBox.loadAD()
+
+    }
+    inner  class  mAdbertVideoBoxListener : AdbertVideoBoxListener(){
+        override fun onReceived(p0: String?) {
+            super.onReceived(p0)
+            Log.d(javaClass.simpleName,"onReceived")
+        }
+
+        override fun onFailReceived(p0: String?) {
+            super.onFailReceived(p0)
+            Log.d(javaClass.simpleName,"onFailReceived:"+p0.toString())
+
+        }
+
+        override fun onCompletion() {
+            super.onCompletion()
+            Log.d(javaClass.simpleName,"onCompletion:")
+
         }
 
     }

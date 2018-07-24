@@ -25,6 +25,7 @@ import android.R.string.cancel
 import GoogleMapAPISerive
 import GoogleMapAPISerive.GetResponse
 import android.os.Handler
+import com.adbert.AdbertVideoBox
 import java.util.*
 
 
@@ -116,7 +117,7 @@ class MemberFreeListViewActivity : AppCompatActivity(), GoogleMapAPISerive.GetRe
 
     lateinit var mFirebselibClass: MfiebaselibsClass
     lateinit var mGetMoreFreeButton : Button
-
+    lateinit var mAdbertVideoBox : AdbertVideoBox
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.content_free_list_view)

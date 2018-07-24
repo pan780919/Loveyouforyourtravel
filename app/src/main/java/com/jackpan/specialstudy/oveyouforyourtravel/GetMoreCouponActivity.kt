@@ -163,7 +163,7 @@ class GetMoreCouponActivity : AppCompatActivity(), RewardedVideoAdListener, Mfir
         mInterstitialAd = InterstitialAd(this)
         mInterstitialAd.adUnitId = "ca-app-pub-7019441527375550/6135553828"
         mInterstitialAd.loadAd(AdRequest.Builder().build())
-        IronSource.init(this, "773accdd")
+        IronSource.init(this, "773df24d")
         IronSource.setRewardedVideoListener(mMymRewardedVideoListener)
         Log.d(javaClass.simpleName,IronSource.isRewardedVideoAvailable().toString())
         mInterstitialAd.adListener = object: AdListener() {

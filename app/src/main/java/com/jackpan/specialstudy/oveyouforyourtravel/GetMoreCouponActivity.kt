@@ -15,7 +15,9 @@ import android.widget.TextView
 import android.widget.Toast
 import com.clickforce.ad.Listener.PreRollViewLinstener
 import com.clickforce.ad.PreRollAdView
+import com.google.android.gms.ads.AdListener
 import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.InterstitialAd
 import com.google.android.gms.ads.MobileAds
 import com.google.android.gms.ads.reward.RewardItem
 import com.google.android.gms.ads.reward.RewardedVideoAd
@@ -86,6 +88,8 @@ class GetMoreCouponActivity : AppCompatActivity(), RewardedVideoAdListener, Mfir
     }
 
     lateinit var mFirebselibClass: MfiebaselibsClass
+    private lateinit var mInterstitialAd: InterstitialAd
+
 
     override fun onRewarded(reward: RewardItem) {
         Toast.makeText(this, "onRewarded! currency: ${reward.type} amount: ${reward.amount}",
@@ -110,7 +114,6 @@ class GetMoreCouponActivity : AppCompatActivity(), RewardedVideoAdListener, Mfir
     }
 
     override fun onRewardedVideoAdLoaded() {
-//        mGetMoreButton.visibility = View.VISIBLE
         Toast.makeText(this, "onRewardedVideoAdLoaded", Toast.LENGTH_SHORT).show()
         mProgressDialog.dismiss()
     }
@@ -149,12 +152,46 @@ class GetMoreCouponActivity : AppCompatActivity(), RewardedVideoAdListener, Mfir
         mProgressDialog.setMessage("請稍候")
         mProgressDialog.setCancelable(false)
         mProgressDialog.show()
+
+        mInterstitialAd = InterstitialAd(this)
+        mInterstitialAd.adUnitId = "ca-app-pub-7019441527375550/3381782362"
+        mInterstitialAd.loadAd(AdRequest.Builder().build())
+
+
+        mInterstitialAd.adListener = object: AdListener() {
+            override fun onAdLoaded() {
+                // Code to be executed when an ad finishes loading.
+                Log.d(javaClass.simpleName,"onAdLoaded")
+            }
+
+            override fun onAdFailedToLoad(errorCode: Int) {
+                // Code to be executed when an ad request fails.
+                Log.d(javaClass.simpleName,"errorCode"+errorCode)
+
+            }
+
+            override fun onAdOpened() {
+                // Code to be executed when the ad is displayed.
+            }
+
+            override fun onAdLeftApplication() {
+                // Code to be executed when the user has left the app.
+            }
+
+            override fun onAdClosed() {
+                // Code to be executed when when the interstitial ad is closed.
+            }
+        }
         SetRewardedVideoAd()
         mPullToRefreshListView = findViewById(R.id.pull_to_refresh_list_view)
 
         mAdapter = MyAdapter(mAllData)
         mPullToRefreshListView.setAdapter(mAdapter)
-        
+        mPullToRefreshListView.setOnItemClickListener { parent, view, position, id ->
+            mInterstitialAd.show()
+
+        }
+
 //        mGetMoreButton.setOnClickListener {
 //
 //            if (mRewardedVideoAd.isLoaded) {
@@ -212,11 +249,8 @@ class GetMoreCouponActivity : AppCompatActivity(), RewardedVideoAdListener, Mfir
     }
 
     fun SetRewardedVideoAd(){
-        MobileAds.initialize(this, "ca-app-pub-7019441527375550~1705354228")
-
         mRewardedVideoAd = MobileAds.getRewardedVideoAdInstance(this)
         mRewardedVideoAd.rewardedVideoAdListener = this
-
         mRewardedVideoAd.loadAd("ca-app-pub-7019441527375550/1968113408",
                 AdRequest.Builder().build())
 
@@ -265,10 +299,16 @@ class GetMoreCouponActivity : AppCompatActivity(), RewardedVideoAdListener, Mfir
 
             }
             mUseText.setOnClickListener {
-                if (mRewardedVideoAd.isLoaded) {
-                    mRewardedVideoAd.show()
-                }
+                mRewardedVideoAd.show()
 
+                if(mRewardedVideoAd.isLoaded){
+                    mRewardedVideoAd.show()
+
+                }else{
+                    var intent = Intent()
+                    intent.setClass(this@GetMoreCouponActivity,MainActivity::class.java)
+                    startActivity(intent)
+                }
 
             }
 

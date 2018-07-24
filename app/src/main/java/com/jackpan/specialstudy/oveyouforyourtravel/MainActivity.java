@@ -16,7 +16,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         preRollAdView = (PreRollAdView) this.findViewById(R.id.preroll);
-        preRollAdView.setAdTagUrl(String.valueOf("4397"));
+        preRollAdView.setAdTagUrl(String.valueOf("8143"));
         preRollAdView.setAdPlay(this);
 
         preRollAdView.setOnPreRollViewLoaded(new PreRollViewLinstener() {

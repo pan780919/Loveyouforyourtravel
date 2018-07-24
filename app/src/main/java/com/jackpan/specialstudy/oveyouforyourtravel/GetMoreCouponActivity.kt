@@ -25,6 +25,10 @@ import com.google.android.gms.ads.MobileAds
 import com.google.android.gms.ads.reward.RewardItem
 import com.google.android.gms.ads.reward.RewardedVideoAd
 import com.google.android.gms.ads.reward.RewardedVideoAdListener
+import com.ironsource.mediationsdk.IronSource
+import com.ironsource.mediationsdk.logger.IronSourceError
+import com.ironsource.mediationsdk.model.Placement
+import com.ironsource.mediationsdk.sdk.RewardedVideoListener
 import com.itheima.pulltorefreshlib.PullToRefreshListView
 import com.jackpan.libs.mfirebaselib.MfiebaselibsClass
 import com.jackpan.libs.mfirebaselib.MfirebaeCallback
@@ -93,7 +97,7 @@ class GetMoreCouponActivity : AppCompatActivity(), RewardedVideoAdListener, Mfir
     lateinit var mFirebselibClass: MfiebaselibsClass
     private lateinit var mInterstitialAd: InterstitialAd
     lateinit var mAdbertVideoBox :AdbertVideoBox
-
+    var mMymRewardedVideoListener = MymRewardedVideoListener()
     override fun onRewarded(reward: RewardItem) {
         Toast.makeText(this, "onRewarded! currency: ${reward.type} amount: ${reward.amount}",
                 Toast.LENGTH_SHORT).show()
@@ -159,8 +163,9 @@ class GetMoreCouponActivity : AppCompatActivity(), RewardedVideoAdListener, Mfir
         mInterstitialAd = InterstitialAd(this)
         mInterstitialAd.adUnitId = "ca-app-pub-7019441527375550/6135553828"
         mInterstitialAd.loadAd(AdRequest.Builder().build())
-
-
+        IronSource.init(this, "773accdd")
+        IronSource.setRewardedVideoListener(mMymRewardedVideoListener)
+        Log.d(javaClass.simpleName,IronSource.isRewardedVideoAvailable().toString())
         mInterstitialAd.adListener = object: AdListener() {
             override fun onAdLoaded() {
                 // Code to be executed when an ad finishes loading.
@@ -217,11 +222,15 @@ class GetMoreCouponActivity : AppCompatActivity(), RewardedVideoAdListener, Mfir
     override fun onPause() {
         super.onPause()
         mRewardedVideoAd.pause(this)
+        IronSource.onPause(this);
+
     }
 
     override fun onResume() {
         super.onResume()
         mRewardedVideoAd.resume(this)
+        IronSource.onResume(this);
+
     }
 
     override fun onDestroy() {
@@ -303,18 +312,18 @@ class GetMoreCouponActivity : AppCompatActivity(), RewardedVideoAdListener, Mfir
 
             }
             mUseText.setOnClickListener {
-                mRewardedVideoAd.show()
-
-                if(mRewardedVideoAd.isLoaded){
-                    mRewardedVideoAd.show()
-
-                }else{
-//                    var intent = Intent()
-//                    intent.setClass(this@GetMoreCouponActivity,MainActivity::class.java)
-//                    startActivity(intent)
-
-                }
-
+//                mRewardedVideoAd.show()
+//
+//                if(mRewardedVideoAd.isLoaded){
+//                    mRewardedVideoAd.show()
+//
+//                }else{
+////                    var intent = Intent()
+////                    intent.setClass(this@GetMoreCouponActivity,MainActivity::class.java)
+////                    startActivity(intent)
+//
+//                }
+            IronSource.showRewardedVideo()
             }
 
 
@@ -346,6 +355,47 @@ class GetMoreCouponActivity : AppCompatActivity(), RewardedVideoAdListener, Mfir
             super.onCompletion()
             Log.d(javaClass.simpleName,"onCompletion:")
 
+        }
+
+    }
+    inner class  MymRewardedVideoListener : RewardedVideoListener {
+        override fun onRewardedVideoAdClosed() {
+            Log.d(javaClass.simpleName,"onRewardedVideoAdClosed")
+
+        }
+
+        override fun onRewardedVideoAdRewarded(p0: Placement?) {
+            Log.d(javaClass.simpleName,"onRewardedVideoAdRewarded")
+
+        }
+
+        override fun onRewardedVideoAdClicked(p0: Placement?) {
+            Log.d(javaClass.simpleName,"onRewardedVideoAdClicked")
+
+        }
+
+        override fun onRewardedVideoAdOpened() {
+            Log.d(javaClass.simpleName,"onRewardedVideoAdOpened")
+
+        }
+
+        override fun onRewardedVideoAdShowFailed(p0: IronSourceError?) {
+            Log.d(javaClass.simpleName,"onRewardedVideoAdShowFailed")
+
+        }
+
+        override fun onRewardedVideoAvailabilityChanged(p0: Boolean) {
+            Log.d(javaClass.simpleName,"onRewardedVideoAvailabilityChanged")
+
+        }
+
+        override fun onRewardedVideoAdEnded() {
+            Log.d(javaClass.simpleName,"onRewardedVideoAdEnded")
+
+        }
+
+        override fun onRewardedVideoAdStarted() {
+            Log.d(javaClass.simpleName,"onRewardedVideoAdStarted")
         }
 
     }

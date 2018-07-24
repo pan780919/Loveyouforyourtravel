@@ -6,6 +6,7 @@ import android.support.multidex.MultiDexApplication;
 import com.firebase.client.Firebase;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.database.FirebaseDatabase;
+import com.ironsource.mediationsdk.IronSource;
 
 /**
  * Created by JackPan on 2018/6/24.
@@ -24,5 +25,6 @@ public class MyApplication extends MultiDexApplication {
         if(!FirebaseApp.getApps(this).isEmpty()) {
             FirebaseDatabase.getInstance().setPersistenceEnabled(true);
         }
+
     }
 }

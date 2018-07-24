@@ -19,3 +19,16 @@
 # If you keep the line number information, uncomment this to
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
+
+-keepclassmembers class com.ironsource.sdk.controller.IronSourceWebView$JSInterface {
+    public *;
+}
+-keepclassmembers class * implements android.os.Parcelable {
+    public static final android.os.Parcelable$Creator *;
+}
+-keep public class com.google.android.gms.ads.** {
+   public *;
+}
+-keep class com.ironsource.adapters.** { *;
+}
+

@@ -7,6 +7,8 @@ import android.util.Log
 import android.widget.TextView
 import com.jackpan.libs.mfirebaselib.MfiebaselibsClass
 import com.jackpan.libs.mfirebaselib.MfirebaeCallback
+import com.jackpan.specialstudy.oveyouforyourtravel.Data.CollectionData
+import java.util.*
 
 
 class UseCouponActivity : AppCompatActivity(), MfirebaeCallback {
@@ -55,7 +57,6 @@ class UseCouponActivity : AppCompatActivity(), MfirebaeCallback {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         mFirebselibClass = MfiebaselibsClass(this, this@UseCouponActivity)
-
         setContentView(R.layout.activity_use_coupon)
         mTimeText = findViewById(R.id.timetext)
         countdowntime()
@@ -68,6 +69,9 @@ class UseCouponActivity : AppCompatActivity(), MfirebaeCallback {
 
             override fun onFinish() {
                 Log.d(javaClass.simpleName,"onFinish")
+                if(getdata()!=null){
+                    mFirebselibClass.deleteData(CollectionData.KEY_URL_FREE,getdata())
+                }
             }
 
             override fun onTick(millisUntilFinished: Long) {
@@ -78,5 +82,10 @@ class UseCouponActivity : AppCompatActivity(), MfirebaeCallback {
         }.start()
 
 
+    }
+    fun getdata():String{
+        var bundle: Bundle = intent.extras
+        Log.d(javaClass.simpleName, bundle.getString("id"))
+        return bundle.getString("id")
     }
 }

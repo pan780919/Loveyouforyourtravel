@@ -197,6 +197,9 @@ class MemberFreeListViewActivity : AppCompatActivity(), GoogleMapAPISerive.GetRe
             mUseText.text = "Use"
             mUseText.setOnClickListener {
                 var intent =Intent()
+                var mBundle = Bundle();
+                mBundle.putString("id",data.result.place_id)
+                intent.putExtras(mBundle)
                 intent.setClass(this@MemberFreeListViewActivity,UseCouponActivity::class.java)
                 startActivity(intent)
             }

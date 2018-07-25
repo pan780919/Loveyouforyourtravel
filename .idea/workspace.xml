@@ -11,17 +11,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="44a423fd-f0b7-4008-9906-156f1b059677" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.gradle/4.4/fileHashes/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/4.4/fileHashes/fileHashes.bin" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.4/fileHashes/fileHashes.lock" afterPath="$PROJECT_DIR$/.gradle/4.4/fileHashes/fileHashes.lock" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.4/fileHashes/resourceHashesCache.bin" afterPath="$PROJECT_DIR$/.gradle/4.4/fileHashes/resourceHashesCache.bin" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.4/taskHistory/taskHistory.bin" afterPath="$PROJECT_DIR$/.gradle/4.4/taskHistory/taskHistory.bin" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.4/taskHistory/taskHistory.lock" afterPath="$PROJECT_DIR$/.gradle/4.4/taskHistory/taskHistory.lock" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" />
-      <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle____local_aars____Users_adup04_Loveyouforyourtravel_app_libs_mediationsdk_6_7_10_jar_unspecified_jar.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/app/app.iml" afterPath="$PROJECT_DIR$/app/app.iml" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/jackpan/specialstudy/oveyouforyourtravel/GetMoreCouponActivity.kt" afterPath="$PROJECT_DIR$/app/src/main/java/com/jackpan/specialstudy/oveyouforyourtravel/GetMoreCouponActivity.kt" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/jackpan/specialstudy/oveyouforyourtravel/MemberFreeListViewActivity.kt" afterPath="$PROJECT_DIR$/app/src/main/java/com/jackpan/specialstudy/oveyouforyourtravel/MemberFreeListViewActivity.kt" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/jackpan/specialstudy/oveyouforyourtravel/UseCouponActivity.kt" afterPath="$PROJECT_DIR$/app/src/main/java/com/jackpan/specialstudy/oveyouforyourtravel/UseCouponActivity.kt" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -51,7 +41,7 @@
       <file leaf-file-name="MemberLoveListViewActivity.kt" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/jackpan/specialstudy/oveyouforyourtravel/MemberLoveListViewActivity.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="174">
+            <state relative-caret-position="167">
               <caret line="120" column="41" lean-forward="false" selection-start-line="120" selection-start-column="0" selection-end-line="121" selection-end-column="0" />
               <folding />
             </state>
@@ -61,8 +51,8 @@
       <file leaf-file-name="MemberFreeListViewActivity.kt" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/jackpan/specialstudy/oveyouforyourtravel/MemberFreeListViewActivity.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="214">
-              <caret line="199" column="72" lean-forward="false" selection-start-line="199" selection-start-column="72" selection-end-line="199" selection-end-column="72" />
+            <state relative-caret-position="135">
+              <caret line="200" column="23" lean-forward="false" selection-start-line="200" selection-start-column="16" selection-end-line="200" selection-end-column="23" />
               <folding />
             </state>
           </provider>
@@ -71,11 +61,21 @@
       <file leaf-file-name="UseCouponActivity.kt" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/jackpan/specialstudy/oveyouforyourtravel/UseCouponActivity.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="264">
-              <caret line="11" column="23" lean-forward="false" selection-start-line="11" selection-start-column="6" selection-end-line="11" selection-end-column="23" />
+            <state relative-caret-position="289">
+              <caret line="58" column="74" lean-forward="false" selection-start-line="58" selection-start-column="74" selection-end-line="58" selection-end-column="74" />
               <folding>
-                <element signature="e#54#323#0" expanded="true" />
+                <element signature="e#54#414#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MapPlaceDetailActivity.kt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/jackpan/specialstudy/oveyouforyourtravel/MapPlaceDetailActivity.kt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="246">
+              <caret line="223" column="67" lean-forward="true" selection-start-line="222" selection-start-column="3" selection-end-line="223" selection-end-column="67" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -84,6 +84,7 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
+      <find>get</find>
       <find>mFirebselibClass</find>
     </findStrings>
   </component>
@@ -2217,6 +2218,7 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/app/src/main/java/com/jackpan/specialstudy/oveyouforyourtravel/GetMoreCouponActivity.kt" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/jackpan/specialstudy/oveyouforyourtravel/MemberFreeListViewActivity.kt" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/jackpan/specialstudy/oveyouforyourtravel/UseCouponActivity.kt" />
       </list>
     </option>
@@ -2489,6 +2491,14 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/jackpan/specialstudy/oveyouforyourtravel/MapPlaceDetailActivity.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="246">
+          <caret line="223" column="67" lean-forward="true" selection-start-line="222" selection-start-column="3" selection-end-line="223" selection-end-column="67" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/jackpan/specialstudy/oveyouforyourtravel/GetMoreCouponActivity.kt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="304">
@@ -2499,7 +2509,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/jackpan/specialstudy/oveyouforyourtravel/MemberLoveListViewActivity.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="174">
+        <state relative-caret-position="167">
           <caret line="120" column="41" lean-forward="false" selection-start-line="120" selection-start-column="0" selection-end-line="121" selection-end-column="0" />
           <folding />
         </state>
@@ -2507,18 +2517,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/jackpan/specialstudy/oveyouforyourtravel/MemberFreeListViewActivity.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="214">
-          <caret line="199" column="72" lean-forward="false" selection-start-line="199" selection-start-column="72" selection-end-line="199" selection-end-column="72" />
+        <state relative-caret-position="135">
+          <caret line="200" column="23" lean-forward="false" selection-start-line="200" selection-start-column="16" selection-end-line="200" selection-end-column="23" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/jackpan/specialstudy/oveyouforyourtravel/UseCouponActivity.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
-          <caret line="11" column="23" lean-forward="false" selection-start-line="11" selection-start-column="6" selection-end-line="11" selection-end-column="23" />
+        <state relative-caret-position="289">
+          <caret line="58" column="74" lean-forward="false" selection-start-line="58" selection-start-column="74" selection-end-line="58" selection-end-column="74" />
           <folding>
-            <element signature="e#54#323#0" expanded="true" />
+            <element signature="e#54#414#0" expanded="true" />
           </folding>
         </state>
       </provider>

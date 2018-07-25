@@ -167,7 +167,6 @@
     <orderEntry type="library" name="Gradle: com.google.firebase:firebase-auth-15.1.0" level="project" />
     <orderEntry type="library" name="Gradle: com.google.firebase:firebase-abt-15.0.1" level="project" />
     <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-tasks-15.0.1" level="project" />
-    <orderEntry type="library" name="Gradle: __local_aars__:/Users/adup04/Loveyouforyourtravel/app/libs/mediationsdk-6.7.10.jar:unspecified@jar" level="project" />
     <orderEntry type="library" name="Gradle: com.android.support:customtabs-26.1.0" level="project" />
     <orderEntry type="library" name="Gradle: com.google.firebase:firebase-auth-interop-15.0.2" level="project" />
     <orderEntry type="library" name="Gradle: com.google.firebase:firebase-firestore-16.0.0" level="project" />

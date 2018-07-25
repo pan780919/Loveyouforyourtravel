@@ -161,7 +161,7 @@ class GetMoreCouponActivity : AppCompatActivity(), RewardedVideoAdListener, Mfir
         mProgressDialog.show()
 
         mInterstitialAd = InterstitialAd(this)
-        mInterstitialAd.adUnitId = "ca-app-pub-7019441527375550/6135553828"
+        mInterstitialAd.adUnitId = "ca-app-pub-7019441527375550/3381782362"
         mInterstitialAd.loadAd(AdRequest.Builder().build())
         IronSource.init(this, "773df24d")
         IronSource.setRewardedVideoListener(mMymRewardedVideoListener)
@@ -264,7 +264,7 @@ class GetMoreCouponActivity : AppCompatActivity(), RewardedVideoAdListener, Mfir
     fun SetRewardedVideoAd(){
         mRewardedVideoAd = MobileAds.getRewardedVideoAdInstance(this)
         mRewardedVideoAd.rewardedVideoAdListener = this
-        mRewardedVideoAd.loadAd("ca-app-pub-7019441527375550/1968113408",
+        mRewardedVideoAd.loadAd("ca-app-pub-7019441527375550/3054000377",
                 AdRequest.Builder().build())
 
     }
@@ -337,6 +337,7 @@ class GetMoreCouponActivity : AppCompatActivity(), RewardedVideoAdListener, Mfir
         mAdbertVideoBox.setID("20170619000001", "90cebe8ef120c8bb6ac2ce529dcb99af")
         mAdbertVideoBox.setListener(myAdbertVideoBoxListener)
         mAdbertVideoBox.loadAD()
+
 
     }
     inner  class  mAdbertVideoBoxListener : AdbertVideoBoxListener(){

@@ -24,6 +24,7 @@ import java.io.StringReader
 import android.R.string.cancel
 import GoogleMapAPISerive
 import GoogleMapAPISerive.GetResponse
+import android.app.Activity
 import android.os.Handler
 import com.adbert.AdbertVideoBox
 import java.util.*
@@ -154,6 +155,20 @@ class MemberFreeListViewActivity : AppCompatActivity(), GoogleMapAPISerive.GetRe
 
 
     }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        when (resultCode){
+            Activity.RESULT_OK -> {
+                Log.d(javaClass.simpleName,"OK")
+                Log.d(javaClass.simpleName, data?.extras?.getString("id"))
+                
+            }
+
+        }
+
+
+    }
     fun getUrl():String{
         var mString: String = ""
         var bundle: Bundle = intent.extras
@@ -201,7 +216,7 @@ class MemberFreeListViewActivity : AppCompatActivity(), GoogleMapAPISerive.GetRe
                 mBundle.putString("id",data.result.place_id)
                 intent.putExtras(mBundle)
                 intent.setClass(this@MemberFreeListViewActivity,UseCouponActivity::class.java)
-                startActivity(intent)
+                startActivityForResult(intent,0)
             }
 
 

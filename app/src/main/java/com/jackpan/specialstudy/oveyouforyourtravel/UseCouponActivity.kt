@@ -1,5 +1,7 @@
 package com.jackpan.specialstudy.oveyouforyourtravel
 
+import android.app.Activity
+import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.os.CountDownTimer
@@ -69,9 +71,15 @@ class UseCouponActivity : AppCompatActivity(), MfirebaeCallback {
 
             override fun onFinish() {
                 Log.d(javaClass.simpleName,"onFinish")
-                if(getdata()!=null){
-                    mFirebselibClass.deleteData(CollectionData.KEY_URL_FREE,getdata())
-                }
+//                if(getdata()!=null){
+//                    mFirebselibClass.deleteData(CollectionData.KEY_URL_FREE,getdata())
+//                }
+                var intent = Intent()
+                var bundle = Bundle()
+                bundle.putString("id",getdata())
+                intent.putExtras(bundle)
+                setResult(Activity.RESULT_OK,intent)
+                finish()
             }
 
             override fun onTick(millisUntilFinished: Long) {

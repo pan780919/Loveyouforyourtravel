@@ -137,7 +137,6 @@ class GetMoreCouponActivity : AppCompatActivity(), RewardedVideoAdListener, Mfir
         Toast.makeText(this, "onRewardedVideoCompleted", Toast.LENGTH_SHORT).show()
     }
 
-    private lateinit var mRewardedVideoAd: RewardedVideoAd
     lateinit var mGetMoreButton : Button
     var mAdapter: MyAdapter? = null
     var mPreRollViewLinstener :myPreRollViewLinstener? = null
@@ -145,6 +144,8 @@ class GetMoreCouponActivity : AppCompatActivity(), RewardedVideoAdListener, Mfir
     lateinit var mProgressDialog: ProgressDialog
     lateinit var mPullToRefreshListView: PullToRefreshListView
     lateinit var preRollAdView : PreRollAdView
+    private lateinit var mRewardedVideoAd: RewardedVideoAd
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         mFirebselibClass = MfiebaselibsClass(this, this@GetMoreCouponActivity)
@@ -161,11 +162,8 @@ class GetMoreCouponActivity : AppCompatActivity(), RewardedVideoAdListener, Mfir
         mProgressDialog.show()
 
         mInterstitialAd = InterstitialAd(this)
-        mInterstitialAd.adUnitId = "ca-app-pub-7019441527375550/3381782362"
-        mInterstitialAd.loadAd(AdRequest.Builder().build())
-        IronSource.init(this, "773df24d")
-        IronSource.setRewardedVideoListener(mMymRewardedVideoListener)
-        Log.d(javaClass.simpleName,IronSource.isRewardedVideoAvailable().toString())
+        mInterstitialAd.adUnitId = "ca-app-pub-7019441527375550/6135553828"
+        mInterstitialAd.loadAd(AdRequest.Builder().addTestDevice("8303A350BC15927D2FCAB4ACA7FE50A7").build())
         mInterstitialAd.adListener = object: AdListener() {
             override fun onAdLoaded() {
                 // Code to be executed when an ad finishes loading.
@@ -180,17 +178,23 @@ class GetMoreCouponActivity : AppCompatActivity(), RewardedVideoAdListener, Mfir
 
             override fun onAdOpened() {
                 // Code to be executed when the ad is displayed.
+                Log.d(javaClass.simpleName,"onAdOpened")
+
             }
 
             override fun onAdLeftApplication() {
                 // Code to be executed when the user has left the app.
+                Log.d(javaClass.simpleName,"onAdLeftApplication")
+
             }
 
             override fun onAdClosed() {
                 // Code to be executed when when the interstitial ad is closed.
+                Log.d(javaClass.simpleName,"onAdClosed")
+
             }
         }
-        setAdbertAd()
+//        setAdbertAd()
         SetRewardedVideoAd()
         mPullToRefreshListView = findViewById(R.id.pull_to_refresh_list_view)
 
@@ -200,13 +204,6 @@ class GetMoreCouponActivity : AppCompatActivity(), RewardedVideoAdListener, Mfir
             mInterstitialAd.show()
 
         }
-
-//        mGetMoreButton.setOnClickListener {
-//
-//            if (mRewardedVideoAd.isLoaded) {
-//                mRewardedVideoAd.show()
-//            }
-//        }
     }
     class myPreRollViewLinstener : PreRollViewLinstener {
         override fun onStartPlayVideo() {
@@ -222,14 +219,12 @@ class GetMoreCouponActivity : AppCompatActivity(), RewardedVideoAdListener, Mfir
     override fun onPause() {
         super.onPause()
         mRewardedVideoAd.pause(this)
-        IronSource.onPause(this);
 
     }
 
     override fun onResume() {
         super.onResume()
         mRewardedVideoAd.resume(this)
-        IronSource.onResume(this);
 
     }
 
@@ -264,7 +259,7 @@ class GetMoreCouponActivity : AppCompatActivity(), RewardedVideoAdListener, Mfir
     fun SetRewardedVideoAd(){
         mRewardedVideoAd = MobileAds.getRewardedVideoAdInstance(this)
         mRewardedVideoAd.rewardedVideoAdListener = this
-        mRewardedVideoAd.loadAd("ca-app-pub-7019441527375550/3054000377",
+        mRewardedVideoAd.loadAd("ca-app-pub-7019441527375550/1968113408",
                 AdRequest.Builder().build())
 
     }
@@ -313,17 +308,17 @@ class GetMoreCouponActivity : AppCompatActivity(), RewardedVideoAdListener, Mfir
             }
             mUseText.setOnClickListener {
 //                mRewardedVideoAd.show()
-//
-//                if(mRewardedVideoAd.isLoaded){
-//                    mRewardedVideoAd.show()
-//
-//                }else{
-////                    var intent = Intent()
-////                    intent.setClass(this@GetMoreCouponActivity,MainActivity::class.java)
-////                    startActivity(intent)
-//
-//                }
-            IronSource.showRewardedVideo()
+
+                if(mRewardedVideoAd.isLoaded){
+                    mRewardedVideoAd.show()
+
+                }else{
+                    var intent = Intent()
+                    intent.setClass(this@GetMoreCouponActivity,MainActivity::class.java)
+                    startActivity(intent)
+
+                }
+//            IronSource.showRewardedVideo()
             }
 
 
@@ -337,6 +332,7 @@ class GetMoreCouponActivity : AppCompatActivity(), RewardedVideoAdListener, Mfir
         mAdbertVideoBox.setID("20170619000001", "90cebe8ef120c8bb6ac2ce529dcb99af")
         mAdbertVideoBox.setListener(myAdbertVideoBoxListener)
         mAdbertVideoBox.loadAD()
+
 
 
     }

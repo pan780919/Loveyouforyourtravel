@@ -67,8 +67,9 @@ class MemberFreeListViewActivity : AppCompatActivity(), GoogleMapAPISerive.GetRe
 
     override fun getDeleteState(p0: Boolean, p1: String?, p2: Any?) {
         if (p0){
-
+            Log.d("getDeleteState",p0.toString());
         }else{
+            Log.d("getDeleteState",p0.toString());
 
         }
         getList()
@@ -95,7 +96,7 @@ class MemberFreeListViewActivity : AppCompatActivity(), GoogleMapAPISerive.GetRe
 
         if (googleMapPlaceDetailsData != null) {
 
-
+            mAllData.clear()
             mAllData.add(googleMapPlaceDetailsData)
             mAdapter!!.notifyDataSetChanged()
             Log.d("Jack", "getData")
@@ -103,7 +104,6 @@ class MemberFreeListViewActivity : AppCompatActivity(), GoogleMapAPISerive.GetRe
 
 
         }
-        mProgressDialog.dismiss()
 
 
     }
@@ -143,8 +143,9 @@ class MemberFreeListViewActivity : AppCompatActivity(), GoogleMapAPISerive.GetRe
     }
 
     fun delete(id: String) {
-
-        mFirebselibClass.deleteData(CollectionData.KEY_URL_FREE, id)
+        Log.d("delete",id)
+        Log.d("delete",getUrl()+ "/" + MySharedPrefernces.getIsToken(this))
+        mFirebselibClass.deleteData(getUrl()+ "/" + MySharedPrefernces.getIsToken(this), id)
 
     }
 
@@ -162,14 +163,18 @@ class MemberFreeListViewActivity : AppCompatActivity(), GoogleMapAPISerive.GetRe
         val pdCanceller = Handler()
         pdCanceller.postDelayed(progressRunnable, 10000)
         if (!getUrl().equals("")) {
+            Log.d("getUrl",getUrl())
             mFirebselibClass.getFirebaseDatabase(getUrl() + "/" + MySharedPrefernces.getIsToken(this), MySharedPrefernces.getIsToken(this))
         }
+        mProgressDialog.dismiss()
+
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         when (resultCode) {
             Activity.RESULT_OK -> {
+
                 Log.d(javaClass.simpleName, "OK")
                 Log.d(javaClass.simpleName, data?.extras?.getString("id"))
                 delete(data?.extras?.getString("id").toString())
@@ -188,7 +193,8 @@ class MemberFreeListViewActivity : AppCompatActivity(), GoogleMapAPISerive.GetRe
         var mString: String = ""
         var bundle: Bundle = intent.extras
         mString = bundle.getString("url")
-        return mString
+        MySharedPrefernces.saveIsUrl(this,mString)
+        return MySharedPrefernces.getIsUrl(this)
     }
 
     inner class MyAdapter(var mAllData: ArrayList<GoogleMapPlaceDetailsData>?) : BaseAdapter() {

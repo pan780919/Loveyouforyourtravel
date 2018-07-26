@@ -71,4 +71,17 @@ public class MySharedPrefernces {
         return sp.getString(KEY_IS_PHONE, "");
     }
 
+
+
+    public static final String KEY_IS_URL ="isUrl";
+    public static void saveIsUrl(Context context, String token) {
+        SharedPreferences sp = context.getSharedPreferences(NAME, Activity.MODE_PRIVATE);
+        sp.edit().putString(KEY_IS_URL, token).apply();
+    }
+
+    public static String getIsUrl(Context context) {
+        SharedPreferences sp = context.getSharedPreferences(NAME, Activity.MODE_PRIVATE);
+        return sp.getString(KEY_IS_URL, "");
+    }
+
 }

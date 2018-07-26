@@ -163,7 +163,7 @@ class GetMoreCouponActivity : AppCompatActivity(), RewardedVideoAdListener, Mfir
 
         mInterstitialAd = InterstitialAd(this)
         mInterstitialAd.adUnitId = "ca-app-pub-7019441527375550/6135553828"
-        mInterstitialAd.loadAd(AdRequest.Builder().addTestDevice("8303A350BC15927D2FCAB4ACA7FE50A7").build())
+        mInterstitialAd.loadAd(AdRequest.Builder().build())
         mInterstitialAd.adListener = object: AdListener() {
             override fun onAdLoaded() {
                 // Code to be executed when an ad finishes loading.

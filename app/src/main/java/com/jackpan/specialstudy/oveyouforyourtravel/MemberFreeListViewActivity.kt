@@ -47,15 +47,15 @@ class MemberFreeListViewActivity : AppCompatActivity(), GoogleMapAPISerive.GetRe
     }
 
     override fun getDatabaseData(p0: Any?) {
-        Log.d("getDatabaseData",p0.toString())
-        if (p0!=null){
+        Log.d("getDatabaseData", p0.toString())
+        if (p0 != null) {
             var gson = Gson()
             val reader = JsonReader(StringReader(p0.toString()))
             reader.setLenient(true)
             var mCollectionData = MapDetailResponData()
 
             mCollectionData = gson.fromJson(reader, MapDetailResponData::class.java)
-            Log.d("getDatabaseData", "mCollectionData:"+mCollectionData.id)
+            Log.d("getDatabaseData", "mCollectionData:" + mCollectionData.id)
             GoogleMapAPISerive.getPlaceDeatail(this, mCollectionData.id, this)
         }
 
@@ -66,6 +66,13 @@ class MemberFreeListViewActivity : AppCompatActivity(), GoogleMapAPISerive.GetRe
     }
 
     override fun getDeleteState(p0: Boolean, p1: String?, p2: Any?) {
+        if (p0){
+
+        }else{
+
+        }
+        getList()
+
     }
 
     override fun getFireBaseDBState(p0: Boolean, p1: String?) {
@@ -95,8 +102,6 @@ class MemberFreeListViewActivity : AppCompatActivity(), GoogleMapAPISerive.GetRe
             Log.d("Jack", mAllData.size.toString())
 
 
-
-
         }
         mProgressDialog.dismiss()
 
@@ -117,30 +122,13 @@ class MemberFreeListViewActivity : AppCompatActivity(), GoogleMapAPISerive.GetRe
     lateinit var mLatLngString: String
 
     lateinit var mFirebselibClass: MfiebaselibsClass
-    lateinit var mGetMoreFreeButton : Button
-    lateinit var mAdbertVideoBox : AdbertVideoBox
+    lateinit var mGetMoreFreeButton: Button
+    lateinit var mAdbertVideoBox: AdbertVideoBox
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.content_free_list_view)
         mFirebselibClass = MfiebaselibsClass(this, this@MemberFreeListViewActivity)
-        mProgressDialog = ProgressDialog(this)
-        mProgressDialog.setTitle("讀取中")
-        mProgressDialog.setMessage("請稍候")
-        mProgressDialog.setCancelable(false)
-        mProgressDialog.show()
-
-        val progressRunnable = Runnable {
-            Toast.makeText(this@MemberFreeListViewActivity,"無資料！！",Toast.LENGTH_SHORT).show()
-            mProgressDialog.cancel() }
-
-        val pdCanceller = Handler()
-        pdCanceller.postDelayed(progressRunnable, 10000)
-        if(!getUrl().equals("")){
-            mFirebselibClass.getFirebaseDatabase( getUrl() + "/" + MySharedPrefernces.getIsToken(this), MySharedPrefernces.getIsToken(this))
-
-        }
-
-
+        getList()
         mPullToRefreshListView = findViewById(R.id.pull_to_refresh_list_view)
 
         mAdapter = MyAdapter(mAllData)
@@ -149,32 +137,61 @@ class MemberFreeListViewActivity : AppCompatActivity(), GoogleMapAPISerive.GetRe
 //        mPullToRefreshListView.setOnRefreshListener(mListViewOnRefreshListener2)
         mGetMoreFreeButton.setOnClickListener {
             var intent = Intent()
-            intent.setClass(this@MemberFreeListViewActivity,GetMoreCouponActivity::class.java)
+            intent.setClass(this@MemberFreeListViewActivity, GetMoreCouponActivity::class.java)
             startActivity(intent)
         }
 
 
     }
 
+    fun delete(id: String) {
+
+        mFirebselibClass.deleteData(CollectionData.KEY_URL_FREE, id)
+
+
+    }
+
+    fun getList() {
+        mProgressDialog = ProgressDialog(this)
+        mProgressDialog.setTitle("讀取中")
+        mProgressDialog.setMessage("請稍候")
+        mProgressDialog.setCancelable(false)
+        mProgressDialog.show()
+
+        val progressRunnable = Runnable {
+            mProgressDialog.cancel()
+        }
+
+        val pdCanceller = Handler()
+        pdCanceller.postDelayed(progressRunnable, 10000)
+        if (!getUrl().equals("")) {
+            mFirebselibClass.getFirebaseDatabase(getUrl() + "/" + MySharedPrefernces.getIsToken(this), MySharedPrefernces.getIsToken(this))
+        }
+    }
+
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        when (resultCode){
+        when (resultCode) {
             Activity.RESULT_OK -> {
-                Log.d(javaClass.simpleName,"OK")
+                Log.d(javaClass.simpleName, "OK")
                 Log.d(javaClass.simpleName, data?.extras?.getString("id"))
-                
+                delete(data?.extras?.getString("id").toString())
+
+
             }
 
         }
 
 
     }
-    fun getUrl():String{
+
+    fun getUrl(): String {
         var mString: String = ""
         var bundle: Bundle = intent.extras
         mString = bundle.getString("url")
-        return  mString
+        return mString
     }
+
     inner class MyAdapter(var mAllData: ArrayList<GoogleMapPlaceDetailsData>?) : BaseAdapter() {
         fun updateData(datas: ArrayList<GoogleMapPlaceDetailsData>) {
             mAllData = datas
@@ -199,24 +216,24 @@ class MemberFreeListViewActivity : AppCompatActivity(), GoogleMapAPISerive.GetRe
             if (convertView == null)
                 convertView = LayoutInflater.from(this@MemberFreeListViewActivity).inflate(
                         R.layout.freelistview_layout, null)
-            val free = arrayOf("折扣10元","折扣20元","折扣50元")
+            val free = arrayOf("折扣10元", "折扣20元", "折扣50元")
 
-            var mStoreNameText : TextView = convertView!!.findViewById(R.id.storename)
-            var mFreeText : TextView = convertView!!.findViewById(R.id.listviewtext)
-            var mUseText : TextView = convertView!!.findViewById(R.id.usetext)
+            var mStoreNameText: TextView = convertView!!.findViewById(R.id.storename)
+            var mFreeText: TextView = convertView!!.findViewById(R.id.listviewtext)
+            var mUseText: TextView = convertView!!.findViewById(R.id.usetext)
 
-            mStoreNameText.text =data.result.name
+            mStoreNameText.text = data.result.name
             val random = Random().nextInt(3)
 
             mFreeText.text = free.get(random)
             mUseText.text = "Use"
             mUseText.setOnClickListener {
-                var intent =Intent()
+                var intent = Intent()
                 var mBundle = Bundle();
-                mBundle.putString("id",data.result.place_id)
+                mBundle.putString("id", data.result.place_id)
                 intent.putExtras(mBundle)
-                intent.setClass(this@MemberFreeListViewActivity,UseCouponActivity::class.java)
-                startActivityForResult(intent,0)
+                intent.setClass(this@MemberFreeListViewActivity, UseCouponActivity::class.java)
+                startActivityForResult(intent, 0)
             }
 
 

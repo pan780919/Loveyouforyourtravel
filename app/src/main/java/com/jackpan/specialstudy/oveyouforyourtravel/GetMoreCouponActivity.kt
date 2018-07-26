@@ -151,9 +151,6 @@ class GetMoreCouponActivity : AppCompatActivity(), RewardedVideoAdListener, Mfir
         mFirebselibClass = MfiebaselibsClass(this, this@GetMoreCouponActivity)
 
         setContentView(R.layout.activity_get_more_coupon)
-//        preRollAdView = findViewById(R.id.preroll)
-//        preRollAdView.setOnPreRollViewLoaded(mPreRollViewLinstener)
-
         getCouponList()
         mProgressDialog = ProgressDialog(this)
         mProgressDialog.setTitle("讀取中")
@@ -194,7 +191,6 @@ class GetMoreCouponActivity : AppCompatActivity(), RewardedVideoAdListener, Mfir
 
             }
         }
-//        setAdbertAd()
         SetRewardedVideoAd()
         mPullToRefreshListView = findViewById(R.id.pull_to_refresh_list_view)
 
@@ -247,13 +243,20 @@ class GetMoreCouponActivity : AppCompatActivity(), RewardedVideoAdListener, Mfir
         }
 
     }
-    fun setCoupon(){
-        var  mArray = arrayOf("ChIJO7jfCHkEbjQR67Rh2pNutMI","ChIJDZtbAXkEbjQR9NBmh-KSCcQ","ChIJxbX0zXkEbjQRZ16eV60lgk4","ChIJzfx7qXAEbjQR0Uy44Fen1gc","ChIJVVokUngEbjQR-a2eD4kbT70","ChIJwfoesmQEbjQRSewxKQGGl4Q")
-        val random = Random().nextInt(mArray.size)
+    fun setCoupon(id:String){
+//        var  mArray = arrayOf("ChIJO7jfCHkEbjQR67Rh2pNutMI","ChIJDZtbAXkEbjQR9NBmh-KSCcQ","ChIJxbX0zXkEbjQRZ16eV60lgk4","ChIJzfx7qXAEbjQR0Uy44Fen1gc","ChIJVVokUngEbjQR-a2eD4kbT70","ChIJwfoesmQEbjQRSewxKQGGl4Q")
+//        val random = Random().nextInt(mArray.size)
         var mHasMap = HashMap<String, String>()
-        mHasMap.put(CollectionData.KEY_ID, mArray.get(random))
+        mHasMap.put(CollectionData.KEY_ID,id)
         mFirebselibClass.setFireBaseDB(CollectionData.KEY_URL_FREE + "/" + MySharedPrefernces.getIsToken(this@GetMoreCouponActivity), mHasMap.get(CollectionData.KEY_ID), mHasMap)
 
+
+        var intent = Intent()
+        var bundle = Bundle()
+        bundle.putString("id",id)
+        intent.putExtras(bundle)
+        setResult(999,intent)
+        finish()
     }
 
     fun SetRewardedVideoAd(){
@@ -299,26 +302,30 @@ class GetMoreCouponActivity : AppCompatActivity(), RewardedVideoAdListener, Mfir
 
             mFreeText.text = free.get(random)
 
-            if (mRewardedVideoAd.isLoaded) {
-                mUseText.text = "Get"
-            }else{
-                mUseText.setTextSize(12F)
-                mUseText.text = "今日已被領取完畢"
+//            if (mRewardedVideoAd.isLoaded) {
+//                mUseText.text = "Get"
+//            }else{
+//                mUseText.setTextSize(12F)
+//                mUseText.text = "今日已被領取完畢"
+//
+//            }
+            mUseText.text = "Get"
 
-            }
             mUseText.setOnClickListener {
 //                mRewardedVideoAd.show()
 
-                if(mRewardedVideoAd.isLoaded){
-                    mRewardedVideoAd.show()
-
-                }else{
-                    var intent = Intent()
-                    intent.setClass(this@GetMoreCouponActivity,MainActivity::class.java)
-                    startActivity(intent)
-
-                }
+//                if(mRewardedVideoAd.isLoaded){
+//                    mRewardedVideoAd.show()
+//
+//                }else{
+//                    var intent = Intent()
+//                    intent.setClass(this@GetMoreCouponActivity,MainActivity::class.java)
+//                    startActivity(intent)
+//
+//                }
+                setCoupon(data.result.place_id)
 //            IronSource.showRewardedVideo()
+
             }
 
 

@@ -70,10 +70,6 @@ class UseCouponActivity : AppCompatActivity(), MfirebaeCallback {
         object : CountDownTimer(60000, 1000) {
 
             override fun onFinish() {
-                Log.d(javaClass.simpleName,"onFinish")
-//                if(getdata()!=null){
-//                    mFirebselibClass.deleteData(CollectionData.KEY_URL_FREE,getdata())
-//                }
                 var intent = Intent()
                 var bundle = Bundle()
                 bundle.putString("id",getdata())

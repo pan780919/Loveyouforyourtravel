@@ -130,15 +130,13 @@ class MemberFreeListViewActivity : AppCompatActivity(), GoogleMapAPISerive.GetRe
         mFirebselibClass = MfiebaselibsClass(this, this@MemberFreeListViewActivity)
         getList()
         mPullToRefreshListView = findViewById(R.id.pull_to_refresh_list_view)
-
         mAdapter = MyAdapter(mAllData)
         mPullToRefreshListView.setAdapter(mAdapter)
         mGetMoreFreeButton = findViewById(R.id.getmorebutton)
-//        mPullToRefreshListView.setOnRefreshListener(mListViewOnRefreshListener2)
         mGetMoreFreeButton.setOnClickListener {
             var intent = Intent()
             intent.setClass(this@MemberFreeListViewActivity, GetMoreCouponActivity::class.java)
-            startActivity(intent)
+            startActivityForResult(intent,0)
         }
 
 
@@ -147,7 +145,6 @@ class MemberFreeListViewActivity : AppCompatActivity(), GoogleMapAPISerive.GetRe
     fun delete(id: String) {
 
         mFirebselibClass.deleteData(CollectionData.KEY_URL_FREE, id)
-
 
     }
 
@@ -177,7 +174,9 @@ class MemberFreeListViewActivity : AppCompatActivity(), GoogleMapAPISerive.GetRe
                 Log.d(javaClass.simpleName, data?.extras?.getString("id"))
                 delete(data?.extras?.getString("id").toString())
 
-
+            }
+            999->{
+                getList()
             }
 
         }

@@ -11,10 +11,7 @@
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="44a423fd-f0b7-4008-9906-156f1b059677" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.gradle/4.4/fileHashes/fileHashes.lock" afterPath="$PROJECT_DIR$/.gradle/4.4/fileHashes/fileHashes.lock" />
-      <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" />
-    </list>
+    <list default="true" id="44a423fd-f0b7-4008-9906-156f1b059677" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -36,31 +33,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="GetMoreCouponActivity.kt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/jackpan/specialstudy/oveyouforyourtravel/GetMoreCouponActivity.kt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="431">
-              <caret line="325" column="16" lean-forward="false" selection-start-line="325" selection-start-column="16" selection-end-line="325" selection-end-column="16" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="Activity.java" pinned="false" current-in-tab="false">
         <entry file="file://$USER_HOME$/Library/Android/sdk/sources/android-27/android/app/Activity.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="24">
               <caret line="5278" column="22" lean-forward="false" selection-start-line="5278" selection-start-column="22" selection-end-line="5278" selection-end-column="22" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="UseCouponActivity.kt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/jackpan/specialstudy/oveyouforyourtravel/UseCouponActivity.kt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-48">
-              <caret line="72" column="0" lean-forward="false" selection-start-line="72" selection-start-column="0" selection-end-line="72" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -76,32 +53,57 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="GetMoreCouponActivity.kt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/jackpan/specialstudy/oveyouforyourtravel/GetMoreCouponActivity.kt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="231">
+              <caret line="247" column="52" lean-forward="true" selection-start-line="247" selection-start-column="0" selection-end-line="248" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MySharedPrefernces.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/MySharedPrefernces.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="157">
+              <caret line="63" column="23" lean-forward="false" selection-start-line="63" selection-start-column="23" selection-end-line="63" selection-end-column="23" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SignUpActivity.kt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/jackpan/specialstudy/oveyouforyourtravel/SignUpActivity.kt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="195">
+              <caret line="52" column="40" lean-forward="true" selection-start-line="52" selection-start-column="40" selection-end-line="52" selection-end-column="40" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="LoginActivity.kt" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/jackpan/specialstudy/oveyouforyourtravel/LoginActivity.kt">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="168">
               <caret line="17" column="6" lean-forward="false" selection-start-line="17" selection-start-column="6" selection-end-line="17" selection-end-column="6" />
-              <folding />
+              <folding>
+                <marker date="1532587117000" expanded="false" signature="61:431" ph="..." />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="HomePageActivity.kt" pinned="false" current-in-tab="true">
+      <file leaf-file-name="HomePageActivity.kt" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/jackpan/specialstudy/oveyouforyourtravel/HomePageActivity.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-945">
-              <caret line="186" column="31" lean-forward="false" selection-start-line="186" selection-start-column="16" selection-end-line="186" selection-end-column="31" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MemberFreeListViewActivity.kt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/jackpan/specialstudy/oveyouforyourtravel/MemberFreeListViewActivity.kt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="157">
-              <caret line="119" column="48" lean-forward="false" selection-start-line="119" selection-start-column="48" selection-end-line="119" selection-end-column="48" />
-              <folding />
+            <state relative-caret-position="1703">
+              <caret line="283" column="0" lean-forward="false" selection-start-line="283" selection-start-column="0" selection-end-line="283" selection-end-column="0" />
+              <folding>
+                <marker date="1532587117000" expanded="false" signature="61:752" ph="..." />
+                <marker date="1532587117000" expanded="true" signature="10174:10180" ph="{...}" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -224,18 +226,13 @@
             <state />
           </provider>
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1881">
+            <state relative-caret-position="-1062">
               <caret line="47" column="56" lean-forward="false" selection-start-line="47" selection-start-column="56" selection-end-line="47" selection-end-column="56" />
               <folding>
                 <element signature="e#1669#1687#0" expanded="true" />
                 <element signature="e#2180#2210#0" expanded="true" />
                 <element signature="e#2350#2382#0" expanded="true" />
                 <element signature="e#3110#3135#0" expanded="true" />
-                <element signature="e#3242#3281#0" expanded="true" />
-                <element signature="e#3370#3399#0" expanded="true" />
-                <element signature="e#3550#3595#0" expanded="true" />
-                <element signature="e#3799#3840#0" expanded="true" />
-                <element signature="e#4062#4103#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -2406,6 +2403,7 @@
     <option name="width" value="1920" />
     <option name="height" value="1007" />
   </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator currentView="AndroidView" proportions="" version="1">
       <flattenPackages />
@@ -2686,12 +2684,35 @@
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
       <window_info id="Device File Explorer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Android Profiler" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Logcat" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Build" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32969216" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Device File Explorer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32960597" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18796591" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -2702,14 +2723,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/jackpan/specialstudy/oveyouforyourtravel/MapPlaceDetailActivity.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="246">
-          <caret line="223" column="67" lean-forward="false" selection-start-line="222" selection-start-column="3" selection-end-line="223" selection-end-column="67" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/jackpan/specialstudy/oveyouforyourtravel/MemberLoveListViewActivity.kt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="167">
@@ -2789,50 +2802,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="215">
           <caret line="103" column="72" lean-forward="false" selection-start-line="103" selection-start-column="25" selection-end-line="103" selection-end-column="72" />
-          <folding>
-            <marker date="1532510728000" expanded="false" signature="0:104" ph="/.../" />
-            <marker date="1532510728000" expanded="false" signature="141:2405" ph="..." />
-            <marker date="1532510728000" expanded="true" signature="3303:3362" ph="{...}" />
-            <marker date="1532510728000" expanded="true" signature="3426:3492" ph="{...}" />
-            <marker date="1532510728000" expanded="true" signature="3532:3984" ph="{...}" />
-            <marker date="1532510728000" expanded="true" signature="4029:4221" ph="{...}" />
-            <marker date="1532510728000" expanded="true" signature="4266:4336" ph="{...}" />
-            <marker date="1532510728000" expanded="true" signature="4383:5066" ph="{...}" />
-            <marker date="1532510728000" expanded="false" signature="4602:4717" ph="onAdsManagerLoaded(adsManagerLoadedEvent) → {" />
-            <marker date="1532510728000" expanded="false" signature="5043:5058" ph="}" />
-            <marker date="1532510728000" expanded="true" signature="5117:5482" ph="{...}" />
-            <marker date="1532510728000" expanded="true" signature="5552:5750" ph="{...}" />
-            <marker date="1532510728000" expanded="true" signature="5820:6018" ph="{...}" />
-            <marker date="1532510728000" expanded="true" signature="6084:6353" ph="{...}" />
-            <marker date="1532510728000" expanded="true" signature="6379:6647" ph="{...}" />
-            <marker date="1532510728000" expanded="true" signature="6675:6941" ph="{...}" />
-            <marker date="1532510728000" expanded="false" signature="6986:6997" ph=" { " />
-            <marker date="1532510728000" expanded="false" signature="7021:7027" ph=" }" />
-            <marker date="1532510728000" expanded="true" signature="7056:7298" ph="{...}" />
-            <marker date="1532510728000" expanded="true" signature="7330:8607" ph="{...}" />
-            <marker date="1532510728000" expanded="false" signature="7722:7794" ph="getVolume(volume) → {" />
-            <marker date="1532510728000" expanded="false" signature="8135:8150" ph="}" />
-            <marker date="1532510728000" expanded="false" signature="8464:8529" ph="onClick(v) → {" />
-            <marker date="1532510728000" expanded="false" signature="8584:8599" ph="}" />
-            <marker date="1532510728000" expanded="true" signature="8680:8730" ph="{...}" />
-            <marker date="1532510728000" expanded="true" signature="8780:11580" ph="{...}" />
-            <marker date="1532510728000" expanded="true" signature="8871:11538" ph="{...}" />
-            <marker date="1532510728000" expanded="true" signature="8915:8930" ph="{}" />
-            <marker date="1532510728000" expanded="true" signature="8993:11016" ph="{...}" />
-            <marker date="1532510728000" expanded="true" signature="11077:11528" ph="{...}" />
-            <marker date="1532510728000" expanded="true" signature="11611:12905" ph="{...}" />
-            <marker date="1532510728000" expanded="true" signature="11694:12833" ph="{...}" />
-            <marker date="1532510728000" expanded="true" signature="11756:12628" ph="{...}" />
-            <marker date="1532510728000" expanded="true" signature="12688:12823" ph="{...}" />
-            <marker date="1532510728000" expanded="true" signature="12947:14628" ph="{...}" />
-            <marker date="1532510728000" expanded="true" signature="14683:14879" ph="{...}" />
-            <marker date="1532510728000" expanded="true" signature="14924:16130" ph="{...}" />
-            <marker date="1532510728000" expanded="true" signature="16214:16426" ph="{...}" />
-            <marker date="1532510728000" expanded="true" signature="16503:18022" ph="{...}" />
-            <marker date="1532510728000" expanded="true" signature="16537:16548" ph="{}" />
-            <marker date="1532510728000" expanded="true" signature="16606:17855" ph="{...}" />
-            <marker date="1532510728000" expanded="true" signature="17909:18016" ph="{...}" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -2918,11 +2888,6 @@
             <element signature="e#2180#2210#0" expanded="true" />
             <element signature="e#2350#2382#0" expanded="true" />
             <element signature="e#3110#3135#0" expanded="true" />
-            <element signature="e#3242#3281#0" expanded="true" />
-            <element signature="e#3370#3399#0" expanded="true" />
-            <element signature="e#3550#3595#0" expanded="true" />
-            <element signature="e#3799#3840#0" expanded="true" />
-            <element signature="e#4062#4103#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -3071,7 +3036,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="168">
           <caret line="17" column="6" lean-forward="false" selection-start-line="17" selection-start-column="6" selection-end-line="17" selection-end-column="6" />
-          <folding />
+          <folding>
+            <marker date="1532587117000" expanded="false" signature="61:431" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -3079,6 +3046,368 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-945">
           <caret line="186" column="31" lean-forward="false" selection-start-line="186" selection-start-column="16" selection-end-line="186" selection-end-column="31" />
+          <folding>
+            <marker date="1532587117000" expanded="false" signature="61:752" ph="..." />
+            <marker date="1532587117000" expanded="true" signature="10174:10180" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/jackpan/specialstudy/oveyouforyourtravel/Data/FavoriteListActivity.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="64" column="40" lean-forward="false" selection-start-line="64" selection-start-column="40" selection-end-line="64" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_favorite_list.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/jackpan/specialstudy/oveyouforyourtravel/MapPlaceDetailActivity.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="246">
+          <caret line="223" column="67" lean-forward="false" selection-start-line="222" selection-start-column="3" selection-end-line="223" selection-end-column="67" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/jackpan/specialstudy/oveyouforyourtravel/MemberLoveListViewActivity.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="167">
+          <caret line="120" column="41" lean-forward="false" selection-start-line="120" selection-start-column="0" selection-end-line="121" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="24">
+          <caret line="1" column="35" lean-forward="false" selection-start-line="1" selection-start-column="28" selection-end-line="1" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-227">
+          <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.mopub/mopub-sdk-base/5.0.0/f9c56e4225e8740b4221f16ec91bf7e853dc4d02/mopub-sdk-base-5.0.0-sources.jar!/com/mopub/mobileads/MraidVideoPlayerActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="96">
+          <caret line="23" column="13" lean-forward="false" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Library/Android/sdk/sources/android-27/java/lang/Class.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="1210" column="18" lean-forward="false" selection-start-line="1210" selection-start-column="18" selection-end-line="1210" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.mopub/mopub-sdk-rewardedvideo/5.0.0/1146bdcecf7d05991889eb1e66d30e6ad098329d/mopub-sdk-rewardedvideo-5.0.0-sources.jar!/com/mopub/mobileads/MoPubRewardedVideos.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="928">
+          <caret line="74" column="35" lean-forward="false" selection-start-line="74" selection-start-column="12" selection-end-line="74" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/app/libs/MFAD-2.0.6.jar!/com/clickforce/ad/PreRollAdView.class" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
+      <provider selected="true" editor-type-id="android-designer2">
+        <state />
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="192">
+          <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/app/libs/MFAD-2.0.8.jar!/com/clickforce/ad/PreRollAdView.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="215">
+          <caret line="103" column="72" lean-forward="false" selection-start-line="103" selection-start-column="25" selection-end-line="103" selection-end-column="72" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/jackpan/specialstudy/oveyouforyourtravel/MainActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="387">
+          <caret line="64" column="0" lean-forward="false" selection-start-line="64" selection-start-column="0" selection-end-line="64" selection-end-column="0" />
+          <folding>
+            <element signature="e#2053#2054#0" expanded="false" />
+            <element signature="e#2103#2104#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/play-services-ads-lite-15.0.1.aar/897228661a6d7c8d9752dd14f7befc3c/jars/classes.jar!/com/google/android/gms/ads/reward/RewardedVideoAd.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="11" column="17" lean-forward="false" selection-start-line="11" selection-start-column="17" selection-end-line="11" selection-end-column="17" />
+          <folding>
+            <marker date="1531966343000" expanded="false" signature="0:104" ph="/.../" />
+            <marker date="1531966343000" expanded="false" signature="157:292" ph="..." />
+            <marker date="1531966343000" expanded="true" signature="665:683" ph="/**...*/" />
+            <marker date="1531966343000" expanded="true" signature="754:772" ph="/**...*/" />
+            <marker date="1531966343000" expanded="true" signature="845:863" ph="/**...*/" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/play-services-ads-lite-15.0.1.aar/897228661a6d7c8d9752dd14f7befc3c/jars/classes.jar!/com/google/android/gms/ads/InterstitialAd.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="266">
+          <caret line="69" column="27" lean-forward="false" selection-start-line="69" selection-start-column="27" selection-end-line="69" selection-end-column="27" />
+          <folding>
+            <marker date="1531966343000" expanded="false" signature="0:104" ph="/.../" />
+            <marker date="1531966343000" expanded="false" signature="150:525" ph="..." />
+            <marker date="1531966343000" expanded="true" signature="633:744" ph="{...}" />
+            <marker date="1531966343000" expanded="false" signature="789:800" ph=" { " />
+            <marker date="1531966343000" expanded="false" signature="833:839" ph=" }" />
+            <marker date="1531966343000" expanded="false" signature="878:889" ph=" { " />
+            <marker date="1531966343000" expanded="false" signature="920:926" ph=" }" />
+            <marker date="1531966343000" expanded="false" signature="963:974" ph=" { " />
+            <marker date="1531966343000" expanded="false" signature="1002:1008" ph=" }" />
+            <marker date="1531966343000" expanded="false" signature="1046:1057" ph=" { " />
+            <marker date="1531966343000" expanded="false" signature="1086:1092" ph=" }" />
+            <marker date="1531966343000" expanded="false" signature="1193:1204" ph=" { " />
+            <marker date="1531966343000" expanded="false" signature="1231:1237" ph=" }" />
+            <marker date="1531966343000" expanded="true" signature="1292:1546" ph="{...}" />
+            <marker date="1531966343000" expanded="false" signature="1594:1605" ph=" { " />
+            <marker date="1531966343000" expanded="false" signature="1633:1639" ph=" }" />
+            <marker date="1531966343000" expanded="true" signature="1696:1760" ph="{...}" />
+            <marker date="1531966343000" expanded="false" signature="1790:1801" ph=" { " />
+            <marker date="1531966343000" expanded="false" signature="1818:1824" ph=" }" />
+            <marker date="1531966343000" expanded="true" signature="1905:1964" ph="{...}" />
+            <marker date="1531966343000" expanded="false" signature="2001:2012" ph=" { " />
+            <marker date="1531966343000" expanded="false" signature="2032:2038" ph=" }" />
+            <marker date="1531966343000" expanded="false" signature="2070:2081" ph=" { " />
+            <marker date="1531966343000" expanded="false" signature="2105:2111" ph=" }" />
+            <marker date="1531966343000" expanded="false" signature="2152:2163" ph=" { " />
+            <marker date="1531966343000" expanded="false" signature="2183:2189" ph=" }" />
+            <marker date="1531966343000" expanded="false" signature="2243:2254" ph=" { " />
+            <marker date="1531966343000" expanded="false" signature="2287:2293" ph=" }" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.android.support/support-fragment/27.1.1/94732bda44fba11302c58e459b7c1f47e7521bf9/support-fragment-27.1.1-sources.jar!/android/support/v4/app/FragmentActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="742" column="62" lean-forward="false" selection-start-line="742" selection-start-column="62" selection-end-line="742" selection-end-column="62" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
+      <provider editor-type-id="android-manifest">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1062">
+          <caret line="47" column="56" lean-forward="false" selection-start-line="47" selection-start-column="56" selection-end-line="47" selection-end-column="56" />
+          <folding>
+            <element signature="e#1669#1687#0" expanded="true" />
+            <element signature="e#2180#2210#0" expanded="true" />
+            <element signature="e#2350#2382#0" expanded="true" />
+            <element signature="e#3110#3135#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/app/libs/mFirebaseLibs.jar!/com/jackpan/libs/mfirebaselib/MfiebaselibsClass.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="359">
+          <caret line="215" column="66" lean-forward="false" selection-start-line="215" selection-start-column="52" selection-end-line="215" selection-end-column="66" />
+          <folding>
+            <marker date="1531966086000" expanded="false" signature="0:104" ph="/.../" />
+            <marker date="1531966086000" expanded="false" signature="153:2422" ph="..." />
+            <marker date="1531966086000" expanded="true" signature="3186:3316" ph="{...}" />
+            <marker date="1531966086000" expanded="true" signature="3375:3976" ph="{...}" />
+            <marker date="1531966086000" expanded="false" signature="3461:3568" ph="onComplete(task) → {" />
+            <marker date="1531966086000" expanded="false" signature="3810:3825" ph="}" />
+            <marker date="1531966086000" expanded="true" signature="3884:3968" ph="{...}" />
+            <marker date="1531966086000" expanded="true" signature="3943:3958" ph="{}" />
+            <marker date="1531966086000" expanded="true" signature="4036:4394" ph="{...}" />
+            <marker date="1531966086000" expanded="false" signature="4126:4233" ph="onComplete(task) → {" />
+            <marker date="1531966086000" expanded="false" signature="4371:4386" ph="}" />
+            <marker date="1531966086000" expanded="true" signature="4429:5201" ph="{...}" />
+            <marker date="1531966086000" expanded="false" signature="4459:4565" ph="onAuthStateChanged(firebaseAuth) → {" />
+            <marker date="1531966086000" expanded="false" signature="5179:5194" ph="}" />
+            <marker date="1531966086000" expanded="true" signature="5290:6004" ph="{...}" />
+            <marker date="1531966086000" expanded="false" signature="5550:5661" ph="onComplete(firebaseError, firebase) → {" />
+            <marker date="1531966086000" expanded="false" signature="5981:5996" ph="}" />
+            <marker date="1531966086000" expanded="true" signature="6078:6828" ph="{...}" />
+            <marker date="1531966086000" expanded="true" signature="6280:6820" ph="{...}" />
+            <marker date="1531966086000" expanded="true" signature="6356:6461" ph="{...}" />
+            <marker date="1531966086000" expanded="true" signature="6539:6554" ph="{}" />
+            <marker date="1531966086000" expanded="true" signature="6622:6637" ph="{}" />
+            <marker date="1531966086000" expanded="true" signature="6713:6728" ph="{}" />
+            <marker date="1531966086000" expanded="true" signature="6795:6810" ph="{}" />
+            <marker date="1531966086000" expanded="true" signature="6919:7684" ph="{...}" />
+            <marker date="1531966086000" expanded="true" signature="7136:7676" ph="{...}" />
+            <marker date="1531966086000" expanded="true" signature="7212:7317" ph="{...}" />
+            <marker date="1531966086000" expanded="true" signature="7395:7410" ph="{}" />
+            <marker date="1531966086000" expanded="true" signature="7478:7493" ph="{}" />
+            <marker date="1531966086000" expanded="true" signature="7569:7584" ph="{}" />
+            <marker date="1531966086000" expanded="true" signature="7651:7666" ph="{}" />
+            <marker date="1531966086000" expanded="true" signature="7775:8453" ph="{...}" />
+            <marker date="1531966086000" expanded="true" signature="7946:8445" ph="{...}" />
+            <marker date="1531966086000" expanded="true" signature="8013:8309" ph="{...}" />
+            <marker date="1531966086000" expanded="true" signature="8420:8435" ph="{}" />
+            <marker date="1531966086000" expanded="true" signature="8513:9404" ph="{...}" />
+            <marker date="1531966086000" expanded="true" signature="8696:9396" ph="{...}" />
+            <marker date="1531966086000" expanded="true" signature="8762:9191" ph="{...}" />
+            <marker date="1531966086000" expanded="true" signature="9258:9386" ph="{...}" />
+            <marker date="1531966086000" expanded="true" signature="9485:10421" ph="{...}" />
+            <marker date="1531966086000" expanded="true" signature="9823:10403" ph="{...}" />
+            <marker date="1531966086000" expanded="true" signature="9893:10182" ph="{...}" />
+            <marker date="1531966086000" expanded="true" signature="10253:10389" ph="{...}" />
+            <marker date="1531966086000" expanded="true" signature="10499:11653" ph="{...}" />
+            <marker date="1531966086000" expanded="false" signature="10791:10886" ph="onComplete(task) → {" />
+            <marker date="1531966086000" expanded="false" signature="11036:11143" ph="onComplete(task) → {" />
+            <marker date="1531966086000" expanded="false" signature="11469:11496" ph="}" />
+            <marker date="1531966086000" expanded="false" signature="11630:11645" ph="}" />
+            <marker date="1531966086000" expanded="true" signature="11715:12189" ph="{...}" />
+            <marker date="1531966086000" expanded="false" signature="11794:11889" ph="onComplete(task) → {" />
+            <marker date="1531966086000" expanded="false" signature="12166:12181" ph="}" />
+            <marker date="1531966086000" expanded="true" signature="12278:15588" ph="{...}" />
+            <marker date="1531966086000" expanded="false" signature="14081:14172" ph="onFailure(exception) → {" />
+            <marker date="1531966086000" expanded="false" signature="14409:14424" ph="}" />
+            <marker date="1531966086000" expanded="false" signature="14447:14549" ph="onSuccess(taskSnapshot) → {" />
+            <marker date="1531966086000" expanded="false" signature="14937:14952" ph="}" />
+            <marker date="1531966086000" expanded="false" signature="14976:15080" ph="onProgress(taskSnapshot) → {" />
+            <marker date="1531966086000" expanded="false" signature="15565:15580" ph="}" />
+            <marker date="1531966086000" expanded="true" signature="15659:18373" ph="{...}" />
+            <marker date="1531966086000" expanded="false" signature="16866:16957" ph="onFailure(exception) → {" />
+            <marker date="1531966086000" expanded="false" signature="17194:17209" ph="}" />
+            <marker date="1531966086000" expanded="false" signature="17232:17334" ph="onSuccess(taskSnapshot) → {" />
+            <marker date="1531966086000" expanded="false" signature="17722:17737" ph="}" />
+            <marker date="1531966086000" expanded="false" signature="17761:17865" ph="onProgress(taskSnapshot) → {" />
+            <marker date="1531966086000" expanded="false" signature="18350:18365" ph="}" />
+            <marker date="1531966086000" expanded="true" signature="18440:20366" ph="{...}" />
+            <marker date="1531966086000" expanded="false" signature="18975:19066" ph="onFailure(exception) → {" />
+            <marker date="1531966086000" expanded="false" signature="19303:19318" ph="}" />
+            <marker date="1531966086000" expanded="false" signature="19341:19443" ph="onSuccess(taskSnapshot) → {" />
+            <marker date="1531966086000" expanded="false" signature="19831:19846" ph="}" />
+            <marker date="1531966086000" expanded="false" signature="19870:19974" ph="onProgress(taskSnapshot) → {" />
+            <marker date="1531966086000" expanded="false" signature="20343:20358" ph="}" />
+            <marker date="1531966086000" expanded="true" signature="20402:20524" ph="{...}" />
+            <marker date="1531966086000" expanded="true" signature="20563:20688" ph="{...}" />
+            <marker date="1531966086000" expanded="true" signature="20734:21575" ph="{...}" />
+            <marker date="1531966086000" expanded="false" signature="21020:21115" ph="onComplete(task) → {" />
+            <marker date="1531966086000" expanded="false" signature="21552:21567" ph="}" />
+            <marker date="1531966086000" expanded="true" signature="21652:25467" ph="{...}" />
+            <marker date="1531966086000" expanded="false" signature="23450:23541" ph="onFailure(exception) → {" />
+            <marker date="1531966086000" expanded="false" signature="23698:23713" ph="}" />
+            <marker date="1531966086000" expanded="false" signature="23736:23838" ph="onSuccess(taskSnapshot) → {" />
+            <marker date="1531966086000" expanded="false" signature="24191:24294" ph="onComplete(task) → {" />
+            <marker date="1531966086000" expanded="false" signature="24782:24805" ph="}" />
+            <marker date="1531966086000" expanded="false" signature="24816:24831" ph="}" />
+            <marker date="1531966086000" expanded="false" signature="24855:24959" ph="onProgress(taskSnapshot) → {" />
+            <marker date="1531966086000" expanded="false" signature="25444:25459" ph="}" />
+            <marker date="1531966086000" expanded="true" signature="25513:25722" ph="{...}" />
+            <marker date="1531966086000" expanded="true" signature="25769:26363" ph="{...}" />
+            <marker date="1531966086000" expanded="true" signature="26417:26749" ph="{...}" />
+            <marker date="1531966086000" expanded="true" signature="26793:27505" ph="{...}" />
+            <marker date="1531966086000" expanded="true" signature="27581:27708" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/jackpan/specialstudy/oveyouforyourtravel/UseCouponActivity.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-48">
+          <caret line="72" column="0" lean-forward="false" selection-start-line="72" selection-start-column="0" selection-end-line="72" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Library/Android/sdk/sources/android-27/android/app/Activity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="24">
+          <caret line="5278" column="22" lean-forward="false" selection-start-line="5278" selection-start-column="22" selection-end-line="5278" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/jackpan/specialstudy/oveyouforyourtravel/MemberFreeListViewActivity.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="157">
+          <caret line="119" column="48" lean-forward="false" selection-start-line="119" selection-start-column="48" selection-end-line="119" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/jackpan/specialstudy/oveyouforyourtravel/LoginActivity.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="17" column="6" lean-forward="false" selection-start-line="17" selection-start-column="6" selection-end-line="17" selection-end-column="6" />
+          <folding>
+            <marker date="1532587117000" expanded="false" signature="61:431" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/jackpan/specialstudy/oveyouforyourtravel/HomePageActivity.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1703">
+          <caret line="283" column="0" lean-forward="false" selection-start-line="283" selection-start-column="0" selection-end-line="283" selection-end-column="0" />
+          <folding>
+            <marker date="1532587117000" expanded="false" signature="61:752" ph="..." />
+            <marker date="1532587117000" expanded="true" signature="10174:10180" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="39" lean-forward="false" selection-start-line="0" selection-start-column="39" selection-end-line="0" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/jackpan/specialstudy/oveyouforyourtravel/SignUpActivity.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="52" column="40" lean-forward="true" selection-start-line="52" selection-start-column="40" selection-end-line="52" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/jackpan/specialstudy/oveyouforyourtravel/GetMoreCouponActivity.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="231">
+          <caret line="247" column="52" lean-forward="true" selection-start-line="247" selection-start-column="0" selection-end-line="248" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/MySharedPrefernces.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="157">
+          <caret line="63" column="23" lean-forward="false" selection-start-line="63" selection-start-column="23" selection-end-line="63" selection-end-column="23" />
           <folding />
         </state>
       </provider>

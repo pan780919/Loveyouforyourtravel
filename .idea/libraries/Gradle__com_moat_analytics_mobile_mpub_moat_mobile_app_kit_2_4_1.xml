@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="Gradle: com.moat.analytics.mobile.mpub:moat-mobile-app-kit-2.4.1">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/moat-mobile-app-kit-2.4.1.aar/8418326e7a26ba2ae84e71ee57271af2/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/moat-mobile-app-kit-2.4.1.aar/8418326e7a26ba2ae84e71ee57271af2/res" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

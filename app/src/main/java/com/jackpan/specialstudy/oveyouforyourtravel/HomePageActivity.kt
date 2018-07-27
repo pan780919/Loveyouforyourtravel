@@ -98,12 +98,7 @@ class HomePageActivity : AppCompatActivity(), MfirebaeCallback{
         setArray()
         mFirebselibClass.userLoginCheck()
         checkPermission()
-//        mProgressDialog = ProgressDialog(this)
-//        mProgressDialog.setTitle("讀取中")
-//        mProgressDialog.setMessage("請稍候")
-//        mProgressDialog.setCancelable(true)
-//        mProgressDialog.show()
-//        mProgressDialog.dismiss()
+// †®
 
         mArrayString.forEach {
             Log.d("mArrayString",it)
@@ -176,7 +171,7 @@ class HomePageActivity : AppCompatActivity(), MfirebaeCallback{
 
         }
         mLoveLayout.setOnClickListener {
-            if(!checkLoginState()) return@setOnClickListener
+//            if(!checkLoginState()) return@setOnClickListener
             var intent = Intent()
             intent.setClass(this, MemberLoveActivity::class.java)
             startActivity(intent)

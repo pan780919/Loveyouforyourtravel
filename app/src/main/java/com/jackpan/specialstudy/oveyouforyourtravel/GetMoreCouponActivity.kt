@@ -140,6 +140,8 @@ class GetMoreCouponActivity : AppCompatActivity(), RewardedVideoAdListener, Mfir
         mFirebselibClass = MfiebaselibsClass(this, this@GetMoreCouponActivity)
 
         setContentView(R.layout.activity_get_more_coupon)
+        SetRewardedVideoAd()
+
 //        preRollAdView = findViewById(R.id.preroll)
 //        preRollAdView.setOnPreRollViewLoaded(mPreRollViewLinstener)
 
@@ -149,7 +151,6 @@ class GetMoreCouponActivity : AppCompatActivity(), RewardedVideoAdListener, Mfir
         mProgressDialog.setMessage("請稍候")
         mProgressDialog.setCancelable(false)
         mProgressDialog.show()
-        SetRewardedVideoAd()
         mPullToRefreshListView = findViewById(R.id.pull_to_refresh_list_view)
 
         mAdapter = MyAdapter(mAllData)
@@ -212,13 +213,12 @@ class GetMoreCouponActivity : AppCompatActivity(), RewardedVideoAdListener, Mfir
     }
 
     fun SetRewardedVideoAd(){
-        MobileAds.initialize(this, "ca-app-pub-7019441527375550~1705354228")
-
         mRewardedVideoAd = MobileAds.getRewardedVideoAdInstance(this)
         mRewardedVideoAd.rewardedVideoAdListener = this
 
-        mRewardedVideoAd.loadAd("ca-app-pub-7019441527375550/1968113408",
+        mRewardedVideoAd.loadAd("ca-app-pub-3940256099942544/5224354917",
                 AdRequest.Builder().build())
+
 
     }
 

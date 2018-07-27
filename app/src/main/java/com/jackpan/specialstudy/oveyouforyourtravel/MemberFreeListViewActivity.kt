@@ -134,7 +134,7 @@ class MemberFreeListViewActivity : AppCompatActivity(), GoogleMapAPISerive.GetRe
         val pdCanceller = Handler()
         pdCanceller.postDelayed(progressRunnable, 10000)
         if(!getUrl().equals("")){
-            mFirebselibClass.getFirebaseDatabase( getUrl() + "/" + MySharedPrefernces.getIsToken(this), MySharedPrefernces.getIsToken(this))
+//            mFirebselibClass.getFirebaseDatabase( getUrl() + "/" + MySharedPrefernces.getIsToken(this), MySharedPrefernces.getIsToken(this))
 
         }
 

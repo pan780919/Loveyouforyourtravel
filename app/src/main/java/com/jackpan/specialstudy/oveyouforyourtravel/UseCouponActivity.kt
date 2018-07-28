@@ -67,7 +67,7 @@ class UseCouponActivity : AppCompatActivity(), MfirebaeCallback {
     }
 
     fun countdowntime(){
-        object : CountDownTimer(60000, 1000) {
+        object : CountDownTimer(10000, 1000) {
 
             override fun onFinish() {
                 var intent = Intent()

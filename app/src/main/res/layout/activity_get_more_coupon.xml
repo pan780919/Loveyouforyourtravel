@@ -12,11 +12,5 @@
         android:id="@+id/pull_to_refresh_list_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
-    <com.adbert.AdbertVideoBox
-        android:id="@+id/boxView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
-    </com.adbert.AdbertVideoBox>
-
 
 </RelativeLayout>

@@ -26,7 +26,6 @@ import GoogleMapAPISerive
 import GoogleMapAPISerive.GetResponse
 import android.app.Activity
 import android.os.Handler
-import com.adbert.AdbertVideoBox
 import java.util.*
 
 
@@ -93,10 +92,8 @@ class MemberFreeListViewActivity : AppCompatActivity(), GoogleMapAPISerive.GetRe
 
     override fun getDetailData(googleMapPlaceDetailsData: GoogleMapPlaceDetailsData?) {
 
-
         if (googleMapPlaceDetailsData != null) {
 
-            mAllData.clear()
             mAllData.add(googleMapPlaceDetailsData)
             mAdapter!!.notifyDataSetChanged()
             Log.d("Jack", "getData")
@@ -123,7 +120,6 @@ class MemberFreeListViewActivity : AppCompatActivity(), GoogleMapAPISerive.GetRe
 
     lateinit var mFirebselibClass: MfiebaselibsClass
     lateinit var mGetMoreFreeButton: Button
-    lateinit var mAdbertVideoBox: AdbertVideoBox
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.content_free_list_view)
@@ -162,15 +158,10 @@ class MemberFreeListViewActivity : AppCompatActivity(), GoogleMapAPISerive.GetRe
 
         val pdCanceller = Handler()
         pdCanceller.postDelayed(progressRunnable, 10000)
-<<<<<<< HEAD
-        if(!getUrl().equals("")){
-//            mFirebselibClass.getFirebaseDatabase( getUrl() + "/" + MySharedPrefernces.getIsToken(this), MySharedPrefernces.getIsToken(this))
-
-=======
         if (!getUrl().equals("")) {
-            Log.d("getUrl",getUrl())
+            mAllData.clear()
+
             mFirebselibClass.getFirebaseDatabase(getUrl() + "/" + MySharedPrefernces.getIsToken(this), MySharedPrefernces.getIsToken(this))
->>>>>>> 19e0483c871d40e0ca0918f20ccce789e7f9bd76
         }
         mProgressDialog.dismiss()
 

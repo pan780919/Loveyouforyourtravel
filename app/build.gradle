@@ -19,20 +19,6 @@ android {
     }
 }
 repositories {
-    maven {
-        url  "https://dl.bintray.com/ironsource-mobile/android-sdk"
-    }
-    maven {
-        url  "http://dl.bintray.com/ironsource-mobile/android-adapters"
-    }
-    maven {
-        url  "https://adcolony.bintray.com/AdColony"
-    }
-    maven {
-        url "https://raw.githubusercontent.com/HyprMXMobile/Android-SDKs/master"
-    }
-
-    maven { url "https://s3.amazonaws.com/moat-sdk-builds" }
 
 }
 dependencies {
@@ -71,22 +57,10 @@ dependencies {
     compile 'com.github.open-android:PullToRefresh:v1.0'
     compile 'com.hendraanggrian:pikasso:0.2'
     implementation 'com.gcssloop.widget:rclayout:1.6.0'
-<<<<<<< HEAD
-    implementation files('libs/MFAD-2.0.6.jar')
+
     implementation 'com.google.ads.interactivemedia.v3:interactivemedia:3.7.2'
 
-=======
-    compile 'com.facebook.android:audience-network-sdk:4.99.1'
-    compile 'com.google.ads.interactivemedia.v3:interactivemedia:3.7.2'
-    compile files('libs/adbert-sdk-320n.jar')
-    compile 'com.ironsource.sdk:mediationsdk:6.7.10@jar'
-    compile('com.mopub:mopub-sdk-rewardedvideo:5.0.0@aar') {
-        transitive = true
-    }
-    implementation files('libs/admob-adapter-1.0.0-1505261651-830485e.jar')
-    implementation files('libs/vpadn-sdk-obf471-10207102-1802011415-5985d26.jar')
-    implementation files('libs/MFAD-2.0.8.jar')
->>>>>>> 19e0483c871d40e0ca0918f20ccce789e7f9bd76
+
 }
 
 apply plugin: 'kotlin-android'

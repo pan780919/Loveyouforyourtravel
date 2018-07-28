@@ -151,64 +151,17 @@ class GetMoreCouponActivity : AppCompatActivity(), RewardedVideoAdListener, Mfir
         mFirebselibClass = MfiebaselibsClass(this, this@GetMoreCouponActivity)
 
         setContentView(R.layout.activity_get_more_coupon)
-<<<<<<< HEAD
-        SetRewardedVideoAd()
-
-//        preRollAdView = findViewById(R.id.preroll)
-//        preRollAdView.setOnPreRollViewLoaded(mPreRollViewLinstener)
-
-=======
->>>>>>> 19e0483c871d40e0ca0918f20ccce789e7f9bd76
         getCouponList()
         mProgressDialog = ProgressDialog(this)
         mProgressDialog.setTitle("讀取中")
         mProgressDialog.setMessage("請稍候")
         mProgressDialog.setCancelable(false)
         mProgressDialog.show()
-<<<<<<< HEAD
-=======
-
-        mInterstitialAd = InterstitialAd(this)
-        mInterstitialAd.adUnitId = "ca-app-pub-7019441527375550/6135553828"
-        mInterstitialAd.loadAd(AdRequest.Builder().build())
-        mInterstitialAd.adListener = object: AdListener() {
-            override fun onAdLoaded() {
-                // Code to be executed when an ad finishes loading.
-                Log.d(javaClass.simpleName,"onAdLoaded")
-            }
-
-            override fun onAdFailedToLoad(errorCode: Int) {
-                // Code to be executed when an ad request fails.
-                Log.d(javaClass.simpleName,"errorCode"+errorCode)
-
-            }
-
-            override fun onAdOpened() {
-                // Code to be executed when the ad is displayed.
-                Log.d(javaClass.simpleName,"onAdOpened")
-
-            }
-
-            override fun onAdLeftApplication() {
-                // Code to be executed when the user has left the app.
-                Log.d(javaClass.simpleName,"onAdLeftApplication")
-
-            }
-
-            override fun onAdClosed() {
-                // Code to be executed when when the interstitial ad is closed.
-                Log.d(javaClass.simpleName,"onAdClosed")
-
-            }
-        }
-        SetRewardedVideoAd()
->>>>>>> 19e0483c871d40e0ca0918f20ccce789e7f9bd76
         mPullToRefreshListView = findViewById(R.id.pull_to_refresh_list_view)
 
         mAdapter = MyAdapter(mAllData)
         mPullToRefreshListView.setAdapter(mAdapter)
         mPullToRefreshListView.setOnItemClickListener { parent, view, position, id ->
-            mInterstitialAd.show()
 
         }
     }
@@ -270,19 +223,6 @@ class GetMoreCouponActivity : AppCompatActivity(), RewardedVideoAdListener, Mfir
         finish()
     }
 
-    fun SetRewardedVideoAd(){
-        mRewardedVideoAd = MobileAds.getRewardedVideoAdInstance(this)
-        mRewardedVideoAd.rewardedVideoAdListener = this
-<<<<<<< HEAD
-
-        mRewardedVideoAd.loadAd("ca-app-pub-3940256099942544/5224354917",
-=======
-        mRewardedVideoAd.loadAd("ca-app-pub-7019441527375550/1968113408",
->>>>>>> 19e0483c871d40e0ca0918f20ccce789e7f9bd76
-                AdRequest.Builder().build())
-
-
-    }
 
     inner class MyAdapter(var mAllData: ArrayList<GoogleMapPlaceDetailsData>?) : BaseAdapter() {
         fun updateData(datas: ArrayList<GoogleMapPlaceDetailsData>) {

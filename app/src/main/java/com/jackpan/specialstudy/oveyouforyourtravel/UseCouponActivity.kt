@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.os.CountDownTimer
 import android.util.Log
 import android.widget.TextView
+import android.widget.Toast
 import com.jackpan.libs.mfirebaselib.MfiebaselibsClass
 import com.jackpan.libs.mfirebaselib.MfirebaeCallback
 import com.jackpan.specialstudy.oveyouforyourtravel.Data.CollectionData
@@ -70,12 +71,17 @@ class UseCouponActivity : AppCompatActivity(), MfirebaeCallback {
         object : CountDownTimer(10000, 1000) {
 
             override fun onFinish() {
+                mFirebselibClass.deleteData( MySharedPrefernces.getIsUrl(this@UseCouponActivity)+ "/" + MySharedPrefernces.getIsToken(this@UseCouponActivity), getdata())
+                Toast.makeText(this@UseCouponActivity,"優惠卷使用成功！！",Toast.LENGTH_SHORT).show()
                 var intent = Intent()
-                var bundle = Bundle()
-                bundle.putString("id",getdata())
-                intent.putExtras(bundle)
-                setResult(Activity.RESULT_OK,intent)
+                intent.setClass(this@UseCouponActivity,MemberFreeListViewActivity::class.java)
+                startActivity(intent)
                 finish()
+
+//                bundle.putString("id",getdata())
+//                intent.putExtras(bundle)
+
+//                setResult(Activity.RESULT_OK,intent)
             }
 
             override fun onTick(millisUntilFinished: Long) {

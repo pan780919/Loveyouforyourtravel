@@ -151,12 +151,10 @@ class GetMoreCouponActivity : AppCompatActivity(), MfirebaeCallback, GoogleMapAP
         mHasMap.put(CollectionData.KEY_ID,id)
         mFirebselibClass.setFireBaseDB(CollectionData.KEY_URL_FREE + "/" + MySharedPrefernces.getIsToken(this@GetMoreCouponActivity), mHasMap.get(CollectionData.KEY_ID), mHasMap)
 
-
+        Toast.makeText(this@GetMoreCouponActivity,"領取成功！！",Toast.LENGTH_SHORT).show()
         var intent = Intent()
-        var bundle = Bundle()
-        bundle.putString("id",id)
-        intent.putExtras(bundle)
-        setResult(999,intent)
+        intent.setClass(this@GetMoreCouponActivity,MemberFreeListViewActivity::class.java)
+        startActivity(intent)
         finish()
     }
 
@@ -195,6 +193,7 @@ class GetMoreCouponActivity : AppCompatActivity(), MfirebaeCallback, GoogleMapAP
             val random = Random().nextInt(3)
 
             mFreeText.text = free.get(random)
+            mFreeText.visibility = View.GONE
 
 //            if (mRewardedVideoAd.isLoaded) {
 //                mUseText.text = "Get"

@@ -173,7 +173,7 @@ class HomePageActivity : AppCompatActivity(), MfirebaeCallback{
 
         }
         mLoveLayout.setOnClickListener {
-//            if(!checkLoginState()) return@setOnClickListener
+            if(!checkLoginState()) return@setOnClickListener
             var intent = Intent()
             intent.setClass(this, MemberLoveActivity::class.java)
             startActivity(intent)
@@ -191,11 +191,6 @@ class HomePageActivity : AppCompatActivity(), MfirebaeCallback{
             mAlertDilog.show()
             return false
         }else{
-//            var mAlertDilog =AlertDialog.Builder(this)
-//            mAlertDilog.setTitle("已登入")
-//            mAlertDilog.setMessage("您已經可以使用此功能")
-//            mAlertDilog.setPositiveButton("知道了！",null)
-//            mAlertDilog.show()
             return true
         }
 

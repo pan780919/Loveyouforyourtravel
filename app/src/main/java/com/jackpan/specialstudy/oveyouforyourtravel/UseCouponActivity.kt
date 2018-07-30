@@ -71,7 +71,7 @@ class UseCouponActivity : AppCompatActivity(), MfirebaeCallback {
         object : CountDownTimer(10000, 1000) {
 
             override fun onFinish() {
-                mFirebselibClass.deleteData( MySharedPrefernces.getIsUrl(this@UseCouponActivity)+ "/" + MySharedPrefernces.getIsToken(this@UseCouponActivity), getdata())
+                mFirebselibClass.deleteData( CollectionData.KEY_URL_FREE+ "/" + MySharedPrefernces.getIsToken(this@UseCouponActivity), getdata())
                 Toast.makeText(this@UseCouponActivity,"優惠卷使用成功！！",Toast.LENGTH_SHORT).show()
                 var intent = Intent()
                 intent.setClass(this@UseCouponActivity,MemberFreeListViewActivity::class.java)

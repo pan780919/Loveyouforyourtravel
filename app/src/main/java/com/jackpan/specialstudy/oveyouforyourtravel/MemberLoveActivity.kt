@@ -46,7 +46,7 @@ class MemberLoveActivity : AppCompatActivity() {
             var mBundle = Bundle()
             mBundle.putString("url",CollectionData.KEY_URL_FREE)
             intent.putExtras(mBundle)
-            MySharedPrefernces.saveIsUrl(this,CollectionData.KEY_URL_FREE)
+//            MySharedPrefernces.saveIsUrl(this,CollectionData.KEY_URL_FREE)
             intent.setClass(this, MemberFreeListViewActivity::class.java)
             startActivity(intent)
 

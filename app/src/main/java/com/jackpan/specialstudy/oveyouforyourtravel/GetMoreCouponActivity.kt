@@ -113,7 +113,7 @@ class GetMoreCouponActivity : AppCompatActivity(), MfirebaeCallback, GoogleMapAP
         mAdapter = MyAdapter(mAllData)
         mPullToRefreshListView.setAdapter(mAdapter)
         mPullToRefreshListView.setOnItemClickListener { parent, view, position, id ->
-            setCoupon(mAdapter!!.mAllData!!.get(position).result.place_id)
+//            setCoupon(mAdapter!!.mAllData!!.get(position).result.place_id)
 
         }
     }

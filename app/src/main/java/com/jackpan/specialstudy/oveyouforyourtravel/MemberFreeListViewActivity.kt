@@ -135,20 +135,15 @@ class MemberFreeListViewActivity : AppCompatActivity(), GoogleMapAPISerive.GetRe
 
         mPullToRefreshListView.setOnItemClickListener { parent, view, position, id ->
 
-            var intent = Intent()
-            var mBundle = Bundle();
-            mBundle.putString("id", mAdapter!!.mAllData!!.get(position).result.place_id)
-            intent.putExtras(mBundle)
-            intent.setClass(this@MemberFreeListViewActivity, UseCouponActivity::class.java)
-            startActivity(intent)
-            finish()
+//            var intent = Intent()
+//            var mBundle = Bundle();
+//            mBundle.putString("id", mAdapter!!.mAllData!!.get(position).result.place_id)
+//            intent.putExtras(mBundle)
+//            intent.setClass(this@MemberFreeListViewActivity, UseCouponActivity::class.java)
+//            startActivity(intent)
+//            finish()
 
         }
-    }
-
-    fun delete(id: String) {
-        mFirebselibClass.deleteData(getUrl()+ "/" + MySharedPrefernces.getIsToken(this), id)
-
     }
 
     fun getList() {
@@ -164,9 +159,11 @@ class MemberFreeListViewActivity : AppCompatActivity(), GoogleMapAPISerive.GetRe
 
         val pdCanceller = Handler()
         pdCanceller.postDelayed(progressRunnable, 10000)
-        if (!MySharedPrefernces.getIsUrl(this).equals("")) {
+        if (!MySharedPrefernces.getIsToken(this).equals("")) {
 
-            mFirebselibClass.getFirebaseDatabase(MySharedPrefernces.getIsUrl(this) + "/" + MySharedPrefernces.getIsToken(this), MySharedPrefernces.getIsToken(this))
+            mFirebselibClass.getFirebaseDatabase(CollectionData.KEY_URL_FREE + "/" + MySharedPrefernces.getIsToken(this), MySharedPrefernces.getIsToken(this))
+        }else{
+            Toast.makeText(this@MemberFreeListViewActivity,"登入異常 請重新登入",Toast.LENGTH_SHORT).show();
         }
         mProgressDialog.dismiss()
 
@@ -192,13 +189,13 @@ class MemberFreeListViewActivity : AppCompatActivity(), GoogleMapAPISerive.GetRe
 
     }
 
-    fun getUrl(): String {
-        var mString: String = ""
-        var bundle: Bundle = intent.extras
-        mString = bundle.getString("url")
-        MySharedPrefernces.saveIsUrl(this,mString)
-        return MySharedPrefernces.getIsUrl(this)
-    }
+//    fun getUrl(): String {
+//        var mString: String = ""
+//        var bundle: Bundle = intent.extras
+//        mString = bundle.getString("url")
+//        MySharedPrefernces.saveIsUrl(this,mString)
+//        return MySharedPrefernces.getIsUrl(this)
+//    }
 
     inner class MyAdapter(var mAllData: ArrayList<GoogleMapPlaceDetailsData>?) : BaseAdapter() {
         fun updateData(datas: ArrayList<GoogleMapPlaceDetailsData>) {

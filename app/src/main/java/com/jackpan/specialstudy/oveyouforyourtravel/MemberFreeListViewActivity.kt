@@ -133,17 +133,8 @@ class MemberFreeListViewActivity : AppCompatActivity(), GoogleMapAPISerive.GetRe
             finish()
         }
 
-        mPullToRefreshListView.setOnItemClickListener { parent, view, position, id ->
-
-//            var intent = Intent()
-//            var mBundle = Bundle();
-//            mBundle.putString("id", mAdapter!!.mAllData!!.get(position).result.place_id)
-//            intent.putExtras(mBundle)
-//            intent.setClass(this@MemberFreeListViewActivity, UseCouponActivity::class.java)
-//            startActivity(intent)
-//            finish()
-
-        }
+        mPullToRefreshListView.setOnRefreshListener(mListViewOnRefreshListener2)
+        mPullToRefreshListView.setMode(PullToRefreshBase.Mode.PULL_FROM_START);
     }
 
     fun getList() {
@@ -249,4 +240,40 @@ class MemberFreeListViewActivity : AppCompatActivity(), GoogleMapAPISerive.GetRe
     }
 
 
+    private val mListViewOnRefreshListener2 = object : PullToRefreshBase.OnRefreshListener2<ListView> {
+
+        /**
+         * 下拉刷新回调
+         * @param refreshView
+         */
+        override fun onPullDownToRefresh(refreshView: PullToRefreshBase<ListView>) {
+            //模拟延时三秒刷新
+            mPullToRefreshListView.postDelayed({
+                mAllData.clear()
+//                mFirebselibClass.getFirebaseDatabase(CollectionData.KEY_URL_FREE + "/" + MySharedPrefernces.getIsToken(this@MemberFreeListViewActivity), MySharedPrefernces.getIsToken(this@MemberFreeListViewActivity))
+                mPullToRefreshListView.onRefreshComplete()//下拉刷新结束，下拉刷新头复位
+            }, 3000)
+        }
+
+        /**
+         * 上拉加载更多回调
+         * @param refreshView
+         */
+        override fun onPullUpToRefresh(refreshView: PullToRefreshBase<ListView>) {
+            //模拟延时三秒加载更多数据
+//            mPullToRefreshListView.postDelayed({
+//                mPullToRefreshListView.onRefreshComplete()//上拉加载更多结束，上拉加载头复位
+//                Log.d("Jack", mNextPage.size.toString())
+//                if(mNextPage[0].next_page_token==null){
+//                    Toast.makeText(this@MemberLoveListViewActivity, "最後一筆資料囉！！", Toast.LENGTH_SHORT).show()
+//                    return@postDelayed
+//                }
+//                GoogleMapAPISerive.nextPage(this@MemberLoveListViewActivity,mNextPage[0].next_page_token, this@MemberLoveListViewActivity)
+//                mAdapter!!.notifyDataSetChanged()
+//                Toast.makeText(this@MemberLoveListViewActivity, "列表刷新！！", Toast.LENGTH_SHORT).show()
+//
+//
+//            }, 3000)
+        }
+    }
 }

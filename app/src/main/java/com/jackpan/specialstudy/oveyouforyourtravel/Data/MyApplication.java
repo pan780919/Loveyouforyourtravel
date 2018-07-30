@@ -6,7 +6,6 @@ import android.support.multidex.MultiDexApplication;
 import com.firebase.client.Firebase;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.database.FirebaseDatabase;
-import com.ironsource.mediationsdk.IronSource;
 
 /**
  * Created by JackPan on 2018/6/24.

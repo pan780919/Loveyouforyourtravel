@@ -26,7 +26,6 @@ import GoogleMapAPISerive
 import GoogleMapAPISerive.GetResponse
 import android.app.Activity
 import android.os.Handler
-import com.adbert.AdbertVideoBox
 import java.util.*
 
 
@@ -48,7 +47,9 @@ class MemberFreeListViewActivity : AppCompatActivity(), GoogleMapAPISerive.GetRe
 
     override fun getDatabaseData(p0: Any?) {
         Log.d("getDatabaseData", p0.toString())
+
         if (p0 != null) {
+
             var gson = Gson()
             val reader = JsonReader(StringReader(p0.toString()))
             reader.setLenient(true)
@@ -56,6 +57,7 @@ class MemberFreeListViewActivity : AppCompatActivity(), GoogleMapAPISerive.GetRe
 
             mCollectionData = gson.fromJson(reader, MapDetailResponData::class.java)
             Log.d("getDatabaseData", "mCollectionData:" + mCollectionData.id)
+            mAllData.clear()
             GoogleMapAPISerive.getPlaceDeatail(this, mCollectionData.id, this)
         }
 
@@ -93,10 +95,8 @@ class MemberFreeListViewActivity : AppCompatActivity(), GoogleMapAPISerive.GetRe
 
     override fun getDetailData(googleMapPlaceDetailsData: GoogleMapPlaceDetailsData?) {
 
-
         if (googleMapPlaceDetailsData != null) {
 
-            mAllData.clear()
             mAllData.add(googleMapPlaceDetailsData)
             mAdapter!!.notifyDataSetChanged()
             Log.d("Jack", "getData")
@@ -123,7 +123,6 @@ class MemberFreeListViewActivity : AppCompatActivity(), GoogleMapAPISerive.GetRe
 
     lateinit var mFirebselibClass: MfiebaselibsClass
     lateinit var mGetMoreFreeButton: Button
-    lateinit var mAdbertVideoBox: AdbertVideoBox
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.content_free_list_view)
@@ -136,15 +135,14 @@ class MemberFreeListViewActivity : AppCompatActivity(), GoogleMapAPISerive.GetRe
         mGetMoreFreeButton.setOnClickListener {
             var intent = Intent()
             intent.setClass(this@MemberFreeListViewActivity, GetMoreCouponActivity::class.java)
-            startActivityForResult(intent,0)
+            startActivity(intent)
+            finish()
         }
 
 
     }
 
     fun delete(id: String) {
-        Log.d("delete",id)
-        Log.d("delete",getUrl()+ "/" + MySharedPrefernces.getIsToken(this))
         mFirebselibClass.deleteData(getUrl()+ "/" + MySharedPrefernces.getIsToken(this), id)
 
     }
@@ -163,7 +161,7 @@ class MemberFreeListViewActivity : AppCompatActivity(), GoogleMapAPISerive.GetRe
         val pdCanceller = Handler()
         pdCanceller.postDelayed(progressRunnable, 10000)
         if (!getUrl().equals("")) {
-            Log.d("getUrl",getUrl())
+
             mFirebselibClass.getFirebaseDatabase(getUrl() + "/" + MySharedPrefernces.getIsToken(this), MySharedPrefernces.getIsToken(this))
         }
         mProgressDialog.dismiss()
@@ -173,16 +171,17 @@ class MemberFreeListViewActivity : AppCompatActivity(), GoogleMapAPISerive.GetRe
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         when (resultCode) {
-            Activity.RESULT_OK -> {
-
-                Log.d(javaClass.simpleName, "OK")
-                Log.d(javaClass.simpleName, data?.extras?.getString("id"))
-                delete(data?.extras?.getString("id").toString())
-
-            }
-            999->{
-                getList()
-            }
+//            Activity.RESULT_OK -> {
+//
+//
+//                Log.d(javaClass.simpleName, "OK")
+//                Log.d(javaClass.simpleName, data?.extras?.getString("id"))
+//                delete(data?.extras?.getString("id").toString())
+//
+//            }
+//            999->{
+//                getList()
+//            }
 
         }
 
@@ -238,7 +237,8 @@ class MemberFreeListViewActivity : AppCompatActivity(), GoogleMapAPISerive.GetRe
                 mBundle.putString("id", data.result.place_id)
                 intent.putExtras(mBundle)
                 intent.setClass(this@MemberFreeListViewActivity, UseCouponActivity::class.java)
-                startActivityForResult(intent, 0)
+                startActivity(intent)
+                finish()
             }
 
 

@@ -13,11 +13,6 @@ import android.widget.BaseAdapter
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
-import com.adbert.AdbertADView
-import com.adbert.AdbertVideoBox
-import com.adbert.AdbertVideoBoxListener
-import com.clickforce.ad.Listener.PreRollViewLinstener
-import com.clickforce.ad.PreRollAdView
 import com.google.android.gms.ads.AdListener
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.InterstitialAd
@@ -25,10 +20,7 @@ import com.google.android.gms.ads.MobileAds
 import com.google.android.gms.ads.reward.RewardItem
 import com.google.android.gms.ads.reward.RewardedVideoAd
 import com.google.android.gms.ads.reward.RewardedVideoAdListener
-import com.ironsource.mediationsdk.IronSource
-import com.ironsource.mediationsdk.logger.IronSourceError
-import com.ironsource.mediationsdk.model.Placement
-import com.ironsource.mediationsdk.sdk.RewardedVideoListener
+
 import com.itheima.pulltorefreshlib.PullToRefreshListView
 import com.jackpan.libs.mfirebaselib.MfiebaselibsClass
 import com.jackpan.libs.mfirebaselib.MfirebaeCallback
@@ -37,7 +29,7 @@ import com.jackpan.specialstudy.oveyouforyourtravel.Data.GoogleMapPlaceDetailsDa
 import com.jackpan.specialstudy.oveyouforyourtravel.Data.GoogleResponseData
 import java.util.*
 
-class GetMoreCouponActivity : AppCompatActivity(), RewardedVideoAdListener, MfirebaeCallback, GoogleMapAPISerive.GetResponse {
+class GetMoreCouponActivity : AppCompatActivity(), MfirebaeCallback, GoogleMapAPISerive.GetResponse {
     override fun getData(googleResponseData: GoogleResponseData?) {
     }
 
@@ -53,7 +45,9 @@ class GetMoreCouponActivity : AppCompatActivity(), RewardedVideoAdListener, Mfir
 
 
 
-        }    }
+        }
+        mProgressDialog.dismiss()
+    }
 
     override fun getUserLogoutState(p0: Boolean) {
     }
@@ -96,54 +90,11 @@ class GetMoreCouponActivity : AppCompatActivity(), RewardedVideoAdListener, Mfir
 
     lateinit var mFirebselibClass: MfiebaselibsClass
     private lateinit var mInterstitialAd: InterstitialAd
-    lateinit var mAdbertVideoBox :AdbertVideoBox
-    var mMymRewardedVideoListener = MymRewardedVideoListener()
-    override fun onRewarded(reward: RewardItem) {
-        Toast.makeText(this, "onRewarded! currency: ${reward.type} amount: ${reward.amount}",
-                Toast.LENGTH_SHORT).show()
-        // Reward the user.
-    }
-
-    override fun onRewardedVideoAdLeftApplication() {
-        Toast.makeText(this, "onRewardedVideoAdLeftApplication", Toast.LENGTH_SHORT).show()
-    }
-
-    override fun onRewardedVideoAdClosed() {
-        Toast.makeText(this, "onRewardedVideoAdClosed", Toast.LENGTH_SHORT).show()
-    }
-
-    override fun onRewardedVideoAdFailedToLoad(errorCode: Int) {
-
-        Toast.makeText(this, "onRewardedVideoAdFailedToLoad:"+errorCode, Toast.LENGTH_SHORT).show()
-        mProgressDialog.dismiss()
-
-
-    }
-
-    override fun onRewardedVideoAdLoaded() {
-        Toast.makeText(this, "onRewardedVideoAdLoaded", Toast.LENGTH_SHORT).show()
-        mProgressDialog.dismiss()
-    }
-
-    override fun onRewardedVideoAdOpened() {
-        Toast.makeText(this, "onRewardedVideoAdOpened", Toast.LENGTH_SHORT).show()
-    }
-
-    override fun onRewardedVideoStarted() {
-        Toast.makeText(this, "onRewardedVideoStarted", Toast.LENGTH_SHORT).show()
-    }
-
-    override fun onRewardedVideoCompleted() {
-        Toast.makeText(this, "onRewardedVideoCompleted", Toast.LENGTH_SHORT).show()
-    }
-
     lateinit var mGetMoreButton : Button
     var mAdapter: MyAdapter? = null
-    var mPreRollViewLinstener :myPreRollViewLinstener? = null
     var mAllData: ArrayList<GoogleMapPlaceDetailsData> = ArrayList()
     lateinit var mProgressDialog: ProgressDialog
     lateinit var mPullToRefreshListView: PullToRefreshListView
-    lateinit var preRollAdView : PreRollAdView
     private lateinit var mRewardedVideoAd: RewardedVideoAd
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -157,81 +108,31 @@ class GetMoreCouponActivity : AppCompatActivity(), RewardedVideoAdListener, Mfir
         mProgressDialog.setMessage("請稍候")
         mProgressDialog.setCancelable(false)
         mProgressDialog.show()
-
-        mInterstitialAd = InterstitialAd(this)
-        mInterstitialAd.adUnitId = "ca-app-pub-7019441527375550/6135553828"
-        mInterstitialAd.loadAd(AdRequest.Builder().build())
-        mInterstitialAd.adListener = object: AdListener() {
-            override fun onAdLoaded() {
-                // Code to be executed when an ad finishes loading.
-                Log.d(javaClass.simpleName,"onAdLoaded")
-            }
-
-            override fun onAdFailedToLoad(errorCode: Int) {
-                // Code to be executed when an ad request fails.
-                Log.d(javaClass.simpleName,"errorCode"+errorCode)
-
-            }
-
-            override fun onAdOpened() {
-                // Code to be executed when the ad is displayed.
-                Log.d(javaClass.simpleName,"onAdOpened")
-
-            }
-
-            override fun onAdLeftApplication() {
-                // Code to be executed when the user has left the app.
-                Log.d(javaClass.simpleName,"onAdLeftApplication")
-
-            }
-
-            override fun onAdClosed() {
-                // Code to be executed when when the interstitial ad is closed.
-                Log.d(javaClass.simpleName,"onAdClosed")
-
-            }
-        }
-        SetRewardedVideoAd()
         mPullToRefreshListView = findViewById(R.id.pull_to_refresh_list_view)
 
         mAdapter = MyAdapter(mAllData)
         mPullToRefreshListView.setAdapter(mAdapter)
         mPullToRefreshListView.setOnItemClickListener { parent, view, position, id ->
-            mInterstitialAd.show()
 
         }
     }
-    class myPreRollViewLinstener : PreRollViewLinstener {
-        override fun onStartPlayVideo() {
-            Log.d(javaClass.simpleName,"onStartPlayVideo")
-        }
 
-        override fun onFailedToPreRollAd() {
-            Log.d(javaClass.simpleName,"onFailedToPreRollAd")
-
-        }
-
-    }
     override fun onPause() {
         super.onPause()
-        mRewardedVideoAd.pause(this)
 
     }
 
     override fun onResume() {
         super.onResume()
-        mRewardedVideoAd.resume(this)
 
     }
 
     override fun onDestroy() {
         super.onDestroy()
-        mRewardedVideoAd.destroy(this)
     }
 
     override fun onConfigurationChanged(newConfig: Configuration?) {
         super.onConfigurationChanged(newConfig)
-        preRollAdView.fullScreen(this@GetMoreCouponActivity)
 
 
     }
@@ -250,22 +151,13 @@ class GetMoreCouponActivity : AppCompatActivity(), RewardedVideoAdListener, Mfir
         mHasMap.put(CollectionData.KEY_ID,id)
         mFirebselibClass.setFireBaseDB(CollectionData.KEY_URL_FREE + "/" + MySharedPrefernces.getIsToken(this@GetMoreCouponActivity), mHasMap.get(CollectionData.KEY_ID), mHasMap)
 
-
+        Toast.makeText(this@GetMoreCouponActivity,"領取成功！！",Toast.LENGTH_SHORT).show()
         var intent = Intent()
-        var bundle = Bundle()
-        bundle.putString("id",id)
-        intent.putExtras(bundle)
-        setResult(999,intent)
+        intent.setClass(this@GetMoreCouponActivity,MemberFreeListViewActivity::class.java)
+        startActivity(intent)
         finish()
     }
 
-    fun SetRewardedVideoAd(){
-        mRewardedVideoAd = MobileAds.getRewardedVideoAdInstance(this)
-        mRewardedVideoAd.rewardedVideoAdListener = this
-        mRewardedVideoAd.loadAd("ca-app-pub-7019441527375550/1968113408",
-                AdRequest.Builder().build())
-
-    }
 
     inner class MyAdapter(var mAllData: ArrayList<GoogleMapPlaceDetailsData>?) : BaseAdapter() {
         fun updateData(datas: ArrayList<GoogleMapPlaceDetailsData>) {
@@ -301,6 +193,7 @@ class GetMoreCouponActivity : AppCompatActivity(), RewardedVideoAdListener, Mfir
             val random = Random().nextInt(3)
 
             mFreeText.text = free.get(random)
+            mFreeText.visibility = View.GONE
 
 //            if (mRewardedVideoAd.isLoaded) {
 //                mUseText.text = "Get"
@@ -330,76 +223,6 @@ class GetMoreCouponActivity : AppCompatActivity(), RewardedVideoAdListener, Mfir
 
 
             return convertView
-        }
-
-    }
-     var  myAdbertVideoBoxListener = mAdbertVideoBoxListener();
-    fun setAdbertAd(){
-        mAdbertVideoBox = findViewById(R.id.boxView)
-        mAdbertVideoBox.setID("20170619000001", "90cebe8ef120c8bb6ac2ce529dcb99af")
-        mAdbertVideoBox.setListener(myAdbertVideoBoxListener)
-        mAdbertVideoBox.loadAD()
-
-
-
-    }
-    inner  class  mAdbertVideoBoxListener : AdbertVideoBoxListener(){
-        override fun onReceived(p0: String?) {
-            super.onReceived(p0)
-            Log.d(javaClass.simpleName,"onReceived")
-        }
-
-        override fun onFailReceived(p0: String?) {
-            super.onFailReceived(p0)
-            Log.d(javaClass.simpleName,"onFailReceived:"+p0.toString())
-
-        }
-
-        override fun onCompletion() {
-            super.onCompletion()
-            Log.d(javaClass.simpleName,"onCompletion:")
-
-        }
-
-    }
-    inner class  MymRewardedVideoListener : RewardedVideoListener {
-        override fun onRewardedVideoAdClosed() {
-            Log.d(javaClass.simpleName,"onRewardedVideoAdClosed")
-
-        }
-
-        override fun onRewardedVideoAdRewarded(p0: Placement?) {
-            Log.d(javaClass.simpleName,"onRewardedVideoAdRewarded")
-
-        }
-
-        override fun onRewardedVideoAdClicked(p0: Placement?) {
-            Log.d(javaClass.simpleName,"onRewardedVideoAdClicked")
-
-        }
-
-        override fun onRewardedVideoAdOpened() {
-            Log.d(javaClass.simpleName,"onRewardedVideoAdOpened")
-
-        }
-
-        override fun onRewardedVideoAdShowFailed(p0: IronSourceError?) {
-            Log.d(javaClass.simpleName,"onRewardedVideoAdShowFailed")
-
-        }
-
-        override fun onRewardedVideoAvailabilityChanged(p0: Boolean) {
-            Log.d(javaClass.simpleName,"onRewardedVideoAvailabilityChanged")
-
-        }
-
-        override fun onRewardedVideoAdEnded() {
-            Log.d(javaClass.simpleName,"onRewardedVideoAdEnded")
-
-        }
-
-        override fun onRewardedVideoAdStarted() {
-            Log.d(javaClass.simpleName,"onRewardedVideoAdStarted")
         }
 
     }

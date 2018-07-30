@@ -19,11 +19,6 @@ import com.jackpan.libs.mfirebaselib.MfiebaselibsClass
 import com.jackpan.libs.mfirebaselib.MfirebaeCallback
 import com.jackpan.specialstudy.oveyouforyourtravel.Data.CollectionData
 import com.jackpan.specialstudy.oveyouforyourtravel.Data.TypeListViewActivity
-import com.mopub.common.MoPub
-import com.mopub.common.MoPubReward
-import com.mopub.mobileads.MoPubErrorCode
-import com.mopub.mobileads.MoPubRewardedVideoListener
-import com.mopub.mobileads.MoPubRewardedVideos
 
 class HomePageActivity : AppCompatActivity(), MfirebaeCallback{
     override fun getUserLogoutState(p0: Boolean) {
@@ -95,7 +90,6 @@ class HomePageActivity : AppCompatActivity(), MfirebaeCallback{
     private var locationManager: LocationManager? = null
     lateinit var mProgressDialog:ProgressDialog
     lateinit var latlon: String
-    var mMyMoPubRewardedVideoListener = MyMoPubRewardedVideoListener()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         mFirebselibClass =  MfiebaselibsClass(this,this@HomePageActivity)
@@ -106,12 +100,7 @@ class HomePageActivity : AppCompatActivity(), MfirebaeCallback{
         setArray()
         mFirebselibClass.userLoginCheck()
         checkPermission()
-//        mProgressDialog = ProgressDialog(this)
-//        mProgressDialog.setTitle("讀取中")
-//        mProgressDialog.setMessage("請稍候")
-//        mProgressDialog.setCancelable(true)
-//        mProgressDialog.show()
-//        mProgressDialog.dismiss()
+// †®
 
         mArrayString.forEach {
             Log.d("mArrayString",it)
@@ -184,7 +173,7 @@ class HomePageActivity : AppCompatActivity(), MfirebaeCallback{
 
         }
         mLoveLayout.setOnClickListener {
-            if(!checkLoginState()) return@setOnClickListener
+//            if(!checkLoginState()) return@setOnClickListener
             var intent = Intent()
             intent.setClass(this, MemberLoveActivity::class.java)
             startActivity(intent)
@@ -253,34 +242,5 @@ class HomePageActivity : AppCompatActivity(), MfirebaeCallback{
         override fun onProviderEnabled(provider: String) {}
         override fun onProviderDisabled(provider: String) {}
     }
-    inner class MyMoPubRewardedVideoListener : MoPubRewardedVideoListener{
-        override fun onRewardedVideoClosed(adUnitId: String) {
-            Log.d(javaClass.simpleName,"onRewardedVideoClosed")
-        }
 
-        override fun onRewardedVideoCompleted(adUnitIds: MutableSet<String>, reward: MoPubReward) {
-            Log.d(javaClass.simpleName,"onRewardedVideoCompleted")
-        }
-
-        override fun onRewardedVideoPlaybackError(adUnitId: String, errorCode: MoPubErrorCode) {
-            Log.d(javaClass.simpleName,"onRewardedVideoPlaybackError")
-        }
-
-        override fun onRewardedVideoLoadFailure(adUnitId: String, errorCode: MoPubErrorCode) {
-            Log.d(javaClass.simpleName,"onRewardedVideoLoadFailure")
-        }
-
-        override fun onRewardedVideoClicked(adUnitId: String) {
-            Log.d(javaClass.simpleName,"onRewardedVideoClicked")
-        }
-
-        override fun onRewardedVideoStarted(adUnitId: String) {
-            Log.d(javaClass.simpleName,"onRewardedVideoStarted")
-        }
-
-        override fun onRewardedVideoLoadSuccess(adUnitId: String) {
-            Log.d(javaClass.simpleName,"onRewardedVideoLoadSuccess")
-        }
-
-    }
 }

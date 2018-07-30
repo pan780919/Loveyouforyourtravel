@@ -49,15 +49,11 @@ class MemberFreeListViewActivity : AppCompatActivity(), GoogleMapAPISerive.GetRe
         Log.d("getDatabaseData", p0.toString())
 
         if (p0 != null) {
-
             var gson = Gson()
             val reader = JsonReader(StringReader(p0.toString()))
             reader.setLenient(true)
             var mCollectionData = MapDetailResponData()
-
             mCollectionData = gson.fromJson(reader, MapDetailResponData::class.java)
-            Log.d("getDatabaseData", "mCollectionData:" + mCollectionData.id)
-            mAllData.clear()
             GoogleMapAPISerive.getPlaceDeatail(this, mCollectionData.id, this)
         }
 
@@ -98,12 +94,10 @@ class MemberFreeListViewActivity : AppCompatActivity(), GoogleMapAPISerive.GetRe
         if (googleMapPlaceDetailsData != null) {
 
             mAllData.add(googleMapPlaceDetailsData)
-            mAdapter!!.notifyDataSetChanged()
-            Log.d("Jack", "getData")
-            Log.d("Jack", mAllData.size.toString())
-
-
         }
+        mAdapter!!.notifyDataSetChanged()
+
+
 
 
     }
@@ -139,7 +133,17 @@ class MemberFreeListViewActivity : AppCompatActivity(), GoogleMapAPISerive.GetRe
             finish()
         }
 
+        mPullToRefreshListView.setOnItemClickListener { parent, view, position, id ->
 
+            var intent = Intent()
+            var mBundle = Bundle();
+            mBundle.putString("id", mAdapter!!.mAllData!!.get(position).result.place_id)
+            intent.putExtras(mBundle)
+            intent.setClass(this@MemberFreeListViewActivity, UseCouponActivity::class.java)
+            startActivity(intent)
+            finish()
+
+        }
     }
 
     fun delete(id: String) {

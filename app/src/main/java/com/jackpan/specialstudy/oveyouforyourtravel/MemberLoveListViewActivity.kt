@@ -88,13 +88,10 @@ class MemberLoveListViewActivity : AppCompatActivity(), GoogleMapAPISerive.GetRe
 
             mAllData.add(googleMapPlaceDetailsData)
             mAdapter!!.notifyDataSetChanged()
-            Log.d("Jack", "getData")
-            Log.d("Jack", mAllData.size.toString())
-
-
 
 
         }
+
         mProgressDialog.dismiss()
 
 
@@ -224,10 +221,10 @@ class MemberLoveListViewActivity : AppCompatActivity(), GoogleMapAPISerive.GetRe
          */
         override fun onPullDownToRefresh(refreshView: PullToRefreshBase<ListView>) {
             //模拟延时三秒刷新
-            mPullToRefreshListView.postDelayed({
-
-                mPullToRefreshListView.onRefreshComplete()//下拉刷新结束，下拉刷新头复位
-            }, 3000)
+//            mPullToRefreshListView.postDelayed({
+//
+//                mPullToRefreshListView.onRefreshComplete()//下拉刷新结束，下拉刷新头复位
+//            }, 3000)
         }
 
         /**

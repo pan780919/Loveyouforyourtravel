@@ -37,6 +37,7 @@ class HomePageActivity : AppCompatActivity(), MfirebaeCallback{
     }
 
     override fun getDatabaseData(p0: Any?) {
+
     }
 
     override fun getuserLoginEmail(p0: String?) {
@@ -46,6 +47,8 @@ class HomePageActivity : AppCompatActivity(), MfirebaeCallback{
     }
 
     override fun getFireBaseDBState(p0: Boolean, p1: String?) {
+        mProgressDialog.dismiss()
+
     }
 
     override fun getuseLoginId(p0: String?) {
@@ -100,16 +103,8 @@ class HomePageActivity : AppCompatActivity(), MfirebaeCallback{
         setArray()
         mFirebselibClass.userLoginCheck()
         checkPermission()
-// †®
+//
 
-        mArrayString.forEach {
-            Log.d("mArrayString",it)
-            var mHasMap = HashMap<String, String>()
-
-            mHasMap.put(CollectionData.KEY_ID, it)
-            mFirebselibClass.setFireBaseDB(CollectionData.KEY_URL_FREE + "/" + MySharedPrefernces.getIsToken(this@HomePageActivity), mHasMap.get(CollectionData.KEY_ID), mHasMap)
-
-        }
 
         locationManager = getSystemService(LOCATION_SERVICE) as LocationManager?
 
@@ -174,6 +169,7 @@ class HomePageActivity : AppCompatActivity(), MfirebaeCallback{
         }
         mLoveLayout.setOnClickListener {
             if(!checkLoginState()) return@setOnClickListener
+            setdb()
             var intent = Intent()
             intent.setClass(this, MemberLoveActivity::class.java)
             startActivity(intent)
@@ -237,5 +233,20 @@ class HomePageActivity : AppCompatActivity(), MfirebaeCallback{
         override fun onProviderEnabled(provider: String) {}
         override fun onProviderDisabled(provider: String) {}
     }
+        fun setdb(){
+            mProgressDialog = ProgressDialog(this)
+            mProgressDialog.setTitle("讀取中")
+            mProgressDialog.setMessage("請稍候")
+            mProgressDialog.setCancelable(false)
+            mProgressDialog.show()
+            mArrayString.forEach {
+                Log.d("mArrayString",it)
+                var mHasMap = HashMap<String, String>()
 
+                mHasMap.put(CollectionData.KEY_ID, it)
+                mFirebselibClass.setFireBaseDB(CollectionData.KEY_URL_FREE + "/" + MySharedPrefernces.getIsToken(this@HomePageActivity), mHasMap.get(CollectionData.KEY_ID), mHasMap)
+
+            }
+
+        }
 }

@@ -96,13 +96,14 @@ class GetMoreCouponActivity : AppCompatActivity(), MfirebaeCallback, GoogleMapAP
     lateinit var mProgressDialog: ProgressDialog
     lateinit var mPullToRefreshListView: PullToRefreshListView
     private lateinit var mRewardedVideoAd: RewardedVideoAd
-
+    lateinit var  mArray : Array<String>
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         mFirebselibClass = MfiebaselibsClass(this, this@GetMoreCouponActivity)
 
         setContentView(R.layout.activity_get_more_coupon)
         getCouponList()
+        Log.d(javaClass.simpleName,System.currentTimeMillis().toString())
         mProgressDialog = ProgressDialog(this)
         mProgressDialog.setTitle("讀取中")
         mProgressDialog.setMessage("請稍候")
@@ -113,8 +114,6 @@ class GetMoreCouponActivity : AppCompatActivity(), MfirebaeCallback, GoogleMapAP
         mAdapter = MyAdapter(mAllData)
         mPullToRefreshListView.setAdapter(mAdapter)
         mPullToRefreshListView.setOnItemClickListener { parent, view, position, id ->
-//            setCoupon(mAdapter!!.mAllData!!.get(position).result.place_id)
-
         }
     }
 
@@ -138,7 +137,7 @@ class GetMoreCouponActivity : AppCompatActivity(), MfirebaeCallback, GoogleMapAP
 
     }
     fun getCouponList(){
-        var  mArray = arrayOf("ChIJO7jfCHkEbjQR67Rh2pNutMI","ChIJDZtbAXkEbjQR9NBmh-KSCcQ","ChIJxbX0zXkEbjQRZ16eV60lgk4","ChIJzfx7qXAEbjQR0Uy44Fen1gc","ChIJVVokUngEbjQR-a2eD4kbT70","ChIJwfoesmQEbjQRSewxKQGGl4Q")
+        mArray = arrayOf("ChIJO7jfCHkEbjQR67Rh2pNutMI","ChIJDZtbAXkEbjQR9NBmh-KSCcQ","ChIJxbX0zXkEbjQRZ16eV60lgk4","ChIJzfx7qXAEbjQR0Uy44Fen1gc","ChIJVVokUngEbjQR-a2eD4kbT70","ChIJwfoesmQEbjQRSewxKQGGl4Q")
         mArray.forEach {
             GoogleMapAPISerive.getPlaceDeatail(this, it, this)
 
@@ -146,12 +145,13 @@ class GetMoreCouponActivity : AppCompatActivity(), MfirebaeCallback, GoogleMapAP
 
     }
     fun setCoupon(id:String){
-//        var  mArray = arrayOf("ChIJO7jfCHkEbjQR67Rh2pNutMI","ChIJDZtbAXkEbjQR9NBmh-KSCcQ","ChIJxbX0zXkEbjQRZ16eV60lgk4","ChIJzfx7qXAEbjQR0Uy44Fen1gc","ChIJVVokUngEbjQR-a2eD4kbT70","ChIJwfoesmQEbjQRSewxKQGGl4Q")
-//        val random = Random().nextInt(mArray.size)
+        Log.d(javaClass.simpleName,id+"+"+System.currentTimeMillis().toString())
+        val  mString:String = id+"+"+System.currentTimeMillis().toString();
+//        val  mStringArray :List<String> = mString.split(",")
+//        Log.d(javaClass.simpleName,mStringArray[0])
         var mHasMap = HashMap<String, String>()
-        mHasMap.put(CollectionData.KEY_ID,id)
+        mHasMap.put(CollectionData.KEY_ID,mString)
         mFirebselibClass.setFireBaseDB(CollectionData.KEY_URL_FREE + "/" + MySharedPrefernces.getIsToken(this@GetMoreCouponActivity), mHasMap.get(CollectionData.KEY_ID), mHasMap)
-
         Toast.makeText(this@GetMoreCouponActivity,"領取成功！！",Toast.LENGTH_SHORT).show()
         var intent = Intent()
         intent.setClass(this@GetMoreCouponActivity,MemberFreeListViewActivity::class.java)

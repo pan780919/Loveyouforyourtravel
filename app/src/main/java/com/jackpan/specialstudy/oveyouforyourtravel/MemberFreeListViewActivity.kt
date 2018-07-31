@@ -228,16 +228,23 @@ class MemberFreeListViewActivity : AppCompatActivity(), GoogleMapAPISerive.GetRe
             if (convertView == null)
                 convertView = LayoutInflater.from(this@MemberFreeListViewActivity).inflate(
                         R.layout.freelistview_layout, null)
-            val free = arrayOf("折扣10元", "折扣20元", "折扣50元")
 
             var mStoreNameText: TextView = convertView!!.findViewById(R.id.storename)
             var mFreeText: TextView = convertView!!.findViewById(R.id.listviewtext)
             var mUseText: TextView = convertView!!.findViewById(R.id.usetext)
 
             mStoreNameText.text = data.result.name
-            val random = Random().nextInt(3)
+//            val random = Random().nextInt(3)
+//            val free = arrayOf("折扣10元", "折扣20元", "折扣50元")
+            mData.forEach {
+                Log.d(javaClass.simpleName, it.id)
+                Log.d(javaClass.simpleName, data.result.place_id)
 
-            mFreeText.text = free.get(random)
+                if (it.id.split("+")[0].equals(data.result.place_id)) {
+                    Log.d(javaClass.simpleName, "same")
+                    mFreeText.text = it.price
+                }
+            }
             mUseText.text = "Use"
             mUseText.setOnClickListener {
                 mData.forEach {
@@ -254,9 +261,6 @@ class MemberFreeListViewActivity : AppCompatActivity(), GoogleMapAPISerive.GetRe
                         intent.setClass(this@MemberFreeListViewActivity, UseCouponActivity::class.java)
                         startActivity(intent)
                         finish()
-
-                    } else {
-                        Log.d(javaClass.simpleName, "no")
 
                     }
                 }

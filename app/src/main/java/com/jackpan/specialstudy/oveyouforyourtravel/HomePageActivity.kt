@@ -15,10 +15,16 @@ import android.util.Log
 import android.widget.Button
 import android.widget.LinearLayout
 import android.widget.Toast
+import com.google.gson.Gson
+import com.google.gson.stream.JsonReader
 import com.jackpan.libs.mfirebaselib.MfiebaselibsClass
 import com.jackpan.libs.mfirebaselib.MfirebaeCallback
 import com.jackpan.specialstudy.oveyouforyourtravel.Data.CollectionData
+import com.jackpan.specialstudy.oveyouforyourtravel.Data.MapDetailResponData
+import com.jackpan.specialstudy.oveyouforyourtravel.Data.MemberCouponData
 import com.jackpan.specialstudy.oveyouforyourtravel.Data.TypeListViewActivity
+import java.io.StringReader
+import java.util.*
 
 class HomePageActivity : AppCompatActivity(), MfirebaeCallback{
     override fun getUserLogoutState(p0: Boolean) {
@@ -37,6 +43,27 @@ class HomePageActivity : AppCompatActivity(), MfirebaeCallback{
     }
 
     override fun getDatabaseData(p0: Any?) {
+        Log.d(javaClass.simpleName,p0.toString())
+        if (p0!=null){
+            var gson = Gson()
+            val reader = JsonReader(StringReader(p0.toString()))
+            reader.setLenient(true)
+            var mMemberCouponData = MemberCouponData()
+
+            mMemberCouponData = gson.fromJson(reader, MemberCouponData::class.java)
+            mData.add(mMemberCouponData)
+            if (mMemberCouponData.isUSe.equals("true")){
+                var intent = Intent()
+                intent.setClass(this, MemberLoveActivity::class.java)
+                startActivity(intent)
+            }
+            }else{
+                setdb()
+                var intent = Intent()
+                intent.setClass(this, MemberLoveActivity::class.java)
+                startActivity(intent)
+            }
+
 
     }
 
@@ -47,7 +74,15 @@ class HomePageActivity : AppCompatActivity(), MfirebaeCallback{
     }
 
     override fun getFireBaseDBState(p0: Boolean, p1: String?) {
-        mProgressDialog.dismiss()
+        if (p0){
+            Toast.makeText(this@HomePageActivity,"資料取得成功",Toast.LENGTH_SHORT).show()
+                    mFirebselibClass.getFirebaseDatabase(CollectionData.KEY_URL_Use + "/" + MySharedPrefernces.getIsToken(this@HomePageActivity), "isUse")
+
+        }else{
+            Toast.makeText(this@HomePageActivity,"資料取得失敗",Toast.LENGTH_SHORT).show()
+
+        }
+//        mProgressDialog.dismiss()
 
     }
 
@@ -83,7 +118,7 @@ class HomePageActivity : AppCompatActivity(), MfirebaeCallback{
     override fun getFirebaseStorageState(p0: Boolean) {
     }
     var mArrayString = ArrayList<String>()
-
+    var mData: ArrayList<MemberCouponData> = ArrayList()
     lateinit var mLoginBtn : Button
     lateinit var mMaPlayout : LinearLayout
     lateinit var mLoveLayout : LinearLayout
@@ -103,7 +138,8 @@ class HomePageActivity : AppCompatActivity(), MfirebaeCallback{
         setArray()
         mFirebselibClass.userLoginCheck()
         checkPermission()
-//
+//            var mHasMap = HashMap<String, String>()
+
 
 
         locationManager = getSystemService(LOCATION_SERVICE) as LocationManager?
@@ -169,10 +205,12 @@ class HomePageActivity : AppCompatActivity(), MfirebaeCallback{
         }
         mLoveLayout.setOnClickListener {
             if(!checkLoginState()) return@setOnClickListener
-            setdb()
-            var intent = Intent()
-            intent.setClass(this, MemberLoveActivity::class.java)
-            startActivity(intent)
+            var mHasMap = HashMap<String, String>()
+
+            mHasMap.put(MemberCouponData.KEY_ISUSE, "true")
+            mFirebselibClass.setFireBaseDB(CollectionData.KEY_URL_Use + "/" + MySharedPrefernces.getIsToken(this@HomePageActivity), "isUse", mHasMap)
+
+
 
 
 
@@ -234,16 +272,25 @@ class HomePageActivity : AppCompatActivity(), MfirebaeCallback{
         override fun onProviderDisabled(provider: String) {}
     }
         fun setdb(){
+            var mHasMap = HashMap<String, String>()
+
+
             mProgressDialog = ProgressDialog(this)
             mProgressDialog.setTitle("讀取中")
             mProgressDialog.setMessage("請稍候")
             mProgressDialog.setCancelable(false)
             mProgressDialog.show()
+
+            val random = Random().nextInt(3)
+            val free = arrayOf("折扣10元", "折扣20元", "折扣50元")
+            Log.d(javaClass.simpleName,free.get(random))
             mArrayString.forEach {
                 Log.d("mArrayString",it)
                 var mHasMap = HashMap<String, String>()
 
                 mHasMap.put(CollectionData.KEY_ID, it)
+                mHasMap.put(CollectionData.KEY_PRICE, free.get(random))
+
                 mFirebselibClass.setFireBaseDB(CollectionData.KEY_URL_FREE + "/" + MySharedPrefernces.getIsToken(this@HomePageActivity), mHasMap.get(CollectionData.KEY_ID), mHasMap)
 
             }

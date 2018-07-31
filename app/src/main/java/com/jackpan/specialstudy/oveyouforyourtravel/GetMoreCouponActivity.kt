@@ -144,13 +144,13 @@ class GetMoreCouponActivity : AppCompatActivity(), MfirebaeCallback, GoogleMapAP
         }
 
     }
-    fun setCoupon(id:String){
+    fun setCoupon(id:String,price:String){
         Log.d(javaClass.simpleName,id+"+"+System.currentTimeMillis().toString())
         val  mString:String = id+"+"+System.currentTimeMillis().toString();
-//        val  mStringArray :List<String> = mString.split(",")
-//        Log.d(javaClass.simpleName,mStringArray[0])
         var mHasMap = HashMap<String, String>()
         mHasMap.put(CollectionData.KEY_ID,mString)
+        mHasMap.put(CollectionData.KEY_PRICE,price)
+
         mFirebselibClass.setFireBaseDB(CollectionData.KEY_URL_FREE + "/" + MySharedPrefernces.getIsToken(this@GetMoreCouponActivity), mHasMap.get(CollectionData.KEY_ID), mHasMap)
         Toast.makeText(this@GetMoreCouponActivity,"領取成功！！",Toast.LENGTH_SHORT).show()
         var intent = Intent()
@@ -217,7 +217,7 @@ class GetMoreCouponActivity : AppCompatActivity(), MfirebaeCallback, GoogleMapAP
 //                    startActivity(intent)
 //
 //                }
-                setCoupon(data.result.place_id)
+                setCoupon(data.result.place_id,free.get(random))
 //            IronSource.showRewardedVideo()
 
             }

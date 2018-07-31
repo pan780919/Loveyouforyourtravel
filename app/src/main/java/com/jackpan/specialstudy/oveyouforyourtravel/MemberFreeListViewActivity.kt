@@ -166,10 +166,11 @@ class MemberFreeListViewActivity : AppCompatActivity(), GoogleMapAPISerive.GetRe
         }
 
         val pdCanceller = Handler()
-        pdCanceller.postDelayed(progressRunnable, 10000)
+        pdCanceller.postDelayed(progressRunnable, 5000)
         if (!MySharedPrefernces.getIsToken(this).equals("")) {
 
             mFirebselibClass.getFirebaseDatabase(CollectionData.KEY_URL_FREE + "/" + MySharedPrefernces.getIsToken(this), MySharedPrefernces.getIsToken(this))
+
         } else {
             Toast.makeText(this@MemberFreeListViewActivity, "登入異常 請重新登入", Toast.LENGTH_SHORT).show();
         }

@@ -137,7 +137,16 @@ class GetMoreCouponActivity : AppCompatActivity(), MfirebaeCallback, GoogleMapAP
 
     }
     fun getCouponList(){
-        mArray = arrayOf("ChIJO7jfCHkEbjQR67Rh2pNutMI","ChIJDZtbAXkEbjQR9NBmh-KSCcQ","ChIJxbX0zXkEbjQRZ16eV60lgk4","ChIJzfx7qXAEbjQR0Uy44Fen1gc","ChIJVVokUngEbjQR-a2eD4kbT70","ChIJwfoesmQEbjQRSewxKQGGl4Q")
+        mArray = arrayOf("ChIJO7jfCHkEbjQR67Rh2pNutMI",
+                "ChIJDZtbAXkEbjQR9NBmh-KSCcQ",
+                "ChIJxbX0zXkEbjQRZ16eV60lgk4",
+                "ChIJzfx7qXAEbjQR0Uy44Fen1gc",
+                "ChIJVVokUngEbjQR-a2eD4kbT70",
+                "ChIJwfoesmQEbjQRSewxKQGGl4Q",
+                "ChIJRU2X1EQEbjQR-eOVjNzERRQ",
+                "ChIJPXn4lkQEbjQRtInW0ADmQw8",
+                "ChIJJXvlCFoEbjQRqwnQcbOtSQI","ChIJU_XatFoEbjQRdgw_7DAcnYU","ChIJ_-qulFoEbjQR1XFPp7jiG3w")
+
         mArray.forEach {
             GoogleMapAPISerive.getPlaceDeatail(this, it, this)
 

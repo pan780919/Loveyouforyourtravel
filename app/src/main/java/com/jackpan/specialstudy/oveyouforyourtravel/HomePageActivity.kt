@@ -20,7 +20,6 @@ import com.google.gson.stream.JsonReader
 import com.jackpan.libs.mfirebaselib.MfiebaselibsClass
 import com.jackpan.libs.mfirebaselib.MfirebaeCallback
 import com.jackpan.specialstudy.oveyouforyourtravel.Data.CollectionData
-import com.jackpan.specialstudy.oveyouforyourtravel.Data.MapDetailResponData
 import com.jackpan.specialstudy.oveyouforyourtravel.Data.MemberCouponData
 import com.jackpan.specialstudy.oveyouforyourtravel.Data.TypeListViewActivity
 import java.io.StringReader
@@ -44,26 +43,34 @@ class HomePageActivity : AppCompatActivity(), MfirebaeCallback{
 
     override fun getDatabaseData(p0: Any?) {
         Log.d(javaClass.simpleName,p0.toString())
-        if (p0!=null){
+        if (p0!=null) {
             var gson = Gson()
             val reader = JsonReader(StringReader(p0.toString()))
             reader.setLenient(true)
             var mMemberCouponData = MemberCouponData()
 
             mMemberCouponData = gson.fromJson(reader, MemberCouponData::class.java)
-            mData.add(mMemberCouponData)
-            if (mMemberCouponData.isUSe.equals("true")){
-                var intent = Intent()
-                intent.setClass(this, MemberLoveActivity::class.java)
-                startActivity(intent)
-            }
+            if(mMemberCouponData!=null){
+                if(mMemberCouponData.isUSe!=null){
+
+                    if (mMemberCouponData.isUSe.equals("true")) {
+                        Log.d(javaClass.simpleName,"is have date")
+
+                        MySharedPrefernces.saveIsBuyed(this@HomePageActivity,true)
+                    }else{
+                        Log.d(javaClass.simpleName,"is ")
+
+                    }
+                }
+
             }else{
-                setdb()
-                var intent = Intent()
-                intent.setClass(this, MemberLoveActivity::class.java)
-                startActivity(intent)
+                MySharedPrefernces.saveIsBuyed(this@HomePageActivity,false)
+
+                Log.d(javaClass.simpleName,"no data")
+
             }
 
+        }
 
     }
 
@@ -103,6 +110,8 @@ class HomePageActivity : AppCompatActivity(), MfirebaeCallback{
 
         super.onResume()
         mFirebselibClass.userLoginCheck()
+        mFirebselibClass.getFirebaseDatabase(CollectionData.KEY_URL_Use + "/" + MySharedPrefernces.getIsToken(this@HomePageActivity), "isUse")
+
     }
 
     override fun onStart() {
@@ -209,7 +218,9 @@ class HomePageActivity : AppCompatActivity(), MfirebaeCallback{
 
             mHasMap.put(MemberCouponData.KEY_ISUSE, "true")
             mFirebselibClass.setFireBaseDB(CollectionData.KEY_URL_Use + "/" + MySharedPrefernces.getIsToken(this@HomePageActivity), "isUse", mHasMap)
-
+            var intent = Intent()
+            intent.setClass(this, MemberLoveActivity::class.java)
+            startActivity(intent)
 
 
 
@@ -271,29 +282,5 @@ class HomePageActivity : AppCompatActivity(), MfirebaeCallback{
         override fun onProviderEnabled(provider: String) {}
         override fun onProviderDisabled(provider: String) {}
     }
-        fun setdb(){
-            var mHasMap = HashMap<String, String>()
 
-
-            mProgressDialog = ProgressDialog(this)
-            mProgressDialog.setTitle("讀取中")
-            mProgressDialog.setMessage("請稍候")
-            mProgressDialog.setCancelable(false)
-            mProgressDialog.show()
-
-            val random = Random().nextInt(3)
-            val free = arrayOf("折扣10元", "折扣20元", "折扣50元")
-            Log.d(javaClass.simpleName,free.get(random))
-            mArrayString.forEach {
-                Log.d("mArrayString",it)
-                var mHasMap = HashMap<String, String>()
-
-                mHasMap.put(CollectionData.KEY_ID, it)
-                mHasMap.put(CollectionData.KEY_PRICE, free.get(random))
-
-                mFirebselibClass.setFireBaseDB(CollectionData.KEY_URL_FREE + "/" + MySharedPrefernces.getIsToken(this@HomePageActivity), mHasMap.get(CollectionData.KEY_ID), mHasMap)
-
-            }
-
-        }
 }

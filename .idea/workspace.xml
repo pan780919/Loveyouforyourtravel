@@ -2,16 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="16f05566-79ee-4270-8fe9-a765c46aa0cb" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.gradle/4.4/fileHashes/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/4.4/fileHashes/fileHashes.bin" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.4/fileHashes/fileHashes.lock" afterPath="$PROJECT_DIR$/.gradle/4.4/fileHashes/fileHashes.lock" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.4/fileHashes/resourceHashesCache.bin" afterPath="$PROJECT_DIR$/.gradle/4.4/fileHashes/resourceHashesCache.bin" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.4/javaCompile/classAnalysis.bin" afterPath="$PROJECT_DIR$/.gradle/4.4/javaCompile/classAnalysis.bin" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.4/javaCompile/javaCompile.lock" afterPath="$PROJECT_DIR$/.gradle/4.4/javaCompile/javaCompile.lock" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.4/javaCompile/taskHistory.bin" afterPath="$PROJECT_DIR$/.gradle/4.4/javaCompile/taskHistory.bin" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.4/taskHistory/taskHistory.bin" afterPath="$PROJECT_DIR$/.gradle/4.4/taskHistory/taskHistory.bin" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.4/taskHistory/taskHistory.lock" afterPath="$PROJECT_DIR$/.gradle/4.4/taskHistory/taskHistory.lock" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" />
-      <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" />
       <change beforePath="$PROJECT_DIR$/.idea/libraries/__local_aars____Users_jackpan_Loveyouforyourtravel_app_libs_mFirebaseLibs_jar_unspecified_jar.xml" afterPath="" />
       <change beforePath="$PROJECT_DIR$/.idea/libraries/android_arch_core_common_1_1_0_jar.xml" afterPath="" />
       <change beforePath="$PROJECT_DIR$/.idea/libraries/android_arch_core_runtime_1_1_0.xml" afterPath="" />
@@ -126,13 +116,6 @@
       <change beforePath="$PROJECT_DIR$/.idea/libraries/org_jetbrains_annotations_13_0_jar.xml" afterPath="" />
       <change beforePath="$PROJECT_DIR$/.idea/libraries/org_jetbrains_kotlin_kotlin_stdlib_1_2_21_jar.xml" afterPath="" />
       <change beforePath="$PROJECT_DIR$/.idea/libraries/org_jetbrains_kotlin_kotlin_stdlib_jre7_1_1_51_jar.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/app/app.iml" afterPath="$PROJECT_DIR$/app/app.iml" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/jackpan/specialstudy/oveyouforyourtravel/GetMoreCouponActivity.kt" afterPath="$PROJECT_DIR$/app/src/main/java/com/jackpan/specialstudy/oveyouforyourtravel/GetMoreCouponActivity.kt" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/jackpan/specialstudy/oveyouforyourtravel/HomePageActivity.kt" afterPath="$PROJECT_DIR$/app/src/main/java/com/jackpan/specialstudy/oveyouforyourtravel/HomePageActivity.kt" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/jackpan/specialstudy/oveyouforyourtravel/MemberFreeListViewActivity.kt" afterPath="$PROJECT_DIR$/app/src/main/java/com/jackpan/specialstudy/oveyouforyourtravel/MemberFreeListViewActivity.kt" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/jackpan/specialstudy/oveyouforyourtravel/MemberLoveActivity.kt" afterPath="$PROJECT_DIR$/app/src/main/java/com/jackpan/specialstudy/oveyouforyourtravel/MemberLoveActivity.kt" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/jackpan/specialstudy/oveyouforyourtravel/UseCouponActivity.kt" afterPath="$PROJECT_DIR$/app/src/main/java/com/jackpan/specialstudy/oveyouforyourtravel/UseCouponActivity.kt" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -2304,7 +2287,7 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
+  <component name="ProjectFrameBounds" extendedState="1">
     <option name="y" value="23" />
     <option name="width" value="1920" />
     <option name="height" value="1007" />
@@ -2525,7 +2508,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1920" height="1007" extended-state="0" />
+    <frame x="0" y="23" width="1920" height="1007" extended-state="1" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Android Profiler" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />

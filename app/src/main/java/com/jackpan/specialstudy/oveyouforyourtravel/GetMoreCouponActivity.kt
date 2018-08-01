@@ -145,7 +145,9 @@ class GetMoreCouponActivity : AppCompatActivity(), MfirebaeCallback, GoogleMapAP
                 "ChIJwfoesmQEbjQRSewxKQGGl4Q",
                 "ChIJRU2X1EQEbjQR-eOVjNzERRQ",
                 "ChIJPXn4lkQEbjQRtInW0ADmQw8",
-                "ChIJJXvlCFoEbjQRqwnQcbOtSQI","ChIJU_XatFoEbjQRdgw_7DAcnYU","ChIJ_-qulFoEbjQR1XFPp7jiG3w")
+                "ChIJJXvlCFoEbjQRqwnQcbOtSQI",
+                "ChIJU_XatFoEbjQRdgw_7DAcnYU",
+                "ChIJ_-qulFoEbjQR1XFPp7jiG3w")
 
         mArray.forEach {
             GoogleMapAPISerive.getPlaceDeatail(this, it, this)
@@ -204,28 +206,9 @@ class GetMoreCouponActivity : AppCompatActivity(), MfirebaeCallback, GoogleMapAP
 
             mFreeText.text = free.get(random)
             mFreeText.visibility = View.GONE
-
-//            if (mRewardedVideoAd.isLoaded) {
-//                mUseText.text = "Get"
-//            }else{
-//                mUseText.setTextSize(12F)
-//                mUseText.text = "今日已被領取完畢"
-//
-//            }
             mUseText.text = "Get"
 
             mUseText.setOnClickListener {
-//                mRewardedVideoAd.show()
-
-//                if(mRewardedVideoAd.isLoaded){
-//                    mRewardedVideoAd.show()
-//
-//                }else{
-//                    var intent = Intent()
-//                    intent.setClass(this@GetMoreCouponActivity,MainActivity::class.java)
-//                    startActivity(intent)
-//
-//                }
                 var time :String =MySharedPrefernces.getMyCardTime(this@GetMoreCouponActivity)
                 if (time.equals("")) time = "0"
                 if(System.currentTimeMillis() - time.toLong() > 5 * 60 * 1000){

@@ -100,44 +100,21 @@ class GetMoreCouponActivity : AppCompatActivity(), MfirebaeCallback, GoogleMapAP
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         mFirebselibClass = MfiebaselibsClass(this, this@GetMoreCouponActivity)
-
         setContentView(R.layout.activity_get_more_coupon)
         getCouponList()
-        Log.d(javaClass.simpleName,System.currentTimeMillis().toString())
         mProgressDialog = ProgressDialog(this)
         mProgressDialog.setTitle("讀取中")
         mProgressDialog.setMessage("請稍候")
         mProgressDialog.setCancelable(false)
         mProgressDialog.show()
         mPullToRefreshListView = findViewById(R.id.pull_to_refresh_list_view)
-
         mAdapter = MyAdapter(mAllData)
         mPullToRefreshListView.setAdapter(mAdapter)
-        mPullToRefreshListView.setOnItemClickListener { parent, view, position, id ->
-        }
-    }
-
-    override fun onPause() {
-        super.onPause()
-
-    }
-
-    override fun onResume() {
-        super.onResume()
-
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
-    }
-
-    override fun onConfigurationChanged(newConfig: Configuration?) {
-        super.onConfigurationChanged(newConfig)
-
 
     }
     fun getCouponList(){
-        mArray = arrayOf("ChIJO7jfCHkEbjQR67Rh2pNutMI",
+        mArray =
+                arrayOf("ChIJO7jfCHkEbjQR67Rh2pNutMI",
                 "ChIJDZtbAXkEbjQR9NBmh-KSCcQ",
                 "ChIJxbX0zXkEbjQRZ16eV60lgk4",
                 "ChIJzfx7qXAEbjQR0Uy44Fen1gc",

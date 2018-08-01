@@ -10,17 +10,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
-import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
-import com.google.android.gms.ads.AdListener
-import com.google.android.gms.ads.AdRequest
-import com.google.android.gms.ads.InterstitialAd
-import com.google.android.gms.ads.MobileAds
-import com.google.android.gms.ads.reward.RewardItem
-import com.google.android.gms.ads.reward.RewardedVideoAd
-import com.google.android.gms.ads.reward.RewardedVideoAdListener
-
 import com.itheima.pulltorefreshlib.PullToRefreshListView
 import com.jackpan.libs.mfirebaselib.MfiebaselibsClass
 import com.jackpan.libs.mfirebaselib.MfirebaeCallback
@@ -35,16 +26,8 @@ class GetMoreCouponActivity : AppCompatActivity(), MfirebaeCallback, GoogleMapAP
 
     override fun getDetailData(googleMapPlaceDetailsData: GoogleMapPlaceDetailsData?) {
         if (googleMapPlaceDetailsData != null) {
-
-
             mAllData.add(googleMapPlaceDetailsData)
             mAdapter!!.notifyDataSetChanged()
-            Log.d("Jack", "getData")
-            Log.d("Jack", mAllData.size.toString())
-
-
-
-
         }
         mProgressDialog.dismiss()
     }
@@ -89,13 +72,10 @@ class GetMoreCouponActivity : AppCompatActivity(), MfirebaeCallback, GoogleMapAP
     }
 
     lateinit var mFirebselibClass: MfiebaselibsClass
-    private lateinit var mInterstitialAd: InterstitialAd
-    lateinit var mGetMoreButton : Button
     var mAdapter: MyAdapter? = null
     var mAllData: ArrayList<GoogleMapPlaceDetailsData> = ArrayList()
     lateinit var mProgressDialog: ProgressDialog
     lateinit var mPullToRefreshListView: PullToRefreshListView
-    private lateinit var mRewardedVideoAd: RewardedVideoAd
     lateinit var  mArray : Array<String>
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

@@ -226,8 +226,14 @@ class GetMoreCouponActivity : AppCompatActivity(), MfirebaeCallback, GoogleMapAP
 //                    startActivity(intent)
 //
 //                }
-                setCoupon(data.result.place_id,free.get(random))
-//            IronSource.showRewardedVideo()
+                var time :String =MySharedPrefernces.getMyCardTime(this@GetMoreCouponActivity)
+                if (time.equals("")) time = "0"
+                if(System.currentTimeMillis() - time.toLong() > 5 * 60 * 1000){
+                    setCoupon(data.result.place_id,free.get(random))
+                    MySharedPrefernces.saveMyCardTime(this@GetMoreCouponActivity, System.currentTimeMillis().toString())
+                }else{
+                    Toast.makeText(this@GetMoreCouponActivity,"短時間無法再領取！",Toast.LENGTH_SHORT).show()
+                }
 
             }
 

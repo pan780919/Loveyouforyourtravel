@@ -26,6 +26,8 @@ import GoogleMapAPISerive
 import GoogleMapAPISerive.GetResponse
 import android.app.Activity
 import android.os.Handler
+import com.google.gson.JsonObject
+import org.json.JSONObject
 import java.util.*
 
 
@@ -49,12 +51,20 @@ class MemberFreeListViewActivity : AppCompatActivity(), GoogleMapAPISerive.GetRe
         Log.d("getDatabaseData", p0.toString())
 
         if (p0 != null) {
+//            val jsonObj = JSONObject(p0.toString())
+//
+//            Log.d(javaClass.simpleName,jsonObj.getString("id"))
+//
             var gson = Gson()
             val reader = JsonReader(StringReader(p0.toString()))
             reader.setLenient(true)
             var mCollectionData = MapDetailResponData()
             mCollectionData = gson.fromJson(reader, MapDetailResponData::class.java)
-            GoogleMapAPISerive.getPlaceDeatail(this, mCollectionData.id, this)
+            mData.add(mCollectionData)
+            Log.d(javaClass.simpleName, mCollectionData.id)
+            val mString: List<String> = mCollectionData.id.split("+")
+            Log.d(javaClass.simpleName, mString[0])
+            GoogleMapAPISerive.getPlaceDeatail(this, mString[0], this)
         }
 
 
@@ -64,10 +74,10 @@ class MemberFreeListViewActivity : AppCompatActivity(), GoogleMapAPISerive.GetRe
     }
 
     override fun getDeleteState(p0: Boolean, p1: String?, p2: Any?) {
-        if (p0){
-            Log.d("getDeleteState",p0.toString());
-        }else{
-            Log.d("getDeleteState",p0.toString());
+        if (p0) {
+            Log.d("getDeleteState", p0.toString());
+        } else {
+            Log.d("getDeleteState", p0.toString());
 
         }
         getList()
@@ -96,8 +106,7 @@ class MemberFreeListViewActivity : AppCompatActivity(), GoogleMapAPISerive.GetRe
             mAllData.add(googleMapPlaceDetailsData)
         }
         mAdapter!!.notifyDataSetChanged()
-
-
+        mProgressDialog.dismiss()
 
 
     }
@@ -111,6 +120,8 @@ class MemberFreeListViewActivity : AppCompatActivity(), GoogleMapAPISerive.GetRe
 
     var mAdapter: MyAdapter? = null
     var mAllData: ArrayList<GoogleMapPlaceDetailsData> = ArrayList()
+    var mData: ArrayList<MapDetailResponData> = ArrayList()
+
     lateinit var mProgressDialog: ProgressDialog
     lateinit var mTypeString: String
     lateinit var mLatLngString: String
@@ -121,9 +132,15 @@ class MemberFreeListViewActivity : AppCompatActivity(), GoogleMapAPISerive.GetRe
         super.onCreate(savedInstanceState)
         setContentView(R.layout.content_free_list_view)
         mFirebselibClass = MfiebaselibsClass(this, this@MemberFreeListViewActivity)
+//        mFirebselibClass.deleteData( CollectionData.KEY_URL_FREE+ "/" + MySharedPrefernces.getIsToken(this@MemberFreeListViewActivity), "id=ChIJxbX0zXkEbjQRZ16eV60lgk4,1533004646595")
+
+        if (mAllData != null && mAllData.size > 0) {
+            mAllData.clear()
+        }
         getList()
         mPullToRefreshListView = findViewById(R.id.pull_to_refresh_list_view)
         mAdapter = MyAdapter(mAllData)
+        mAdapter!!.notifyDataSetChanged()
         mPullToRefreshListView.setAdapter(mAdapter)
         mGetMoreFreeButton = findViewById(R.id.getmorebutton)
         mGetMoreFreeButton.setOnClickListener {
@@ -149,14 +166,14 @@ class MemberFreeListViewActivity : AppCompatActivity(), GoogleMapAPISerive.GetRe
         }
 
         val pdCanceller = Handler()
-        pdCanceller.postDelayed(progressRunnable, 10000)
+        pdCanceller.postDelayed(progressRunnable, 5000)
         if (!MySharedPrefernces.getIsToken(this).equals("")) {
 
             mFirebselibClass.getFirebaseDatabase(CollectionData.KEY_URL_FREE + "/" + MySharedPrefernces.getIsToken(this), MySharedPrefernces.getIsToken(this))
-        }else{
-            Toast.makeText(this@MemberFreeListViewActivity,"登入異常 請重新登入",Toast.LENGTH_SHORT).show();
+
+        } else {
+            Toast.makeText(this@MemberFreeListViewActivity, "登入異常 請重新登入", Toast.LENGTH_SHORT).show();
         }
-        mProgressDialog.dismiss()
 
     }
 
@@ -212,25 +229,43 @@ class MemberFreeListViewActivity : AppCompatActivity(), GoogleMapAPISerive.GetRe
             if (convertView == null)
                 convertView = LayoutInflater.from(this@MemberFreeListViewActivity).inflate(
                         R.layout.freelistview_layout, null)
-            val free = arrayOf("折扣10元", "折扣20元", "折扣50元")
 
             var mStoreNameText: TextView = convertView!!.findViewById(R.id.storename)
             var mFreeText: TextView = convertView!!.findViewById(R.id.listviewtext)
             var mUseText: TextView = convertView!!.findViewById(R.id.usetext)
 
             mStoreNameText.text = data.result.name
-            val random = Random().nextInt(3)
+//            val random = Random().nextInt(3)
+//            val free = arrayOf("折扣10元", "折扣20元", "折扣50元")
+            mData.forEach {
+                Log.d(javaClass.simpleName, it.id)
+                Log.d(javaClass.simpleName, data.result.place_id)
 
-            mFreeText.text = free.get(random)
+                if (it.id.split("+")[0].equals(data.result.place_id)) {
+                    Log.d(javaClass.simpleName, "same")
+                    mFreeText.text = it.price
+                }
+            }
             mUseText.text = "Use"
             mUseText.setOnClickListener {
-                var intent = Intent()
-                var mBundle = Bundle();
-                mBundle.putString("id", data.result.place_id)
-                intent.putExtras(mBundle)
-                intent.setClass(this@MemberFreeListViewActivity, UseCouponActivity::class.java)
-                startActivity(intent)
-                finish()
+                mData.forEach {
+                    Log.d(javaClass.simpleName, it.id)
+                    Log.d(javaClass.simpleName, data.result.place_id)
+
+                    if (it.id.split("+")[0].equals(data.result.place_id)) {
+                        Log.d(javaClass.simpleName, "same")
+
+                        var intent = Intent()
+                        var mBundle = Bundle()
+                        mBundle.putString("id", it.id)
+                        intent.putExtras(mBundle)
+                        intent.setClass(this@MemberFreeListViewActivity, UseCouponActivity::class.java)
+                        startActivity(intent)
+                        finish()
+
+                    }
+                }
+
             }
 
 
@@ -250,7 +285,8 @@ class MemberFreeListViewActivity : AppCompatActivity(), GoogleMapAPISerive.GetRe
             //模拟延时三秒刷新
             mPullToRefreshListView.postDelayed({
                 mAllData.clear()
-//                mFirebselibClass.getFirebaseDatabase(CollectionData.KEY_URL_FREE + "/" + MySharedPrefernces.getIsToken(this@MemberFreeListViewActivity), MySharedPrefernces.getIsToken(this@MemberFreeListViewActivity))
+                mAdapter!!.notifyDataSetChanged()
+                getList()
                 mPullToRefreshListView.onRefreshComplete()//下拉刷新结束，下拉刷新头复位
             }, 3000)
         }

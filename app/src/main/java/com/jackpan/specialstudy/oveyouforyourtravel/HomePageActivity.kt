@@ -15,10 +15,15 @@ import android.util.Log
 import android.widget.Button
 import android.widget.LinearLayout
 import android.widget.Toast
+import com.google.gson.Gson
+import com.google.gson.stream.JsonReader
 import com.jackpan.libs.mfirebaselib.MfiebaselibsClass
 import com.jackpan.libs.mfirebaselib.MfirebaeCallback
 import com.jackpan.specialstudy.oveyouforyourtravel.Data.CollectionData
+import com.jackpan.specialstudy.oveyouforyourtravel.Data.MemberCouponData
 import com.jackpan.specialstudy.oveyouforyourtravel.Data.TypeListViewActivity
+import java.io.StringReader
+import java.util.*
 
 class HomePageActivity : AppCompatActivity(), MfirebaeCallback{
     override fun getUserLogoutState(p0: Boolean) {
@@ -37,6 +42,36 @@ class HomePageActivity : AppCompatActivity(), MfirebaeCallback{
     }
 
     override fun getDatabaseData(p0: Any?) {
+        Log.d(javaClass.simpleName,p0.toString())
+        if (p0!=null) {
+            var gson = Gson()
+            val reader = JsonReader(StringReader(p0.toString()))
+            reader.setLenient(true)
+            var mMemberCouponData = MemberCouponData()
+
+            mMemberCouponData = gson.fromJson(reader, MemberCouponData::class.java)
+            if(mMemberCouponData!=null){
+                if(mMemberCouponData.isUSe!=null){
+
+                    if (mMemberCouponData.isUSe.equals("true")) {
+                        Log.d(javaClass.simpleName,"is have date")
+
+                        MySharedPrefernces.saveIsBuyed(this@HomePageActivity,true)
+                    }else{
+                        Log.d(javaClass.simpleName,"is ")
+
+                    }
+                }
+
+            }else{
+                MySharedPrefernces.saveIsBuyed(this@HomePageActivity,false)
+
+                Log.d(javaClass.simpleName,"no data")
+
+            }
+
+        }
+
     }
 
     override fun getuserLoginEmail(p0: String?) {
@@ -46,6 +81,16 @@ class HomePageActivity : AppCompatActivity(), MfirebaeCallback{
     }
 
     override fun getFireBaseDBState(p0: Boolean, p1: String?) {
+        if (p0){
+            Toast.makeText(this@HomePageActivity,"資料取得成功",Toast.LENGTH_SHORT).show()
+                    mFirebselibClass.getFirebaseDatabase(CollectionData.KEY_URL_Use + "/" + MySharedPrefernces.getIsToken(this@HomePageActivity), "isUse")
+
+        }else{
+            Toast.makeText(this@HomePageActivity,"資料取得失敗",Toast.LENGTH_SHORT).show()
+
+        }
+//        mProgressDialog.dismiss()
+
     }
 
     override fun getuseLoginId(p0: String?) {
@@ -65,6 +110,8 @@ class HomePageActivity : AppCompatActivity(), MfirebaeCallback{
 
         super.onResume()
         mFirebselibClass.userLoginCheck()
+        mFirebselibClass.getFirebaseDatabase(CollectionData.KEY_URL_Use + "/" + MySharedPrefernces.getIsToken(this@HomePageActivity), "isUse")
+
     }
 
     override fun onStart() {
@@ -80,7 +127,7 @@ class HomePageActivity : AppCompatActivity(), MfirebaeCallback{
     override fun getFirebaseStorageState(p0: Boolean) {
     }
     var mArrayString = ArrayList<String>()
-
+    var mData: ArrayList<MemberCouponData> = ArrayList()
     lateinit var mLoginBtn : Button
     lateinit var mMaPlayout : LinearLayout
     lateinit var mLoveLayout : LinearLayout
@@ -100,16 +147,9 @@ class HomePageActivity : AppCompatActivity(), MfirebaeCallback{
         setArray()
         mFirebselibClass.userLoginCheck()
         checkPermission()
-// †®
+//            var mHasMap = HashMap<String, String>()
 
-        mArrayString.forEach {
-            Log.d("mArrayString",it)
-            var mHasMap = HashMap<String, String>()
 
-            mHasMap.put(CollectionData.KEY_ID, it)
-            mFirebselibClass.setFireBaseDB(CollectionData.KEY_URL_FREE + "/" + MySharedPrefernces.getIsToken(this@HomePageActivity), mHasMap.get(CollectionData.KEY_ID), mHasMap)
-
-        }
 
         locationManager = getSystemService(LOCATION_SERVICE) as LocationManager?
 
@@ -174,9 +214,14 @@ class HomePageActivity : AppCompatActivity(), MfirebaeCallback{
         }
         mLoveLayout.setOnClickListener {
             if(!checkLoginState()) return@setOnClickListener
+            var mHasMap = HashMap<String, String>()
+
+            mHasMap.put(MemberCouponData.KEY_ISUSE, "true")
+            mFirebselibClass.setFireBaseDB(CollectionData.KEY_URL_Use + "/" + MySharedPrefernces.getIsToken(this@HomePageActivity), "isUse", mHasMap)
             var intent = Intent()
             intent.setClass(this, MemberLoveActivity::class.java)
             startActivity(intent)
+
 
 
 

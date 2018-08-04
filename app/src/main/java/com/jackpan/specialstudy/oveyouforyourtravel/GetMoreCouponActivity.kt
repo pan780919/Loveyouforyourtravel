@@ -10,17 +10,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
-import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
-import com.google.android.gms.ads.AdListener
-import com.google.android.gms.ads.AdRequest
-import com.google.android.gms.ads.InterstitialAd
-import com.google.android.gms.ads.MobileAds
-import com.google.android.gms.ads.reward.RewardItem
-import com.google.android.gms.ads.reward.RewardedVideoAd
-import com.google.android.gms.ads.reward.RewardedVideoAdListener
-
 import com.itheima.pulltorefreshlib.PullToRefreshListView
 import com.jackpan.libs.mfirebaselib.MfiebaselibsClass
 import com.jackpan.libs.mfirebaselib.MfirebaeCallback
@@ -35,16 +26,8 @@ class GetMoreCouponActivity : AppCompatActivity(), MfirebaeCallback, GoogleMapAP
 
     override fun getDetailData(googleMapPlaceDetailsData: GoogleMapPlaceDetailsData?) {
         if (googleMapPlaceDetailsData != null) {
-
-
             mAllData.add(googleMapPlaceDetailsData)
             mAdapter!!.notifyDataSetChanged()
-            Log.d("Jack", "getData")
-            Log.d("Jack", mAllData.size.toString())
-
-
-
-
         }
         mProgressDialog.dismiss()
     }
@@ -89,18 +72,14 @@ class GetMoreCouponActivity : AppCompatActivity(), MfirebaeCallback, GoogleMapAP
     }
 
     lateinit var mFirebselibClass: MfiebaselibsClass
-    private lateinit var mInterstitialAd: InterstitialAd
-    lateinit var mGetMoreButton : Button
     var mAdapter: MyAdapter? = null
     var mAllData: ArrayList<GoogleMapPlaceDetailsData> = ArrayList()
     lateinit var mProgressDialog: ProgressDialog
     lateinit var mPullToRefreshListView: PullToRefreshListView
-    private lateinit var mRewardedVideoAd: RewardedVideoAd
-
+    lateinit var  mArray : Array<String>
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         mFirebselibClass = MfiebaselibsClass(this, this@GetMoreCouponActivity)
-
         setContentView(R.layout.activity_get_more_coupon)
         getCouponList()
         mProgressDialog = ProgressDialog(this)
@@ -109,49 +88,38 @@ class GetMoreCouponActivity : AppCompatActivity(), MfirebaeCallback, GoogleMapAP
         mProgressDialog.setCancelable(false)
         mProgressDialog.show()
         mPullToRefreshListView = findViewById(R.id.pull_to_refresh_list_view)
-
         mAdapter = MyAdapter(mAllData)
         mPullToRefreshListView.setAdapter(mAdapter)
-        mPullToRefreshListView.setOnItemClickListener { parent, view, position, id ->
-//            setCoupon(mAdapter!!.mAllData!!.get(position).result.place_id)
-
-        }
-    }
-
-    override fun onPause() {
-        super.onPause()
-
-    }
-
-    override fun onResume() {
-        super.onResume()
-
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
-    }
-
-    override fun onConfigurationChanged(newConfig: Configuration?) {
-        super.onConfigurationChanged(newConfig)
-
 
     }
     fun getCouponList(){
-        var  mArray = arrayOf("ChIJO7jfCHkEbjQR67Rh2pNutMI","ChIJDZtbAXkEbjQR9NBmh-KSCcQ","ChIJxbX0zXkEbjQRZ16eV60lgk4","ChIJzfx7qXAEbjQR0Uy44Fen1gc","ChIJVVokUngEbjQR-a2eD4kbT70","ChIJwfoesmQEbjQRSewxKQGGl4Q")
+        mArray =
+                arrayOf("ChIJO7jfCHkEbjQR67Rh2pNutMI",
+                "ChIJDZtbAXkEbjQR9NBmh-KSCcQ",
+                "ChIJxbX0zXkEbjQRZ16eV60lgk4",
+                "ChIJzfx7qXAEbjQR0Uy44Fen1gc",
+                "ChIJVVokUngEbjQR-a2eD4kbT70",
+                "ChIJwfoesmQEbjQRSewxKQGGl4Q",
+                "ChIJRU2X1EQEbjQR-eOVjNzERRQ",
+                "ChIJPXn4lkQEbjQRtInW0ADmQw8",
+                "ChIJJXvlCFoEbjQRqwnQcbOtSQI",
+                "ChIJU_XatFoEbjQRdgw_7DAcnYU",
+                "ChIJ_-qulFoEbjQR1XFPp7jiG3w")
+
         mArray.forEach {
             GoogleMapAPISerive.getPlaceDeatail(this, it, this)
 
         }
 
     }
-    fun setCoupon(id:String){
-//        var  mArray = arrayOf("ChIJO7jfCHkEbjQR67Rh2pNutMI","ChIJDZtbAXkEbjQR9NBmh-KSCcQ","ChIJxbX0zXkEbjQRZ16eV60lgk4","ChIJzfx7qXAEbjQR0Uy44Fen1gc","ChIJVVokUngEbjQR-a2eD4kbT70","ChIJwfoesmQEbjQRSewxKQGGl4Q")
-//        val random = Random().nextInt(mArray.size)
+    fun setCoupon(id:String,price:String){
+        Log.d(javaClass.simpleName,id+"+"+System.currentTimeMillis().toString())
+        val  mString:String = id+"+"+System.currentTimeMillis().toString();
         var mHasMap = HashMap<String, String>()
-        mHasMap.put(CollectionData.KEY_ID,id)
-        mFirebselibClass.setFireBaseDB(CollectionData.KEY_URL_FREE + "/" + MySharedPrefernces.getIsToken(this@GetMoreCouponActivity), mHasMap.get(CollectionData.KEY_ID), mHasMap)
+        mHasMap.put(CollectionData.KEY_ID,mString)
+        mHasMap.put(CollectionData.KEY_PRICE,price)
 
+        mFirebselibClass.setFireBaseDB(CollectionData.KEY_URL_FREE + "/" + MySharedPrefernces.getIsToken(this@GetMoreCouponActivity), mHasMap.get(CollectionData.KEY_ID), mHasMap)
         Toast.makeText(this@GetMoreCouponActivity,"領取成功！！",Toast.LENGTH_SHORT).show()
         var intent = Intent()
         intent.setClass(this@GetMoreCouponActivity,MemberFreeListViewActivity::class.java)
@@ -195,30 +163,17 @@ class GetMoreCouponActivity : AppCompatActivity(), MfirebaeCallback, GoogleMapAP
 
             mFreeText.text = free.get(random)
             mFreeText.visibility = View.GONE
-
-//            if (mRewardedVideoAd.isLoaded) {
-//                mUseText.text = "Get"
-//            }else{
-//                mUseText.setTextSize(12F)
-//                mUseText.text = "今日已被領取完畢"
-//
-//            }
             mUseText.text = "Get"
 
             mUseText.setOnClickListener {
-//                mRewardedVideoAd.show()
-
-//                if(mRewardedVideoAd.isLoaded){
-//                    mRewardedVideoAd.show()
-//
-//                }else{
-//                    var intent = Intent()
-//                    intent.setClass(this@GetMoreCouponActivity,MainActivity::class.java)
-//                    startActivity(intent)
-//
-//                }
-                setCoupon(data.result.place_id)
-//            IronSource.showRewardedVideo()
+                var time :String =MySharedPrefernces.getMyCardTime(this@GetMoreCouponActivity)
+                if (time.equals("")) time = "0"
+                if(System.currentTimeMillis() - time.toLong() > 5 * 60 * 1000){
+                    setCoupon(data.result.place_id,free.get(random))
+                    MySharedPrefernces.saveMyCardTime(this@GetMoreCouponActivity, System.currentTimeMillis().toString())
+                }else{
+                    Toast.makeText(this@GetMoreCouponActivity,"短時間無法再領取！",Toast.LENGTH_SHORT).show()
+                }
 
             }
 

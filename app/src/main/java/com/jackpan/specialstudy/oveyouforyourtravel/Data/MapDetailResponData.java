@@ -7,6 +7,6 @@ package com.jackpan.specialstudy.oveyouforyourtravel.Data;
 public class MapDetailResponData {
 
     public String id;
-//    public String name;
+    public String price;
 //    public String photo;
 }

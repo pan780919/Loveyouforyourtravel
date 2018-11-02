@@ -57,11 +57,20 @@ class UseCouponActivity : AppCompatActivity(), MfirebaeCallback {
 
     lateinit var mTimeText :TextView
     lateinit var mFirebselibClass: MfiebaselibsClass
+    lateinit var mShopTextView: TextView
+    lateinit var mMoneyText:TextView
+    lateinit var price:String
+    lateinit var name:String
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         mFirebselibClass = MfiebaselibsClass(this, this@UseCouponActivity)
         setContentView(R.layout.activity_use_coupon)
+        getNameAndPrice()
         mTimeText = findViewById(R.id.timetext)
+        mShopTextView = findViewById(R.id.shoptext)
+        mMoneyText = findViewById(R.id.moneytext)
+        mShopTextView.text = name
+        mMoneyText.text = price
         countdowntime()
 
 
@@ -91,6 +100,12 @@ class UseCouponActivity : AppCompatActivity(), MfirebaeCallback {
 
         }.start()
 
+
+    }
+    fun getNameAndPrice(){
+        var bundle: Bundle = intent.extras
+        name = bundle.getString("name")
+        price = bundle.getString("price")
 
     }
     fun getdata():String{

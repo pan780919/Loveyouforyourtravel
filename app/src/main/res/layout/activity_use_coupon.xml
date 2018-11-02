@@ -35,7 +35,7 @@
                 android:id="@+id/shoptext"
                 android:gravity="center"
                 android:text="60"
-                android:textSize="50dp"
+                android:textSize="38dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 ></TextView>
@@ -44,7 +44,7 @@
                 android:layout_below="@+id/shoptext"
                 android:gravity="center"
                 android:text="60"
-                android:textSize="50dp"
+                android:textSize="38dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 ></TextView>

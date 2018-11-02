@@ -190,7 +190,7 @@ class HomePageActivity : AppCompatActivity(), MfirebaeCallback{
 
         }
         mLevelLayout.setOnClickListener{
-            if(!checkLoginState()) return@setOnClickListener
+//            if(!checkLoginState()) return@setOnClickListener
 
             var intent = Intent()
             var mBundle = Bundle()
@@ -202,7 +202,7 @@ class HomePageActivity : AppCompatActivity(), MfirebaeCallback{
         }
         mFoodLayout.setOnClickListener {
 
-            if(!checkLoginState()) return@setOnClickListener
+//            if(!checkLoginState()) return@setOnClickListener
             var intent = Intent()
             var mBundle = Bundle()
             mBundle.putString(GoogleMapAPISerive.TYPE,GoogleMapAPISerive.TYPE_RESTAURANT)

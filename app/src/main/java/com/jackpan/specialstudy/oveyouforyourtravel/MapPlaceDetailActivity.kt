@@ -157,7 +157,7 @@ class MapPlaceDetailActivity : AppCompatActivity(), GoogleMapAPISerive.GetRespon
         mNoFavoriteImg = findViewById(R.id.nofavoriteimg)
         mFavoriteImg = findViewById(R.id.favoriteimg)
         if (!getData().equals("")) {
-            checkIsFavoirite()
+//            checkIsFavoirite()
 
             GoogleMapAPISerive.getPlaceDeatail(this, getData(), this)
         }

@@ -8,7 +8,6 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-
         >
         <TextView
             android:id="@+id/text"
@@ -19,11 +18,40 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             ></TextView>
+        <RelativeLayout
+            android:layout_above="@+id/timetext"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="40dp"
+            >
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/couponbg"
+                ></ImageView>
+            <TextView
+                android:layout_marginTop="40dp"
+                android:id="@+id/shoptext"
+                android:gravity="center"
+                android:text="60"
+                android:textSize="38dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                ></TextView>
+            <TextView
+                android:id="@+id/moneytext"
+                android:layout_below="@+id/shoptext"
+                android:gravity="center"
+                android:text="60"
+                android:textSize="38dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                ></TextView>
+        </RelativeLayout>
         <TextView
+            android:layout_above="@+id/tttt"
             android:gravity="center"
-            android:layout_centerInParent="true"
-            android:layout_marginTop="140dp"
-            android:layout_below="@+id/text"
             android:text="60"
             android:id="@+id/timetext"
             android:textSize="50dp"
@@ -31,12 +59,12 @@
             android:layout_height="wrap_content"
             ></TextView>
         <TextView
+            android:layout_alignParentBottom="true"
+            android:id="@+id/tttt"
             android:gravity="center"
-            android:layout_centerInParent="true"
-            android:layout_marginTop="140dp"
-            android:layout_below="@+id/timetext"
             android:text="倒數核銷"
             android:textSize="25dp"
+            android:layout_marginBottom="40dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             ></TextView>

@@ -258,6 +258,9 @@ class MemberFreeListViewActivity : AppCompatActivity(), GoogleMapAPISerive.GetRe
                         var intent = Intent()
                         var mBundle = Bundle()
                         mBundle.putString("id", it.id)
+                        mBundle.putString("name",data.result.name)
+                        mBundle.putString("price",it.price)
+
                         intent.putExtras(mBundle)
                         intent.setClass(this@MemberFreeListViewActivity, UseCouponActivity::class.java)
                         startActivity(intent)

@@ -35,16 +35,16 @@
                 android:id="@+id/shoptext"
                 android:gravity="center"
                 android:text="60"
-                android:textSize="38dp"
+                android:textSize="30dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 ></TextView>
             <TextView
+                android:text="60"
                 android:id="@+id/moneytext"
                 android:layout_below="@+id/shoptext"
                 android:gravity="center"
-                android:text="60"
-                android:textSize="38dp"
+                android:textSize="30dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 ></TextView>

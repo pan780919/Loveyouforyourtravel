@@ -16,7 +16,7 @@
             android:layout_marginBottom="20dp"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
-            android:text="獲取更多優惠卷"
+            android:text="獲取更多折價券"
             android:textSize="24dp"></Button>
         <TextView
             android:layout_marginLeft="20dp"

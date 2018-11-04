@@ -30,21 +30,25 @@
                 android:layout_height="wrap_content"
                 android:src="@mipmap/couponbg"
                 ></ImageView>
+
             <TextView
-                android:layout_marginTop="40dp"
+                android:layout_marginRight="80dp"
+                android:layout_marginLeft="80dp"
                 android:id="@+id/shoptext"
-                android:gravity="center"
-                android:text="60"
-                android:textSize="30dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                ></TextView>
+                android:layout_marginTop="40dp"
+                android:gravity="center"
+                android:text="60"
+                android:textSize="24dp"></TextView>
             <TextView
+                android:layout_marginRight="80dp"
+                android:layout_marginLeft="80dp"
                 android:text="60"
                 android:id="@+id/moneytext"
                 android:layout_below="@+id/shoptext"
                 android:gravity="center"
-                android:textSize="30dp"
+                android:textSize="24dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 ></TextView>

@@ -16,14 +16,21 @@
             android:orientation="horizontal"
             android:layout_weight="1"
             >
-            <RelativeLayout
+            <LinearLayout
+                android:id="@+id/foodtext"
+
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical"
                 android:layout_weight="1"
                 >
+                <ImageView
+                    android:layout_gravity="center"
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"
+                    android:src="@mipmap/icon_3"
+                    ></ImageView>
                 <TextView
-                    android:id="@+id/foodtext"
                     android:gravity="center"
                     android:layout_centerInParent="true"
                     android:text="FOOD"
@@ -32,49 +39,64 @@
                     android:textSize="30dp"
                     ></TextView>
 
-            </RelativeLayout>
-            <RelativeLayout
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/parktext"
+
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical"
                 android:layout_weight="1"
                 >
+
+
+                <ImageView
+                    android:layout_gravity="center"
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"
+                    android:src="@mipmap/icon_1"
+                    ></ImageView>
                 <TextView
-                    android:id="@+id/parktext"
                     android:gravity="center"
                     android:layout_centerInParent="true"
-                    android:text="Park"
+                    android:text="PARK"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textSize="30dp"
                     ></TextView>
 
-            </RelativeLayout>
+            </LinearLayout>
         </LinearLayout>
         <LinearLayout
+            android:id="@+id/freetexttext"
+
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="horizontal"
             android:layout_weight="1"
             >
 
-            <RelativeLayout
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical"
                 android:layout_weight="1"
-                >
+                ><ImageView
+                android:layout_gravity="center"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:src="@mipmap/icon_2"
+                ></ImageView>
 
                 <TextView
-                    android:id="@+id/freetexttext"
                     android:gravity="center"
                     android:layout_centerInParent="true"
-                    android:text="我的折扣卷"
+                    android:text="我的折價券"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textSize="30dp"
                     ></TextView>
-            </RelativeLayout>
+            </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"

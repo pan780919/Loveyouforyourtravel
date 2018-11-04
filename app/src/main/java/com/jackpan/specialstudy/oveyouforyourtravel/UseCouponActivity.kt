@@ -81,7 +81,7 @@ class UseCouponActivity : AppCompatActivity(), MfirebaeCallback {
 
             override fun onFinish() {
                 mFirebselibClass.deleteData( CollectionData.KEY_URL_FREE+ "/" + MySharedPrefernces.getIsToken(this@UseCouponActivity), getdata())
-                Toast.makeText(this@UseCouponActivity,"優惠卷使用成功！！",Toast.LENGTH_SHORT).show()
+                Toast.makeText(this@UseCouponActivity,"折價券使用成功！！",Toast.LENGTH_SHORT).show()
                 var intent = Intent()
                 intent.setClass(this@UseCouponActivity,MemberFreeListViewActivity::class.java)
                 startActivity(intent)

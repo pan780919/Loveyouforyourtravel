@@ -5,6 +5,7 @@ import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.widget.LinearLayout
 import android.widget.TextView
 import com.jackpan.libs.mfirebaselib.MfiebaselibsClass
 import com.jackpan.libs.mfirebaselib.MfirebaeCallback
@@ -53,9 +54,9 @@ class MemberLoveActivity : AppCompatActivity(), MfirebaeCallback {
     override fun getFirebaseStorageState(p0: Boolean) {
     }
 
-    lateinit var mFoodText :TextView
-    lateinit var mParkText :TextView
-    lateinit var mFreeText :TextView
+    lateinit var mFoodText :LinearLayout
+    lateinit var mParkText :LinearLayout
+    lateinit var mFreeText :LinearLayout
     lateinit var mFirebselibClass : MfiebaselibsClass
     lateinit var mProgressDialog: ProgressDialog
     var mArrayString = ArrayList<String>()
